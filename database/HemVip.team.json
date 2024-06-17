@@ -1,0 +1,116 @@
+[{
+  "_id": {
+    "$oid": "665ef85fb4d88f207832a4b1"
+  },
+  "name": "Team name 1",
+  "id": "o23u4o234u",
+  "submissions": [
+    {
+      "id": "2399798734",
+      "inputid": "234sdaerger44332234",
+      "video": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+    },
+    {
+      "id": "2399798734",
+      "inputid": "234sdaerger44332234",
+      "video": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+    },
+    {
+      "id": "2399798734",
+      "inputid": "234sdaerger44332234",
+      "video": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+    },
+    {
+      "id": "2399798734",
+      "inputid": "234sdaerger44332234",
+      "video": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "665ef85fb4d88f207832a4b2"
+  },
+  "name": "Team name 2",
+  "id": "o23u4o234u",
+  "submissions": [
+    {
+      "id": "2399798734",
+      "inputid": "234sdaerger44332234",
+      "video": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+    },
+    {
+      "id": "2399798734",
+      "inputid": "234sdaerger44332234",
+      "video": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+    },
+    {
+      "id": "2399798734",
+      "inputid": "234sdaerger44332234",
+      "video": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+    },
+    {
+      "id": "2399798734",
+      "inputid": "234sdaerger44332234",
+      "video": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "665ef85fb4d88f207832a4b3"
+  },
+  "name": "Team name 3",
+  "id": "o23u4o234u",
+  "submissions": [
+    {
+      "id": "2399798734",
+      "inputid": "234sdaerger44332234",
+      "video": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+    },
+    {
+      "id": "2399798734",
+      "inputid": "234sdaerger44332234",
+      "video": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+    },
+    {
+      "id": "2399798734",
+      "inputid": "234sdaerger44332234",
+      "video": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+    },
+    {
+      "id": "2399798734",
+      "inputid": "234sdaerger44332234",
+      "video": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "665ef85fb4d88f207832a4b4"
+  },
+  "name": "Team name 4",
+  "id": "o23u4o234u",
+  "submissions": [
+    {
+      "id": "2399798734",
+      "inputid": "234sdaerger44332234",
+      "video": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+    },
+    {
+      "id": "2399798734",
+      "inputid": "234sdaerger44332234",
+      "video": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+    },
+    {
+      "id": "2399798734",
+      "inputid": "234sdaerger44332234",
+      "video": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+    },
+    {
+      "id": "2399798734",
+      "inputid": "234sdaerger44332234",
+      "video": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+    }
+  ]
+}]

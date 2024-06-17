@@ -1,0 +1,1183 @@
+[{
+  "_id": {
+    "$oid": "66614ba1b4d88f207832a4d3"
+  },
+  "status": "finish",
+  "name": "Pairwise Comparison of Gesture Generation AI Model Studies",
+  "prolific_userid": "662b614c61935111d01484bf",
+  "prolific_studyid": "665971ec91884faf5b5284d7",
+  "prolific_sessionid": "076s0uhyloc",
+  "completion_code": "CMTN9LUK",
+  "total_actions": [
+    "Click Start",
+    "Click Right Better",
+    "Click Next",
+    "Click Next",
+    "Click Next",
+    "Click Next",
+    "Click Next",
+    "Click Previous",
+    "Click Equal",
+    "Click Next"
+  ],
+  "pages": [
+    {
+      "pageid": "3242342",
+      "type": "generic",
+      "name": "Startup guide to participate gesture generation study",
+      "content": "",
+      "selected": {
+        "value": 0,
+        "label": ""
+      },
+      "actions": [
+        "Click Start"
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "finish",
+      "name": "Finish page",
+      "content": "",
+      "selected": {
+        "value": 0,
+        "label": ""
+      },
+      "actions": [
+        "Click Finish"
+      ]
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66614ba1b4d88f207832a4d2"
+  },
+  "status": "finish",
+  "name": "Pairwise Comparison of Gesture Generation AI Model Studies",
+  "prolific_userid": "662b614c61935111d01484bf",
+  "prolific_studyid": "665971ec91884faf5b5284d7",
+  "prolific_sessionid": "029ehzyhcpkp",
+  "completion_code": "CMTN9LUK",
+  "total_actions": [
+    "Click Start",
+    "Click Play Video Left",
+    "Click Left Better",
+    "Click Equal",
+    "Click Right Better",
+    "Click Next",
+    "Click Play Video Left",
+    "Pause Video Left",
+    "Click Play Video Right",
+    "Pause Video Right",
+    "Click Equal",
+    "Click Next",
+    "Click Play Video Right",
+    "Pause Video Right",
+    "Click Next",
+    "Click Play Video Right",
+    "Pause Video Right",
+    "Click Right Better",
+    "Click Next",
+    "Click Play Video Right",
+    "Pause Video Right",
+    "Click Next"
+  ],
+  "pages": [
+    {
+      "pageid": "3242342",
+      "type": "generic",
+      "name": "Startup guide to participate gesture generation study",
+      "content": "",
+      "selected": {
+        "value": 0,
+        "label": ""
+      },
+      "actions": [
+        "Click Start"
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "finish",
+      "name": "Finish page",
+      "content": "",
+      "selected": {
+        "value": 0,
+        "label": ""
+      },
+      "actions": [
+        "Click Finish"
+      ]
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66614ba1b4d88f207832a4d1"
+  },
+  "status": "started",
+  "name": "Pairwise Comparison of Gesture Generation AI Model Studies",
+  "prolific_userid": "662b614c61935111d01484bf",
+  "prolific_studyid": "665971ec91884faf5b5284d7",
+  "prolific_sessionid": "03mr59tj5bmv",
+  "completion_code": "CMTN9LUK",
+  "total_actions": [
+    "Click Play",
+    "Click Pause",
+    "Click Left Better",
+    "Click Right Better"
+  ],
+  "pages": [
+    {
+      "pageid": "3242342",
+      "type": "generic",
+      "name": "Startup guide to participate gesture generation study",
+      "content": "",
+      "selected": {
+        "value": 0,
+        "label": ""
+      },
+      "actions": [
+        "Click Start"
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "finish",
+      "name": "Finish page",
+      "content": "",
+      "selected": {
+        "value": 0,
+        "label": ""
+      },
+      "actions": [
+        "Click Finish"
+      ]
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66614ba1b4d88f207832a4d4"
+  },
+  "status": "started",
+  "name": "Pairwise Comparison of Gesture Generation AI Model Studies",
+  "prolific_userid": "662b614c61935111d01484bf",
+  "prolific_studyid": "665971ec91884faf5b5284d7",
+  "prolific_sessionid": "0kuwmqndasnd",
+  "completion_code": "CMTN9LUK",
+  "total_actions": [
+    "Click Start",
+    "Click Next",
+    "Click Equal",
+    "Click Next",
+    "Click Right Better",
+    "Click Next",
+    "Click Right Better",
+    "Click Next",
+    "Click Next"
+  ],
+  "pages": [
+    {
+      "pageid": "3242342",
+      "type": "generic",
+      "name": "Startup guide to participate gesture generation study",
+      "content": "",
+      "selected": {
+        "value": 0,
+        "label": ""
+      },
+      "actions": [
+        "Click Start"
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "finish",
+      "name": "Finish page",
+      "content": "",
+      "selected": {
+        "value": 0,
+        "label": ""
+      },
+      "actions": [
+        "Click Finish"
+      ]
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "666165beb4d88f207832a4dc"
+  },
+  "status": "started",
+  "name": "Pairwise Comparison of Gesture Generation AI Model Studies",
+  "prolific_userid": "662b614c61935111d01484bf",
+  "prolific_studyid": "665971ec91884faf5b5284d7",
+  "prolific_sessionid": "029ehzyhcpkp",
+  "completion_code": "CMTN9LUK",
+  "total_actions": [],
+  "pages": [
+    {
+      "pageid": "3242342",
+      "type": "generic",
+      "name": "Startup guide to participate gesture generation study",
+      "content": "",
+      "selected": {
+        "value": 0,
+        "label": ""
+      },
+      "actions": []
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "finish",
+      "name": "Finish page",
+      "content": "",
+      "selected": {
+        "value": 0,
+        "label": ""
+      },
+      "actions": [
+        "Click Finish"
+      ]
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "666191f7b4d88f207832a4e9"
+  },
+  "status": "new",
+  "name": "Pairwise Comparison of Gesture Generation AI Model Studies2",
+  "prolific_userid": "662b614c61935111d01484bf",
+  "prolific_studyid": "665971ec91884faf5b5284d7",
+  "prolific_sessionid": "029ehzyhcpkp",
+  "completion_code": "CMTN9LUK",
+  "total_actions": [
+    "Click Start",
+    "Click Next",
+    "Click Next",
+    "Click Next",
+    "Click Next",
+    "Click Next",
+    "Click Previous",
+    "Click Right Better",
+    "Click Next"
+  ],
+  "pages": [
+    {
+      "pageid": "3242342",
+      "type": "generic",
+      "name": "Startup guide to participate gesture generation study",
+      "content": "",
+      "selected": {
+        "value": 0,
+        "label": ""
+      },
+      "actions": [
+        "Click Start"
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "video",
+      "name": "Page 1 of Y",
+      "content": "How human-like was the agent in this video?",
+      "selected": {
+        "value": 9,
+        "label": "Right better"
+      },
+      "actions": [
+        "Click Play",
+        "Click Pause",
+        "Click Left Better",
+        "Click Right Better"
+      ],
+      "videos": [
+        {
+          "teamid": "123123",
+          "inputid": "56567342159353489347",
+          "value": 4,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        },
+        {
+          "teamid": "645634",
+          "inputid": "56567342159353489347",
+          "value": 9,
+          "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+        }
+      ]
+    },
+    {
+      "pageid": "3242342",
+      "type": "finish",
+      "name": "Finish page",
+      "content": "",
+      "selected": {
+        "value": 0,
+        "label": ""
+      },
+      "actions": [
+        "Click Finish"
+      ]
+    }
+  ]
+}]

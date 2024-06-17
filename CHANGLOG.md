@@ -1,8 +1,13 @@
-# HemVip2 - Create a Study Experiment to evaluate Gesture Generation AI Model
+# Change log of HEMVIP version 2
 
-![image sample](./image.png)
+![image](/image.png)
 
-## Feature support:
+**Main point**
+
+- Create evaluation screen from scratch instead using webMUSHRA.
+- Pairwise comparation instead of parallel evalution of mutiple model.
+
+## Detail change:
 
 **🚩Study status process**
 
@@ -42,22 +47,29 @@
 - Record all action button click on screen study: `Click Start`, `Click Finish`, `Click Left Better`, `Click Equal`, `Click Right Better`, `Click Previous`, `Click Next`, `Click Finish`, `Click Play Video Left`, `Click Play Video Right`, `Pause Video Left`, `Pause Video Right`, `Seeked Video Left`, `Seeked Video Right`.
 - Rewrite structure of MongoDB. (Detail mongodb schema is in `/database`)
 
-## Quick start
+**❎ Remove**
 
-### Install
+- Remove `stopOnErrors`
+- Remove `question`, change to content.
+- Change `stimuli` in each video to `videos`
+- Remove option `showResults` and `writeResults`
+- Each screen study only have two video compare. Sample of `videos`
 
-```bash
-git clone https://github.com/hmthanh/hemvip2.git
-npm i
-npm run dev
-```
-
-### Database
-
-#### Create your mongodb cluster and udpate url in .env.local file
-
-Edit `env.local`
-
-```bash
-MONGODB_URI=mongodb+srv://<USER>:<PASSWORD>@cluster0.bb1owv7.mongodb.net/
+```json
+{
+  "videos": [
+    {
+      "teamid": "123123",
+      "inputid": "56567342159353489347",
+      "value": 4,
+      "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+    },
+    {
+      "teamid": "645634",
+      "inputid": "56567342159353489347",
+      "value": 9,
+      "url": "https://github.com/hmthanh/GENEA/raw/main/public/gesture_video.mp4"
+    }
+  ]
+}
 ```
