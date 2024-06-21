@@ -14,18 +14,22 @@ const ObjectId = Realm.BSON.ObjectID;
 
 export default {
 	async fetch(request, env, ctx) {
+		if (request.method === "OPTIONS") {
+			// Handle CORS preflight requests
+			return this.handleOptions(request);
+		}
 		// const uri = env.MONGODB_URI;
 		// // const client = new MongoClient(uri);
 
 		// try {
-		// 	// await client.connect();
-		// 	// const database = client.db('hemvip');
-		// 	// const collection = database.collection('studies');
+		// await client.connect();
+		// const database = client.db('hemvip');
+		// const collection = database.collection('studies');
 
-		// 	// Example: Insert a document
-		// 	// const result = await collection.insertOne({ message: 'Hello from Cloudflare Worker!' });
-		// 	// const configs = await database.collection("config").find({}).toArray()
-		// 	//   result.insertedId
+		// Example: Insert a document
+		// const result = await collection.insertOne({ message: 'Hello from Cloudflare Worker!' });
+		// const configs = await database.collection("config").find({}).toArray()
+		//   result.insertedId
 		// 	const configs = {}
 
 		// 	return Response.json({ success: true, msg: "", error: null, data: configs });
@@ -101,4 +105,34 @@ export default {
 			})
 		}
 	},
+	async handleOptions(request) {
+		const corsHeaders = {
+			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
+			"Access-Control-Max-Age": "86400",
+		};
+
+		if (
+			request.headers.get("Origin") !== null &&
+			request.headers.get("Access-Control-Request-Method") !== null &&
+			request.headers.get("Access-Control-Request-Headers") !== null
+		) {
+			// Handle CORS preflight requests.
+			return new Response(null, {
+				headers: {
+					...corsHeaders,
+					"Access-Control-Allow-Headers": request.headers.get(
+						"Access-Control-Request-Headers"
+					),
+				},
+			});
+		} else {
+			// Handle standard OPTIONS request.
+			return new Response(null, {
+				headers: {
+					Allow: "GET, HEAD, POST, OPTIONS",
+				},
+			});
+		}
+	}
 };
