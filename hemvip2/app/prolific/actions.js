@@ -30,7 +30,7 @@ export async function fetchStudy({ prolificid, studyid, sessionid }) {
   if (result.success) {
     try {
       const client = await clientPromise
-      const db = client.db("HemVip")
+      const db = client.db("hemvip")
 
       const filter = {
         status: "started",
@@ -96,7 +96,7 @@ export async function finishStudy({
   if (result.success) {
     try {
       const client = await clientPromise
-      const db = client.db("HemVip")
+      const db = client.db("hemvip")
 
       const filter = {
         status: "started",

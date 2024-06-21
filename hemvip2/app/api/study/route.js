@@ -30,7 +30,7 @@ export async function POST(request) {
 export async function GET(request, response) {
   try {
     const client = await clientPromise
-    const db = client.db("HemVip")
+    const db = client.db("hemvip")
 
     const posts = await db.collection("config").find({}).toArray()
 

@@ -7,7 +7,7 @@ import clientPromise from "@/server/mongodb"
 async function start() {
   try {
     const client = await clientPromise
-    const db = client.db("HemVip")
+    const db = client.db("hemvip")
 
     const posts = await db.collection("config").find({}).toArray()
 

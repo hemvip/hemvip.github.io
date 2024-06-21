@@ -24,7 +24,7 @@ export async function startStudy({ prolificid, studyid, sessionid }) {
     if (result.success) {
       // Start page
       const client = await clientPromise
-      const db = client.db("HemVip")
+      const db = client.db("hemvip")
 
       const filter = { status: { $in: ["new", "uncomplete"] } }
 
