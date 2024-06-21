@@ -10,6 +10,7 @@ import Loading from "@/components/loading/loading"
 import { Callout } from "@/components/core"
 import LoadingSpin from "@/components/loading/LoadingSpin"
 import { startStudy } from "./actions"
+import { API_ENDPOINT } from "@/utils/urlEndpoint"
 
 const studySchema = z.object({
   prolificid: z
@@ -50,17 +51,21 @@ export default function Home({ searchParams }) {
     setLoading(true)
     setIsComplete(false)
     try {
-      // const response = await axios.post("/api/study", data)
-      // console.log(response)
+      console.log(API_ENDPOINT)
+      if (!API_ENDPOINT){
+        return ""
+      }
+      const response = await axios.post(`${API_ENDPOINT}/api/studies`, formData)
+      console.log(response)
       // const { success } = response.data
 
-      const res = await startStudy({
-        prolificid: formData.prolificid,
-        studyid: formData.studyid,
-        sessionid: formData.sessionid,
-      })
+      // const res = await startStudy({
+      //   prolificid: formData.prolificid,
+      //   studyid: formData.studyid,
+      //   sessionid: formData.sessionid,
+      // })
       // console.log(res)
-      const { success, data } = res
+      const { success, data } = response.data
       // console.log(res)
       if (success) {
         if (data) {
