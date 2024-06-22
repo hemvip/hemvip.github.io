@@ -4,6 +4,7 @@ import {
 	toJSON,
 	toError,
 	reply,
+	addCORS,
 } from "./utils"
 import { startStudy } from "./studies/startStudy";
 
@@ -15,6 +16,7 @@ const ObjectId = Realm.BSON.ObjectID;
 export default {
 	async fetch(request, env, ctx) {
 		if (request.method === "OPTIONS") {
+			console.log("Go OPTIONS here")
 			// Handle CORS preflight requests
 			return this.handleOptions(request);
 		}
@@ -67,7 +69,8 @@ export default {
 				const studies = await db.collection("studies").find()
 				// const collection = client.db('hemvip').collection('studies');
 				// const studies = await collection.find({}).toArray()
-				return Response.json({ success: true, msg: "", error: null, data: studies })
+				const response = Response.json({ success: true, msg: "", error: null, data: studies })
+				return addCORS(response)
 			}
 			// POST /api/studies
 			if (method === 'POST') {
@@ -75,7 +78,10 @@ export default {
 
 				const { errors, success, data, msg } = await startStudy(client, prolificid, studyid, sessionid)
 
-				return Response.json({ errors, success, data, msg })
+				// return Response.json({ errors, success, data, msg })
+				const response = Response.json({ errors, success, data, msg })
+
+				return addCORS(response)
 			}
 			// // PATCH /api/studies?id=XXX&done=true
 			// if (method === 'PATCH') {

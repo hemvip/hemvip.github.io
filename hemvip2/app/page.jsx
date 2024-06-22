@@ -55,8 +55,9 @@ export default function Home({ searchParams }) {
       if (!API_ENDPOINT){
         return ""
       }
+      
       const response = await axios.post(`${API_ENDPOINT}/api/studies`, formData)
-      console.log(response)
+      console.log("response", response)
       // const { success } = response.data
 
       // const res = await startStudy({
