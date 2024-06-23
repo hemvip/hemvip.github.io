@@ -12,6 +12,35 @@ export function reply(output) {
 	return toError('Error with query', 500);
 }
 
+export function responseWithCORS(data) {
+	const headers = new Headers({
+		'Access-Control-Allow-Origin': '*',
+		'Access-Control-Allow-Methods': 'GET,HEAD,POST,OPTIONS',
+		'Access-Control-Max-Age': '86400'
+	});
+
+	return new Response(JSON.stringify(data), { headers, status: 200 });
+}
+
+export function responseJSON(data) {
+	const response = Response.json(data);
+	response.headers.set('Access-Control-Allow-Origin', '*');
+	response.headers.set('Access-Control-Allow-Methods', 'GET,HEAD,POST,OPTIONS');
+	response.headers.set('Access-Control-Max-Age', '86400');
+
+	return response
+}
+
+export function responseError(data, status = 401) {
+	const headers = new Headers({
+		'Access-Control-Allow-Origin': '*',
+		'Access-Control-Allow-Methods': 'GET,HEAD,POST,OPTIONS',
+		'Access-Control-Max-Age': '86400'
+	});
+
+	return new Response(JSON.stringify(data), { headers, status });
+}
+
 export function addCORS(response) {
 	response.headers.set('Access-Control-Allow-Origin', '*');
 	response.headers.set('Access-Control-Allow-Methods', 'GET,HEAD,POST,OPTIONS');

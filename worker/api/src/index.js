@@ -1,14 +1,14 @@
 import { z } from "zod"
 import * as Realm from 'realm-web';
 import {
-	toJSON,
 	toError,
-	reply,
 	addCORS,
+	responseError,
+	responseJSON,
 } from "./utils"
 import { startStudy } from "./studies/startStudy";
-
-
+import { fetchStudies } from "./studies/fetchStudies";
+import { handleOptions } from "./handleOptions"
 
 let App;
 const ObjectId = Realm.BSON.ObjectID;
@@ -16,41 +16,23 @@ const ObjectId = Realm.BSON.ObjectID;
 export default {
 	async fetch(request, env, ctx) {
 		if (request.method === "OPTIONS") {
-			console.log("Go OPTIONS here")
 			// Handle CORS preflight requests
-			return this.handleOptions(request);
+			return handleOptions(request);
 		}
-		// const uri = env.MONGODB_URI;
-		// // const client = new MongoClient(uri);
 
-		// try {
-		// await client.connect();
-		// const database = client.db('hemvip');
-		// const collection = database.collection('studies');
-
-		// Example: Insert a document
-		// const result = await collection.insertOne({ message: 'Hello from Cloudflare Worker!' });
-		// const configs = await database.collection("config").find({}).toArray()
-		//   result.insertedId
-		// 	const configs = {}
-
-		// 	return Response.json({ success: true, msg: "", error: null, data: configs });
-		// } catch (error) {
-		// 	return Response.json({ success: false, msg: "", error: error, data: null });
-		// } finally {
-		// 	// await client.close();
-		// }
 		const url = new URL(request.url);
 		App = App || new Realm.App(env.ATLAS_APPID);
 		const method = request.method;
 		const path = url.pathname.replace(/[/]$/, '');
-		// const todoID = url.searchParams.get('id') || '';
+
 		if (path !== '/api/studies') {
 			return toError(`Unknown '${path}' URL; try '/api/studies' instead.`, 404);
 		}
-		const token = request.headers.get('authorization');
+
+		// const token = request.headers.get('authorization');
+		const token = "XnabV4Pa2RV6lgyJAj0uAun6X5KM6p0yJceHEm3EJ80757sasEjpP2smYNJaSkcv"
 		if (!token)
-			return toError(`Missing 'authorization' header; try to add the header 'authorization: ATLAS_APP_API_KEY'.`, 401);
+			return responseError(`Missing 'authorization' header; try to add the header 'authorization: ATLAS_APP_API_KEY'.`);
 		try {
 			const credentials = Realm.Credentials.apiKey(token);
 			// Attempt to authenticate
@@ -58,52 +40,38 @@ export default {
 			var client = user.mongoClient('mongodb-atlas');
 		}
 		catch (err) {
-			return toError('Error with authentication.', 500);
+			return responseError('Error with authentication.', 500);
 		}
 
 		try {
 			// GET /api/studies
 			if (method === 'GET') {
-				// console.log("client", client)
-				const db = client.db("hemvip")
-				const studies = await db.collection("studies").find()
-				// const collection = client.db('hemvip').collection('studies');
-				// const studies = await collection.find({}).toArray()
-				const response = Response.json({ success: true, msg: "", error: null, data: studies })
-				return addCORS(response)
+				const prolificid = url.searchParams.get('prolificid') || '';
+				const studyid = url.searchParams.get('studyid') || '';
+				const sessionid = url.searchParams.get('sessionid') || '';
+
+				// console.log("prolificid", prolificid, "studyid", studyid, "sessionid", sessionid)
+
+				const { errors, success, data, msg } = await fetchStudies(client, prolificid, studyid, sessionid)
+
+				return responseJSON({ errors, success, data, msg })
 			}
+
 			// POST /api/studies
 			if (method === 'POST') {
 				const { prolificid, studyid, sessionid } = await request.json();
 
 				const { errors, success, data, msg } = await startStudy(client, prolificid, studyid, sessionid)
 
-				// return Response.json({ errors, success, data, msg })
-				const response = Response.json({ errors, success, data, msg })
-
-				return addCORS(response)
+				return responseJSON({ errors, success, data, msg })
 			}
-			// // PATCH /api/studies?id=XXX&done=true
-			// if (method === 'PATCH') {
-			// 	return reply(await collection.updateOne({
-			// 		_id: new ObjectId(todoID)
-			// 	}, {
-			// 		$set: {
-			// 			done: url.searchParams.get('done') === 'true'
-			// 		}
-			// 	}));
-			// }
-			// // DELETE /api/studies?id=XXX
-			// if (method === 'DELETE') {
-			// 	return reply(await collection.deleteOne({
-			// 		_id: new ObjectId(todoID)
-			// 	}));
-			// }
+
 			// unknown method
-			return toError('Method not allowed.', 405);
+			return responseError('Method not allowed.', 405);
 		}
 		catch (err) {
-			return Response.json({
+			console.log(err)
+			return responseError({
 				errors: err,
 				success: false,
 				data: null,
@@ -111,34 +79,5 @@ export default {
 			})
 		}
 	},
-	async handleOptions(request) {
-		const corsHeaders = {
-			"Access-Control-Allow-Origin": "*",
-			"Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
-			"Access-Control-Max-Age": "86400",
-		};
 
-		if (
-			request.headers.get("Origin") !== null &&
-			request.headers.get("Access-Control-Request-Method") !== null &&
-			request.headers.get("Access-Control-Request-Headers") !== null
-		) {
-			// Handle CORS preflight requests.
-			return new Response(null, {
-				headers: {
-					...corsHeaders,
-					"Access-Control-Allow-Headers": request.headers.get(
-						"Access-Control-Request-Headers"
-					),
-				},
-			});
-		} else {
-			// Handle standard OPTIONS request.
-			return new Response(null, {
-				headers: {
-					Allow: "GET, HEAD, POST, OPTIONS",
-				},
-			});
-		}
-	}
 };

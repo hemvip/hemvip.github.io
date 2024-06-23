@@ -1,6 +1,6 @@
 
 
-export async function fetchAll(client) {
+export async function handleFetchStudies(client) {
 	try {
 
 	} catch (error) {

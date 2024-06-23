@@ -9,7 +9,6 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import Loading from "@/components/loading/loading"
 import { Callout } from "@/components/core"
 import LoadingSpin from "@/components/loading/LoadingSpin"
-import { startStudy } from "./actions"
 import { API_ENDPOINT } from "@/utils/urlEndpoint"
 
 const studySchema = z.object({
@@ -51,11 +50,11 @@ export default function Home({ searchParams }) {
     setLoading(true)
     setIsComplete(false)
     try {
-      console.log(API_ENDPOINT)
-      if (!API_ENDPOINT){
+      console.log("API_ENDPOINT", API_ENDPOINT)
+      if (!API_ENDPOINT) {
         return ""
       }
-      
+
       const response = await axios.post(`${API_ENDPOINT}/api/studies`, formData)
       console.log("response", response)
       // const { success } = response.data
