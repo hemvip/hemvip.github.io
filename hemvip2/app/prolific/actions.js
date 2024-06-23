@@ -107,7 +107,7 @@ export async function finishStudy({
           ...page,
         }
       })
-      console.log("newPage", newPage)
+      // console.log("newPage", newPage)
       // const newPage = study.pages
 
       // console.log(study.pages)
@@ -126,7 +126,6 @@ export async function finishStudy({
         .collection("studies")
         .updateOne(filter, updateStudy)
 
-      console.log("result", result)
       if (result) {
         delete result._id
         return {

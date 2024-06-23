@@ -29,8 +29,6 @@ export async function fetchStudies(client, prolificid, studyid, sessionid) {
 			const db = client.db("hemvip")
 
 			const result = await db.collection("studies").findOne(filter)
-			console.log("prolificid", prolificid, "studyid", studyid, "sessionid", sessionid)
-			console.log("result", result)
 
 			if (result) {
 				delete result._id
