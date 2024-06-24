@@ -92,3 +92,5 @@ export default function Page({ searchParams }) {
     </>
   )
 }
+
+export const runtime = 'edge'
