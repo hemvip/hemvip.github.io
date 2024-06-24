@@ -76,7 +76,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .vercel/static
+          path: ./hemvip2/out
 
   # Deployment job
   deploy:
