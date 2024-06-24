@@ -87,7 +87,7 @@ export default function Page({ searchParams }) {
           </ScreenControlProvider>
         </ExperimentConfigProvider>
       </div>
-      {/* <PreventRefreshPage /> */}
+      <PreventRefreshPage />
       {/* <PaginationScreen /> */}
     </>
   )
