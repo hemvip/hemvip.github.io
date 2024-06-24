@@ -1,8 +1,10 @@
 "use client"
 
+import { useUnload } from "@/contexts/beforeunload"
 import { useEffect } from "react"
 
 const useBeforeUnload = (message) => {
+  const { canUnload } = useUnload()
   console.log("Go useBeforeUnload", message)
   useEffect(() => {
     const handleBeforeUnload = (event) => {
