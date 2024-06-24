@@ -39,7 +39,7 @@ export default function Page() {
     setLoading(true)
     fetchStudies()
     setLoading(false)
-  }, [])
+  }, [PROLIFIC_PID, STUDY_ID, SESSION_ID])
 
   if (loading) {
     return (
