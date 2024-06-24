@@ -13,8 +13,9 @@ import useDebouncedCallback from "@/utils/hooks/use-bounded-callback"
 import LoadingSpin from "../loading/LoadingSpin"
 import { useStudy } from "@/contexts/study"
 import { useActionRecorder } from "@/contexts/action-recorder"
-import { finishStudy } from "@/app/prolific/actions"
 import { useRouter } from "next/navigation"
+import axios from "axios"
+import { API_ENDPOINT } from "@/utils/urlEndpoint"
 
 export function Screen({ prolificid, studyid, sessionid }) {
   const router = useRouter()
@@ -44,7 +45,7 @@ export function Screen({ prolificid, studyid, sessionid }) {
   const handleFinish = async () => {
     setOverlay(true)
     // console.log("go handleFinish")
-    const result = await finishStudy({
+    const response = await axios.post(`${API_ENDPOINT}/api/study/finish`, {
       prolificid: prolificid,
       studyid: studyid,
       sessionid: sessionid,
@@ -53,12 +54,22 @@ export function Screen({ prolificid, studyid, sessionid }) {
       studySelections: options,
       code: "CMTN9LUK",
     })
+    // const result = await finishStudy({
+    //   prolificid: prolificid,
+    //   studyid: studyid,
+    //   sessionid: sessionid,
+    //   actions: actions,
+    //   screenActions: screenActions,
+    //   studySelections: options,
+    //   code: "CMTN9LUK",
+    // })
+    const { errors, success, data, msg } = response.data
     setOverlay(false)
-    if (result.success) {
+    if (success) {
       router.push("https://app.prolific.com/submissions/complete?cc=CMTN9LUK")
     } else {
+      console.log("errors", errors)
       router.push("https://app.prolific.com/submissions/complete?cc=CPKBIM6L")
-      console.log(result)
     }
   }
 

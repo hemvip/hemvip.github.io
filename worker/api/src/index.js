@@ -9,6 +9,7 @@ import {
 import { startStudy } from "./studies/startStudy";
 import { fetchStudies } from "./studies/fetchStudies";
 import { handleOptions } from "./handleOptions"
+import { finishStudy } from "./studies/finishStudy";
 
 let App;
 const ObjectId = Realm.BSON.ObjectID;
@@ -25,8 +26,8 @@ export default {
 		const method = request.method;
 		const path = url.pathname.replace(/[/]$/, '');
 
-		if (path !== '/api/studies') {
-			return toError(`Unknown '${path}' URL; try '/api/studies' instead.`, 404);
+		if (path !== '/api/studies' && path !== '/api/study/finish') {
+			return responseError(`Unknown '${path}' URL; try '/api/studies' instead.`, 404);
 		}
 
 		// const token = request.headers.get('authorization');
@@ -44,8 +45,10 @@ export default {
 		}
 
 		try {
+			// console.log("path", path)
 			// GET /api/studies
-			if (method === 'GET') {
+			if (path === '/api/studies' && method === 'GET') {
+				console.log("FETCH STUDY")
 				const prolificid = url.searchParams.get('prolificid') || '';
 				const studyid = url.searchParams.get('studyid') || '';
 				const sessionid = url.searchParams.get('sessionid') || '';
@@ -53,15 +56,40 @@ export default {
 				// console.log("prolificid", prolificid, "studyid", studyid, "sessionid", sessionid)
 
 				const { errors, success, data, msg } = await fetchStudies(client, prolificid, studyid, sessionid)
-
+				// console.log(errors, success, data, msg)
 				return responseJSON({ errors, success, data, msg })
 			}
 
 			// POST /api/studies
-			if (method === 'POST') {
+			if (path === '/api/studies' && method === 'POST') {
+				console.log("START STUDY")
 				const { prolificid, studyid, sessionid } = await request.json();
 
 				const { errors, success, data, msg } = await startStudy(client, prolificid, studyid, sessionid)
+
+				return responseJSON({ errors, success, data, msg })
+			}
+
+			// POST /api/studies/finish
+			if (path === '/api/study/finish' && method === 'POST') {
+				console.log("FINISH STUDY API")
+				const {
+					prolificid,
+					studyid,
+					sessionid,
+					actions,
+					screenActions,
+					studySelections,
+					code
+				} = await request.json()
+
+				const { errors, success, data, msg } = await finishStudy(client, prolificid,
+					studyid,
+					sessionid,
+					actions,
+					screenActions,
+					studySelections,
+					code)
 
 				return responseJSON({ errors, success, data, msg })
 			}

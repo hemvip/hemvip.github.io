@@ -2,7 +2,6 @@
 
 import axios from "axios"
 import { Screen } from "@/components/screen"
-import { fetchStudy } from "./actions"
 import { ExperimentConfigProvider } from "@/contexts/experiment"
 import { ScreenControlProvider } from "@/contexts/screencontroll"
 import { ActionRecorderProvider } from "@/contexts/action-recorder"
