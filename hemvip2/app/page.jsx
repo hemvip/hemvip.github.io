@@ -24,17 +24,21 @@ const studySchema = z.object({
 })
 
 export default function Home() {
-  const searchParams = useSearchParams();
-  const PROLIFIC_PID = searchParams.get('PROLIFIC_PID');
-  const STUDY_ID = searchParams.get('STUDY_ID');
-  const SESSION_ID = searchParams.get('SESSION_ID');
+  // const searchParams = useSearchParams();
+  // const PROLIFIC_PID = searchParams.get('PROLIFIC_PID');
+  // const STUDY_ID = searchParams.get('STUDY_ID');
+  // const SESSION_ID = searchParams.get('SESSION_ID');
+
+  const PROLIFIC_PID = ""
+  const STUDY_ID = ""
+  const SESSION_ID = ""
 
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [isComplete, setIsComplete] = useState(false)
-  const [isError, setIsError] = useState(
-    !PROLIFIC_PID || !STUDY_ID || !SESSION_ID
-  )
+  // const [isError, setIsError] = useState(
+  //   !PROLIFIC_PID || !STUDY_ID || !SESSION_ID
+  // )
 
   const {
     register,
@@ -51,67 +55,67 @@ export default function Home() {
   })
 
   const handleStart = async (formData) => {
-    setLoading(true)
-    setIsComplete(false)
-    try {
-      console.log("API_ENDPOINT", API_ENDPOINT)
-      if (!API_ENDPOINT) {
-        return ""
-      }
+    // setLoading(true)
+    // setIsComplete(false)
+    // try {
+    //   console.log("API_ENDPOINT", API_ENDPOINT)
+    //   if (!API_ENDPOINT) {
+    //     return ""
+    //   }
 
-      const response = await axios.post(`${API_ENDPOINT}/api/studies`, formData)
-      console.log("response", response)
-      // const { success } = response.data
+    //   const response = await axios.post(`${API_ENDPOINT}/api/studies`, formData)
+    //   console.log("response", response)
+    //   // const { success } = response.data
 
-      // const res = await startStudy({
-      //   prolificid: formData.prolificid,
-      //   studyid: formData.studyid,
-      //   sessionid: formData.sessionid,
-      // })
-      // console.log(res)
-      const { success, data } = response.data
-      // console.log(res)
-      if (success) {
-        if (data) {
-          router.push(
-            `/prolific?PROLIFIC_PID=${formData.prolificid}&STUDY_ID=${formData.studyid}&SESSION_ID=${formData.sessionid}`
-          )
-        } else {
-          setIsComplete(true)
-        }
-      } else {
-        const { errors } = response.data
-        const fieldErrorMapping = {
-          prolificid: "prolificid",
-          studyid: "studyid",
-          sessionid: "sessionid",
-        }
-        const fieldWithError = Object.keys(fieldErrorMapping).find(
-          (field) => errors[field]
-        )
-        if (fieldWithError) {
-          // Use the ValidFieldNames type to ensure the correct field names
-          setError(fieldErrorMapping[fieldWithError], {
-            type: "server",
-            message: errors[fieldWithError],
-          })
-        }
-      }
-    } catch (error) {
-      console.log(error)
-      alert("Submitting form failed!", error)
-      setIsError(true)
-      setLoading(false)
-    }
+    //   // const res = await startStudy({
+    //   //   prolificid: formData.prolificid,
+    //   //   studyid: formData.studyid,
+    //   //   sessionid: formData.sessionid,
+    //   // })
+    //   // console.log(res)
+    //   const { success, data } = response.data
+    //   // console.log(res)
+    //   if (success) {
+    //     if (data) {
+    //       router.push(
+    //         `/prolific?PROLIFIC_PID=${formData.prolificid}&STUDY_ID=${formData.studyid}&SESSION_ID=${formData.sessionid}`
+    //       )
+    //     } else {
+    //       setIsComplete(true)
+    //     }
+    //   } else {
+    //     const { errors } = response.data
+    //     const fieldErrorMapping = {
+    //       prolificid: "prolificid",
+    //       studyid: "studyid",
+    //       sessionid: "sessionid",
+    //     }
+    //     const fieldWithError = Object.keys(fieldErrorMapping).find(
+    //       (field) => errors[field]
+    //     )
+    //     if (fieldWithError) {
+    //       // Use the ValidFieldNames type to ensure the correct field names
+    //       setError(fieldErrorMapping[fieldWithError], {
+    //         type: "server",
+    //         message: errors[fieldWithError],
+    //       })
+    //     }
+    //   }
+    // } catch (error) {
+    //   console.log(error)
+    //   alert("Submitting form failed!", error)
+    //   setIsError(true)
+    //   setLoading(false)
+    // }
 
-    setLoading(false)
+    // setLoading(false)
   }
 
   return (
     <Suspense fallback={<div>loading...</div>}>
       <main className="flex w-full flex-col items-center justify-between p-2 md:px-24">
         {/* {loading && <LoadingSpin />} */}
-        <div className="w-full px-[7%] gap-2 py-2 flex flex-col bg-stone-50">
+        {/* <div className="w-full px-[7%] gap-2 py-2 flex flex-col bg-stone-50">
           <div className="flex flex-col w-full h-full gap-2">
             <div className="flex-grow w-full h-full bg-white px-0 py-2 sm:p-4 border-none rounded-xl sm:border sm:border-zinc-300 flex flex-col gap-4">
               <div className=" h-full w-full  flex justify-center align-middle">
@@ -285,10 +289,10 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </main>
     </Suspense>
   )
 }
 
-export const runtime = 'edge';
+// export const runtime = 'edge';
