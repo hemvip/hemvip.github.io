@@ -43,7 +43,7 @@ export default function Page() {
   // }
 
   return (
-    <Suspense fallback={<div>loading...</div>}>
+    <Suspense fallback={<div></div>}>
       <div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
         <Prolific />
       </div>

@@ -21,7 +21,7 @@ export default function Home() {
   // const SESSION_ID = searchParams.get('SESSION_ID');
 
   return (
-    <Suspense fallback={<div>loading...</div>}>
+    <Suspense fallback={<div></div>}>
       <main className="flex w-full flex-col items-center justify-between p-2 md:px-24">
         <HomePage />
         {/* {loading && <LoadingSpin />} */}
