@@ -1,20 +1,39 @@
 import { handleOptions } from "./handleOptions";
 import { responseJSON } from "./utils";
 
+const corsHeaders = {
+	"Access-Control-Allow-Origin": "*",
+	"Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
+	"Access-Control-Max-Age": "86400",
+}
+
 export default {
 	async fetch(request, env, ctx) {
+		console.log("start websocket go here")
+		// if (request.method === "OPTIONS") {
+		// 	// Handle CORS preflight requests
+		// 	return handleOptions(request)
+		// }
+
 		if (request.headers.get('Upgrade') !== 'websocket') {
 			return new Response('Expected websocket', { status: 400 });
 		}
 
-		const [client, server] = new WebSocketPair();
+		const [client, server] = Object.values(new WebSocketPair())
 		server.accept();
 
 		server.addEventListener('message', async event => {
 			const audioBlob = event.data;
+			console.log("message")
+			if (!audioBlob) {
+				return responseJSON('Audio file is missing', 400);
+			}
+
 			try {
+				console.log("audioBlob", audioBlob, typeof audioBlob)
 				// Transcribe the audio using Whisper model
 				const transcribedText = await transcribeAudioWithWhisper(audioBlob, env);
+				console.log("transcribedText", transcribedText)
 
 				// Send the transcribed text back to the client
 				server.send(transcribedText);
@@ -35,23 +54,15 @@ async function transcribeAudioWithWhisper(audioFile, env) {
 	if (!audioFile) {
 		return responseJSON('Audio file is missing', 400);
 	}
-	const blob = await audioFile.arrayBuffer();
+	// const blob = await audioFile.arrayBuffer();
 
 	const inputs = {
-		audio: [...new Uint8Array(blob)]
+		audio: [...new Uint8Array(audioFile)]
 	};
 	const response = await env.AI.run('@cf/openai/whisper', inputs);
+	// console.log("response", response)
 
-	if (!response.ok) {
-		throw new Error(`Failed to transcribe audio: ${response.statusText}`);
-	}
-
-	const result = await response.json();
-	if (result && result.data && result.data.text) {
-		return result.data.text;
-	} else {
-		throw new Error('No transcription result');
-	}
+	return response.text;
 }
 
 

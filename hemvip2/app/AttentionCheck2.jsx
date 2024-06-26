@@ -11,7 +11,7 @@ export default function AttentionCheck() {
 
     useEffect(() => {
         // Establish WebSocket connection
-        socketRef.current = new WebSocket('wss://hemspeed.hemvip.workers.dev');
+        socketRef.current = new WebSocket('ws://localhost:8099');
 
         socketRef.current.onopen = () => {
             console.log('WebSocket connection established33');
@@ -26,7 +26,7 @@ export default function AttentionCheck() {
         };
 
         socketRef.current.onmessage = (event) => {
-            setTranslation(event.data);
+            setTranslation(JSON.stringify(event.data));
         };
 
         return () => {
@@ -54,14 +54,17 @@ export default function AttentionCheck() {
 
             // Check if WebSocket is in OPEN state before sending
             if (socketRef.current.readyState === WebSocket.OPEN) {
+                const data = await audioBlob.arrayBuffer()
+                console.log("audioBlob", audioBlob, audioBlob.type, audioBlob.size);
                 socketRef.current.send(audioBlob);
             } else {
                 console.error('WebSocket connection is not open.');
                 // Handle error or retry logic if needed
             }
+            // socketRef.current.close()
 
-            // socketRef.current.send(audioBlob);
         };
+
         setRecording(false);
     };
 

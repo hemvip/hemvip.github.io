@@ -120,7 +120,7 @@ export default function AttentionCheck() {
         console.log("formData", formData)
 
         try {
-            const response = await fetch('ws://hemspeed.hemvip.workers.dev', {
+            const response = await fetch('http://localhost:8099', {
                 method: 'POST',
                 body: formData,
             });

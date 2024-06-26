@@ -7,4 +7,4 @@ workers_dev = true
 binding = "AI"
 
 [dev]
-port = 8095
+port = 8099
