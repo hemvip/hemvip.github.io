@@ -5,3 +5,6 @@ workers_dev = true
 
 [ai]
 binding = "AI"
+
+[dev]
+port = 8095

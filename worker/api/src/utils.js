@@ -23,13 +23,20 @@ export function responseWithCORS(data) {
 }
 
 export function responseJSON(data) {
-	const response = Response.json(data);
-	response.headers.set('Access-Control-Allow-Origin', '*');
-	response.headers.set('Access-Control-Allow-Methods', 'GET,HEAD,POST,OPTIONS');
-	response.headers.set('Access-Control-Max-Age', '86400');
+	const response = Response.json(data, {
+		status: 200,
+		headers: {
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Methods': 'GET,HEAD,POST,OPTIONS',
+			'Access-Control-Max-Age': '86400'
+		}
+	});
+
 
 	return response
 }
+
 
 export function responseError(data, status = 401) {
 	const headers = new Headers({

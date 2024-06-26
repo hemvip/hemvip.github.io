@@ -1,0 +1,38 @@
+import { handleOptions } from "./handleOptions";
+import { responseJSON } from "./utils";
+
+export default {
+	async fetch(request, env) {
+		if (request.method === "OPTIONS") {
+			// Handle CORS preflight requests
+			return handleOptions(request);
+		}
+
+		if (request.method === 'GET') {
+			return responseJSON('API Active, but please use POST for audio.', 200);
+		}
+
+		try {
+			if (request.method !== 'POST') {
+				console.log("object go here")
+				return responseJSON({ message: 'Method Not Allowed' });
+				// return new Response('Method Not Allowed', { , status: 405 });
+			}
+			const formData = await request.formData();
+			const audioFile = formData.get('audio');
+			if (!audioFile) {
+				return responseJSON('Audio file is missing', 400);
+			}
+			const blob = await audioFile.arrayBuffer();
+
+			const inputs = {
+				audio: [...new Uint8Array(blob)]
+			};
+			const response = await env.AI.run('@cf/openai/whisper', inputs);
+
+			return responseJSON({ inputs, response });
+		} catch (error) {
+			return responseJSON('Error processing request: ' + error.message, 500);
+		}
+	}
+};
