@@ -5,7 +5,6 @@ import React, { Suspense, useState } from 'react'
 import axios from "axios"
 import Loading from "@/components/loading/loading"
 import { Callout } from "@/components/core"
-import LoadingSpin from "@/components/loading/LoadingSpin"
 import { API_ENDPOINT } from "@/utils/urlEndpoint"
 
 
@@ -38,7 +37,6 @@ export function HomePage() {
 
       const response = await axios.post(`${API_ENDPOINT}/api/studies`, formData)
       console.log("response", response)
-      // const { success } = response.data
 
       // console.log(res)
       const { success, data } = response.data
@@ -52,27 +50,10 @@ export function HomePage() {
           setIsComplete(true)
         }
       } else {
-        // const { errors } = response.data
-        // const fieldErrorMapping = {
-        //   prolificid: "prolificid",
-        //   studyid: "studyid",
-        //   sessionid: "sessionid",
-        // }
-        // const fieldWithError = Object.keys(fieldErrorMapping).find(
-        //   (field) => errors[field]
-        // )
-        // if (fieldWithError) {
-        //   // Use the ValidFieldNames type to ensure the correct field names
-        //   setError(fieldErrorMapping[fieldWithError], {
-        //     type: "server",
-        //     message: errors[fieldWithError],
-        //   })
-        // }
         setIsError(true)
       }
     } catch (error) {
       console.log(error)
-      // alert("Submitting fosrm failed!", error)
       setIsError(true)
       setLoading(false)
     }
@@ -100,8 +81,6 @@ export function HomePage() {
                 </p>
 
                 <form
-                  // onSubmit={handleSubmit(handleStart)}
-                  // onSubmit={func}
                   className="flex flex-col py-4 md:py-8"
                 >
                   <div className="flex flex-row gap-4 px-4 justify-center items-start">

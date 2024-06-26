@@ -1,16 +1,8 @@
 "use client"
 
-import axios from "axios"
-import { z } from "zod"
-import { useRouter, useSearchParams } from "next/navigation"
 import { Suspense, useState } from "react"
-import Loading from "@/components/loading/loading"
-import { Callout } from "@/components/core"
 import LoadingSpin from "@/components/loading/LoadingSpin"
-import { API_ENDPOINT } from "@/utils/urlEndpoint"
 import { HomePage } from "./HomePage"
-
-
 
 export default function Home() {
   // const searchParams = useSearchParams();
