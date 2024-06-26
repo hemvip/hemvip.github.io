@@ -96,7 +96,7 @@ export function Screen({ prolificid, studyid, sessionid }) {
     return () => {
       window.removeEventListener("keydown", handleKeyDown)
     }
-  }, [setPrev, setNext])
+  }, [setPrev, setNext, debouncedNextPage, debouncedPrevPage, isStartPage, isEndPage])
 
   if (!config) {
     return <></>

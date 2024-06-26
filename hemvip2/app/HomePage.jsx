@@ -80,7 +80,7 @@ export function HomePage() {
                   Please read Startup guide before Start
                 </p>
 
-                <form
+                <div
                   className="flex flex-col py-4 md:py-8"
                 >
                   <div className="flex flex-row gap-4 px-4 justify-center items-start">
@@ -189,7 +189,7 @@ export function HomePage() {
                       <Callout type="info">All study is complete</Callout>
                     </div>
                   )}
-                </form>
+                </div>
 
                 <hr className="dark:border-neutral-800" />
                 <h2 className="font-semibold tracking-tight text-slate-900 dark:text-slate-100 mt-3 text-2xl">
