@@ -3,6 +3,7 @@
 import { Suspense, useState } from "react"
 import LoadingSpin from "@/components/loading/LoadingSpin"
 import { HomePage } from "./HomePage"
+import AttentionCheck from "./AttentionCheck"
 
 export default function Home() {
   // const searchParams = useSearchParams();
@@ -13,7 +14,8 @@ export default function Home() {
   return (
     <Suspense fallback={<div></div>}>
       <main className="flex w-full flex-col items-center justify-between p-2 md:px-24">
-        <HomePage />
+        {/* <HomePage /> */}
+        <AttentionCheck />
         {/* {loading && <LoadingSpin />} */}
 
       </main>
