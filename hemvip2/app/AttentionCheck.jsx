@@ -7,10 +7,21 @@ export default function AttentionCheck() {
     const [recording, setRecording] = useState(false);
     const [translation, setTranslation] = useState('');
     const socketRef = useRef(null);
+    const videoRef = useRef(null);
     const recorderRef = useRef(null);
     const audioChunksRef = useRef([]);
 
     useEffect(() => {
+        intializeWebSocket();
+
+        return () => {
+            if (socketRef.current) {
+                socketRef.current.close();
+            }
+        };
+    }, []);
+
+    function intializeWebSocket() {
         // Establish WebSocket connection
         socketRef.current = new WebSocket(HEMSPEED_WEBSOCKET);
 
@@ -29,16 +40,13 @@ export default function AttentionCheck() {
         socketRef.current.onmessage = (event) => {
             setTranslation(JSON.stringify(event.data));
         };
-
-        return () => {
-            if (socketRef.current) {
-                socketRef.current.close();
-            }
-        };
-    }, []);
+    }
 
     const startRecording = async () => {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        if (socketRef.current === null) intializeWebSocket();
+
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true});
+        videoRef.current.srcObject = stream;
         recorderRef.current = new MediaRecorder(stream);
         recorderRef.current.ondataavailable = event => {
             audioChunksRef.current.push(event.data);
@@ -69,11 +77,12 @@ export default function AttentionCheck() {
         // if (recorderRef.current.state !== 'inactive') {
         //     const tracks = recorderRef.current.stream.getTracks();
         //     tracks.forEach(track => track.stop());
-
         // }
 
         const tracks = recorderRef.current.stream.getTracks();
         tracks.forEach(track => track.stop());
+
+        // const stream = videoRef.current.srcObject;
 
         setRecording(false);
     };
@@ -86,6 +95,7 @@ export default function AttentionCheck() {
     return (
         <div className='flex flex-col gap-2'>
             <h1>WebSocket Audio Recorder</h1>
+            <video ref={videoRef} autoPlay muted style={{ width: '100%', maxWidth: '500px' }} />
             <button onClick={recording ? stopRecording : startRecording} className="bg-black disabled:bg-gray-500 disabled:border-gray-500 hover:bg-white border-black w-36 h-8 py-1 text-white hover:text-black border rounded-md text-sm transition-all">
                 {recording ? 'Stop Recording' : 'Start Recording'}
             </button>
@@ -96,7 +106,7 @@ export default function AttentionCheck() {
             </button> */}
         </div>
 
-        // <video ref={videoRef} autoPlay muted style={{ width: '100%', maxWidth: '500px' }} />
+
         // <button className="bg-black disabled:bg-gray-500 disabled:border-gray-500 hover:bg-white border-black w-36 h-8 py-1 text-white hover:text-black border rounded-md text-sm transition-all"
         //     onClick={startRecording} disabled={isRecording}>
         //     Start Recording
