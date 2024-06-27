@@ -3,7 +3,6 @@ import { response } from "./utils";
 
 export default {
 	async fetch(request, env, ctx) {
-		console.log("start websocket go here")
 		// if (request.method === "OPTIONS") {
 		// 	// Handle CORS preflight requests
 		// 	return handleOptions(request)
@@ -32,6 +31,7 @@ export default {
 			} catch (error) {
 				console.error('Error processing audio:', error);
 				server.send('Error processing audio');
+				return response('Error processing audio', 400);
 			}
 		});
 
