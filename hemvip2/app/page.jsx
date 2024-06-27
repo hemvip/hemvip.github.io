@@ -3,7 +3,7 @@
 import { Suspense, useState } from "react"
 import LoadingSpin from "@/components/loading/LoadingSpin"
 import { HomePage } from "./HomePage"
-import AttentionCheck from "./AttentionCheck2"
+import AttentionCheck from "./AttentionCheck"
 
 export default function Home() {
   // const searchParams = useSearchParams();

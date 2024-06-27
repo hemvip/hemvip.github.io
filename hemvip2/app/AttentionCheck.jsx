@@ -1,152 +1,109 @@
-import React, { useRef, useState } from 'react'
+"use client"
+
+import { HEMSPEED_WEBSOCKET } from '@/utils/urlEndpoint';
+import { useEffect, useRef, useState } from 'react';
 
 export default function AttentionCheck() {
-    // const [isRecording, setIsRecording] = useState(false);
-    // const [mediaRecorder, setMediaRecorder] = useState(null);
-    // const [audioChunks, setAudioChunks] = useState([]);
-    // const audioRef = useRef();
+    const [recording, setRecording] = useState(false);
+    const [translation, setTranslation] = useState('');
+    const socketRef = useRef(null);
+    const recorderRef = useRef(null);
+    const audioChunksRef = useRef([]);
 
-    // const startRecording = async () => {
-    //     setIsRecording(true);
+    useEffect(() => {
+        // Establish WebSocket connection
+        socketRef.current = new WebSocket(HEMSPEED_WEBSOCKET);
 
-    //     const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: true });
-    //     const recorder = new MediaRecorder(stream);
-    //     setMediaRecorder(recorder);
+        socketRef.current.onopen = () => {
+            console.log('WebSocket connection established33');
+        };
 
-    //     recorder.ondataavailable = event => {
-    //         setAudioChunks(prev => [...prev, event.data]);
-    //     };
+        socketRef.current.onerror = (error) => {
+            console.log('WebSocket error11:', error);
+        };
 
-    //     recorder.start();
-    // };
+        socketRef.current.onclose = () => {
+            console.log('WebSocket connection closed22');
+        };
 
-    // const stopRecording = () => {
-    //     setIsRecording(false);
+        socketRef.current.onmessage = (event) => {
+            setTranslation(JSON.stringify(event.data));
+        };
 
-    //     mediaRecorder.stop();
-    //     mediaRecorder.onstop = () => {
-    //         const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
-    //         const audioUrl = URL.createObjectURL(audioBlob);
-    //         audioRef.current.src = audioUrl;
-
-    //         uploadAudio(audioBlob);
-    //         setAudioChunks([]);
-    //     };
-    // };
-
-    // const uploadAudio = async (audioBlob) => {
-    //     const formData = new FormData();
-    //     formData.append('audio', audioBlob, 'recording.wav');
-    //     console.log("formData", formData)
-
-    //     // const response = await fetch('http://localhost:63345', {
-    //     //     method: 'POST',
-    //     //     body: formData,
-    //     // });
-
-    //     // const result = await response.json();
-    //     // console.log(result);
-    // };
-
-
-    // return (
-    //     <div className='flex flex-col gap-4 justify-center text-center'>
-    //         <button className="bg-black disabled:bg-gray-500 disabled:border-gray-500 hover:bg-white border-black w-36 h-8 py-1 text-white hover:text-black border rounded-md text-sm transition-all"
-    //             onClick={startRecording} disabled={isRecording}>
-    //             Start Recording
-    //         </button>
-    //         <button className="bg-black disabled:bg-gray-500 disabled:border-gray-500 hover:bg-white border-black w-36 h-8 py-1 text-white hover:text-black border rounded-md text-sm transition-all"
-    //             onClick={stopRecording} disabled={!isRecording}>
-    //             Stop Recording
-    //         </button>
-    //         <audio ref={audioRef} controls />
-    //     </div>
-    // )
-    const [isRecording, setIsRecording] = useState(false);
-    const mediaRecorderRef = useRef(null);
-    const videoChunksRef = useRef([]);
-    const videoRef = useRef(null);
-    const streamRef = useRef(null);
+        return () => {
+            if (socketRef.current) {
+                socketRef.current.close();
+            }
+        };
+    }, []);
 
     const startRecording = async () => {
-        try {
-            streamRef.current = await navigator.mediaDevices.getUserMedia({
-                audio: true,
-                // video: true
-            });
-
-            if (videoRef.current) {
-                videoRef.current.srcObject = streamRef.current;
-            }
-
-            mediaRecorderRef.current = new MediaRecorder(streamRef.current);
-
-            mediaRecorderRef.current.ondataavailable = (event) => {
-                if (event.data.size > 0) {
-                    videoChunksRef.current.push(event.data);
-                }
-            };
-
-            mediaRecorderRef.current.onstop = () => {
-                const videoBlob = new Blob(videoChunksRef.current, { type: 'audio/wav' });
-                console.log("videoBlob", videoBlob)
-                sendVideoToCloudflare(videoBlob);
-                videoChunksRef.current = [];
-            };
-
-            mediaRecorderRef.current.start();
-            setIsRecording(true);
-        } catch (error) {
-            console.error("Error accessing media devices:", error);
-        }
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        recorderRef.current = new MediaRecorder(stream);
+        recorderRef.current.ondataavailable = event => {
+            audioChunksRef.current.push(event.data);
+        };
+        recorderRef.current.start();
+        setRecording(true);
     };
 
     const stopRecording = () => {
-        if (mediaRecorderRef.current) {
-            mediaRecorderRef.current.stop();
-            setIsRecording(false);
+        recorderRef.current.stop();
+        recorderRef.current.onstop = async () => {
+            const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' });
+            audioChunksRef.current = [];
 
-            if (streamRef.current) {
-                streamRef.current.getTracks().forEach(track => track.stop());
-            }
-        }
-    };
-
-    const sendVideoToCloudflare = async (videoBlob) => {
-        const formData = new FormData();
-        formData.append("audio", videoBlob, 'recording.wav');
-        // console.log(videoBlob)
-        // console.log(formData.get("audio"))
-        console.log("formData", formData)
-
-        try {
-            const response = await fetch('http://localhost:8099', {
-                method: 'POST',
-                body: formData,
-            });
-
-            if (response.ok) {
-                const result = await response.json();
-                console.log("result", result)
+            // Check if WebSocket is in OPEN state before sending
+            if (socketRef.current.readyState === WebSocket.OPEN) {
+                const data = await audioBlob.arrayBuffer()
+                console.log("audioBlob", audioBlob, audioBlob.type, audioBlob.size);
+                socketRef.current.send(audioBlob);
             } else {
-                console.error('Error sending video to Cloudflare Worker');
+                console.error('WebSocket connection is not open.');
+                // Handle error or retry logic if needed
             }
-        } catch (error) {
-            console.error('Error:', error);
-        }
+            // socketRef.current.close()
+
+        };
+
+        // if (recorderRef.current.state !== 'inactive') {
+        //     const tracks = recorderRef.current.stream.getTracks();
+        //     tracks.forEach(track => track.stop());
+
+        // }
+
+        const tracks = recorderRef.current.stream.getTracks();
+        tracks.forEach(track => track.stop());
+
+        setRecording(false);
     };
+
+    const closeWebsocket = () => {
+        socketRef.current.close();
+        recorderRef.current.stop()
+    }
 
     return (
         <div className='flex flex-col gap-2'>
-            <video ref={videoRef} autoPlay muted style={{ width: '100%', maxWidth: '500px' }} />
-            <button className="bg-black disabled:bg-gray-500 disabled:border-gray-500 hover:bg-white border-black w-36 h-8 py-1 text-white hover:text-black border rounded-md text-sm transition-all"
-                onClick={startRecording} disabled={isRecording}>
-                Start Recording
+            <h1>WebSocket Audio Recorder</h1>
+            <button onClick={recording ? stopRecording : startRecording} className="bg-black disabled:bg-gray-500 disabled:border-gray-500 hover:bg-white border-black w-36 h-8 py-1 text-white hover:text-black border rounded-md text-sm transition-all">
+                {recording ? 'Stop Recording' : 'Start Recording'}
             </button>
-            <button className="bg-black disabled:bg-gray-500 disabled:border-gray-500 hover:bg-white border-black w-36 h-8 py-1 text-white hover:text-black border rounded-md text-sm transition-all"
-                onClick={stopRecording} disabled={!isRecording}>
-                Stop Recording
-            </button>
+            <p>Translation: {translation}</p>
+
+            {/* <button onClick={closeWebsocket} className="bg-black disabled:bg-gray-500 disabled:border-gray-500 hover:bg-white border-black w-36 h-8 py-1 text-white hover:text-black border rounded-md text-sm transition-all">
+                Close
+            </button> */}
         </div>
+
+        // <video ref={videoRef} autoPlay muted style={{ width: '100%', maxWidth: '500px' }} />
+        // <button className="bg-black disabled:bg-gray-500 disabled:border-gray-500 hover:bg-white border-black w-36 h-8 py-1 text-white hover:text-black border rounded-md text-sm transition-all"
+        //     onClick={startRecording} disabled={isRecording}>
+        //     Start Recording
+        // </button>
+        // <button className="bg-black disabled:bg-gray-500 disabled:border-gray-500 hover:bg-white border-black w-36 h-8 py-1 text-white hover:text-black border rounded-md text-sm transition-all"
+        //     onClick={stopRecording} disabled={!isRecording}>
+        //     Stop Recording
+        // </button>
     );
 }
