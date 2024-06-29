@@ -15,6 +15,7 @@ export default function Home() {
   // const PROLIFIC_PID = searchParams.get('PROLIFIC_PID');
   // const STUDY_ID = searchParams.get('STUDY_ID');
   // const SESSION_ID = searchParams.get('SESSION_ID');
+  const [loading, setLoading] = useState(false)
 
   function closeDialog() {
     setIsOpenDialog(false)
@@ -38,12 +39,7 @@ export default function Home() {
           onClose={closeDialog}
           onFinish={finishAttentionCheck}
         />
-        {/* <PopupDialog
-          isOpen={isOpenDialog}
-          onClose={closeDialog}
-          autoCloseTime={50000}
-        /> */}
-        {/* {loading && <LoadingSpin />} */}
+        {loading && <LoadingSpin />}
 
       </main>
     </Suspense>

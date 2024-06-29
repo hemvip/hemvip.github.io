@@ -20,14 +20,14 @@ export default function AttentionCheck({ isOpen, onClose, onFinish }) {
     const [recording, setRecording] = useState(false);
     const [translation, setTranslation] = useState('');
     const [audioURL, setAudioURL] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [listening, setListening] = useState(false);
     // const [isReady, setIsReady] = useState("");
     const socketRef = useRef(null);
     const recorderRef = useRef(null);
     const audioChunksRef = useRef([]);
 
     useEffect(() => {
-        intializeWebSocket();
+        // intializeWebSocket();
 
         return () => {
             if (socketRef.current) {
@@ -39,8 +39,11 @@ export default function AttentionCheck({ isOpen, onClose, onFinish }) {
     useEffect(() => {
         if (translation === "I ready") {
             setTimeout(() => {
+                if (socketRef.current) {
+                    socketRef.current.close()
+                }
                 onFinish()
-            }, 2000)
+            }, 1000)
         }
     }, [translation])
 
@@ -77,8 +80,8 @@ export default function AttentionCheck({ isOpen, onClose, onFinish }) {
 
 
     const startRecording = async () => {
-        setLoading(true)
-        // if (socketRef.current === null) intializeWebSocket();
+        setListening(true)
+        if (socketRef.current === null) intializeWebSocket();
 
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         recorderRef.current = new MediaRecorder(stream);
@@ -116,7 +119,7 @@ export default function AttentionCheck({ isOpen, onClose, onFinish }) {
         tracks.forEach(track => track.stop());
 
         setRecording(false);
-        setLoading(false)
+        setListening(false)
     };
 
     if (!isOpen) return null
@@ -170,7 +173,7 @@ export default function AttentionCheck({ isOpen, onClose, onFinish }) {
                                             </div>
                                         )}
                                         {
-                                            loading ? <Loading className={"text-current"} /> :
+                                            listening ? <Loading className={"text-current"} /> :
 
                                                 translation && (<p className='text-slate-900 dark:text-slate-100 '>Your voice:  <span className="text-lg font-bold">{translation}</span></p>)
                                         }
@@ -187,6 +190,10 @@ export default function AttentionCheck({ isOpen, onClose, onFinish }) {
                                         </button>
 
                                     </div>
+                                    <div
+                                        className="absolute bottom-0 left-0 w-full h-[2px] bg-green-500 animate-loading"
+                                        style={{ animationDuration: "1s" }}
+                                    />
                                 </DialogPanel>
                             </TransitionChild>
                         </div>
