@@ -88,7 +88,7 @@ export default function AttentionCheck() {
 
         setRecording(false);
     };
-    
+
     return (
         <div className='flex flex-col gap-4 justify-center text-center p-24 border border-gray-500 shadow-xl rounded-xl'>
             <h3 className='font-semibold tracking-tight text-slate-900 dark:text-slate-100 text-2xl'>Attention Check</h3>
@@ -100,7 +100,7 @@ export default function AttentionCheck() {
             )}
             <button
                 onClick={recording ? stopRecording : startRecording}
-                className={cn(" disabled:bg-gray-500 disabled:border-gray-500 hover:bg-white w-full h-10 py-1 text-white hover:text-black border rounded-md text-sm transition-all",
+                className={cn("  hover:bg-white w-full h-10 py-1 text-white hover:text-black border rounded-md text-sm transition-all",
                     recording ? "bg-black  border-black" : "bg-green-600  border-green-600")}>
                 {recording ? 'Stop Recording' : 'Start Recording'}
             </button>

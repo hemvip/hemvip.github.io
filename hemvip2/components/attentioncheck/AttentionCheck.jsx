@@ -5,11 +5,13 @@ import {
     DialogPanel,
     TransitionChild,
     Transition,
+    DialogBackdrop,
 } from "@headlessui/react"
 import React, { Fragment, useEffect, useRef, useState } from "react"
 import cn from "clsx"
 import { HEMSPEED_WEBSOCKET } from "@/utils/urlEndpoint";
 import SpeakIcon from "./SpeakIcon";
+import CheckMarkIcon from "./CheckMarkIcon";
 
 export default function AttentionCheck({ isOpen, onClose }) {
     const [recording, setRecording] = useState(false);
@@ -85,11 +87,6 @@ export default function AttentionCheck({ isOpen, onClose }) {
 
         };
 
-        // if (recorderRef.current.state !== 'inactive') {
-        //     const tracks = recorderRef.current.stream.getTracks();
-        //     tracks.forEach(track => track.stop());
-        // }
-
         const tracks = recorderRef.current.stream.getTracks();
         tracks.forEach(track => track.stop());
 
@@ -102,6 +99,7 @@ export default function AttentionCheck({ isOpen, onClose }) {
         <>
             <Transition appear show={isOpen} as={Fragment}>
                 <Dialog as="div" className="relative z-10" onClose={onClose}>
+                    <DialogBackdrop className="fixed inset-0 bg-black/30" />
                     <TransitionChild
                         as={Fragment}
                         enter="ease-out duration-300"
@@ -114,7 +112,7 @@ export default function AttentionCheck({ isOpen, onClose }) {
                         <div className="fixed inset-0 border" />
                     </TransitionChild>
                     <div className="fixed inset-0 overflow-y-auto">
-                        <div className="flex justify-center mx-auto py-24 text-center h-screen">
+                        <div className="flex justify-center py-24 text-center h-screen">
                             <TransitionChild
                                 as={Fragment}
                                 enter="ease-out duration-300"
@@ -127,17 +125,16 @@ export default function AttentionCheck({ isOpen, onClose }) {
                                 <DialogPanel
                                     className={cn(
                                         "w-full max-w-lg transform overflow-hidden border border-gray-500 rounded-xl text-center align-middle shadow-xl transition-all",
-                                        "mx-auto ",
-                                        "flex",
-                                        // "select-none"
+                                        "flex p-20 w-full bg-white items-center",
                                     )}
                                 >
-                                    <div className='flex flex-col gap-4 justify-center text-center p-24 w-full'>
+                                    <div className='flex flex-col gap-4 justify-center items-center text-center'>
                                         <h3 className='font-semibold tracking-tight text-slate-900 dark:text-slate-100 text-2xl'>Attention Check</h3>
                                         <div className="w-full">
                                             <SpeakIcon />
                                         </div>
-                                        <p className="leading-7 first:mt-0 text-nowrap">Please turn on audio and say "I ready".</p>
+                                        <CheckMarkIcon/>
+                                        <p className="leading-7 first:mt-0 ">Please turn on audio and say "I ready" until machine recognize your voice correct.</p>
                                         {audioURL && (
                                             <div className='text-center'>
                                                 <audio controls src={audioURL}></audio>
@@ -145,12 +142,13 @@ export default function AttentionCheck({ isOpen, onClose }) {
                                         )}
                                         <button
                                             onClick={recording ? stopRecording : startRecording}
-                                            className={cn(" disabled:bg-gray-500 disabled:border-gray-500 hover:bg-white w-full h-10 py-1 text-white hover:text-black border rounded-md text-sm transition-all",
-                                                recording ? "bg-black  border-black" : "bg-green-600  border-green-600")}>
+                                            className={cn("  hover:bg-white w-full h-10 py-1 text-white hover:text-black border rounded-md text-sm transition-all",
+                                                (recording ? "bg-black  border-black" : "bg-green-600  border-green-600")
+                                            )}>
                                             {recording ? 'Stop Recording' : 'Start Recording'}
                                         </button>
                                         {
-                                            translation && (<p className='text-slate-900 dark:text-slate-100 text-lg'>Speed Result {translation}</p>)
+                                            translation && (<p className='text-slate-900 dark:text-slate-100 '>Your speed result <span className="text-lg font-bold">{translation}</span></p>)
                                         }
                                     </div>
                                 </DialogPanel>

@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <Suspense fallback={<div></div>}>
       <main className="flex w-full flex-col items-center justify-between p-2 md:px-24">
-        {/* <HomePage /> */}
+        <HomePage />
         <AttentionCheck
           isOpen={isOpenDialog}
           onClose={closeDialog}
