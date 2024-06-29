@@ -12,6 +12,7 @@ import cn from "clsx"
 import { HEMSPEED_WEBSOCKET } from "@/utils/urlEndpoint";
 import SpeakIcon from "./SpeakIcon";
 import CheckMarkIcon from "./CheckMarkIcon";
+import ListeningIcon from "./ListeningIcon";
 
 export default function AttentionCheck({ isOpen, onClose }) {
     const [recording, setRecording] = useState(false);
@@ -133,7 +134,7 @@ export default function AttentionCheck({ isOpen, onClose }) {
                                         <div className="w-full">
                                             <SpeakIcon />
                                         </div>
-                                        <CheckMarkIcon/>
+                                        <CheckMarkIcon />
                                         <p className="leading-7 first:mt-0 ">Please turn on audio and say "I ready" until machine recognize your voice correct.</p>
                                         {audioURL && (
                                             <div className='text-center'>
@@ -145,7 +146,11 @@ export default function AttentionCheck({ isOpen, onClose }) {
                                             className={cn("  hover:bg-white w-full h-10 py-1 text-white hover:text-black border rounded-md text-sm transition-all",
                                                 (recording ? "bg-black  border-black" : "bg-green-600  border-green-600")
                                             )}>
-                                            {recording ? 'Stop Recording' : 'Start Recording'}
+                                            <div className="flex gap-2 justify-center items-center ">
+                                                <ListeningIcon isListening={recording} />
+                                                {recording ?
+                                                    'Stop Recording' : 'Start Recording'}
+                                            </div>
                                         </button>
                                         {
                                             translation && (<p className='text-slate-900 dark:text-slate-100 '>Your speed result <span className="text-lg font-bold">{translation}</span></p>)
