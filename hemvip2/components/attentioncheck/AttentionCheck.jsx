@@ -14,12 +14,14 @@ import SpeakIcon from "./SpeakIcon";
 import CheckMarkIcon from "./CheckMarkIcon";
 import ListeningIcon from "./ListeningIcon";
 import Loading from "../loading/loading";
+import { normalizeCharacters } from "@/utils/utils";
 
 export default function AttentionCheck({ isOpen, onClose }) {
     const [recording, setRecording] = useState(false);
     const [translation, setTranslation] = useState('');
     const [audioURL, setAudioURL] = useState(null);
     const [loading, setLoading] = useState(false);
+    // const [isReady, setIsReady] = useState("");
     const socketRef = useRef(null);
     const recorderRef = useRef(null);
     const audioChunksRef = useRef([]);
@@ -51,11 +53,19 @@ export default function AttentionCheck({ isOpen, onClose }) {
         };
 
         socketRef.current.onmessage = (event) => {
-            setTranslation(JSON.stringify(event.data));
+            const text = normalizeCharacters(event.data);
+            if (text == "Im ready") {
+                setTranslation("I ready")
+            } else if (text == "I really") {
+                setTranslation("I ready")
+            } else {
+                setTranslation(text);
+            }
         };
     }
 
     const startRecording = async () => {
+        setLoading(true)
         if (socketRef.current === null) intializeWebSocket();
 
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -68,7 +78,7 @@ export default function AttentionCheck({ isOpen, onClose }) {
     };
 
     const stopRecording = () => {
-        setLoading(true)
+
         recorderRef.current.stop();
         recorderRef.current.onstop = async () => {
             const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' });
@@ -80,8 +90,7 @@ export default function AttentionCheck({ isOpen, onClose }) {
 
             // Check if WebSocket is in OPEN state before sending
             if (socketRef.current.readyState === WebSocket.OPEN) {
-                const data = await audioBlob.arrayBuffer()
-                console.log("audioBlob", audioBlob, audioBlob.type, audioBlob.size);
+                // console.log("audioBlob", audioBlob, audioBlob.type, audioBlob.size);
                 socketRef.current.send(audioBlob);
             } else {
                 console.error('WebSocket connection is not open.');
@@ -103,8 +112,8 @@ export default function AttentionCheck({ isOpen, onClose }) {
     return (
         <>
             <Transition appear show={isOpen} as={Fragment}>
-                <Dialog as="div" className="relative z-10" onClose={onClose}>
-                    <DialogBackdrop className="fixed inset-0 bg-black/30" />
+                <Dialog as="div" className="relative z-10 overflow-y-visible" onClose={onClose}>
+                    <DialogBackdrop className="fixed inset-0 overflow-y-visible bg-black/30" />
                     <TransitionChild
                         as={Fragment}
                         enter="ease-out duration-300"
@@ -116,8 +125,8 @@ export default function AttentionCheck({ isOpen, onClose }) {
                     >
                         <div className="fixed inset-0 border" />
                     </TransitionChild>
-                    <div className="fixed inset-0 overflow-y-auto">
-                        <div className="flex justify-center py-24 text-center h-screen">
+                    <div className="fixed inset-0 overflow-y-visible">
+                        <div className="flex justify-center py-[4%] text-center h-full overflow-y-visible">
                             <TransitionChild
                                 as={Fragment}
                                 enter="ease-out duration-300"
@@ -138,31 +147,33 @@ export default function AttentionCheck({ isOpen, onClose }) {
                                         <div className="w-full">
                                             <SpeakIcon />
                                         </div>
+                                        {
+                                            translation && <CheckMarkIcon isCorrect={translation === "I ready"} />
+                                        }
 
-                                        <CheckMarkIcon />
                                         <p className="leading-7 first:mt-0 ">Please turn on audio and say &quot;I ready&quot; until machine recognize your voice correct.</p>
                                         {audioURL && (
                                             <div className='text-center'>
-                                                <audio controls src={audioURL}></audio>
+                                                <audio controls src={audioURL} autoPlay></audio>
                                             </div>
                                         )}
+                                        {
+                                            loading ? <Loading className={"text-current"} /> :
+
+                                                translation && (<p className='text-slate-900 dark:text-slate-100 '>Your speed result <span className="text-lg font-bold">{translation}</span></p>)
+                                        }
                                         <button
                                             onClick={recording ? stopRecording : startRecording}
                                             className={cn("  hover:bg-white w-full h-10 py-1 text-white hover:text-black border rounded-md text-sm transition-all",
                                                 (recording ? "bg-black  border-black" : "bg-green-600  border-green-600")
                                             )}>
                                             <div className="flex gap-2 justify-center items-center ">
-                                                {loading && <Loading />}
                                                 <ListeningIcon isListening={recording} />
                                                 {recording ?
                                                     'Stop Recording' : 'Start Recording'}
                                             </div>
                                         </button>
-                                        {
-                                            loading ? <Loading /> :
 
-                                                translation && (<p className='text-slate-900 dark:text-slate-100 '>Your speed result <span className="text-lg font-bold">{translation}</span></p>)
-                                        }
                                     </div>
                                 </DialogPanel>
                             </TransitionChild>

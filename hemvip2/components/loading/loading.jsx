@@ -1,11 +1,12 @@
 import styles from "./styles.module.css"
+import cn from "clsx"
 
-const Loading = ({ color = "#000" }) => {
+const Loading = ({ className, color = "#000" }) => {
   return (
-    <span className={styles.loading}>
-      <span style={{ backgroundColor: color }} />
-      <span style={{ backgroundColor: color }} />
-      <span style={{ backgroundColor: color }} />
+    <span className={cn(styles.loading, className)}>
+      <span className="bg-current" />
+      <span className="bg-current" />
+      <span className="bg-current" />
     </span>
   )
 }
