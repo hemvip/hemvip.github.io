@@ -135,7 +135,7 @@ export default function AttentionCheck({ isOpen, onClose }) {
                                             <SpeakIcon />
                                         </div>
                                         <CheckMarkIcon />
-                                        <p className="leading-7 first:mt-0 ">Please turn on audio and say "I ready" until machine recognize your voice correct.</p>
+                                        <p className="leading-7 first:mt-0 ">Please turn on audio and say &quot;I ready&quot; until machine recognize your voice correct.</p>
                                         {audioURL && (
                                             <div className='text-center'>
                                                 <audio controls src={audioURL}></audio>
