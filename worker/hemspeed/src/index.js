@@ -23,8 +23,8 @@ export default {
 
 			try {
 				// Transcribe the audio using Whisper model
-				// const transcribedText = await transcribeAudioWithWhisper(audioBlob, env);
-				const transcribedText = "I ready"
+				const transcribedText = await transcribeAudioWithWhisper(audioBlob, env);
+				// const transcribedText = "I ready"
 				console.log("transcribedText", transcribedText)
 
 				// Send the transcribed text back to the client
