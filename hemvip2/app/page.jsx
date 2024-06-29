@@ -9,7 +9,8 @@ import { PopupDialog } from "@/components/screen"
 import AttentionCheck from "@/components/attentioncheck/AttentionCheck"
 
 export default function Home() {
-  const [isOpenDialog, setIsOpenDialog] = useState(true)
+  const [isOpenDialog, setIsOpenDialog] = useState(false)
+  const [state, setState] = useState("Attention Check")
   // const searchParams = useSearchParams();
   // const PROLIFIC_PID = searchParams.get('PROLIFIC_PID');
   // const STUDY_ID = searchParams.get('STUDY_ID');
@@ -19,13 +20,23 @@ export default function Home() {
     setIsOpenDialog(false)
   }
 
+  function handleAttentionCheck() {
+    setIsOpenDialog(true)
+  }
+
+  function finishAttentionCheck() {
+    setState("Start Study")
+    setIsOpenDialog(false)
+  }
+
   return (
     <Suspense fallback={<div></div>}>
       <main className="flex w-full flex-col items-center justify-between p-2 md:px-24">
-        <HomePage />
+        <HomePage handleAttentionCheck={handleAttentionCheck} state={state} />
         <AttentionCheck
           isOpen={isOpenDialog}
           onClose={closeDialog}
+          onFinish={finishAttentionCheck}
         />
         {/* <PopupDialog
           isOpen={isOpenDialog}

@@ -1,7 +1,7 @@
 import styles from "./styles.module.css"
 import cn from "clsx"
 
-const Loading = ({ className, color = "#000" }) => {
+const Loading = ({ className }) => {
   return (
     <span className={cn(styles.loading, className)}>
       <span className="bg-current" />

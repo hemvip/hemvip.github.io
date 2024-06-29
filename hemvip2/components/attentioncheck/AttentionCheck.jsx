@@ -16,7 +16,7 @@ import ListeningIcon from "./ListeningIcon";
 import Loading from "../loading/loading";
 import { normalizeCharacters } from "@/utils/utils";
 
-export default function AttentionCheck({ isOpen, onClose }) {
+export default function AttentionCheck({ isOpen, onClose, onFinish }) {
     const [recording, setRecording] = useState(false);
     const [translation, setTranslation] = useState('');
     const [audioURL, setAudioURL] = useState(null);
@@ -36,6 +36,14 @@ export default function AttentionCheck({ isOpen, onClose }) {
         };
     }, []);
 
+    useEffect(() => {
+        if (translation === "I ready") {
+            setTimeout(() => {
+                onFinish()
+            }, 2000)
+        }
+    }, [translation])
+
     function intializeWebSocket() {
         // Establish WebSocket connection
         socketRef.current = new WebSocket(HEMSPEED_WEBSOCKET);
@@ -53,16 +61,18 @@ export default function AttentionCheck({ isOpen, onClose }) {
         };
 
         socketRef.current.onmessage = (event) => {
-            const text = normalizeCharacters(event.data);
-            if (text == "Im ready") {
-                setTranslation("I ready")
-            } else if (text == "I really") {
-                setTranslation("I ready")
-            } else {
-                setTranslation(text);
+            const transcribed = normalizeCharacters(event.data);
+            let text = transcribed
+            if (transcribed == "Im ready") {
+                text = "I ready"
+            } else if (transcribed == "I really") {
+                text = "I ready"
             }
+            
+            setTranslation(text);
         };
     }
+
 
     const startRecording = async () => {
         setLoading(true)
@@ -112,7 +122,7 @@ export default function AttentionCheck({ isOpen, onClose }) {
     return (
         <>
             <Transition appear show={isOpen} as={Fragment}>
-                <Dialog as="div" className="relative z-10 overflow-y-visible" onClose={onClose}>
+                <Dialog as="div" className="relative z-10 overflow-y-visible" onClose={onClose} transition={false}>
                     <DialogBackdrop className="fixed inset-0 overflow-y-visible bg-black/30" />
                     <TransitionChild
                         as={Fragment}
@@ -160,7 +170,7 @@ export default function AttentionCheck({ isOpen, onClose }) {
                                         {
                                             loading ? <Loading className={"text-current"} /> :
 
-                                                translation && (<p className='text-slate-900 dark:text-slate-100 '>Your speed result <span className="text-lg font-bold">{translation}</span></p>)
+                                                translation && (<p className='text-slate-900 dark:text-slate-100 '>Your voice:  <span className="text-lg font-bold">{translation}</span></p>)
                                         }
                                         <button
                                             onClick={recording ? stopRecording : startRecording}

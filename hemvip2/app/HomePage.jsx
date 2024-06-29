@@ -6,9 +6,10 @@ import axios from "axios"
 import Loading from "@/components/loading/loading"
 import { Callout } from "@/components/core"
 import { API_ENDPOINT } from "@/utils/urlEndpoint"
+import cn from "clsx"
 
 
-export function HomePage() {
+export function HomePage({ state, handleAttentionCheck }) {
   const searchParams = useSearchParams();
   const PROLIFIC_PID = searchParams.get('PROLIFIC_PID');
   const STUDY_ID = searchParams.get('STUDY_ID');
@@ -23,6 +24,8 @@ export function HomePage() {
 
   const handleStart = async () => {
     setLoading(true)
+    handleAttentionCheck()
+    return;
     setIsComplete(false)
     const formData = {
       prolificid: PROLIFIC_PID,
@@ -163,9 +166,13 @@ export function HomePage() {
                       <button
                         type="submit"
                         onClick={handleStart}
-                        className="flex mb-4 mt-5 h-10 w-full font-bold text-white bg-blue-500 items-center justify-center rounded-md border text-sm transition-all focus:outline-none disabled:bg-blue-200 disabled:border-blue-200"
+                        className={
+                          cn(
+                            "flex mb-4 mt-5 h-10 w-full font-bold text-white  items-center justify-center rounded-md border text-sm transition-all focus:outline-none disabled:bg-blue-200 disabled:border-blue-200",
+                            (state === "Start Study" ? "bg-blue-500" : "bg-green-600")
+                          )}
                       >
-                        {loading ? <Loading color="#fff" /> : "Start"}
+                        {loading ? <Loading /> : state}
                       </button>
                     </div>
                   </div>
