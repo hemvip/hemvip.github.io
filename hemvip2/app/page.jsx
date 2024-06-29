@@ -7,6 +7,7 @@ import { HomePage } from "./HomePage"
 import Alert from "@/components/alert/Alert"
 import { PopupDialog } from "@/components/screen"
 import AttentionCheck from "@/components/attentioncheck/AttentionCheck"
+import axios from "axios"
 
 export default function Home() {
   const [isOpenDialog, setIsOpenDialog] = useState(false)
@@ -17,17 +18,31 @@ export default function Home() {
   // const SESSION_ID = searchParams.get('SESSION_ID');
   const [loading, setLoading] = useState(false)
 
-  function closeDialog() {
-    setIsOpenDialog(false)
-  }
 
   function handleAttentionCheck() {
     setIsOpenDialog(true)
   }
 
-  function finishAttentionCheck() {
+  async function finishAttentionCheck() {
     setState("Start Study")
     setIsOpenDialog(false)
+    setLoading(true)
+    const formData = {
+      prolificid: PROLIFIC_PID,
+      studyid: STUDY_ID,
+      sessionid: SESSION_ID
+    }
+    try {
+
+      const response = await axios.post("/api/attention-check", {})
+      console.log(response)
+    }
+    catch (error) {
+      console.error(error)
+    }
+    finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -36,7 +51,6 @@ export default function Home() {
         <HomePage handleAttentionCheck={handleAttentionCheck} state={state} />
         <AttentionCheck
           isOpen={isOpenDialog}
-          onClose={closeDialog}
           onFinish={finishAttentionCheck}
         />
         {loading && <LoadingSpin />}

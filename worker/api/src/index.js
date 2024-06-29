@@ -10,6 +10,7 @@ import { startStudy } from "./studies/startStudy";
 import { fetchStudies } from "./studies/fetchStudies";
 import { handleOptions } from "./handleOptions"
 import { finishStudy } from "./studies/finishStudy";
+import { updateAttentionCheck } from "./studies/updateAttentionCheck";
 
 let App;
 const ObjectId = Realm.BSON.ObjectID;
@@ -26,7 +27,7 @@ export default {
 		const method = request.method;
 		const path = url.pathname.replace(/[/]$/, '');
 
-		if (path !== '/api/studies' && path !== '/api/study/finish') {
+		if (path !== '/api/studies' && path !== '/api/study/finish' && path !== '/api/attention-check') {
 			return responseError(`Unknown '${path}' URL; try '/api/studies' instead.`, 404);
 		}
 
@@ -90,6 +91,21 @@ export default {
 					screenActions,
 					studySelections,
 					code)
+
+				return responseJSON({ errors, success, data, msg })
+			}
+
+			if (path === '/api/attention-check' && method === 'POST') {
+				console.log("ATTENTION CHECK")
+				const {
+					prolificid,
+					studyid,
+					sessionid
+				} = await request.json()
+
+				const { errors, success, data, msg } = await updateAttentionCheck(client, prolificid,
+					studyid,
+					sessionid)
 
 				return responseJSON({ errors, success, data, msg })
 			}

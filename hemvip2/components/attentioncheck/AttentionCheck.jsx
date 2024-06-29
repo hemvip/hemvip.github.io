@@ -16,7 +16,7 @@ import ListeningIcon from "./ListeningIcon";
 import Loading from "../loading/loading";
 import { normalizeCharacters } from "@/utils/utils";
 
-export default function AttentionCheck({ isOpen, onClose, onFinish }) {
+export default function AttentionCheck({ isOpen,  onFinish }) {
     const [recording, setRecording] = useState(false);
     const [translation, setTranslation] = useState('');
     const [audioURL, setAudioURL] = useState(null);
@@ -28,7 +28,6 @@ export default function AttentionCheck({ isOpen, onClose, onFinish }) {
 
     useEffect(() => {
         // intializeWebSocket();
-
         return () => {
             if (socketRef.current) {
                 socketRef.current.close();
@@ -52,15 +51,15 @@ export default function AttentionCheck({ isOpen, onClose, onFinish }) {
         socketRef.current = new WebSocket(HEMSPEED_WEBSOCKET);
 
         socketRef.current.onopen = () => {
-            console.log('WebSocket connection established33');
+            console.log('WebSocket connection established');
         };
 
         socketRef.current.onerror = (error) => {
-            console.log('WebSocket error11:', error);
+            console.log('WebSocket error:', error);
         };
 
         socketRef.current.onclose = () => {
-            console.log('WebSocket connection closed22');
+            console.log('WebSocket connection closed');
         };
 
         socketRef.current.onmessage = (event) => {
@@ -72,7 +71,7 @@ export default function AttentionCheck({ isOpen, onClose, onFinish }) {
                 || transcribed == "I'm ready") {
                 text = "I ready"
             }
-            text = "I ready"
+            // text = "I ready"
 
             setTranslation(text);
         };
@@ -93,7 +92,6 @@ export default function AttentionCheck({ isOpen, onClose, onFinish }) {
     };
 
     const stopRecording = () => {
-
         recorderRef.current.stop();
         recorderRef.current.onstop = async () => {
             const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' });
@@ -127,7 +125,7 @@ export default function AttentionCheck({ isOpen, onClose, onFinish }) {
     return (
         <>
             <Transition appear show={isOpen} as={Fragment}>
-                <Dialog as="div" className="relative z-10 overflow-y-visible" onClose={onClose} transition={false}>
+                <Dialog as="div" className="relative z-10 overflow-y-visible" onClose={() => {}} transition={false}>
                     <DialogBackdrop className="fixed inset-0 overflow-y-visible bg-black/30" />
                     <TransitionChild
                         as={Fragment}
@@ -190,10 +188,11 @@ export default function AttentionCheck({ isOpen, onClose, onFinish }) {
                                         </button>
 
                                     </div>
-                                    <div
+                                    {listening && (<div
                                         className="absolute bottom-0 left-0 w-full h-[2px] bg-green-500 animate-loading"
                                         style={{ animationDuration: "1s" }}
-                                    />
+                                    />)}
+
                                 </DialogPanel>
                             </TransitionChild>
                         </div>
