@@ -92,7 +92,7 @@ export default function AttentionCheck() {
     return (
         <div className='flex flex-col gap-4 justify-center text-center p-24 border border-gray-500 shadow-xl rounded-xl'>
             <h3 className='font-semibold tracking-tight text-slate-900 dark:text-slate-100 text-2xl'>Attention Check</h3>
-            <p>Please turn on audio and say "I ready".</p>
+            <p>Please turn on audio and say &quot;I ready&quot;.</p>
             {audioURL && (
                 <div className='text-center'>
                     <audio controls src={audioURL}></audio>

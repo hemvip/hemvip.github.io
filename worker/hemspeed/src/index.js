@@ -3,10 +3,10 @@ import { response } from "./utils";
 
 export default {
 	async fetch(request, env, ctx) {
-		// if (request.method === "OPTIONS") {
-		// 	// Handle CORS preflight requests
-		// 	return handleOptions(request)
-		// }
+		if (request.method === "OPTIONS") {
+			// Handle CORS preflight requests
+			return handleOptions(request)
+		}
 
 		if (request.headers.get('Upgrade') !== 'websocket') {
 			return new Response('Expected websocket', { status: 400 });

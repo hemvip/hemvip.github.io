@@ -23,9 +23,13 @@ export function HomePage({ state, handleAttentionCheck }) {
   )
 
   const handleStart = async () => {
-    setLoading(true)
     handleAttentionCheck()
-    return;
+
+    if (state !== "Start Study") {
+      return
+    }
+
+    setLoading(true)
     setIsComplete(false)
     const formData = {
       prolificid: PROLIFIC_PID,
@@ -162,7 +166,7 @@ export function HomePage({ state, handleAttentionCheck }) {
                             </div>
                           )}
                         </div> */}
-                    <div className="min-w-60">
+                    {!isError && (<div className="min-w-60">
                       <button
                         type="submit"
                         onClick={handleStart}
@@ -174,7 +178,7 @@ export function HomePage({ state, handleAttentionCheck }) {
                       >
                         {loading ? <Loading /> : state}
                       </button>
-                    </div>
+                    </div>)}
                   </div>
                   {isError && (
                     <div className="px-4">

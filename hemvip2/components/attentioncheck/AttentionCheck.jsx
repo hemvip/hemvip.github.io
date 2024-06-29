@@ -63,12 +63,14 @@ export default function AttentionCheck({ isOpen, onClose, onFinish }) {
         socketRef.current.onmessage = (event) => {
             const transcribed = normalizeCharacters(event.data);
             let text = transcribed
-            if (transcribed == "Im ready") {
-                text = "I ready"
-            } else if (transcribed == "I really") {
+            if (transcribed == "Im ready"
+                || transcribed == "I am ready"
+                || transcribed == "I really"
+                || transcribed == "I'm ready") {
                 text = "I ready"
             }
-            
+            text = "I ready"
+
             setTranslation(text);
         };
     }
@@ -76,7 +78,7 @@ export default function AttentionCheck({ isOpen, onClose, onFinish }) {
 
     const startRecording = async () => {
         setLoading(true)
-        if (socketRef.current === null) intializeWebSocket();
+        // if (socketRef.current === null) intializeWebSocket();
 
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         recorderRef.current = new MediaRecorder(stream);
