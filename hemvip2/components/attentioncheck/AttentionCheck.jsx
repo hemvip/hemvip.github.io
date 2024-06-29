@@ -13,11 +13,13 @@ import { HEMSPEED_WEBSOCKET } from "@/utils/urlEndpoint";
 import SpeakIcon from "./SpeakIcon";
 import CheckMarkIcon from "./CheckMarkIcon";
 import ListeningIcon from "./ListeningIcon";
+import Loading from "../loading/loading";
 
 export default function AttentionCheck({ isOpen, onClose }) {
     const [recording, setRecording] = useState(false);
     const [translation, setTranslation] = useState('');
     const [audioURL, setAudioURL] = useState(null);
+    const [loading, setLoading] = useState(false);
     const socketRef = useRef(null);
     const recorderRef = useRef(null);
     const audioChunksRef = useRef([]);
@@ -66,6 +68,7 @@ export default function AttentionCheck({ isOpen, onClose }) {
     };
 
     const stopRecording = () => {
+        setLoading(true)
         recorderRef.current.stop();
         recorderRef.current.onstop = async () => {
             const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' });
@@ -92,6 +95,7 @@ export default function AttentionCheck({ isOpen, onClose }) {
         tracks.forEach(track => track.stop());
 
         setRecording(false);
+        setLoading(false)
     };
 
     if (!isOpen) return null
@@ -134,6 +138,7 @@ export default function AttentionCheck({ isOpen, onClose }) {
                                         <div className="w-full">
                                             <SpeakIcon />
                                         </div>
+
                                         <CheckMarkIcon />
                                         <p className="leading-7 first:mt-0 ">Please turn on audio and say &quot;I ready&quot; until machine recognize your voice correct.</p>
                                         {audioURL && (
@@ -147,13 +152,16 @@ export default function AttentionCheck({ isOpen, onClose }) {
                                                 (recording ? "bg-black  border-black" : "bg-green-600  border-green-600")
                                             )}>
                                             <div className="flex gap-2 justify-center items-center ">
+                                                {loading && <Loading />}
                                                 <ListeningIcon isListening={recording} />
                                                 {recording ?
                                                     'Stop Recording' : 'Start Recording'}
                                             </div>
                                         </button>
                                         {
-                                            translation && (<p className='text-slate-900 dark:text-slate-100 '>Your speed result <span className="text-lg font-bold">{translation}</span></p>)
+                                            loading ? <Loading /> :
+
+                                                translation && (<p className='text-slate-900 dark:text-slate-100 '>Your speed result <span className="text-lg font-bold">{translation}</span></p>)
                                         }
                                     </div>
                                 </DialogPanel>
