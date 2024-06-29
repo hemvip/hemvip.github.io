@@ -9,14 +9,16 @@ import {
 } from "@headlessui/react"
 import React, { Fragment, useEffect, useRef, useState } from "react"
 import cn from "clsx"
-import { HEMSPEED_WEBSOCKET } from "@/utils/urlEndpoint";
+import { API_ENDPOINT, HEMSPEED_WEBSOCKET } from "@/utils/urlEndpoint";
 import SpeakIcon from "./SpeakIcon";
 import CheckMarkIcon from "./CheckMarkIcon";
 import ListeningIcon from "./ListeningIcon";
 import Loading from "../loading/loading";
 import { normalizeCharacters } from "@/utils/utils";
+import { useSearchParams } from "next/navigation";
+import axios from "axios";
 
-export default function AttentionCheck({ isOpen,  onFinish }) {
+export default function AttentionCheck({ isOpenDialog, setIsOpenDialog, setState, setLoadingAttentionCheck }) {
     const [recording, setRecording] = useState(false);
     const [translation, setTranslation] = useState('');
     const [audioURL, setAudioURL] = useState(null);
@@ -25,6 +27,11 @@ export default function AttentionCheck({ isOpen,  onFinish }) {
     const socketRef = useRef(null);
     const recorderRef = useRef(null);
     const audioChunksRef = useRef([]);
+
+    const searchParams = useSearchParams();
+    const PROLIFIC_PID = searchParams.get('PROLIFIC_PID');
+    const STUDY_ID = searchParams.get('STUDY_ID');
+    const SESSION_ID = searchParams.get('SESSION_ID');
 
     useEffect(() => {
         // intializeWebSocket();
@@ -41,7 +48,7 @@ export default function AttentionCheck({ isOpen,  onFinish }) {
                 if (socketRef.current) {
                     socketRef.current.close()
                 }
-                onFinish()
+                finishAttentionCheck()
             }, 1000)
         }
     }, [translation])
@@ -120,12 +127,42 @@ export default function AttentionCheck({ isOpen,  onFinish }) {
         setListening(false)
     };
 
-    if (!isOpen) return null
+    async function finishAttentionCheck() {
+        setIsOpenDialog(false)
+        setLoadingAttentionCheck(true)
+        const formData = {
+            prolificid: PROLIFIC_PID,
+            studyid: STUDY_ID,
+            sessionid: SESSION_ID
+        }
+        try {
+
+            const response = await axios.post(`${API_ENDPOINT}/api/attention-check`, formData)
+            console.log(response)
+            const { data, errors, msg, success } = response.data;
+
+            if (success) {
+                setState("Start Study")
+            }
+            else {
+                console.log(errors)
+            }
+        }
+        catch (error) {
+            console.error(error)
+        }
+        finally {
+            setLoadingAttentionCheck(false)
+        }
+    }
+
+
+    if (!isOpenDialog) return null
 
     return (
         <>
-            <Transition appear show={isOpen} as={Fragment}>
-                <Dialog as="div" className="relative z-10 overflow-y-visible" onClose={() => {}} transition={false}>
+            <Transition appear show={isOpenDialog} as={Fragment}>
+                <Dialog as="div" className="relative z-10 overflow-y-visible" onClose={() => { }} transition={false}>
                     <DialogBackdrop className="fixed inset-0 overflow-y-visible bg-black/30" />
                     <TransitionChild
                         as={Fragment}
