@@ -3,18 +3,14 @@
 import { createContext, useContext, useState } from "react"
 
 const ScreenAttentionCheckContext = createContext({
-  currentPage: 0,
-  progress: 0,
-  isStartPage: true,
-  isEndPage: false,
+  pages: [1,2],
   setPrev: () => {},
-  setNext: () => {},
 })
 
 export const useScreenAttentionCheck = () => useContext(ScreenAttentionCheckContext)
 
 // from min_page 0 to max_page 3 (total 4 page)
-export function ScreenAttentionCheckProvider({ min = 0, max = 3, children }) {
+export function ScreenAttentionCheckProvider({ maxPageIdx, children }) {
   const [currentPage, setCurrentPage] = useState(0)
   const [progress, setProgress] = useState(0) // 0 - 100
   const [isStartPage, setIsStartPage] = useState(true)

@@ -13,7 +13,7 @@
 
 #### Status of study
 
-- Each study have 3 stages `new` -> `started` -> `finish` | `uncomplete`.
+- Each study have 3 stages `new` -> `checked` ->  `started` -> `finish` | `uncomplete`.
 - Prolific Participants first click link will redirect to `https://hemvip.vercel.app/?PROLIFIC_PID=662b614c61935111d01484bf&STUDY_ID=665971ec91884faf5b5284d7&SESSION_ID=0cvbkz5w327p`
 
 #### 1. Generate all study screen
@@ -24,7 +24,7 @@
 
 ![start_homepage](/start_homepage.png)
 
-- Participants click start button at homepage, database will filter and get latest study which status is `new` or `uncomplete`, and update **status** to `started` and redirect to `/prolific` and start study screen.
+- Participants click start button at homepage, first start with attention check, after finish attention check, system  will filter and get latest study on database which studies's status is `new` or `uncomplete`, and update **status**  to `checked`, after click `Start Study`, system will find latest `prolificid`, `studyid`, `sessionid` and update `status` to `started` and redirect to `/prolific` and start study screen.
 
 #### 3. Participants finish study
 
