@@ -16,6 +16,7 @@ import { useActionRecorder } from "@/contexts/action-recorder"
 import { useRouter } from "next/navigation"
 import axios from "axios"
 import { API_ENDPOINT } from "@/utils/urlEndpoint"
+import ScreenAttentionCheck from "./ScreenAttentionCheck"
 
 export function Screen({ prolificid, studyid, sessionid }) {
   const router = useRouter()
@@ -149,13 +150,14 @@ export function Screen({ prolificid, studyid, sessionid }) {
                   }}
                   className="absolute w-full h-full overflow-hidden flex flex-col gap-2 justify-center align-middle"
                 >
-                  {isStartPage ? (
+                  {/* {isStartPage ? (
                     <StartupScreen />
                   ) : isEndPage ? (
                     <FinishScreen handleFinish={handleFinish} />
                   ) : (
                     <ScreenMain currentPage={currentPage} />
-                  )}
+                  )} */}
+                  <ScreenAttentionCheck/>
                 </motion.div>
               </AnimatePresence>
             </div>
