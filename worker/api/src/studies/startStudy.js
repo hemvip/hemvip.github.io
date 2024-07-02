@@ -30,6 +30,7 @@ export async function startStudy(client, prolificid, studyid, sessionid) {
 					prolific_userid: prolificid, // New prolific_userid
 					prolific_studyid: studyid, // New prolific_studyid
 					prolific_sessionid: sessionid, // New prolific_sessionid
+					time_start: new Date().toString(), // New time_start
 				},
 			}
 
