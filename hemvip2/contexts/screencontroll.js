@@ -19,7 +19,6 @@ export function ScreenControlProvider({ min = 0, max = 3, children }) {
   const [progress, setProgress] = useState(0) // 0 - 100
   const [isStartPage, setIsStartPage] = useState(true)
   const [isEndPage, setIsEndPage] = useState(false)
-  const [isAttentionPage, setIsAttentionPage] = useState(false)
 
   // console.log("max", max, "min", min)
 
