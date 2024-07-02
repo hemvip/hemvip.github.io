@@ -29,11 +29,11 @@ export default {
 
 				// Send the transcribed text back to the client
 				server.send(transcribedText);
-				return response(transcribedText, 200);
+				// return response(transcribedText, 200);
 			} catch (error) {
 				console.error('Error processing audio:', error);
 				server.send('Error processing audio');
-				return response('Error processing audio', 400);
+				// return response('Error processing audio', 400);
 			}
 		});
 

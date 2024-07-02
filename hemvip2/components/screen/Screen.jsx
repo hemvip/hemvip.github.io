@@ -42,6 +42,8 @@ export function Screen({ prolificid, studyid, sessionid }) {
     setIsOpenDialog(true)
   }
 
+  // console.log("config", config)
+
   const handleFinish = async () => {
     setOverlay(true)
     // console.log("go handleFinish")
@@ -52,24 +54,16 @@ export function Screen({ prolificid, studyid, sessionid }) {
       actions: actions,
       screenActions: screenActions,
       studySelections: options,
-      code: "CMTN9LUK",
+      code: config.completion_code,
     })
-    // const result = await finishStudy({
-    //   prolificid: prolificid,
-    //   studyid: studyid,
-    //   sessionid: sessionid,
-    //   actions: actions,
-    //   screenActions: screenActions,
-    //   studySelections: options,
-    //   code: "CMTN9LUK",
-    // })
+    
     const { errors, success, data, msg } = response.data
     setOverlay(false)
     if (success) {
-      router.push("https://app.prolific.com/submissions/complete?cc=CMTN9LUK")
+      router.push(`https://app.prolific.com/submissions/complete?cc=${config.completion_code}`)
     } else {
       console.log("errors", errors)
-      router.push("https://app.prolific.com/submissions/complete?cc=CPKBIM6L")
+      router.push(`https://app.prolific.com/submissions/complete?cc=${config.fail_code}`)
     }
   }
 
