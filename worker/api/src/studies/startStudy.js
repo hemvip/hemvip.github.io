@@ -22,7 +22,7 @@ export async function startStudy(client, prolificid, studyid, sessionid) {
 			// Start page
 			const db = client.db("hemvip")
 
-			const filter = { status: { $in: ["checked"] } }
+			const filter = { status: { $in: ["new", "uncomplete"] } }
 
 			const updateDoc = {
 				$set: {

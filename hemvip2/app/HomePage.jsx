@@ -9,7 +9,8 @@ import { API_ENDPOINT } from "@/utils/urlEndpoint"
 import cn from "clsx"
 
 
-export function HomePage({ state, handleAttentionCheck }) {
+// export function HomePage({ state, handleAttentionCheck }) {
+  export function HomePage({ state }) {
   const searchParams = useSearchParams();
   const PROLIFIC_PID = searchParams.get('PROLIFIC_PID');
   const STUDY_ID = searchParams.get('STUDY_ID');
@@ -23,14 +24,14 @@ export function HomePage({ state, handleAttentionCheck }) {
   )
 
   const handleStart = async () => {
-    if (state === "Attention Check") {
-      handleAttentionCheck()
-      return
-    }
+    // if (state === "Attention Check") {
+    //   handleAttentionCheck()
+    //   return
+    // }
 
-    if (state !== "Start Study") {
-      return
-    }
+    // if (state !== "Start Study") {
+    //   return
+    // }
 
     setLoading(true)
     setIsComplete(false)

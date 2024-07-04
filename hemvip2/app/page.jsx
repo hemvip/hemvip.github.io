@@ -7,8 +7,8 @@ import AttentionCheck from "@/components/attentioncheck/AttentionCheck"
 
 export default function Home() {
   const [isOpenDialog, setIsOpenDialog] = useState(false)
-  const [state, setState] = useState("Attention Check")
-  // const [state, setState] = useState("Start Study")
+  // const [state, setState] = useState("Attention Check")
+  const [state, setState] = useState("Start Study")
   const [loading, setLoading] = useState(false)
 
   function handleAttentionCheck() {
@@ -19,12 +19,12 @@ export default function Home() {
     <Suspense fallback={<div></div>}>
       <main className="flex w-full flex-col items-center justify-between p-2 md:px-24">
         <HomePage handleAttentionCheck={handleAttentionCheck} state={state} />
-        <AttentionCheck
+        {/* <AttentionCheck
           isOpenDialog={isOpenDialog}
           setIsOpenDialog={setIsOpenDialog}
           setState={setState}
           setLoadingAttentionCheck={setLoading}
-        />
+        /> */}
         {loading && <LoadingSpin />}
 
       </main>
