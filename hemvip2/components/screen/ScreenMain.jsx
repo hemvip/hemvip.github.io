@@ -50,7 +50,7 @@ export function ScreenMain({ currentPage }) {
             <div className="h-full w-full relative flex items-center justify-center">
               <video
                 muted={false}
-                autoPlay={page.type === "check"}
+                autoPlay={false}
                 onPlay={playLeft}
                 onSeeked={seekedVideoLeft}
                 onPause={pauseLeft}
@@ -70,7 +70,7 @@ export function ScreenMain({ currentPage }) {
             <div className="h-full w-full relative flex items-center justify-center">
               <video
                 muted={false}
-                autoPlay={page.type === "check"}
+                autoPlay={false}
                 onPause={pauseRight}
                 onPlay={playRight}
                 onSeeked={seekedVideoRight}
