@@ -55,8 +55,8 @@ export function ScreenMain({ currentPage }) {
                 onSeeked={seekedVideoLeft}
                 onPause={pauseLeft}
                 playsInline
-                loop={page.type === "check"}
-                controls={page.type === "video"}
+                loop
+                controls
                 className={cn(
                   "absolute inset-0 h-full w-full object-contain sm:rounded-xl sm:border dark:border-zinc-800"
                 )}
@@ -75,8 +75,8 @@ export function ScreenMain({ currentPage }) {
                 onPlay={playRight}
                 onSeeked={seekedVideoRight}
                 playsInline
-                loop={page.type === "check"}
-                controls={page.type === "video"}
+                loop
+                controls
                 className={cn(
                   "absolute inset-0 h-full  w-full object-contain sm:rounded-xl sm:border dark:border-zinc-800"
                 )}
