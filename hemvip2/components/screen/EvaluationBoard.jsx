@@ -10,9 +10,14 @@ export function EvaluationBoard({ currentPage }) {
   const { addAction } = useActionRecorder()
   const { options, selectStudy } = useStudy()
 
-  const handleLeft = () => {
-    addAction(DEFAULT_ACTION_STRING.clickLeft, currentPage)
-    selectStudy(DEFAULT_OPTION.left, currentPage)
+  const handleClearlyLeft = () => {
+    addAction(DEFAULT_ACTION_STRING.clickClearlyLeft, currentPage)
+    selectStudy(DEFAULT_OPTION.clearlyLeft, currentPage)
+  }
+
+  const handleSlightlyLeft = () => {
+    addAction(DEFAULT_ACTION_STRING.clickSlightlyLeft, currentPage)
+    selectStudy(DEFAULT_OPTION.slightlyLeft, currentPage)
   }
 
   const handleEqual = () => {
@@ -20,9 +25,14 @@ export function EvaluationBoard({ currentPage }) {
     selectStudy(DEFAULT_OPTION.equal, currentPage)
   }
 
-  const handleRight = () => {
-    addAction(DEFAULT_ACTION_STRING.clickRight, currentPage)
-    selectStudy(DEFAULT_OPTION.right, currentPage)
+  const handleSlightlyRight = () => {
+    addAction(DEFAULT_ACTION_STRING.clickSlightlyRight, currentPage)
+    selectStudy(DEFAULT_OPTION.slightlyRight, currentPage)
+  }
+
+  const handleClearlyRight = () => {
+    addAction(DEFAULT_ACTION_STRING.clickClearlyRight, currentPage)
+    selectStudy(DEFAULT_OPTION.clearlyRight, currentPage)
   }
 
   return (
@@ -31,18 +41,36 @@ export function EvaluationBoard({ currentPage }) {
         <div
           className={cn(
             "bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300 ",
-            options[currentPage] === DEFAULT_OPTION.left
+            options[currentPage] === DEFAULT_OPTION.clearlyLeft
               ? "bg-neutral-900 text-white"
               : "bg-neutral-100 hover:bg-neutral-200"
           )}
         >
           <button
             className="sm:px-4 px-2 py-2 w-full justify-center items-center text-center text-zinc-800 text-base font-bold leading-tight"
-            onClick={handleLeft}
+            onClick={handleClearlyLeft}
           >
-            Left Better
+            Left clearly better
           </button>
         </div>
+
+        <div
+          className={cn(
+            "bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300 ",
+            options[currentPage] === DEFAULT_OPTION.slightlyLeft
+              ? "bg-neutral-900 text-white"
+              : "bg-neutral-100 hover:bg-neutral-200"
+          )}
+        >
+          <button
+            className="sm:px-4 px-2 py-2 w-full justify-center items-center text-center text-zinc-800 text-base font-bold leading-tight"
+            onClick={handleSlightlyLeft}
+          >
+            Left slightly better
+          </button>
+        </div>
+
+
         <div
           className={cn(
             "bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300",
@@ -55,22 +83,39 @@ export function EvaluationBoard({ currentPage }) {
             className="sm:px-4 px-2 py-2 w-full justify-center items-center text-center text-zinc-800 text-base font-bold leading-tight"
             onClick={handleEqual}
           >
-            Equal
+            They are equal
           </button>
         </div>
+
         <div
           className={cn(
             "bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300",
-            options[currentPage] === DEFAULT_OPTION.right
+            options[currentPage] === DEFAULT_OPTION.slightlyRight
               ? "bg-neutral-900 text-white"
               : "bg-neutral-100 hover:bg-neutral-200"
           )}
         >
           <button
             className="sm:px-4 px-2 py-2 w-full justify-center items-center text-center text-zinc-800 text-base font-bold leading-tight"
-            onClick={handleRight}
+            onClick={handleSlightlyRight}
           >
-            Right Better
+            Right slightly better
+          </button>
+        </div>
+
+        <div
+          className={cn(
+            "bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300",
+            options[currentPage] === DEFAULT_OPTION.clearlyRight
+              ? "bg-neutral-900 text-white"
+              : "bg-neutral-100 hover:bg-neutral-200"
+          )}
+        >
+          <button
+            className="sm:px-4 px-2 py-2 w-full justify-center items-center text-center text-zinc-800 text-base font-bold leading-tight"
+            onClick={handleClearlyRight}
+          >
+            Right clearly better
           </button>
         </div>
       </div>

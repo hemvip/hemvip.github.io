@@ -7,18 +7,22 @@ export const DEFAULT_THEME = {
 
 export const DEFAULT_OPTION = {
   unselect: "",
-  left: "Left Better",
+  clearlyLeft: "Left clearly better",
+  slightlyLeft: "Left slightly better",
   equal: "Equal",
-  right: "Right Better",
+  slightlyRight: "Right slightly better",
+  clearlyRight: "Right clearly better",
 }
 
 export const DEFAULT_ACTION_STRING = {
   clickStart: "Click Start",
   clickFinish: "Click Finish",
 
-  clickLeft: "Click Left Better",
+  clickClearlyLeft: "Click Left Clearly Better",
+  clickSlightlyLeft: "Click Left Slightly Better",
   clickEqual: "Click Equal",
-  clickRight: "Click Right Better",
+  clickSlightlyRight: "Click Right Slightly Better",
+  clickClearlyRight: "Click Right Clearly Better",
 
   clickPrev: "Click Previous",
   clickNext: "Click Next",
