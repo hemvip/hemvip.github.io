@@ -202,7 +202,8 @@ import cn from "clsx"
                         >
                           Prolific
                         </a>{" "}
-                        to get link PROLIFIC_PID, STUDY_ID, SESSION_ID
+                        to get session.
+                        {/* PROLIFIC_PID, STUDY_ID, SESSION_ID */}
                       </Callout>
                     </div>
                   )}
