@@ -36,6 +36,9 @@ export const DEFAULT_ACTION_STRING = {
 
   seekedVideoLeft: "Seeked Video Left",
   seekedVideoRight: "Seeked Video Right",
+
+  finishVideoLeft: "Finish Video Left",
+  finishVideoRight: "Finish Video Right",
 }
 
 export const DEFAULT_SCREEN_CONFIG = {

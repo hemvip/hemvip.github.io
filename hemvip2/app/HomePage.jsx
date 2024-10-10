@@ -47,7 +47,7 @@ import cn from "clsx"
       }
 
       const response = await axios.post(`${API_ENDPOINT}/api/studies`, formData)
-      console.log("response", response)
+      console.log("Homepage.response", response)
 
       // console.log(res)
       const { success, data } = response.data
@@ -64,7 +64,7 @@ import cn from "clsx"
         setIsError(true)
       }
     } catch (error) {
-      console.log(error)
+      console.error("Homepage.Error", error)
       setIsError(true)
       setLoading(false)
     }

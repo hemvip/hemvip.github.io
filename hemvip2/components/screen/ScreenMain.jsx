@@ -14,7 +14,7 @@ export function ScreenMain({ currentPage }) {
   const video2URL =
     (page.type === "video" || page.type === "check") ? page.videos[1].url : "/gesture_video.mp4"
   const { addAction } = useActionRecorder()
-  console.log(page)
+  // console.log("page", page)
 
   // Play
   const playLeft = () => {
@@ -41,6 +41,14 @@ export function ScreenMain({ currentPage }) {
     addAction(DEFAULT_ACTION_STRING.seekedVideoRight, currentPage)
   }
 
+  const finishVideoLeft = () => {
+    addAction(DEFAULT_ACTION_STRING.finishVideoLeft, currentPage)
+  }
+
+  const finishVideoRight = () => {
+    addAction(DEFAULT_ACTION_STRING.finishVideoRight, currentPage)
+  }
+
   return (
     <>
       <div className="w-full h-full flex flex-col gap-2 overflow-hidden">
@@ -54,8 +62,9 @@ export function ScreenMain({ currentPage }) {
                 onPlay={playLeft}
                 onSeeked={seekedVideoLeft}
                 onPause={pauseLeft}
+                onEnded={finishVideoRight}
                 playsInline
-                loop
+                loop={false}
                 controls
                 className={cn(
                   "absolute inset-0 h-full w-full object-contain sm:rounded-xl sm:border dark:border-zinc-800"
@@ -74,8 +83,9 @@ export function ScreenMain({ currentPage }) {
                 onPause={pauseRight}
                 onPlay={playRight}
                 onSeeked={seekedVideoRight}
+                onEnded={finishVideoRight}
                 playsInline
-                loop
+                loop={false}
                 controls
                 className={cn(
                   "absolute inset-0 h-full  w-full object-contain sm:rounded-xl sm:border dark:border-zinc-800"

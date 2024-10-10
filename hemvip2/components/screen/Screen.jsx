@@ -16,6 +16,7 @@ import { useActionRecorder } from "@/contexts/action-recorder"
 import { useRouter } from "next/navigation"
 import axios from "axios"
 import { API_ENDPOINT } from "@/utils/urlEndpoint"
+import { PopupMessageProvider, usePopupMessage } from "@/contexts/popupmessage"
 
 export function Screen({ prolificid, studyid, sessionid }) {
   const router = useRouter()
@@ -33,14 +34,7 @@ export function Screen({ prolificid, studyid, sessionid }) {
     leading: true,
   })
 
-  let [isOpenDialog, setIsOpenDialog] = useState(false)
-  function closeDialog() {
-    setIsOpenDialog(false)
-  }
-
-  function openDialog() {
-    setIsOpenDialog(true)
-  }
+  const { isOpen, nmessage, showPopup, closePopup } = usePopupMessage()
 
   // console.log("config", config)
 
@@ -56,13 +50,13 @@ export function Screen({ prolificid, studyid, sessionid }) {
       studySelections: options,
       code: config.completion_code,
     })
-    
+
     const { errors, success, data, msg } = response.data
     setOverlay(false)
     if (success) {
       router.push(`https://app.prolific.com/submissions/complete?cc=${config.completion_code}`)
     } else {
-      console.log("errors", errors)
+      console.error("errors", errors)
       router.push(`https://app.prolific.com/submissions/complete?cc=${config.fail_code}`)
     }
   }
@@ -71,7 +65,7 @@ export function Screen({ prolificid, studyid, sessionid }) {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      console.log(event.key)
+      // console.log("event.key", event.key)
       if (event.key === "ArrowLeft") {
         if (!isStartPage) {
           // setTimeout(() => {
@@ -95,6 +89,8 @@ export function Screen({ prolificid, studyid, sessionid }) {
   if (!config) {
     return <></>
   }
+
+  // console.log("screenActions", screenActions)
 
   return (
     <div className="w-full max-h-screen h-screen flex flex-col bg-stone-50">
@@ -156,11 +152,13 @@ export function Screen({ prolificid, studyid, sessionid }) {
           </div>
         </div>
 
-        <PopupDialog
-          isOpen={isOpenDialog}
-          onClose={closeDialog}
-          autoCloseTime={50000}
-        />
+        <PopupMessageProvider>
+          <PopupDialog
+            isOpen={isOpen} nmessage={nmessage} showPopup={showPopup} closePopup={closePopup}
+            autoCloseTime={3000}
+          />
+        </PopupMessageProvider>
+
         <PopupError />
       </div>
     </div>

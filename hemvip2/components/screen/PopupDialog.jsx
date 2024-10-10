@@ -10,23 +10,24 @@ import {
 import React, { Fragment, useEffect, useState } from "react"
 import cn from "clsx"
 
-export function PopupDialog({ isOpen, onClose, autoCloseTime }) {
+
+export function PopupDialog({ isOpen, message, closePopup, autoCloseTime }) {
   useEffect(() => {
     if (isOpen) {
       const timer = setTimeout(() => {
-        onClose()
+        closePopup()
       }, autoCloseTime)
 
       return () => clearTimeout(timer)
     }
-  }, [isOpen, onClose, autoCloseTime])
+  }, [isOpen, closePopup, autoCloseTime])
 
   if (!isOpen) return null
 
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={onClose}>
+        <Dialog as="div" className="relative z-10" onClose={closePopup}>
           <TransitionChild
             as={Fragment}
             enter="ease-out duration-300"
@@ -68,9 +69,11 @@ export function PopupDialog({ isOpen, onClose, autoCloseTime }) {
                       💡
                     </div>
                     <div class="w-full min-w-0 leading-7">
-                      <p className="text-sm">
-                        Your payment has been successfully submitted. We&apos;ve
-                        sent you an email with all of the details of your order.
+                      <p className="">
+                        {/* text-sm */}
+                        {message}
+                        {/* Your payment has been successfully submitted. We&apos;ve
+                        sent you an email with all of the details of your order. */}
                       </p>
                     </div>
                   </div>

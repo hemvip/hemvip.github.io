@@ -7,7 +7,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@/components/icons"
 
 export function ScreenHeader({ currentPage, setPrev, setNext }) {
   const page = useCurrentPage(currentPage)
-  const { addAction } = useActionRecorder()
+  const { screenActions, addAction } = useActionRecorder()
   const { isStartPage, isEndPage } = useScreenControl()
 
   const finishPage = () => {
@@ -20,8 +20,15 @@ export function ScreenHeader({ currentPage, setPrev, setNext }) {
   }
 
   const nextPage = () => {
-    setNext()
-    addAction(DEFAULT_ACTION_STRING.clickNext, currentPage)
+    console.log("screenActions", screenActions)
+    console.log(currentPage, "currentPage", screenActions[currentPage])
+    const containsFinishActions = screenActions[currentPage].includes(DEFAULT_ACTION_STRING.finishVideoLeft) ||
+      screenActions[currentPage].includes(DEFAULT_ACTION_STRING.finishVideoRight);
+
+    if (containsFinishActions) {
+      setNext()
+      addAction(DEFAULT_ACTION_STRING.clickNext, currentPage)
+    }
   }
 
   const startPage = () => {
