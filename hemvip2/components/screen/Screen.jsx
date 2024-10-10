@@ -16,7 +16,7 @@ import { useActionRecorder } from "@/contexts/action-recorder"
 import { useRouter } from "next/navigation"
 import axios from "axios"
 import { API_ENDPOINT } from "@/utils/urlEndpoint"
-import { PopupMessageProvider, usePopupMessage } from "@/contexts/popupmessage"
+import { usePopupMessage } from "@/contexts/popupmessage"
 
 export function Screen({ prolificid, studyid, sessionid }) {
   const router = useRouter()
@@ -34,7 +34,7 @@ export function Screen({ prolificid, studyid, sessionid }) {
     leading: true,
   })
 
-  const { isOpen, nmessage, showPopup, closePopup } = usePopupMessage()
+  const { isOpen, message, showPopup, closePopup } = usePopupMessage()
 
   // console.log("config", config)
 
@@ -103,6 +103,7 @@ export function Screen({ prolificid, studyid, sessionid }) {
             currentPage={currentPage}
             setPrev={setPrev}
             setNext={setNext}
+            showPopup={showPopup}
           />
 
           <div className="flex-grow w-full h-full bg-white px-0 py-2 sm:p-4 border-none rounded-xl sm:border sm:border-zinc-300 flex flex-col gap-4">
@@ -152,12 +153,11 @@ export function Screen({ prolificid, studyid, sessionid }) {
           </div>
         </div>
 
-        <PopupMessageProvider>
-          <PopupDialog
-            isOpen={isOpen} nmessage={nmessage} showPopup={showPopup} closePopup={closePopup}
-            autoCloseTime={3000}
-          />
-        </PopupMessageProvider>
+
+        <PopupDialog
+          isOpen={isOpen} message={message} closePopup={closePopup}
+          autoCloseTime={300000}
+        />
 
         <PopupError />
       </div>

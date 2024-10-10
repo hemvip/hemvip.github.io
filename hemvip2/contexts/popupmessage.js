@@ -15,6 +15,7 @@ export function PopupMessageProvider({ children }) {
   const [message, setMessage] = useState("")
 
   const showPopup = (message) => {
+    console.log("showPopup ", message)
     setMessage(message)
     setIsOpen(true)
   }

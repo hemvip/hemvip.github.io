@@ -14,6 +14,7 @@ import { API_ENDPOINT } from "@/utils/urlEndpoint"
 import LoadingSpin from "@/components/loading/LoadingSpin"
 import { UnloadProvider } from "@/contexts/beforeunload"
 import { useSearchParams } from 'next/navigation'
+import { PopupMessageProvider } from '@/contexts/popupmessage'
 
 export function Prolific() {
     const searchParams = useSearchParams();
@@ -92,11 +93,13 @@ export function Prolific() {
                 <ActionRecorderProvider pages={data.pages}>
                     <StudyProvider>
                         <UnloadProvider>
-                            <Screen
-                                prolificid={PROLIFIC_PID}
-                                studyid={STUDY_ID}
-                                sessionid={SESSION_ID}
-                            />
+                            <PopupMessageProvider>
+                                <Screen
+                                    prolificid={PROLIFIC_PID}
+                                    studyid={STUDY_ID}
+                                    sessionid={SESSION_ID}
+                                />
+                            </PopupMessageProvider>
                         </UnloadProvider>
                     </StudyProvider>
                 </ActionRecorderProvider>

@@ -4,15 +4,16 @@ import { useActionRecorder } from "@/contexts/action-recorder"
 import { DEFAULT_ACTION_STRING } from "@/config/constants"
 import { useScreenControl } from "@/contexts/screencontroll"
 import { ArrowLeftIcon, ArrowRightIcon } from "@/components/icons"
+import { usePopupMessage } from "@/contexts/popupmessage"
 
-export function ScreenHeader({ currentPage, setPrev, setNext }) {
+export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
   const page = useCurrentPage(currentPage)
   const { screenActions, addAction } = useActionRecorder()
   const { isStartPage, isEndPage } = useScreenControl()
 
-  const finishPage = () => {
-    addAction(DEFAULT_ACTION_STRING.clickFinish, currentPage)
-  }
+  // const finishPage = () => {
+  //   addAction(DEFAULT_ACTION_STRING.clickFinish, currentPage)
+  // }
 
   const prevPage = () => {
     setPrev()
@@ -20,6 +21,12 @@ export function ScreenHeader({ currentPage, setPrev, setNext }) {
   }
 
   const nextPage = () => {
+    if (currentPage <= screenActions.length) {
+      showPopup("Please watch the video first")
+      console.log("Please watch the video first")
+      return
+    }
+
     console.log("screenActions", screenActions)
     console.log(currentPage, "currentPage", screenActions[currentPage])
     const containsFinishActions = screenActions[currentPage].includes(DEFAULT_ACTION_STRING.finishVideoLeft) ||
@@ -28,6 +35,8 @@ export function ScreenHeader({ currentPage, setPrev, setNext }) {
     if (containsFinishActions) {
       setNext()
       addAction(DEFAULT_ACTION_STRING.clickNext, currentPage)
+    } else {
+      showPopup("Please watch the video first")
     }
   }
 
