@@ -21,22 +21,51 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
   }
 
   const nextPage = () => {
-    if (currentPage <= screenActions.length) {
+    if (currentPage >= screenActions.length) {
       showPopup("Please watch the video first")
       console.log("Please watch the video first")
       return
     }
 
-    console.log("screenActions", screenActions)
-    console.log(currentPage, "currentPage", screenActions[currentPage])
-    const containsFinishActions = screenActions[currentPage].includes(DEFAULT_ACTION_STRING.finishVideoLeft) ||
-      screenActions[currentPage].includes(DEFAULT_ACTION_STRING.finishVideoRight);
+    const currentAction = screenActions[currentPage]
+    console.log("currentAction", currentAction)
 
-    if (containsFinishActions) {
+    const isFinishLeftVideo = currentAction.includes(DEFAULT_ACTION_STRING.finishVideoLeft)
+    console.log("isFinishLeftVideo", isFinishLeftVideo)
+    if (!isFinishLeftVideo) {
+      showPopup("Please finish watch left video.")
+      return
+    }
+    console.log("isFinishLeftVideo", isFinishLeftVideo)
+
+    const isFinishRightVideo = currentAction.includes(DEFAULT_ACTION_STRING.finishVideoRight)
+    if (!isFinishRightVideo) {
+      showPopup("Please finish watch right video.")
+      return
+    }
+
+    const optionSelect = [
+      DEFAULT_ACTION_STRING.clickClearlyLeft,
+      DEFAULT_ACTION_STRING.clickSlightlyLeft,
+      DEFAULT_ACTION_STRING.clickEqual,
+      DEFAULT_ACTION_STRING.clickSlightlyRight,
+      DEFAULT_ACTION_STRING.clickClearlyRight
+    ]
+
+    let isSelected = false
+    for (let i = 0; i < optionSelect.length; i++) {
+      const option = optionSelect[i]
+      if (currentAction.includes(option)) {
+        isSelected = true;
+        break;
+      }
+    }
+
+    if (isSelected) {
       setNext()
       addAction(DEFAULT_ACTION_STRING.clickNext, currentPage)
     } else {
-      showPopup("Please watch the video first")
+      showPopup("Please select your option.")
     }
   }
 

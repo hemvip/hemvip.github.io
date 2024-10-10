@@ -62,7 +62,7 @@ export function ScreenMain({ currentPage }) {
                 onPlay={playLeft}
                 onSeeked={seekedVideoLeft}
                 onPause={pauseLeft}
-                onEnded={finishVideoRight}
+                onEnded={finishVideoLeft}
                 playsInline
                 loop={false}
                 controls

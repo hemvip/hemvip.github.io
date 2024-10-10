@@ -85,8 +85,6 @@ export function Prolific() {
         )
     }
 
-
-
     return (
         <ExperimentConfigProvider value={data}>
             <ScreenControlProvider min={0} max={data.pages.length - 1}>

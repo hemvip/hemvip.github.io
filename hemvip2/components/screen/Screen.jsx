@@ -153,10 +153,9 @@ export function Screen({ prolificid, studyid, sessionid }) {
           </div>
         </div>
 
-
         <PopupDialog
           isOpen={isOpen} message={message} closePopup={closePopup}
-          autoCloseTime={300000}
+          autoCloseTime={3000}
         />
 
         <PopupError />
