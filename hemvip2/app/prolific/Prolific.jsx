@@ -32,8 +32,11 @@ export function Prolific() {
             const response = await axios.get(`${API_ENDPOINT}/api/studies?prolificid=${PROLIFIC_PID}&studyid=${STUDY_ID}&sessionid=${SESSION_ID}`)
 
             const { errors, success, data, msg } = response.data
-            console.log("msg", msg)
-            setError(errors)
+            // console.log("msg", msg)
+            // setError(errors)
+            if (data == null) {
+                setError(true)
+            }
             setIsSuccess(success)
             setData(data)
         }
@@ -41,6 +44,29 @@ export function Prolific() {
         fetchStudies()
         setLoading(false)
     }, [PROLIFIC_PID, STUDY_ID, SESSION_ID])
+
+
+    if (error) {
+        return (
+            <div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
+                <div className="fixed inset-0 flex items-center justify-center z-50">
+                    <Callout type='error'>
+                        <p className="leading-7 first:mt-0">
+                            Your account prolific, study or session is not exist or expired.
+                        </p>
+                        Please visit{" "}
+                        <a
+                            className="text-primary-600 underline decoration-from-font [text-underline-position:from-font]"
+                            href="https://www.prolific.com/"
+                        >
+                            Prolific
+                        </a>{" "}
+                        to get access again
+                    </Callout>
+                </div>
+            </div>
+        )
+    }
 
     if (loading) {
         return (
@@ -57,6 +83,8 @@ export function Prolific() {
             </div>
         )
     }
+
+
 
     return (
         <ExperimentConfigProvider value={data}>

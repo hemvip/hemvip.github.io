@@ -1,0 +1,432 @@
+{
+    "_id": {
+        "$oid": "66865319be6a246b7593d5c5"
+    },
+    "status": "new",
+    "name": "Pairwise Comparison of Gesture Generation AI Model Studies",
+    "prolific_userid": "",
+    "prolific_studyid": "",
+    "prolific_sessionid": "",
+    "completion_code": "CMTN9LUK",
+    "fail_code": "C70GVE95",
+    "total_actions": [],
+    "pages": [
+        {
+            "pageid": {
+                "$oid": "66865319be6a246b7593d59f"
+            },
+            "type": "generic",
+            "name": "Startup guide to participate gesture generation study",
+            "content": "",
+            "actions": []
+        },
+        {
+            "pageid": {
+                "$oid": "66865319be6a246b7593d5a2"
+            },
+            "type": "video",
+            "name": "",
+            "content": "How human-like was the agent in this video?",
+            "selected": {
+                "value": 0,
+                "label": ""
+            },
+            "actions": [],
+            "videos": [
+                {
+                    "teamid": "667ac75038af3947740f1d7f",
+                    "inputid": "136058274725",
+                    "videoid": "genea/667ac75038af3947740f1d7f/1719941589171_136058274725.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/667ac75038af3947740f1d7f/1719941589171_136058274725.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5a0"
+                    }
+                },
+                {
+                    "teamid": "6683f113b71a1203e0cf43fa",
+                    "inputid": "136058274725",
+                    "videoid": "genea/6683f113b71a1203e0cf43fa/1719942071581_136058274725.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/6683f113b71a1203e0cf43fa/1719942071581_136058274725.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5a1"
+                    }
+                }
+            ]
+        },
+        {
+            "pageid": {
+                "$oid": "66865319be6a246b7593d5a5"
+            },
+            "type": "video",
+            "name": "",
+            "content": "How human-like was the agent in this video?",
+            "selected": {
+                "value": 0,
+                "label": ""
+            },
+            "actions": [],
+            "videos": [
+                {
+                    "teamid": "667ac75038af3947740f1d7f",
+                    "inputid": "256209585493",
+                    "videoid": "genea/667ac75038af3947740f1d7f/1719941591002_256209585493.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/667ac75038af3947740f1d7f/1719941591002_256209585493.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5a3"
+                    }
+                },
+                {
+                    "teamid": "6683f113b71a1203e0cf43fa",
+                    "inputid": "256209585493",
+                    "videoid": "genea/6683f113b71a1203e0cf43fa/1719942072819_256209585493.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/6683f113b71a1203e0cf43fa/1719942072819_256209585493.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5a4"
+                    }
+                }
+            ]
+        },
+        {
+            "pageid": {
+                "$oid": "66865319be6a246b7593d5a8"
+            },
+            "type": "check",
+            "name": "Attention Check",
+            "content": "Attention Check",
+            "selected": {
+                "value": 0,
+                "label": ""
+            },
+            "attention_correct_value": "Equal",
+            "actions": [],
+            "videos": [
+                {
+                    "teamid": "",
+                    "inputid": "",
+                    "videoid": "",
+                    "url": "https://f005.backblazeb2.com/file/gesture/attentioncheck/attetioncheck_equal.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5a6"
+                    }
+                },
+                {
+                    "teamid": "",
+                    "inputid": "",
+                    "videoid": "",
+                    "url": "https://f005.backblazeb2.com/file/gesture/attentioncheck/attetioncheck_equal.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5a7"
+                    }
+                }
+            ]
+        },
+        {
+            "pageid": {
+                "$oid": "66865319be6a246b7593d5ab"
+            },
+            "type": "video",
+            "name": "",
+            "content": "How human-like was the agent in this video?",
+            "selected": {
+                "value": 0,
+                "label": ""
+            },
+            "actions": [],
+            "videos": [
+                {
+                    "teamid": "667ac75038af3947740f1d7f",
+                    "inputid": "310864127408",
+                    "videoid": "genea/667ac75038af3947740f1d7f/1719941611654_310864127408.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/667ac75038af3947740f1d7f/1719941611654_310864127408.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5a9"
+                    }
+                },
+                {
+                    "teamid": "6683f113b71a1203e0cf43fa",
+                    "inputid": "310864127408",
+                    "videoid": "genea/6683f113b71a1203e0cf43fa/1719942082486_310864127408.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/6683f113b71a1203e0cf43fa/1719942082486_310864127408.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5aa"
+                    }
+                }
+            ]
+        },
+        {
+            "pageid": {
+                "$oid": "66865319be6a246b7593d5ae"
+            },
+            "type": "check",
+            "name": "Attention Check",
+            "content": "Attention Check",
+            "selected": {
+                "value": 0,
+                "label": ""
+            },
+            "attention_correct_value": "Right Better",
+            "actions": [],
+            "videos": [
+                {
+                    "teamid": "",
+                    "inputid": "",
+                    "videoid": "",
+                    "url": "https://f005.backblazeb2.com/file/gesture/attentioncheck/attetioncheck_rightbetter.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5ac"
+                    }
+                },
+                {
+                    "teamid": "",
+                    "inputid": "",
+                    "videoid": "",
+                    "url": "https://f005.backblazeb2.com/file/gesture/attentioncheck/attetioncheck_rightbetter.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5ad"
+                    }
+                }
+            ]
+        },
+        {
+            "pageid": {
+                "$oid": "66865319be6a246b7593d5b1"
+            },
+            "type": "video",
+            "name": "",
+            "content": "How human-like was the agent in this video?",
+            "selected": {
+                "value": 0,
+                "label": ""
+            },
+            "actions": [],
+            "videos": [
+                {
+                    "teamid": "667ac75038af3947740f1d7f",
+                    "inputid": "417010272047",
+                    "videoid": "genea/667ac75038af3947740f1d7f/1719941612682_417010272047.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/667ac75038af3947740f1d7f/1719941612682_417010272047.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5af"
+                    }
+                },
+                {
+                    "teamid": "6683f113b71a1203e0cf43fa",
+                    "inputid": "417010272047",
+                    "videoid": "genea/6683f113b71a1203e0cf43fa/1719942083208_417010272047.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/6683f113b71a1203e0cf43fa/1719942083208_417010272047.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5b0"
+                    }
+                }
+            ]
+        },
+        {
+            "pageid": {
+                "$oid": "66865319be6a246b7593d5b4"
+            },
+            "type": "video",
+            "name": "",
+            "content": "How human-like was the agent in this video?",
+            "selected": {
+                "value": 0,
+                "label": ""
+            },
+            "actions": [],
+            "videos": [
+                {
+                    "teamid": "667ac75038af3947740f1d7f",
+                    "inputid": "513194203802",
+                    "videoid": "genea/667ac75038af3947740f1d7f/1719941593867_513194203802.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/667ac75038af3947740f1d7f/1719941593867_513194203802.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5b2"
+                    }
+                },
+                {
+                    "teamid": "6683f113b71a1203e0cf43fa",
+                    "inputid": "513194203802",
+                    "videoid": "genea/6683f113b71a1203e0cf43fa/1719942073637_513194203802.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/6683f113b71a1203e0cf43fa/1719942073637_513194203802.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5b3"
+                    }
+                }
+            ]
+        },
+        {
+            "pageid": {
+                "$oid": "66865319be6a246b7593d5b7"
+            },
+            "type": "video",
+            "name": "",
+            "content": "How human-like was the agent in this video?",
+            "selected": {
+                "value": 0,
+                "label": ""
+            },
+            "actions": [],
+            "videos": [
+                {
+                    "teamid": "667ac75038af3947740f1d7f",
+                    "inputid": "527221490115",
+                    "videoid": "genea/667ac75038af3947740f1d7f/1719941597442_527221490115.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/667ac75038af3947740f1d7f/1719941597442_527221490115.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5b5"
+                    }
+                },
+                {
+                    "teamid": "6683f113b71a1203e0cf43fa",
+                    "inputid": "527221490115",
+                    "videoid": "genea/6683f113b71a1203e0cf43fa/1719942074423_527221490115.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/6683f113b71a1203e0cf43fa/1719942074423_527221490115.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5b6"
+                    }
+                }
+            ]
+        },
+        {
+            "pageid": {
+                "$oid": "66865319be6a246b7593d5ba"
+            },
+            "type": "video",
+            "name": "",
+            "content": "How human-like was the agent in this video?",
+            "selected": {
+                "value": 0,
+                "label": ""
+            },
+            "actions": [],
+            "videos": [
+                {
+                    "teamid": "667ac75038af3947740f1d7f",
+                    "inputid": "532958571648",
+                    "videoid": "genea/667ac75038af3947740f1d7f/1719941614949_532958571648.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/667ac75038af3947740f1d7f/1719941614949_532958571648.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5b8"
+                    }
+                },
+                {
+                    "teamid": "6683f113b71a1203e0cf43fa",
+                    "inputid": "532958571648",
+                    "videoid": "genea/6683f113b71a1203e0cf43fa/1719942085127_532958571648.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/6683f113b71a1203e0cf43fa/1719942085127_532958571648.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5b9"
+                    }
+                }
+            ]
+        },
+        {
+            "pageid": {
+                "$oid": "66865319be6a246b7593d5bd"
+            },
+            "type": "video",
+            "name": "",
+            "content": "How human-like was the agent in this video?",
+            "selected": {
+                "value": 0,
+                "label": ""
+            },
+            "actions": [],
+            "videos": [
+                {
+                    "teamid": "667ac75038af3947740f1d7f",
+                    "inputid": "542084845083",
+                    "videoid": "genea/667ac75038af3947740f1d7f/1719941618075_542084845083.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/667ac75038af3947740f1d7f/1719941618075_542084845083.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5bb"
+                    }
+                },
+                {
+                    "teamid": "6683f113b71a1203e0cf43fa",
+                    "inputid": "542084845083",
+                    "videoid": "genea/6683f113b71a1203e0cf43fa/1719942085848_542084845083.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/6683f113b71a1203e0cf43fa/1719942085848_542084845083.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5bc"
+                    }
+                }
+            ]
+        },
+        {
+            "pageid": {
+                "$oid": "66865319be6a246b7593d5c0"
+            },
+            "type": "video",
+            "name": "",
+            "content": "How human-like was the agent in this video?",
+            "selected": {
+                "value": 0,
+                "label": ""
+            },
+            "actions": [],
+            "videos": [
+                {
+                    "teamid": "667ac75038af3947740f1d7f",
+                    "inputid": "553029554766",
+                    "videoid": "genea/667ac75038af3947740f1d7f/1719941618995_553029554766.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/667ac75038af3947740f1d7f/1719941618995_553029554766.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5be"
+                    }
+                },
+                {
+                    "teamid": "6683f113b71a1203e0cf43fa",
+                    "inputid": "553029554766",
+                    "videoid": "genea/6683f113b71a1203e0cf43fa/1719942089100_553029554766.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/6683f113b71a1203e0cf43fa/1719942089100_553029554766.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5bf"
+                    }
+                }
+            ]
+        },
+        {
+            "pageid": {
+                "$oid": "66865319be6a246b7593d5c3"
+            },
+            "type": "video",
+            "name": "",
+            "content": "How human-like was the agent in this video?",
+            "selected": {
+                "value": 0,
+                "label": ""
+            },
+            "actions": [],
+            "videos": [
+                {
+                    "teamid": "667ac75038af3947740f1d7f",
+                    "inputid": "559914674878",
+                    "videoid": "genea/667ac75038af3947740f1d7f/1719941598736_559914674878.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/667ac75038af3947740f1d7f/1719941598736_559914674878.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5c1"
+                    }
+                },
+                {
+                    "teamid": "6683f113b71a1203e0cf43fa",
+                    "inputid": "559914674878",
+                    "videoid": "genea/6683f113b71a1203e0cf43fa/1719942075818_559914674878.mp4",
+                    "url": "https://gesture.s3.us-east-005.backblazeb2.com/genea/6683f113b71a1203e0cf43fa/1719942075818_559914674878.mp4",
+                    "_id": {
+                        "$oid": "66865319be6a246b7593d5c2"
+                    }
+                }
+            ]
+        },
+        {
+            "pageid": {
+                "$oid": "66865319be6a246b7593d5c4"
+            },
+            "type": "finish",
+            "name": "Finish page",
+            "content": "",
+            "actions": []
+        }
+    ],
+    "time_start": ""
+}
