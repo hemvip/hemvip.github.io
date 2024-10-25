@@ -47,11 +47,14 @@ clip_name, system, mismatch_type, mismatch_data
 13_lu_2_13_13_segment_2, NA, emotion, happy
 ```
 
+400 compare => json -> studies screen (text, system1, system2)?
+
 ## URL conventions
 
 The video visualisations of the clips should be stored in backblaze with convenient URLs, so that you can easily retrieve the video links based on the data in the csv file.
 
 https://genea.backblazeb2.com/file/videos/systems/SB/12_zhao_2_2_2_segment_3.mp4
 https://genea.backblazeb2.com/file/videos/baselines/BA/12_zhao_2_2_2_segment_3.mp4
+
 https://genea.backblazeb2.com/file/videos/mismatched/speech/BA/12_zhao_2_2_2_segment_3_with_speech_from_13_lu_2_13_13_segment_2.mp4
 https://genea.backblazeb2.com/file/videos/mismatched/emotion/BA/12_zhao_2_2_2_segment_3_with_emotion_sad_.mp4

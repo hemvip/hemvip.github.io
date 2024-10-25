@@ -145,7 +145,7 @@ export function Screen({ prolificid, studyid, sessionid }) {
                   ) : isEndPage ? (
                     <FinishScreen handleFinish={handleFinish} />
                   ) : (
-                    <ScreenMain currentPage={currentPage} />
+                    <ScreenMain currentPage={currentPage} setNext={setNext} />
                   )}
                 </motion.div>
               </AnimatePresence>

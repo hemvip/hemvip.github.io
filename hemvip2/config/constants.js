@@ -39,6 +39,9 @@ export const DEFAULT_ACTION_STRING = {
 
   finishVideoLeft: "Finish Video Left",
   finishVideoRight: "Finish Video Right",
+
+  skipLeft: "Skip Left",
+  skipRight: "Skip Right",
 }
 
 export const DEFAULT_SCREEN_CONFIG = {
