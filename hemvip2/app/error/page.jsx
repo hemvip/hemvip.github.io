@@ -1,7 +1,7 @@
 "use client"
 
-import { Suspense, useEffect, useState } from "react"
-import { Prolific } from "./Prolific";
+import { Callout } from "@/components/core"
+import { Suspense  } from "react"
 
 export default function Page() {
 
@@ -13,9 +13,9 @@ export default function Page() {
       <div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
         <div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
           <div className="fixed inset-0 flex items-center justify-center z-50">
-            <Callout type='error'>
+            <Callout type='error' className="min-w-96">
               <p className="leading-7 first:mt-0">
-                Your account prolific, study or session is not exist or expired.
+                Your study have failed, 
               </p>
               Please visit{" "}
               <a
@@ -24,7 +24,7 @@ export default function Page() {
               >
                 Prolific
               </a>{" "}
-              to get access again
+              to start study again.
             </Callout>
           </div>
         </div>
