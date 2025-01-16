@@ -1,4 +1,5 @@
 import React from "react"
+import Image from "next/image"
 
 export default function StartupScreen() {
   return (
@@ -40,7 +41,7 @@ export default function StartupScreen() {
           </code>
         </p>
         <div className="-mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
-          <img
+          <Image
             alt="Title suffix"
             loading="lazy"
             decoding="async"
@@ -56,7 +57,7 @@ export default function StartupScreen() {
           </code>
         </p>
         <div className="-mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
-          <img
+          <Image
             alt="Title suffix"
             loading="lazy"
             decoding="async"
@@ -66,7 +67,7 @@ export default function StartupScreen() {
           />
         </div>
         <div className="-mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
-          <img
+          <Image
             alt="Title suffix"
             loading="lazy"
             decoding="async"
@@ -76,7 +77,7 @@ export default function StartupScreen() {
           />
         </div>
         <div className="-mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
-          <img
+          <Image
             alt="Title suffix"
             loading="lazy"
             decoding="async"
@@ -86,7 +87,7 @@ export default function StartupScreen() {
           />
         </div>
         <div className="-mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
-          <img
+          <Image
             alt="Title suffix"
             loading="lazy"
             decoding="async"
@@ -96,7 +97,7 @@ export default function StartupScreen() {
           />
         </div>
         <div className="-mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
-          <img
+          <Image
             alt="Title suffix"
             loading="lazy"
             decoding="async"
