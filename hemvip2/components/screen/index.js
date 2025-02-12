@@ -1,5 +1,5 @@
 export { EvaluationBoard } from "./EvaluationBoard"
-export { NavScreen } from "./NavScreen"
+export { Headerbar as NavScreen } from "./Headerbar"
 export { PopupDialog } from "./PopupDialog"
 export { PopupError } from "./PopupError"
 export { Progressbar } from "./Progressbar"

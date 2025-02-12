@@ -29,8 +29,6 @@ export default function Page() {
 		setCurrentPage(idx)
 	}, [])
 
-	console.log("currentPage", currentPage)
-
 	// if (!isSuccess || !data) {
 	//   return (
 	//     <div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">

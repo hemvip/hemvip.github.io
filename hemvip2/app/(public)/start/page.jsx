@@ -5,7 +5,6 @@ import LoadingSpin from "@/components/loading/LoadingSpin"
 import { apiFetcherData } from "@/utils/fetcher"
 import { useRouter, useSearchParams } from "next/navigation"
 import { Suspense, useEffect } from "react"
-import { BrowserRouter as Router, Routes, Route, useParams, useNavigate } from "react-router-dom"
 
 export default function Page() {
 	const searchParams = useSearchParams()
@@ -18,12 +17,12 @@ export default function Page() {
 	useEffect(() => {
 		async function fetchStudy() {
 			localStorage.setItem("hemvip-study", {})
-			const study = await apiFetcherData(`/api/study?prolificid=${prolificid}&studyid=${studyid}&sessionid=${sessionid}&code=${code}`)
-			console.log("study", study)
+			const resp = await apiFetcherData(`/api/study?prolificid=${prolificid}&studyid=${studyid}&sessionid=${sessionid}&code=${code}`)
 
-			if (study) {
-				localStorage.setItem("hemvip-study", JSON.stringify(study))
-				router.push(`/study?index=generic`)
+			if (resp && resp.study && resp.pages) {
+				localStorage.setItem("hemvip-study", JSON.stringify(resp.study))
+				localStorage.setItem("hemvip-pages", JSON.stringify(resp.pages))
+				router.push(`/study?page=generic`)
 			}
 		}
 

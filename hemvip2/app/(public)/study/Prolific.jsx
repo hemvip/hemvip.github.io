@@ -16,15 +16,29 @@ import useSWR from "swr"
 import { apiFetcherData } from "@/utils/fetcher"
 
 export function Prolific({ prolificid, studyid, sessionid, code }) {
-	const {
-		data: study,
-		error,
-		isLoading: loading,
-	} = useSWR(`/api/study?prolificid=${prolificid}&studyid=${studyid}&sessionid=${sessionid}&code=${code}`, apiFetcherData, {
-		revalidateIfStale: false,
-		revalidateOnFocus: false,
-		revalidateOnReconnect: false,
-	})
+	// const {
+	// 	data: study,
+	// 	error,
+	// 	isLoading: loading,
+	// } = useSWR(`/api/study?prolificid=${prolificid}&studyid=${studyid}&sessionid=${sessionid}&code=${code}`, apiFetcherData, {
+	// 	revalidateIfStale: false,
+	// 	revalidateOnFocus: false,
+	// 	revalidateOnReconnect: false,
+	// })
+	const [study, setStudy] = useState(null)
+	const [pages, setPages] = useState(null)
+	useEffect(() => {
+		const interval = setInterval(() => {
+			const newValue = localStorage.getItem("myKey")
+			if (newValue !== storageValue) {
+				setStorageValue(newValue)
+			}
+		}, 500) // Check every 500ms
+
+		return () => clearInterval(interval)
+	}, [storageValue])
+
+	console.log("currentPage", currentPage)
 	console.log("study", study)
 	// const [data, setData] = useState([])
 	// const [loading, setLoading] = useState(true)
