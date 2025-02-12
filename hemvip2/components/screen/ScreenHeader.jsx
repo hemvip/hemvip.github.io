@@ -17,6 +17,7 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 
 	const prevPage = () => {
 		setPrev()
+		history.pushState({}, "", `?page=${currentPage}`)
 		addAction(DEFAULT_ACTION_STRING.clickPrev, currentPage)
 	}
 
@@ -63,6 +64,7 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 
 		if (isSelected) {
 			setNext()
+			history.pushState({}, "", `?page=${currentPage}`)
 			addAction(DEFAULT_ACTION_STRING.clickNext, currentPage)
 		} else {
 			showPopup("Please select your option.")
@@ -71,6 +73,7 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 
 	const startPage = () => {
 		setNext()
+		history.pushState({}, "", `?page=${currentPage}`)
 		addAction(DEFAULT_ACTION_STRING.clickStart, currentPage)
 	}
 	return (

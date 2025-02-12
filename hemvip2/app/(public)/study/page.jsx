@@ -79,9 +79,8 @@ export default function Page() {
 
 	return (
 		<Suspense fallback={<div>Loading....</div>}>
-			{/* <Prolific prolificid={prolificid} studyid={studyid} sessionid={sessionid} code={code} /> */}
-			<ScreenControlProvider min={0} max={study.pages.length - 1}>
-				<ActionRecorderProvider pages={study.pages}>
+			<ScreenControlProvider min={0} max={pages.length - 1}>
+				<ActionRecorderProvider pages={pages}>
 					<StudyProvider>
 						<UnloadProvider>
 							<PopupMessageProvider>

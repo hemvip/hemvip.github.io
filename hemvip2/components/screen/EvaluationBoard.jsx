@@ -41,10 +41,10 @@ export function EvaluationBoard({ currentPage }) {
 				<button
 					className={cn(
 						"cursor-pointer bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300 ",
-						options[currentPage] === DEFAULT_OPTION.clearlyLeft ? "bg-neutral-900 text-white" : "bg-neutral-100 hover:bg-neutral-200"
+						options[currentPage] === DEFAULT_OPTION.clearlyLeft ? "bg-neutral-800 text-neutral-100" : "bg-neutral-100 text-neutral-800 hover:bg-neutral-200"
 					)}
 				>
-					<div className="sm:px-4 px-2 py-2 w-full justify-center items-center text-center text-zinc-800 text-base font-bold leading-tight" onClick={handleClearlyLeft}>
+					<div className="sm:px-4 px-2 py-2 w-full justify-center items-center text-center text-current text-base font-bold leading-tight" onClick={handleClearlyLeft}>
 						Left clearly better
 					</div>
 				</button>
@@ -52,10 +52,10 @@ export function EvaluationBoard({ currentPage }) {
 				<button
 					className={cn(
 						"cursor-pointer bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300 ",
-						options[currentPage] === DEFAULT_OPTION.slightlyLeft ? "bg-neutral-900 text-white" : "bg-neutral-100 hover:bg-neutral-200"
+						options[currentPage] === DEFAULT_OPTION.slightlyLeft ? "bg-neutral-800 text-neutral-100" : "bg-neutral-100 hover:bg-neutral-200"
 					)}
 				>
-					<div className="sm:px-4 px-2 py-2 w-full justify-center items-center text-center text-zinc-800 text-base font-bold leading-tight" onClick={handleSlightlyLeft}>
+					<div className="sm:px-4 px-2 py-2 w-full justify-center items-center text-center text-current text-base font-bold leading-tight" onClick={handleSlightlyLeft}>
 						Left slightly better
 					</div>
 				</button>
@@ -63,10 +63,10 @@ export function EvaluationBoard({ currentPage }) {
 				<button
 					className={cn(
 						"cursor-pointer bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300",
-						options[currentPage] === DEFAULT_OPTION.equal ? "bg-neutral-900 text-white" : "bg-neutral-100 hover:bg-neutral-200"
+						options[currentPage] === DEFAULT_OPTION.equal ? "bg-neutral-800 text-neutral-100" : "bg-neutral-100 hover:bg-neutral-200"
 					)}
 				>
-					<div className="sm:px-4 px-2 py-2 w-full justify-center items-center text-center text-zinc-800 text-base font-bold leading-tight" onClick={handleEqual}>
+					<div className="sm:px-4 px-2 py-2 w-full justify-center items-center text-center text-current text-base font-bold leading-tight" onClick={handleEqual}>
 						They are equal
 					</div>
 				</button>
@@ -74,10 +74,10 @@ export function EvaluationBoard({ currentPage }) {
 				<button
 					className={cn(
 						"cursor-pointer bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300",
-						options[currentPage] === DEFAULT_OPTION.slightlyRight ? "bg-neutral-900 text-white" : "bg-neutral-100 hover:bg-neutral-200"
+						options[currentPage] === DEFAULT_OPTION.slightlyRight ? "bg-neutral-800 text-neutral-100" : "bg-neutral-100 hover:bg-neutral-200"
 					)}
 				>
-					<div className="sm:px-4 px-2 py-2 w-full justify-center items-center text-center text-zinc-800 text-base font-bold leading-tight" onClick={handleSlightlyRight}>
+					<div className="sm:px-4 px-2 py-2 w-full justify-center items-center text-center text-current text-base font-bold leading-tight" onClick={handleSlightlyRight}>
 						Right slightly better
 					</div>
 				</button>
@@ -85,10 +85,10 @@ export function EvaluationBoard({ currentPage }) {
 				<button
 					className={cn(
 						"cursor-pointer bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300",
-						options[currentPage] === DEFAULT_OPTION.clearlyRight ? "bg-neutral-900 text-white" : "bg-neutral-100 hover:bg-neutral-200"
+						options[currentPage] === DEFAULT_OPTION.clearlyRight ? "bg-neutral-800 text-neutral-100" : "bg-neutral-100 hover:bg-neutral-200"
 					)}
 				>
-					<div className="sm:px-4 px-2 py-2 w-full justify-center items-center text-center text-zinc-800 text-base font-bold leading-tight" onClick={handleClearlyRight}>
+					<div className="sm:px-4 px-2 py-2 w-full justify-center items-center text-center text-current text-base font-bold leading-tight" onClick={handleClearlyRight}>
 						Right clearly better
 					</div>
 				</button>
