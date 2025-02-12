@@ -2,7 +2,7 @@
 
 import { DEFAULT_ACTION_STRING, DEFAULT_OPTION } from "@/config/constants"
 import { useActionRecorder } from "@/contexts/action-recorder"
-import { useStudy } from "@/contexts/study"
+import { useStudy } from "@/contexts/selected"
 import React, { useState } from "react"
 import cn from "clsx"
 

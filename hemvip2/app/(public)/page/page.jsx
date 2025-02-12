@@ -47,9 +47,7 @@ export default function Page() {
 
 	return (
 		<Suspense fallback={<div>Loading....</div>}>
-			<div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
-				<Prolific prolificid={prolificid} studyid={studyid} sessionid={sessionid} code={code} />
-			</div>
+			<Prolific prolificid={prolificid} studyid={studyid} sessionid={sessionid} code={code} />
 			{/* <PreventRefreshPage /> */}
 			{/* <PaginationScreen /> */}
 		</Suspense>

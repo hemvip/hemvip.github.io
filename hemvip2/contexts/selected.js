@@ -3,7 +3,7 @@
 import { DEFAULT_OPTION } from "@/config/constants"
 import { createContext, useContext, useState } from "react"
 
-const StudyContext = createContext({
+const SelectedContext = createContext({
 	options: {
 		0: DEFAULT_OPTION.unselect,
 		1: DEFAULT_OPTION.unselect,
@@ -11,7 +11,7 @@ const StudyContext = createContext({
 	selectStudy: (newOption, currentPage) => {},
 })
 
-export const useStudy = () => useContext(StudyContext)
+export const useStudy = () => useContext(SelectedContext)
 export function StudyProvider({ children }) {
 	const [options, setOptions] = useState({})
 
@@ -25,5 +25,5 @@ export function StudyProvider({ children }) {
 	}
 
 	// actions list sample will be replace by [] here
-	return <StudyContext.Provider value={{ options, selectStudy }}>{children}</StudyContext.Provider>
+	return <SelectedContext.Provider value={{ options, selectStudy }}>{children}</SelectedContext.Provider>
 }
