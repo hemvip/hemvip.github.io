@@ -2,17 +2,12 @@
 
 import { Suspense } from "react"
 import { HomePage } from "./HomePage"
-import { useSearchParams } from "next/navigation"
 // import AttentionCheck from "@/components/attentioncheck/AttentionCheck"
 
 export default function Home() {
 	// const [isOpenDialog, setIsOpenDialog] = useState(false)
 	// const [state, setState] = useState("Attention Check")
 	// const [state, setState] = useState("Start Study")
-	const searchParams = useSearchParams()
-	const prolificid = searchParams.get("PROLIFIC_PID")
-	const studyid = searchParams.get("STUDY_ID")
-	const sessionid = searchParams.get("SESSION_ID")
 
 	return (
 		<Suspense>
@@ -21,7 +16,7 @@ export default function Home() {
 					<div className="lg:px-8 px-0 overflow-y-auto flex flex-col min-h-96">
 						<h1 className="text-center mt-2 text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Pairwise Comparison of Gesture Generation Studies</h1>
 
-						<HomePage prolificid={prolificid} studyid={studyid} sessionid={sessionid} />
+						<HomePage />
 						{/* <AttentionCheck
           isOpenDialog={isOpenDialog}
           setIsOpenDialog={setIsOpenDialog}

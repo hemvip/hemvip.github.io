@@ -36,7 +36,7 @@ export function Prolific({ prolificid, studyid, sessionid, code }) {
 		}, 500) // Check every 500ms
 
 		return () => clearInterval(interval)
-	}, [storageValue])
+	}, [])
 
 	console.log("currentPage", currentPage)
 	console.log("study", study)

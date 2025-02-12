@@ -14,8 +14,16 @@ import { UnloadProvider } from "@/contexts/beforeunload"
 import { PopupMessageProvider } from "@/contexts/popupmessage"
 import useSWR from "swr"
 import { apiFetcherData } from "@/utils/fetcher"
+import { useSearchParams } from "next/navigation"
 
-export function Prolific({ prolificid, studyid, sessionid, code }) {
+export function Prolific() {
+	const searchParams = useSearchParams()
+	const prolificid = searchParams.get("PROLIFIC_ID")
+	const studyid = searchParams.get("STUDY_ID")
+	const sessionid = searchParams.get("SESSION_ID")
+	const code = searchParams.get("CODE")
+
+	console.log("prolificid", prolificid, studyid, sessionid, code)
 	const {
 		data: study,
 		error,

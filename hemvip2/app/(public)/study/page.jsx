@@ -22,11 +22,20 @@ export default function Page() {
 	// const sessionid = searchParams.get("SESSION_ID")
 	// const code = searchParams.get("CODE")
 	const [currentPage, setCurrentPage] = useState(0)
+	const [loading, setLoading] = useState(true)
+	const [study, setStudy] = useState(null)
+	const [pages, setPages] = useState(null)
 
 	useEffect(() => {
 		const params = new URLSearchParams(window.location.search)
 		const idx = Number(params.get("page"))
 		setCurrentPage(idx)
+
+		const study = localStorage.getItem("hemvip-study")
+		const pages = localStorage.getItem("hemvip-pages")
+		setStudy(study)
+		setPages(pages)
+		setLoading(false)
 	}, [])
 
 	// if (!isSuccess || !data) {
@@ -50,6 +59,13 @@ export default function Page() {
 	//     </div>
 	//   )
 	// }
+	if (loading) {
+		return (
+			<div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
+				<LoadingSpin />
+			</div>
+		)
+	}
 
 	return (
 		<Suspense fallback={<div>Loading....</div>}>

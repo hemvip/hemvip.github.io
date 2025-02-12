@@ -16,13 +16,6 @@ import { useSearchParams } from "next/navigation"
 import { Prolific } from "./Prolific"
 
 export default function Page() {
-	const searchParams = useSearchParams()
-	const prolificid = searchParams.get("PROLIFIC_ID")
-	const studyid = searchParams.get("STUDY_ID")
-	const sessionid = searchParams.get("SESSION_ID")
-	const code = searchParams.get("CODE")
-
-	console.log("prolificid", prolificid, studyid, sessionid, code)
 	// if (!isSuccess || !data) {
 	//   return (
 	//     <div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
@@ -47,7 +40,7 @@ export default function Page() {
 
 	return (
 		<Suspense fallback={<div>Loading....</div>}>
-			<Prolific prolificid={prolificid} studyid={studyid} sessionid={sessionid} code={code} />
+			<Prolific />
 			{/* <PreventRefreshPage /> */}
 			{/* <PaginationScreen /> */}
 		</Suspense>

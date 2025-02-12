@@ -13,7 +13,12 @@ import { apiPost } from "@/utils/fetcher"
 import StartupGuide from "../components/StartupGuide"
 
 // export function HomePage({ state, handleAttentionCheck }) {
-export function HomePage({ prolificid, studyid, sessionid }) {
+export function HomePage() {
+	const searchParams = useSearchParams()
+	const prolificid = searchParams.get("PROLIFIC_PID")
+	const studyid = searchParams.get("STUDY_ID")
+	const sessionid = searchParams.get("SESSION_ID")
+
 	const router = useRouter()
 
 	const [loading, setLoading] = useState(false)
