@@ -14,7 +14,7 @@ Visit MongoDB create Cluster and import schema
 ```json
 {
   "status": "finish",
-  "name": "Pairwise Comparison of Gesture Generation AI Model Studies",
+  "name": "Pairwise Comparison of Gesture Generation Studies",
   "prolific_userid": "662b614c61935111d01484bf",
   "prolific_studyid": "665971ec91884faf5b5284d7",
   "prolific_sessionid": "076s0uhyloc",

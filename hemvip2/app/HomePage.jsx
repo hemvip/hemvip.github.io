@@ -15,22 +15,10 @@ import StartupGuide from "./StartupGuide"
 // export function HomePage({ state, handleAttentionCheck }) {
 export function HomePage({ prolificid, studyid, sessionid }) {
 	const router = useRouter()
+
 	const [loading, setLoading] = useState(false)
 	const [isComplete, setIsComplete] = useState(false)
 	const [isError, setIsError] = useState(false)
-
-	if (!prolificid || !studyid || !sessionid) {
-		return (
-			<div className="">
-				<div className="p-28">
-					<Callout type="error" className="h-14">
-						Please visit Prolific to get session.
-					</Callout>
-				</div>
-				<StartupGuide />
-			</div>
-		)
-	}
 
 	const handleStart = async () => {
 		// 	// if (state === "Attention Check") {
@@ -51,10 +39,13 @@ export function HomePage({ prolificid, studyid, sessionid }) {
 			})
 			console.log("Homepage.response", resp)
 			if (resp.success) {
-				if (data) {
-					router.push(`/prolific?PROLIFIC_PID=${prolificid}&STUDY_ID=${studyid}&SESSION_ID=${sessionid}`)
-				} else {
+				const { state, code } = resp.data
+				if (state === "full") {
 					setIsComplete(true)
+				} else if (state === "success") {
+					router.push(`/prolific?PROLIFIC_ID=${prolificid}&STUDY_ID=${studyid}&SESSION_ID=${sessionid}&CODE=${code}`)
+				} else {
+					setIsError(true)
 				}
 			} else {
 				console.log("resp", resp)
@@ -68,30 +59,40 @@ export function HomePage({ prolificid, studyid, sessionid }) {
 		}
 	}
 
+	if (!prolificid || !studyid || !sessionid) {
+		return (
+			<div className="">
+				<div className="px-28 py-24">
+					<Callout type="error">Please visit Prolific to get session.</Callout>
+				</div>
+				<StartupGuide />
+			</div>
+		)
+	}
+
 	return (
 		<>
 			<p className="mt-3 leading-6 first:mt-0">
 				Click <strong>Start</strong> button to begin study.
 			</p>
 			<p className="mt-3 leading-6 first:mt-0">Please read Startup guide before Start</p>
-			<div className="flex flex-col py-4 md:py-8">
-				<div className="flex flex-row gap-4 px-4 justify-center items-start">
-					{!isError && (
-						<div className="min-w-60">
-							<button
-								type="submit"
-								onClick={handleStart}
-								className={cn(
-									"cursor-pointer flex mb-4 mt-5 h-10 w-full font-bold text-white  items-center justify-center rounded-md border text-sm transition-all focus:outline-none disabled:bg-blue-200 disabled:border-blue-200",
-									// state === "Start Study" ? "bg-blue-500" : "bg-green-600"
-									"bg-green-600"
-								)}
-							>
-								<div className="flex gap-2 items-center">
-									{loading ? <CircleLoading className="w-5 h-5" /> : <StartStudyIcon className="w-5 h-5" />}
-									Start Study
-								</div>
-								{/* {loading ? (
+			<div className="md:py-8 flex flex-row gap-4 px-4 justify-center items-start">
+				{!isError && (
+					<div className="min-w-60">
+						<button
+							type="submit"
+							onClick={handleStart}
+							className={cn(
+								"cursor-pointer flex mb-4 mt-5 h-10 w-full font-bold text-white  items-center justify-center rounded-md border text-sm transition-all focus:outline-none disabled:bg-blue-200 disabled:border-blue-200",
+								// state === "Start Study" ? "bg-blue-500" : "bg-green-600"
+								"bg-green-600"
+							)}
+						>
+							<div className="flex gap-2 items-center">
+								{loading ? <CircleLoading className="w-5 h-5" /> : <StartStudyIcon className="w-5 h-5" />}
+								Start Study
+							</div>
+							{/* {loading ? (
 														<Loading />
 													) : state === "Start Study" ? (
 														<div className="flex gap-2 items-center">
@@ -108,29 +109,28 @@ export function HomePage({ prolificid, studyid, sessionid }) {
 															Attention Check
 														</div>
 													)} */}
-							</button>
-						</div>
-					)}
-				</div>
-				{isError && (
-					<div className="px-4">
-						<Callout type="error">
-							Please visit{" "}
-							<a className="text-primary-600 underline decoration-from-font [text-underline-position:from-font]" href="https://www.prolific.com/">
-								Prolific
-							</a>{" "}
-							to get session.
-							{/* PROLIFIC_PID, STUDY_ID, SESSION_ID */}
-						</Callout>
-					</div>
-				)}
-
-				{isComplete && (
-					<div className="px-4">
-						<Callout type="info">All study is complete</Callout>
+						</button>
 					</div>
 				)}
 			</div>
+			{isError && (
+				<div className="px-4">
+					<Callout type="error">
+						Please visit{" "}
+						<a className="text-primary-600 underline decoration-from-font [text-underline-position:from-font]" href="https://www.prolific.com/">
+							Prolific
+						</a>{" "}
+						to get session.
+						{/* PROLIFIC_PID, STUDY_ID, SESSION_ID */}
+					</Callout>
+				</div>
+			)}
+
+			{isComplete && (
+				<div className="px-24 pb-4">
+					<Callout type="info">All study is complete</Callout>
+				</div>
+			)}
 			<hr className="dark:border-neutral-800" />
 			<StartupGuide />
 		</>

@@ -21,7 +21,7 @@ const classes = {
 export function Callout({ children, type = "default", emoji = TypeToEmoji[type], className, ...props }) {
 	return (
 		<div
-			className={cn("nextra-callout overflow-x-auto mt-3 flex rounded-lg border py-2 ltr:pr-4 rtl:pl-4", "contrast-more:border-current contrast-more:dark:border-current", classes[type], className)}
+			className={cn("nextra-callout overflow-x-auto flex rounded-lg border py-2 ltr:pr-4 rtl:pl-4", "contrast-more:border-current contrast-more:dark:border-current", classes[type], className)}
 			{...props}
 		>
 			<div

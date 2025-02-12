@@ -15,17 +15,17 @@ import { PopupMessageProvider } from "@/contexts/popupmessage"
 import useSWR from "swr"
 import { apiFetcherData } from "@/utils/fetcher"
 
-export function Prolific({ prolificid, studyid, sessionid }) {
+export function Prolific({ prolificid, studyid, sessionid, code }) {
 	const {
 		data: study,
 		error,
 		isLoading: loading,
-	} = useSWR(`/api/study?prolificid=${prolificid}&studyid=${studyid}&sessionid=${sessionid}`, apiFetcherData, {
+	} = useSWR(`/api/study?prolificid=${prolificid}&studyid=${studyid}&sessionid=${sessionid}&code=${code}`, apiFetcherData, {
 		revalidateIfStale: false,
 		revalidateOnFocus: false,
 		revalidateOnReconnect: false,
 	})
-
+	console.log("study", study)
 	// const [data, setData] = useState([])
 	// const [loading, setLoading] = useState(true)
 	// const [isSuccess, setIsSuccess] = useState(false)
@@ -74,10 +74,19 @@ export function Prolific({ prolificid, studyid, sessionid }) {
 		)
 	}
 
-	if (!data || data.length <= 0) {
+	if (!study) {
 		return (
 			<div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
-				<LoadingSpin />
+				<div className="fixed inset-0 flex items-center justify-center z-50">
+					<Callout type="error">
+						<p className="leading-7 first:mt-0">Your account prolific, study or session is not exist or expired.</p>
+						Please visit{" "}
+						<a className="text-primary-600 underline decoration-from-font [text-underline-position:from-font]" href="https://www.prolific.com/">
+							Prolific
+						</a>{" "}
+						to get access again
+					</Callout>
+				</div>
 			</div>
 		)
 	}

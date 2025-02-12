@@ -17,11 +17,12 @@ import { Prolific } from "./Prolific"
 
 export default function Page() {
 	const searchParams = useSearchParams()
-	const PROLIFIC_PID = searchParams.get("PROLIFIC_PID")
-	const STUDY_ID = searchParams.get("STUDY_ID")
-	const SESSION_ID = searchParams.get("SESSION_ID")
+	const prolificid = searchParams.get("PROLIFIC_ID")
+	const studyid = searchParams.get("STUDY_ID")
+	const sessionid = searchParams.get("SESSION_ID")
+	const code = searchParams.get("CODE")
 
-	console.log("object", PROLIFIC_PID, STUDY_ID, SESSION_ID)
+	console.log("prolificid", prolificid, studyid, sessionid, code)
 	// if (!isSuccess || !data) {
 	//   return (
 	//     <div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
@@ -47,7 +48,7 @@ export default function Page() {
 	return (
 		<Suspense fallback={<div>Loading heeeeere....</div>}>
 			<div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
-				<Prolific userid={PROLIFIC_PID} studyid={STUDY_ID} sessionid={SESSION_ID} />
+				<Prolific prolificid={prolificid} studyid={studyid} sessionid={sessionid} code={code} />
 			</div>
 			{/* <PreventRefreshPage /> */}
 			{/* <PaginationScreen /> */}
