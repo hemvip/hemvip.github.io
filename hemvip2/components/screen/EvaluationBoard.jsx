@@ -40,7 +40,7 @@ export function EvaluationBoard({ currentPage }) {
 			<div className="w-full justify-evenly mx-auto flex flex-row">
 				<button
 					className={cn(
-						"cursor-pointer bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300 ",
+						"cursor-pointer select-none bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300 ",
 						options[currentPage] === DEFAULT_OPTION.clearlyLeft ? "bg-neutral-800 text-neutral-100" : "bg-neutral-100 text-neutral-800 hover:bg-neutral-200"
 					)}
 				>
@@ -51,7 +51,7 @@ export function EvaluationBoard({ currentPage }) {
 
 				<button
 					className={cn(
-						"cursor-pointer bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300 ",
+						"cursor-pointer select-none bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300 ",
 						options[currentPage] === DEFAULT_OPTION.slightlyLeft ? "bg-neutral-800 text-neutral-100" : "bg-neutral-100 hover:bg-neutral-200"
 					)}
 				>
@@ -62,7 +62,7 @@ export function EvaluationBoard({ currentPage }) {
 
 				<button
 					className={cn(
-						"cursor-pointer bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300",
+						"cursor-pointer select-none bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300",
 						options[currentPage] === DEFAULT_OPTION.equal ? "bg-neutral-800 text-neutral-100" : "bg-neutral-100 hover:bg-neutral-200"
 					)}
 				>
@@ -73,7 +73,7 @@ export function EvaluationBoard({ currentPage }) {
 
 				<button
 					className={cn(
-						"cursor-pointer bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300",
+						"cursor-pointer select-none bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300",
 						options[currentPage] === DEFAULT_OPTION.slightlyRight ? "bg-neutral-800 text-neutral-100" : "bg-neutral-100 hover:bg-neutral-200"
 					)}
 				>
@@ -84,7 +84,7 @@ export function EvaluationBoard({ currentPage }) {
 
 				<button
 					className={cn(
-						"cursor-pointer bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300",
+						"cursor-pointer select-none bg-neutral-100 rounded-lg min-w-[15%] flex justify-center align-middle shadow border border-zinc-300",
 						options[currentPage] === DEFAULT_OPTION.clearlyRight ? "bg-neutral-800 text-neutral-100" : "bg-neutral-100 hover:bg-neutral-200"
 					)}
 				>

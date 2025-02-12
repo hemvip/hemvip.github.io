@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useCurrentPage } from "@/contexts/experiment"
 import { useActionRecorder } from "@/contexts/action-recorder"
 import { DEFAULT_ACTION_STRING } from "@/config/constants"
@@ -14,10 +14,12 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 	// const finishPage = () => {
 	//   addAction(DEFAULT_ACTION_STRING.clickFinish, currentPage)
 	// }
+	useEffect(() => {
+		history.pushState({}, "", `?page=${currentPage + 1}`)
+	}, [currentPage])
 
 	const prevPage = () => {
 		setPrev()
-		history.pushState({}, "", `?page=${currentPage}`)
 		addAction(DEFAULT_ACTION_STRING.clickPrev, currentPage)
 	}
 
@@ -34,14 +36,14 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 		const isFinishLeftVideo = currentAction.includes(DEFAULT_ACTION_STRING.finishVideoLeft)
 		console.log("isFinishLeftVideo", isFinishLeftVideo)
 		if (!isFinishLeftVideo) {
-			showPopup("Please finish watch left video.")
+			showPopup("Please watch the left video to the end.")
 			return
 		}
 		console.log("isFinishLeftVideo", isFinishLeftVideo)
 
 		const isFinishRightVideo = currentAction.includes(DEFAULT_ACTION_STRING.finishVideoRight)
 		if (!isFinishRightVideo) {
-			showPopup("Please finish watch right video.")
+			showPopup("Please watch the right video to the end.")
 			return
 		}
 
@@ -64,7 +66,6 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 
 		if (isSelected) {
 			setNext()
-			history.pushState({}, "", `?page=${currentPage}`)
 			addAction(DEFAULT_ACTION_STRING.clickNext, currentPage)
 		} else {
 			showPopup("Please select your option.")
@@ -73,7 +74,6 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 
 	const startPage = () => {
 		setNext()
-		history.pushState({}, "", `?page=${currentPage}`)
 		addAction(DEFAULT_ACTION_STRING.clickStart, currentPage)
 	}
 	return (
@@ -88,7 +88,7 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 					data-role="button"
 					data-inline="true"
 					onClick={prevPage}
-					className="cursor-pointer py-0 sm:py-2 m-1 px-0 sm:px-5 text-center text-zinc-800 font-bold leading-1 sm:leading-5 flex items-center gap-2 disabled:text-gray-400"
+					className="cursor-pointer select-none py-0 sm:py-2 m-1 px-0 sm:px-5 text-center text-zinc-800 font-bold leading-1 sm:leading-5 flex items-center gap-2 disabled:text-gray-400"
 				>
 					<ArrowLeftIcon className="h-4 sm:h-5 inline shrink-0 ltr:rotate-180" />
 					Previous
@@ -103,7 +103,7 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 				<button
 					data-role="button"
 					data-inline="true"
-					className="cursor-pointer py-0 sm:py-2 m-1 px-0 sm:px-5 text-center text-zinc-800 font-bold leading-5 flex items-center gap-2 disabled:text-gray-400"
+					className="cursor-pointer select-none py-0 sm:py-2 m-1 px-0 sm:px-5 text-center text-zinc-800 font-bold leading-5 flex items-center gap-2 disabled:text-gray-400"
 					onClick={startPage}
 				>
 					Start
@@ -113,7 +113,7 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 				<button
 					data-role="button"
 					data-inline="true"
-					className="cursor-pointer py-0 sm:py-2 m-1 px-0 sm:px-5 text-center text-zinc-800 font-bold leading-5 flex items-center gap-2 disabled:text-gray-400"
+					className="cursor-pointer select-none py-0 sm:py-2 m-1 px-0 sm:px-5 text-center text-zinc-800 font-bold leading-5 flex items-center gap-2 disabled:text-gray-400"
 					onClick={nextPage}
 				>
 					Next
