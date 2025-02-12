@@ -1,32 +1,57 @@
 "use client"
 
-import { useRouter, useSearchParams } from "next/navigation"
-import AnimateWrapper from "./AnimateWrapper"
-import { Suspense } from "react"
+// import axios from "axios"
+// import { Screen } from "@/components/screen"
+// import { ExperimentConfigProvider } from "@/contexts/experiment"
+// import { ScreenControlProvider } from "@/contexts/screencontroll"
+// import { ActionRecorderProvider } from "@/contexts/action-recorder"
+// import PreventRefreshPage from "@/components/PreventRefreshPage"
+// import { Callout } from "@/components/core"
+// import { StudyProvider } from "@/contexts/study"
+import { Suspense, useEffect, useState } from "react"
+// import { API_ENDPOINT } from "@/utils/urlEndpoint"
+import LoadingSpin from "@/components/loading/LoadingSpin"
+// import { UnloadProvider } from "@/contexts/beforeunload"
+import { useSearchParams } from "next/navigation"
+import { Prolific } from "./Prolific"
 
 export default function Page() {
-	// const searchParams = useSearchParams()
-	// const router = useRouter()
+	const searchParams = useSearchParams()
+	const prolificid = searchParams.get("PROLIFIC_ID")
+	const studyid = searchParams.get("STUDY_ID")
+	const sessionid = searchParams.get("SESSION_ID")
+	const code = searchParams.get("CODE")
 
-	// const id = searchParams.get("id") || "1" // Default to "1" if `id` is not provided
-	// const param = searchParams.get("param") || "default" // Default to "default" if `param` is not provided
-
-	// const handleNextPage = () => {
-	// 	router.push(`/page?id=${Number(id) + 1}&param=${param}`)
-	// }
-
-	// const handlePreviousPage = () => {
-	// 	router.push(`/page?id=${Number(id) - 1}&param=${param}`)
+	console.log("prolificid", prolificid, studyid, sessionid, code)
+	// if (!isSuccess || !data) {
+	//   return (
+	//     <div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
+	//       <div className="h-screen flex items-center justify-center">
+	//         <Callout type="error" className="z-10 w-full max-w-lg rounded-2xl">
+	//           <p className="leading-7 first:mt-0">
+	//             Your account prolific, study or session is not exist or expired.
+	//           </p>
+	//           Please visit{" "}
+	//           <a
+	//             className="text-primary-600 underline decoration-from-font [text-underline-position:from-font]"
+	//             href="https://www.prolific.com/"
+	//           >
+	//             Prolific
+	//           </a>{" "}
+	//           to get access again.
+	//         </Callout>
+	//       </div>
+	//     </div>
+	//   )
 	// }
 
 	return (
-		<Suspense fallback={<div>Loading...</div>}>
-			{/* <AnimateWrapper currentPage={id}>
-				<Page key={id} id={id} param={param} className="w-full h-screen bg-gray-200 p-4" />
-				<button onClick={handleNextPage}>Next Page</button>
-				<button onClick={handlePreviousPage}>Previous Page</button>
-			</AnimateWrapper> */}
-			hello
+		<Suspense fallback={<div>Loading....</div>}>
+			<Prolific prolificid={prolificid} studyid={studyid} sessionid={sessionid} code={code} />
+			{/* <PreventRefreshPage /> */}
+			{/* <PaginationScreen /> */}
 		</Suspense>
 	)
 }
+
+// export const runtime = 'edge'
