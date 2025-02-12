@@ -10,11 +10,6 @@ import cn from "clsx"
 
 // export function HomePage({ state, handleAttentionCheck }) {
 export function HomePage({ state }) {
-	const searchParams = useSearchParams()
-	const PROLIFIC_PID = searchParams.get("PROLIFIC_PID")
-	const STUDY_ID = searchParams.get("STUDY_ID")
-	const SESSION_ID = searchParams.get("SESSION_ID")
-
 	const router = useRouter()
 	const [loading, setLoading] = useState(false)
 	const [isComplete, setIsComplete] = useState(false)
