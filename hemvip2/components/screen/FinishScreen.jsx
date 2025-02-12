@@ -13,14 +13,11 @@ export default function FinishScreen({ handleFinish }) {
 	return (
 		<div className="px-8 overflow-y-auto">
 			<div className="mx-[10%]">
-				<h2 className="text-center font-semibold tracking-tight text-slate-900 dark:text-slate-100 mt-3 text-2xl">🏁 Your Selection Result 🏁</h2>
-				{/* <h3 className="font-semibold tracking-tight text-slate-900 dark:text-slate-100 mt-3 text-xl"></h3> */}
+				<h2 className="text-center font-semibold tracking-tight text-slate-900 dark:text-slate-100 text-2xl">🏁 Your Selection Result 🏁</h2>
+				<h3 className="font-semibold tracking-tight text-slate-900 dark:text-slate-100 mt-3 text-xl">Submit your result to finish</h3>
 				{/* <p className="mt-3 leading-6 first:mt-0">Please submit to finish</p> */}
 
-				<p className="mt-3 leading-6 first:mt-0 text-sm">
-					Gesture Generation is the process of generating gestures from speech or text. The goal of Gesture Generation is to generate gestures that are natural, realistic, and appropriate for the
-					given context
-				</p>
+				<p className="mt-3 leading-6 first:mt-0 text-sm">You cannot edit on selected option here. To make changes, please click the "Previous" button to reselect your option.</p>
 				<div className={cn("-mx-6 mb-4 overflow-x-auto overscroll-x-contain px-6 pb-4", "mask-gradient")}>
 					<div className="w-full border-collapse text-base block">
 						<div className="block">

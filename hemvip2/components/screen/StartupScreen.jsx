@@ -3,9 +3,9 @@ import Image from "next/image"
 
 export default function StartupScreen() {
 	return (
-		<div className="px-8 overflow-y-auto">
-			<div className="max-w-[52rem] mx-auto">
-				<h2 className="font-semibold tracking-tight text-slate-900 dark:text-slate-100 mt-3 text-2xl">Startup guide</h2>
+		<div className="overflow-y-auto">
+			<div className="mx-[10%]  overflow-y-visible">
+				<h2 className="text-center font-semibold tracking-tight text-slate-900 dark:text-slate-100 text-2xl">📢 User study guide 📢</h2>
 				<h3 className="font-semibold tracking-tight text-slate-900 dark:text-slate-100 mt-3 text-xl">1. Our Gesture Generation Study</h3>
 				<p className="mt-3 leading-6 first:mt-0">
 					Gesture Generation is the process of generating gestures from speech or text. The goal of Gesture Generation is to generate gestures that are natural, realistic, and appropriate for the
