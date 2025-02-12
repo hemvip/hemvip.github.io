@@ -9,10 +9,10 @@ import { BrowserRouter as Router, Routes, Route, useParams, useNavigate } from "
 
 export default function Page() {
 	const searchParams = useSearchParams()
-	const prolificid = searchParams.get("PROLIFIC_ID")
-	const studyid = searchParams.get("STUDY_ID")
-	const sessionid = searchParams.get("SESSION_ID")
-	const code = searchParams.get("CODE")
+	const prolificid = searchParams.get("prolificid")
+	const studyid = searchParams.get("studyid")
+	const sessionid = searchParams.get("sessionid")
+	const code = searchParams.get("code")
 	const router = useRouter()
 
 	useEffect(() => {

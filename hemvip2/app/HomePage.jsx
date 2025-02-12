@@ -43,7 +43,7 @@ export function HomePage({ prolificid, studyid, sessionid }) {
 				if (state === "full") {
 					setIsComplete(true)
 				} else if (state === "success") {
-					router.push(`/page?PROLIFIC_ID=${prolificid}&STUDY_ID=${studyid}&SESSION_ID=${sessionid}&CODE=${code}`)
+					router.push(`/start?prolificid=${prolificid}&studyid=${studyid}&sessionid=${sessionid}&code=${code}`)
 				} else {
 					setIsError(true)
 				}
