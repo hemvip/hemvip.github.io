@@ -5,7 +5,7 @@ import { ScreenHeader } from "./ScreenHeader"
 import { ScreenMain } from "./ScreenMain"
 import { AnimatePresence, motion } from "framer-motion"
 import { NavScreen, PopupDialog, PopupError, Progressbar } from "."
-import { useExperimentConfig } from "@/contexts/experiment"
+import { useConfigStudy } from "@/contexts/experiment"
 import { useScreenControl } from "@/contexts/screencontroll"
 import StartupScreen from "./StartupScreen"
 import FinishScreen from "./FinishScreen"
@@ -20,7 +20,7 @@ import { usePopupMessage } from "@/contexts/popupmessage"
 
 export function Screen({ prolificid, studyid, sessionid }) {
 	const router = useRouter()
-	const config = useExperimentConfig()
+	const config = useConfigStudy()
 	const { currentPage, isStartPage, isEndPage, setPrev, setNext } = useScreenControl()
 	const { options, selectStudy } = useStudy()
 	const { actions, screenActions } = useActionRecorder()

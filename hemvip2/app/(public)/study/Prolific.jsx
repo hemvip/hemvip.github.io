@@ -3,7 +3,7 @@
 import React from "react"
 import axios from "axios"
 import { Screen } from "@/components/screen"
-import { ExperimentConfigProvider } from "@/contexts/experiment"
+import { ConfigStudyProvider } from "@/contexts/experiment"
 import { ScreenControlProvider } from "@/contexts/screencontroll"
 import { ActionRecorderProvider } from "@/contexts/action-recorder"
 import PreventRefreshPage from "@/components/PreventRefreshPage"
@@ -27,19 +27,6 @@ export function Prolific({ prolificid, studyid, sessionid, code }) {
 	// })
 	const [study, setStudy] = useState(null)
 	const [pages, setPages] = useState(null)
-	useEffect(() => {
-		const interval = setInterval(() => {
-			const newValue = localStorage.getItem("myKey")
-			if (newValue !== storageValue) {
-				setStorageValue(newValue)
-			}
-		}, 500) // Check every 500ms
-
-		return () => clearInterval(interval)
-	}, [])
-
-	console.log("currentPage", currentPage)
-	console.log("study", study)
 	// const [data, setData] = useState([])
 	// const [loading, setLoading] = useState(true)
 	// const [isSuccess, setIsSuccess] = useState(false)
@@ -63,50 +50,50 @@ export function Prolific({ prolificid, studyid, sessionid, code }) {
 	// 	setLoading(false)
 	// }, [PROLIFIC_PID, STUDY_ID, SESSION_ID])
 
-	if (error) {
-		return (
-			<div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
-				<div className="fixed inset-0 flex items-center justify-center z-50">
-					<Callout type="error">
-						<p className="leading-7 first:mt-0">Your account prolific, study or session is not exist or expired.</p>
-						Please visit{" "}
-						<a className="text-primary-600 underline decoration-from-font [text-underline-position:from-font]" href="https://www.prolific.com/">
-							Prolific
-						</a>{" "}
-						to get access again
-					</Callout>
-				</div>
-			</div>
-		)
-	}
+	// if (error) {
+	// 	return (
+	// 		<div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
+	// 			<div className="fixed inset-0 flex items-center justify-center z-50">
+	// 				<Callout type="error">
+	// 					<p className="leading-7 first:mt-0">Your account prolific, study or session is not exist or expired.</p>
+	// 					Please visit{" "}
+	// 					<a className="text-primary-600 underline decoration-from-font [text-underline-position:from-font]" href="https://www.prolific.com/">
+	// 						Prolific
+	// 					</a>{" "}
+	// 					to get access again
+	// 				</Callout>
+	// 			</div>
+	// 		</div>
+	// 	)
+	// }
 
-	if (loading) {
-		return (
-			<div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
-				<LoadingSpin />
-			</div>
-		)
-	}
+	// if (loading) {
+	// 	return (
+	// 		<div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
+	// 			<LoadingSpin />
+	// 		</div>
+	// 	)
+	// }
 
-	if (!study) {
-		return (
-			<div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
-				<div className="fixed inset-0 flex items-center justify-center z-50">
-					<Callout type="error">
-						<p className="leading-7 first:mt-0">Your account prolific, study or session is not exist or expired.</p>
-						Please visit{" "}
-						<a className="text-primary-600 underline decoration-from-font [text-underline-position:from-font]" href="https://www.prolific.com/">
-							Prolific
-						</a>{" "}
-						to get access again
-					</Callout>
-				</div>
-			</div>
-		)
-	}
+	// if (!study) {
+	// 	return (
+	// 		<div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
+	// 			<div className="fixed inset-0 flex items-center justify-center z-50">
+	// 				<Callout type="error">
+	// 					<p className="leading-7 first:mt-0">Your account prolific, study or session is not exist or expired.</p>
+	// 					Please visit{" "}
+	// 					<a className="text-primary-600 underline decoration-from-font [text-underline-position:from-font]" href="https://www.prolific.com/">
+	// 						Prolific
+	// 					</a>{" "}
+	// 					to get access again
+	// 				</Callout>
+	// 			</div>
+	// 		</div>
+	// 	)
+	// }
 
 	return (
-		<ExperimentConfigProvider value={study}>
+		<ConfigStudyProvider value={study}>
 			<ScreenControlProvider min={0} max={study.pages.length - 1}>
 				<ActionRecorderProvider pages={study.pages}>
 					<StudyProvider>
@@ -118,6 +105,6 @@ export function Prolific({ prolificid, studyid, sessionid, code }) {
 					</StudyProvider>
 				</ActionRecorderProvider>
 			</ScreenControlProvider>
-		</ExperimentConfigProvider>
+		</ConfigStudyProvider>
 	)
 }

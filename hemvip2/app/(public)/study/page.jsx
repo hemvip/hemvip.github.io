@@ -14,6 +14,13 @@ import LoadingSpin from "@/components/loading/LoadingSpin"
 // import { UnloadProvider } from "@/contexts/beforeunload"
 import { useSearchParams } from "next/navigation"
 import { Prolific } from "./Prolific"
+import { usePages, useStudy } from "@/contexts/experiment"
+import { ScreenControlProvider } from "@/contexts/screencontroll"
+import { ActionRecorderProvider } from "@/contexts/action-recorder"
+import { StudyProvider } from "@/contexts/selected"
+import { UnloadProvider } from "@/contexts/beforeunload"
+import { PopupMessageProvider } from "@/contexts/popupmessage"
+import { Screen } from "@/components/screen"
 
 export default function Page() {
 	// const searchParams = useSearchParams()
@@ -22,21 +29,24 @@ export default function Page() {
 	// const sessionid = searchParams.get("SESSION_ID")
 	// const code = searchParams.get("CODE")
 	const [currentPage, setCurrentPage] = useState(0)
-	const [loading, setLoading] = useState(true)
-	const [study, setStudy] = useState(null)
-	const [pages, setPages] = useState(null)
+	const [loading, setLoading] = useState(false)
+	// const [study, setStudy] = useState(null)
+	const study = useStudy()
+	const pages = usePages()
+	console.log("study", study)
+	console.log("pages", pages)
 
-	useEffect(() => {
-		const params = new URLSearchParams(window.location.search)
-		const idx = Number(params.get("page"))
-		setCurrentPage(idx)
+	// useEffect(() => {
+	// 	const params = new URLSearchParams(window.location.search)
+	// 	const idx = Number(params.get("page"))
+	// 	setCurrentPage(idx)
 
-		const study = localStorage.getItem("hemvip-study")
-		const pages = localStorage.getItem("hemvip-pages")
-		setStudy(study)
-		setPages(pages)
-		setLoading(false)
-	}, [])
+	// 	const study = localStorage.getItem("hemvip-study")
+	// 	const pages = localStorage.getItem("hemvip-pages")
+	// 	setStudy(study)
+	// 	setPages(pages)
+	// 	setLoading(false)
+	// }, [])
 
 	// if (!isSuccess || !data) {
 	//   return (
@@ -70,11 +80,19 @@ export default function Page() {
 	return (
 		<Suspense fallback={<div>Loading....</div>}>
 			{/* <Prolific prolificid={prolificid} studyid={studyid} sessionid={sessionid} code={code} /> */}
-			hello
+			<ScreenControlProvider min={0} max={study.pages.length - 1}>
+				<ActionRecorderProvider pages={study.pages}>
+					<StudyProvider>
+						<UnloadProvider>
+							<PopupMessageProvider>
+								<Screen />
+							</PopupMessageProvider>
+						</UnloadProvider>
+					</StudyProvider>
+				</ActionRecorderProvider>
+			</ScreenControlProvider>
 			{/* <PreventRefreshPage /> */}
 			{/* <PaginationScreen /> */}
 		</Suspense>
 	)
 }
-
-// export const runtime = 'edge'

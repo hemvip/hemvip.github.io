@@ -3,7 +3,7 @@
 import React from "react"
 import axios from "axios"
 import { Screen } from "@/components/screen"
-import { ExperimentConfigProvider } from "@/contexts/experiment"
+import { ConfigStudyProvider } from "@/contexts/experiment"
 import { ScreenControlProvider } from "@/contexts/screencontroll"
 import { ActionRecorderProvider } from "@/contexts/action-recorder"
 import PreventRefreshPage from "@/components/PreventRefreshPage"
@@ -100,7 +100,7 @@ export function Prolific() {
 	}
 
 	return (
-		<ExperimentConfigProvider value={study}>
+		<ConfigStudyProvider value={study}>
 			<ScreenControlProvider min={0} max={study.pages.length - 1}>
 				<ActionRecorderProvider pages={study.pages}>
 					<StudyProvider>
@@ -112,6 +112,6 @@ export function Prolific() {
 					</StudyProvider>
 				</ActionRecorderProvider>
 			</ScreenControlProvider>
-		</ExperimentConfigProvider>
+		</ConfigStudyProvider>
 	)
 }

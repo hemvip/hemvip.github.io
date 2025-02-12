@@ -1,35 +1,49 @@
 "use client"
 
-import { DEEP_OBJECT_KEYS, DEFAULT_SCREEN_CONFIG } from "@/config/constants"
-import { createContext, useContext, useRef } from "react"
+import { DEFAULT_STUDY } from "@/config/constants"
+import { createContext, useContext, useEffect, useRef } from "react"
 
-const ExperimentConfigContext = createContext({})
-ExperimentConfigContext.displayName = "ExperimentConfig"
-export const useExperimentConfig = () => useContext(ExperimentConfigContext)
+const ConfigStudyContext = createContext({ study: {}, pages: {} })
+ConfigStudyContext.displayName = "StudyConfig"
+
+export const useConfigStudy = () => useContext(ConfigStudyContext)
+
+export const useStudy = () => {
+	const config = useConfigStudy()
+	return config.study
+}
 
 export const usePages = () => {
-	const config = useExperimentConfig()
+	const config = useConfigStudy()
 	return config.pages
 }
 
 export const useCurrentPage = (index) => {
 	const pages = usePages()
-	if (index < 0 || index >= pages.length) {
-		return {}
-	} else {
-		return pages[index]
-	}
+	return pages?.[index] || {}
 }
 
-export function ExperimentConfigProvider({ value, children }) {
-	const storeRef = useRef()
-	storeRef.current ||= {
-		...DEFAULT_SCREEN_CONFIG,
-		...(value &&
-			Object.fromEntries(
-				Object.entries(value).map(([key, value]) => [key, value && typeof value === "object" && DEEP_OBJECT_KEYS.includes(key) ? { ...DEFAULT_SCREEN_CONFIG[key], ...value } : value])
-			)),
-	}
+export function ConfigStudyProvider({ study, pages, children, loading }) {
+	// DEFAULT_STUDY
+	const studyRef = useRef({})
+	// studyRef.current ||= {
+	// 	...DEFAULT_STUDY,
+	// 	...(study && typeof study === "object" ? study : {}),
+	// }
+	// DEFAULT_PAGES
+	const pagesRef = useRef({})
+	studyRef.current = study
+	pagesRef.current = pages
+	// const storeRef = useRef()
+	// storeRef.current ||= {
+	// 	...DEFAULT_STUDY,
+	// 	...DEFAULT_PAGES,
+	// 	...(value &&
+	// 		Object.fromEntries(
+	// 			Object.entries(value).map(([key, value]) => [key, value && typeof value === "object" && DEEP_OBJECT_KEYS.includes(key) ? { ...DEFAULT_SCREEN_CONFIG[key], ...value } : value])
+	// 		)),
+	// }
+	// storeRef.current
 
-	return <ExperimentConfigContext.Provider value={storeRef.current}>{children}</ExperimentConfigContext.Provider>
+	return <ConfigStudyContext.Provider value={{ study: studyRef.current, pages: pagesRef.current, loading: loading }}>{children}</ConfigStudyContext.Provider>
 }
