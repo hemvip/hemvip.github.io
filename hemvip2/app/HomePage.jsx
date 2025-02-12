@@ -10,7 +10,7 @@ import cn from "clsx"
 import { CircleLoading } from "@/icons"
 import { StartStudyIcon } from "@/icons/start-study"
 import { apiPost } from "@/utils/fetcher"
-import StartupGuide from "./StartupGuide"
+import StartupGuide from "../components/StartupGuide"
 
 // export function HomePage({ state, handleAttentionCheck }) {
 export function HomePage({ prolificid, studyid, sessionid }) {
@@ -43,7 +43,7 @@ export function HomePage({ prolificid, studyid, sessionid }) {
 				if (state === "full") {
 					setIsComplete(true)
 				} else if (state === "success") {
-					router.push(`/prolific?PROLIFIC_ID=${prolificid}&STUDY_ID=${studyid}&SESSION_ID=${sessionid}&CODE=${code}`)
+					router.push(`/page?PROLIFIC_ID=${prolificid}&STUDY_ID=${studyid}&SESSION_ID=${sessionid}&CODE=${code}`)
 				} else {
 					setIsError(true)
 				}
