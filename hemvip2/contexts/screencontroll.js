@@ -1,6 +1,7 @@
 "use client"
 
 import { createContext, useContext, useState } from "react"
+import { usePages } from "./experiment"
 
 const ScreenControlContext = createContext({
 	currentPage: 0,
@@ -14,11 +15,14 @@ const ScreenControlContext = createContext({
 export const useScreenControl = () => useContext(ScreenControlContext)
 
 // from min_page 0 to max_page 3 (total 4 page)
-export function ScreenControlProvider({ min = 0, max = 3, children }) {
+export function ScreenControlProvider({ children }) {
 	const [currentPage, setCurrentPage] = useState(0)
 	const [progress, setProgress] = useState(0) // 0 - 100
 	const [isStartPage, setIsStartPage] = useState(true)
 	const [isEndPage, setIsEndPage] = useState(false)
+	const pages = usePages()
+	const min = 0
+	const max = pages.length - 1
 
 	// console.log("max", max, "min", min)
 

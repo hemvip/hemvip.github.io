@@ -32,8 +32,6 @@ export default function Page() {
 	// const [loading, setLoading] = useState(false)
 	// const [study, setStudy] = useState(null)
 
-	const pages = usePages()
-
 	// useEffect(() => {
 	// 	const params = new URLSearchParams(window.location.search)
 	// 	const idx = Number(params.get("page"))
@@ -78,12 +76,13 @@ export default function Page() {
 
 	return (
 		<StudyConfig>
-			<ScreenControlProvider min={0} max={pages.length - 1}>
-				<ActionRecorderProvider pages={pages}>
+			<NavScreen />
+
+			<ScreenControlProvider>
+				<ActionRecorderProvider>
 					<SelectProvider>
 						<PreventUnloadProvider>
 							<PopupMessageProvider>
-								<NavScreen />
 								<Screen />
 							</PopupMessageProvider>
 						</PreventUnloadProvider>

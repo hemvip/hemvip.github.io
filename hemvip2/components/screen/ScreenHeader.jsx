@@ -10,6 +10,7 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 	const page = useCurrentPage(currentPage)
 	const { screenActions, addAction } = useActionRecorder()
 	const { isStartPage, isEndPage } = useScreenControl()
+	console.log("currentPage", currentPage)
 
 	// const finishPage = () => {
 	//   addAction(DEFAULT_ACTION_STRING.clickFinish, currentPage)

@@ -9,7 +9,7 @@ const ActionRecorderContext = createContext({
 })
 
 export const useActionRecorder = () => useContext(ActionRecorderContext)
-export function ActionRecorderProvider({ pages, children }) {
+export function ActionRecorderProvider({ children }) {
 	const [actions, setActions] = useState([])
 	let [screenActions, setScreenActions] = useState([])
 
