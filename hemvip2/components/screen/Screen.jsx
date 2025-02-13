@@ -19,7 +19,7 @@ import { apiPost } from "@/utils/fetcher"
 export function Screen() {
 	const router = useRouter()
 	const study = useStudy()
-	const { currentPage, isStartPage, isEndPage, setPrev, setNext } = useScreenControl()
+	const { currentPage, progress, isStartPage, isEndPage, setPrev, setNext, direction } = useScreenControl()
 	const { options } = useSelected()
 	const { actions, screenActions } = useActionRecorder()
 
@@ -46,14 +46,17 @@ export function Screen() {
 			screenActions: screenActions,
 			studySelections: options,
 		}
-		const resp = await apiPost("/api/study/finish-study", body)
+		console.log("", JSON.stringify(body))
+
+		const resp = await apiPost("/api/finish-study", body)
+		console.log("resp", resp)
 
 		setOverlay(false)
 		if (resp.success) {
 			router.push(`https://app.prolific.com/submissions/complete?cc=${study.completion_code}`)
 		} else {
-			console.error("errors", errors)
-			router.push(`https://app.prolific.com/submissions/complete?cc=${study.fail_code}`)
+			console.error("errors", resp)
+			// router.push(`https://app.prolific.com/submissions/complete?cc=${study.fail_code}`)
 		}
 	}
 
@@ -89,19 +92,19 @@ export function Screen() {
 	return (
 		<>
 			<div className="w-full h-screen px-[7%] gap-2 p-2 flex flex-col bg-stone-50">
-				<Progressbar value={process} />
+				<Progressbar progress={progress} />
 				<div className="flex flex-col w-full h-full gap-2">
 					<ScreenHeader currentPage={currentPage} setPrev={setPrev} setNext={setNext} showPopup={showPopup} />
 
 					<div className="flex-grow w-full h-full bg-white px-0 py-2 sm:p-4 border-none rounded-xl sm:border sm:border-zinc-300 flex flex-col gap-4">
 						<div className="relative h-full w-full  flex justify-center align-middle">
-							<AnimatePresence initial={false} custom={currentPage}>
+							<AnimatePresence initial={false} custom={direction}>
 								<motion.div
 									key={currentPage}
 									initial="enter"
 									animate="center"
 									exit="exit"
-									custom={currentPage}
+									custom={direction}
 									variants={{
 										enter: (direction) => {
 											return {

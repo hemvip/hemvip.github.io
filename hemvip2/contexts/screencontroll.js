@@ -10,6 +10,7 @@ const ScreenControlContext = createContext({
 	isEndPage: false,
 	setPrev: () => {},
 	setNext: () => {},
+	direction: 1,
 })
 
 export const useScreenControl = () => useContext(ScreenControlContext)
@@ -20,13 +21,15 @@ export function ScreenControlProvider({ children }) {
 	const [progress, setProgress] = useState(0) // 0 - 100
 	const [isStartPage, setIsStartPage] = useState(true)
 	const [isEndPage, setIsEndPage] = useState(false)
+	const [direction, setDirection] = useState(1) // 1 = forward, -1 = backward
 	const pages = usePages()
 	const min = 0
 	const max = pages.length - 1
 
-	// console.log("max", max, "min", min)
+	// console.log("max", max, "mins", min)
 
 	const setPrev = () => {
+		setDirection(-1) // Set direction to backward
 		const pageNow = currentPage - 1
 		setIsStartPage(pageNow === min)
 		setIsEndPage(pageNow === max)
@@ -39,6 +42,7 @@ export function ScreenControlProvider({ children }) {
 	}
 
 	const setNext = () => {
+		setDirection(1) // Set direction to forward
 		const pageNow = currentPage + 1
 		setIsStartPage(pageNow === min)
 		setIsEndPage(pageNow === max)
@@ -59,6 +63,7 @@ export function ScreenControlProvider({ children }) {
 				isEndPage,
 				setPrev,
 				setNext,
+				direction,
 			}}
 		>
 			{children}

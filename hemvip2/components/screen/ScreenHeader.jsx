@@ -10,7 +10,7 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 	const page = useCurrentPage(currentPage)
 	const { screenActions, addAction } = useActionRecorder()
 	const { isStartPage, isEndPage } = useScreenControl()
-	console.log("currentPage", currentPage)
+	// console.log("currentPage", currentPage)
 
 	// const finishPage = () => {
 	//   addAction(DEFAULT_ACTION_STRING.clickFinish, currentPage)
@@ -32,7 +32,7 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 		}
 
 		const currentAction = screenActions[currentPage]
-		console.log("currentAction", currentAction)
+		console.log("currentAction", JSON.stringify(currentAction))
 
 		const isFinishLeftVideo = currentAction.includes(DEFAULT_ACTION_STRING.finishVideoLeft)
 		console.log("isFinishLeftVideo", isFinishLeftVideo)
@@ -73,10 +73,6 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 		}
 	}
 
-	const startPage = () => {
-		setNext()
-		addAction(DEFAULT_ACTION_STRING.clickStart, currentPage)
-	}
 	return (
 		// <h3 className="ui-bar ui-bar-a ui-corner-all" id="page_header" style={{ borderRadius: "all" }}>
 		//     MUSHRA - Random 2

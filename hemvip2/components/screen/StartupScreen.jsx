@@ -1,10 +1,10 @@
-import React from "react"
+import React, { memo } from "react"
 import Image from "next/image"
 import { StartBoostIcon } from "@/icons/startboost"
 import { DEFAULT_ACTION_STRING } from "@/config/constants"
 import { useActionRecorder } from "@/contexts/action-recorder"
 
-export default function StartupScreen({ currentPage, setNext }) {
+const StartupScreen = memo(function ({ currentPage, setNext }) {
 	const { addAction } = useActionRecorder()
 	const startPage = () => {
 		setNext()
@@ -78,4 +78,6 @@ export default function StartupScreen({ currentPage, setNext }) {
 			</div>
 		</>
 	)
-}
+})
+
+export default StartupScreen
