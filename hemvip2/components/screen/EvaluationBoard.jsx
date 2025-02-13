@@ -2,13 +2,13 @@
 
 import { DEFAULT_ACTION_STRING, DEFAULT_OPTION } from "@/config/constants"
 import { useActionRecorder } from "@/contexts/action-recorder"
-import { useStudy } from "@/contexts/selected"
+import { useSelected } from "@/contexts/selected"
 import React, { useState } from "react"
 import cn from "clsx"
 
 export function EvaluationBoard({ currentPage }) {
 	const { addAction } = useActionRecorder()
-	const { options, selectStudy } = useStudy()
+	const { options, selectStudy } = useSelected()
 
 	const handleClearlyLeft = () => {
 		addAction(DEFAULT_ACTION_STRING.clickClearlyLeft, currentPage)

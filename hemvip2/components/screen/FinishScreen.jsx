@@ -1,5 +1,5 @@
 import { useActionRecorder } from "@/contexts/action-recorder"
-import { useStudy } from "@/contexts/selected"
+import { useSelected } from "@/contexts/selected"
 import React from "react"
 import cn from "clsx"
 import ScreenSelectedResult from "./ScreenSelectedResult"
@@ -10,7 +10,7 @@ import { CheckMarkIcon, FinishIcon } from "@/icons/finish"
 export default function FinishScreen({ handleFinish }) {
 	const pages = usePages()
 
-	const { options } = useStudy()
+	const { options } = useSelected()
 
 	return (
 		<div className="px-8 overflow-y-auto">
@@ -64,7 +64,7 @@ export default function FinishScreen({ handleFinish }) {
 						type="submit"
 						onClick={handleFinish}
 						aria-disabled="false"
-						className="flex gap-2 min-w-48 h-10 px-4 font-bold text-white leading-1 bg-green-500 dark:border-neutral-800 items-center justify-center rounded-md border transition-all focus:outline-none"
+						className="cursor-pointer select-none flex gap-2 min-w-48 h-10 px-4 font-bold text-white leading-1 bg-green-500 dark:border-neutral-800 items-center justify-center rounded-md border transition-all focus:outline-none"
 					>
 						<FinishIcon className="w-5 h-5 fill-current" />
 						Finish

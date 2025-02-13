@@ -33,7 +33,6 @@ export function Prolific() {
 		revalidateOnFocus: false,
 		revalidateOnReconnect: false,
 	})
-	console.log("study", study)
 	// const [data, setData] = useState([])
 	// const [loading, setLoading] = useState(true)
 	// const [isSuccess, setIsSuccess] = useState(false)

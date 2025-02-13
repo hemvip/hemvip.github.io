@@ -31,10 +31,8 @@ export default function Page() {
 	const [currentPage, setCurrentPage] = useState(0)
 	const [loading, setLoading] = useState(false)
 	// const [study, setStudy] = useState(null)
-	const study = useStudy()
+
 	const pages = usePages()
-	console.log("study", study)
-	console.log("pages", pages)
 
 	// useEffect(() => {
 	// 	const params = new URLSearchParams(window.location.search)
