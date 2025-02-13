@@ -46,7 +46,6 @@ export function Screen() {
 			screenActions: screenActions,
 			studySelections: options,
 		}
-		console.log("", JSON.stringify(body))
 
 		const resp = await apiPost("/api/finish-study", body)
 		console.log("resp", resp)

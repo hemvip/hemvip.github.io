@@ -10,9 +10,6 @@ import { SkipIcon } from "@/icons/skip"
 
 export function ScreenMain({ currentPage, setNext }) {
 	const page = useCurrentPage(currentPage)
-	console.log("page", JSON.stringify(page))
-	const video1URL = page.type === "video" || page.type === "check" ? page.video1.url : "/gesture_video.mp4"
-	const video2URL = page.type === "video" || page.type === "check" ? page.video2.url : "/gesture_video.mp4"
 	const { addAction } = useActionRecorder()
 
 	// Play
@@ -75,22 +72,24 @@ export function ScreenMain({ currentPage, setNext }) {
 								</span>
 								<span className="font-semibold flex-grow text-sm cursor-pointer">Skip</span>
 							</button> */}
-							<video
-								muted={false}
-								autoPlay={false}
-								onPlay={playLeft}
-								onSeeked={seekedVideoLeft}
-								onPause={pauseLeft}
-								onEnded={finishVideoLeft}
-								playsInline
-								loop={false}
-								controls
-								className={cn(
-									"absolute inset-0 h-full w-full object-contain sm:rounded-xl sm:border dark:border-zinc-800"
-								)}
-							>
-								<source src={video1URL} type="video/mp4" />
-							</video>
+							{page.video1 && page.video1.url && (
+								<video
+									muted={false}
+									autoPlay={false}
+									onPlay={playLeft}
+									onSeeked={seekedVideoLeft}
+									onPause={pauseLeft}
+									onEnded={finishVideoLeft}
+									playsInline
+									loop={false}
+									controls
+									className={cn(
+										"absolute inset-0 h-full w-full object-contain sm:rounded-xl sm:border dark:border-zinc-800"
+									)}
+								>
+									<source src={page.video1.url} type="video/mp4" />
+								</video>
+							)}
 						</div>
 					</div>
 
@@ -106,23 +105,25 @@ export function ScreenMain({ currentPage, setNext }) {
 								</span>
 								<span className="font-semibold flex-grow text-sm cursor-pointer">Skip</span>
 							</button> */}
-							<video
-								muted={false}
-								autoPlay={false}
-								onPause={pauseRight}
-								onPlay={playRight}
-								onSeeked={seekedVideoRight}
-								onEnded={finishVideoRight}
-								playsInline
-								loop={false}
-								controls
-								className={cn(
-									"absolute inset-0 h-full  w-full object-contain sm:rounded-xl sm:border dark:border-zinc-800"
-								)}
-							>
-								{/* <source src={"/gesture_video.mp4"} type="video/mp4" /> */}
-								<source src={video2URL} type="video/mp4" />
-							</video>
+							{page.video2 && page.video2.url && (
+								<video
+									muted={false}
+									autoPlay={false}
+									onPause={pauseRight}
+									onPlay={playRight}
+									onSeeked={seekedVideoRight}
+									onEnded={finishVideoRight}
+									playsInline
+									loop={false}
+									controls
+									className={cn(
+										"absolute inset-0 h-full  w-full object-contain sm:rounded-xl sm:border dark:border-zinc-800"
+									)}
+								>
+									{/* <source src={"/gesture_video.mp4"} type="video/mp4" /> */}
+									<source src={page.video2.url} type="video/mp4" />
+								</video>
+							)}
 						</div>
 					</div>
 				</div>
