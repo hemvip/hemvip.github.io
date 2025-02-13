@@ -7,7 +7,6 @@ import { AnimatePresence, motion } from "framer-motion"
 import { NavScreen, PopupDialog, PopupError, Progressbar } from "."
 import { useStudy } from "@/contexts/experiment"
 import { useScreenControl } from "@/contexts/screencontroll"
-import StartupScreen from "./StartupScreen"
 import FinishScreen from "./FinishScreen"
 import useDebouncedCallback from "@/utils/hooks/use-bounded-callback"
 import { useSelected } from "@/contexts/selected"
@@ -15,6 +14,7 @@ import { useActionRecorder } from "@/contexts/action-recorder"
 import { useRouter } from "next/navigation"
 import { usePopupMessage } from "@/contexts/popupmessage"
 import { apiPost } from "@/utils/fetcher"
+import StartupScreen from "./StartupScreen"
 
 export function Screen() {
 	const router = useRouter()
@@ -131,7 +131,7 @@ export function Screen() {
 									className="absolute w-full h-full overflow-hidden flex flex-col gap-2 justify-center align-middle"
 								>
 									{isStartPage ? (
-										<StartupScreen currentPage={currentPage} setNext={setNext} />
+										<StartupScreen />
 									) : isEndPage ? (
 										<FinishScreen handleFinish={handleFinish} />
 									) : (

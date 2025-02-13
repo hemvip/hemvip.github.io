@@ -10,11 +10,7 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 	const page = useCurrentPage(currentPage)
 	const { screenActions, addAction } = useActionRecorder()
 	const { isStartPage, isEndPage } = useScreenControl()
-	// console.log("currentPage", currentPage)
 
-	// const finishPage = () => {
-	//   addAction(DEFAULT_ACTION_STRING.clickFinish, currentPage)
-	// }
 	useEffect(() => {
 		history.pushState({}, "", `?page=${currentPage + 1}`)
 	}, [currentPage])
@@ -92,7 +88,9 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 				</button>
 			)}
 
-			<h3 className="py-3 px-5 leading-5 flex-grow items-center flex justify-center h-full text-shadow-sm text-center text-neutral-800 font-bold">{page.name}</h3>
+			<h3 className="py-3 px-5 leading-5 flex-grow items-center flex justify-center h-full text-shadow-sm text-center text-neutral-800 font-bold">
+				{page.name}
+			</h3>
 
 			{isEndPage || isStartPage ? (
 				<div></div>

@@ -1,14 +1,12 @@
 import React, { memo } from "react"
 import Image from "next/image"
 import { StartBoostIcon } from "@/icons/startboost"
-import { DEFAULT_ACTION_STRING } from "@/config/constants"
-import { useActionRecorder } from "@/contexts/action-recorder"
+import { useScreenControl } from "@/contexts/screencontroll"
 
-const StartupScreen = memo(function ({ currentPage, setNext }) {
-	const { addAction } = useActionRecorder()
+const StartupScreen = memo(function () {
+	const { setNext } = useScreenControl()
 	const startPage = () => {
 		setNext()
-		addAction(DEFAULT_ACTION_STRING.clickStart, currentPage)
 	}
 
 	return (
@@ -23,8 +21,9 @@ const StartupScreen = memo(function ({ currentPage, setNext }) {
 					Pairwise Comparison of Gesture Generation Studies
 					<h3 className="font-semibold tracking-tight text-slate-900 dark:text-slate-100 mt-3 text-xl">1. Our Gesture Generation Study</h3>
 					<p className="mt-3 leading-6 first:mt-0">
-						Gesture Generation is the process of generating gestures from speech or text. The goal of Gesture Generation is to generate gestures that are natural, realistic, and appropriate for the
-						given context. The generated gestures can be used to animate virtual characters, robots, or embodied conversational agents.
+						Gesture Generation is the process of generating gestures from speech or text. The goal of Gesture Generation is to generate gestures that
+						are natural, realistic, and appropriate for the given context. The generated gestures can be used to animate virtual characters, robots,
+						or embodied conversational agents.
 					</p>
 					<p className="mt-3 leading-6 first:mt-0">Guide</p>
 					<ul className="mt-3 list-disc first:mt-0 ltr:ml-6 rtl:mr-6">
@@ -40,7 +39,16 @@ const StartupScreen = memo(function ({ currentPage, setNext }) {
 						</code>
 					</p>
 					<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
-						<Image alt="Title suffix" loading="lazy" decoding="async" data-nimg="1" className="w-[60%] select-none bg-white ring-1 ring-gray-200" width={100} height={100} src="/screen_sample.png" />
+						<Image
+							alt="Title suffix"
+							loading="lazy"
+							decoding="async"
+							data-nimg="1"
+							className="w-[60%] select-none bg-white ring-1 ring-gray-200"
+							width={100}
+							height={100}
+							src="/screen_sample.png"
+						/>
 					</div>
 					<p className="mt-6 leading-6 first:mt-0">
 						Please choose{" "}
@@ -49,18 +57,46 @@ const StartupScreen = memo(function ({ currentPage, setNext }) {
 						</code>
 					</p>
 					<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
-						<Image alt="Title suffix" loading="lazy" decoding="async" data-nimg="1" className="w-[60%] select-none bg-white ring-1 ring-gray-200" width={100} height={100} src="/screen_sample.png" />
+						<Image
+							alt="Title suffix"
+							loading="lazy"
+							decoding="async"
+							data-nimg="1"
+							className="w-[60%] select-none bg-white ring-1 ring-gray-200"
+							width={100}
+							height={100}
+							src="/screen_sample.png"
+						/>
 					</div>
 					<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
-						<Image alt="Title suffix" loading="lazy" decoding="async" data-nimg="1" className="w-[60%] select-none bg-white ring-1 ring-gray-200" width={100} height={100} src="/screen_sample.png" />
+						<Image
+							alt="Title suffix"
+							loading="lazy"
+							decoding="async"
+							data-nimg="1"
+							className="w-[60%] select-none bg-white ring-1 ring-gray-200"
+							width={100}
+							height={100}
+							src="/screen_sample.png"
+						/>
 					</div>
 					<h3 className="font-semibold tracking-tight text-slate-900 dark:text-slate-100 mt-3 text-xl">3. Attention Check</h3>
 					<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
-						<Image alt="Title suffix" loading="lazy" decoding="async" data-nimg="1" className="w-[60%] select-none bg-white ring-1 ring-gray-200" width={100} height={100} src="/screen_sample.png" />
+						<Image
+							alt="Title suffix"
+							loading="lazy"
+							decoding="async"
+							data-nimg="1"
+							className="w-[60%] select-none bg-white ring-1 ring-gray-200"
+							width={100}
+							height={100}
+							src="/screen_sample.png"
+						/>
 					</div>
 					<p className="mt-3 leading-6 first:mt-0">
-						Gesture Generation is the process of generating gestures from speech or text. The goal of Gesture Generation is to generate gestures that are natural, realistic, and appropriate for the
-						given context. The generated gestures can be used to animate virtual characters, robots, or embodied conversational agents.
+						Gesture Generation is the process of generating gestures from speech or text. The goal of Gesture Generation is to generate gestures that
+						are natural, realistic, and appropriate for the given context. The generated gestures can be used to animate virtual characters, robots,
+						or embodied conversational agents.
 					</p>
 				</div>
 			</div>

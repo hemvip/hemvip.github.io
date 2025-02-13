@@ -34,7 +34,7 @@ export function StartPage() {
 	if (!prolificid || !studyid || !sessionid || !code) {
 		return (
 			<div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
-				<div className="fixed inset-0 flex items-center justify-center z-50">
+				<div className="inset-0 flex items-center justify-center z-50">
 					<Callout type="error">
 						<p className="leading-7 first:mt-0">Your account prolific, study or session is not exist or expired.</p>
 						Please visit{" "}

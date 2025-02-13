@@ -9,7 +9,6 @@ import { CheckMarkIcon, FinishIcon } from "@/icons/finish"
 
 export default function FinishScreen({ handleFinish }) {
 	const pages = usePages()
-
 	const { options } = useSelected()
 
 	return (
@@ -18,7 +17,9 @@ export default function FinishScreen({ handleFinish }) {
 				<h2 className="text-center font-semibold tracking-tight text-slate-900 dark:text-slate-100 text-2xl">🏁 Your Selection Result 🏁</h2>
 				<h3 className="font-semibold tracking-tight text-slate-900 dark:text-slate-100 mt-3 text-xl">Submit your result to finish</h3>
 
-				<p className="mt-3 leading-6 first:mt-0 text-sm">You cannot edit on selected option here. To make changes, please click the &apos;Previous&apos; button to reselect your option.</p>
+				<p className="mt-3 leading-6 first:mt-0 text-sm">
+					You cannot edit on selected option here. To make changes, please click the &apos;Previous&apos; button to reselect your option.
+				</p>
 				<div className={cn("-mx-6 mb-4 overflow-x-auto overscroll-x-contain px-6 pb-4", "mask-gradient")}>
 					<div className="w-full border-collapse text-base block">
 						<div className="block">
@@ -30,7 +31,10 @@ export default function FinishScreen({ handleFinish }) {
 						<div className="flex flex-col align-baseline text-gray-900 dark:text-gray-100 h-80 overflow-y-auto">
 							{Object.entries(options).map(([pageid, selected], index) => {
 								return (
-									<div className="flex w-full border-b border-t border-t-white border-gray-100 text-center dark:border-neutral-700/50 px-4" key={index}>
+									<div
+										className="flex w-full border-b border-t border-t-white border-gray-100 text-center dark:border-neutral-700/50 px-4"
+										key={index}
+									>
 										<div className="py-2 min-w-14 items-center flex justify-center text-center">{pageid}</div>
 										{/* <div className=' py-2 '>{JSON.stringify(pages[pageid].content)}</div> */}
 										<div className="py-2 flex-grow">

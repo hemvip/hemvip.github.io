@@ -45,5 +45,9 @@ export function ConfigStudyProvider({ study, pages, children, loading }) {
 	// }
 	// storeRef.current
 
-	return <ConfigStudyContext.Provider value={{ study: studyRef.current, pages: pagesRef.current, loading: loading }}>{children}</ConfigStudyContext.Provider>
+	return (
+		<ConfigStudyContext.Provider value={{ study: studyRef.current, pages: pagesRef.current, loading: loading }}>
+			{children}
+		</ConfigStudyContext.Provider>
+	)
 }

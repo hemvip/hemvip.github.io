@@ -1,17 +1,8 @@
 "use client"
 
-import { useConfigStudy } from "@/contexts/experiment"
-import { useScreenControl } from "@/contexts/screencontroll"
 import React from "react"
 
 export function Progressbar({ progress = 0 }) {
-	// const totalPages = config.pages.length
-	// const { currentPage, setNext, setPrev } = useScreenControl()
-	// const { progress } = useScreenControl()
-	// console.log("currentPage", currentPage)
-
-	// const process = (currentPage / config.pages.length) * 100
-
 	return (
 		<>
 			{/* <div

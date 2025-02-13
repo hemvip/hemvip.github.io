@@ -64,7 +64,11 @@ export function ScreenMain({ currentPage, setNext }) {
 				<div className="w-full h-full flex justify-center align-middle gap-2 ">
 					<div className="flex-1 h-full">
 						<div className="h-full w-full relative flex items-center justify-center">
-							<button onClick={handleSkipLeft} className="z-2 flex flex-row justify-center items-center gap-1 right-4 top-4 absolute button rounded-md bg-white px-2 py-1" title="Skip Video">
+							<button
+								onClick={handleSkipLeft}
+								className="z-2 flex flex-row justify-center items-center gap-1 right-4 top-4 absolute button rounded-md bg-white px-2 py-1"
+								title="Skip Video"
+							>
 								<span className="w-5 h-5">
 									<SkipIcon className="bg-red-500"></SkipIcon>
 								</span>
@@ -89,7 +93,11 @@ export function ScreenMain({ currentPage, setNext }) {
 
 					<div className="flex-1 h-full">
 						<div className="h-full w-full relative flex items-center justify-center">
-							<button onClick={handleSkipRight} className="z-2 flex flex-row justify-center items-center gap-1 right-4 top-4 absolute button rounded-md bg-white px-2 py-1" title="Skip Video">
+							<button
+								onClick={handleSkipRight}
+								className="z-2 flex flex-row justify-center items-center gap-1 right-4 top-4 absolute button rounded-md bg-white px-2 py-1"
+								title="Skip Video"
+							>
 								<span className="w-5 h-5">
 									<SkipIcon className="bg-red-500"></SkipIcon>
 								</span>
