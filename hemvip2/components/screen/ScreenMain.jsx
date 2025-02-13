@@ -10,6 +10,7 @@ import { SkipIcon } from "@/icons/skip"
 
 export function ScreenMain({ currentPage, setNext }) {
 	const page = useCurrentPage(currentPage)
+	console.log("page", JSON.stringify(page))
 	const video1URL = page.type === "video" || page.type === "check" ? page.video1.url : "/gesture_video.mp4"
 	const video2URL = page.type === "video" || page.type === "check" ? page.video2.url : "/gesture_video.mp4"
 	const { addAction } = useActionRecorder()
