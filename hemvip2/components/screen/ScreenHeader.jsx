@@ -95,20 +95,21 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 				</button>
 			)}
 
-			<h3 className="flex-grow items-center flex justify-center text-gray-800 h-full text-shadow-sm text-center text-zinc-800 font-bold">{page.name}</h3>
+			<h3 className="py-3 px-5 leading-5 flex-grow items-center flex justify-center h-full text-shadow-sm text-center text-neutral-800 font-bold">{page.name}</h3>
 
-			{isEndPage ? (
+			{isEndPage || isStartPage ? (
 				<div></div>
 			) : isStartPage ? (
-				<button
-					data-role="button"
-					data-inline="true"
-					className="cursor-pointer select-none py-0 sm:py-2 m-1 px-0 sm:px-5 text-center text-zinc-800 font-bold leading-5 flex items-center gap-2 disabled:text-gray-400"
-					onClick={startPage}
-				>
-					Start
-					<ArrowRightIcon className="h-4 sm:h-5 inline shrink-0 rtl:rotate-180" />
-				</button>
+				// <button
+				// 	data-role="button"
+				// 	data-inline="true"
+				// 	className="cursor-pointer select-none py-0 sm:py-2 m-1 px-0 sm:px-5 text-center text-zinc-800 font-bold leading-5 flex items-center gap-2 disabled:text-gray-400"
+				// 	// onClick={startPage}
+				// >
+				// 	Start
+				// 	<ArrowRightIcon className="h-4 sm:h-5 inline shrink-0 rtl:rotate-180" />
+				// </button>
+				<div></div>
 			) : (
 				<button
 					data-role="button"

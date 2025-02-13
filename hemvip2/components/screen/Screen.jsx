@@ -132,7 +132,13 @@ export function Screen({ prolificid, studyid, sessionid }) {
 									}}
 									className="absolute w-full h-full overflow-hidden flex flex-col gap-2 justify-center align-middle"
 								>
-									{isStartPage ? <StartupScreen /> : isEndPage ? <FinishScreen handleFinish={handleFinish} /> : <ScreenMain currentPage={currentPage} setNext={setNext} />}
+									{isStartPage ? (
+										<StartupScreen currentPage={currentPage} setNext={setNext} />
+									) : isEndPage ? (
+										<FinishScreen handleFinish={handleFinish} />
+									) : (
+										<ScreenMain currentPage={currentPage} setNext={setNext} />
+									)}
 								</motion.div>
 							</AnimatePresence>
 						</div>

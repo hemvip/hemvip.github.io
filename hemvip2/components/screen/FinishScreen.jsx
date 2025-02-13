@@ -4,6 +4,8 @@ import React from "react"
 import cn from "clsx"
 import ScreenSelectedResult from "./ScreenSelectedResult"
 import { usePages } from "@/contexts/experiment"
+import { CheckIcon } from "@/icons"
+import { CheckMarkIcon, FinishIcon } from "@/icons/finish"
 
 export default function FinishScreen({ handleFinish }) {
 	const pages = usePages()
@@ -62,8 +64,9 @@ export default function FinishScreen({ handleFinish }) {
 						type="submit"
 						onClick={handleFinish}
 						aria-disabled="false"
-						className="flex min-w-48 h-10 px-4 font-bold text-white leading-1 bg-green-500 dark:border-neutral-800 items-center justify-center rounded-md border transition-all focus:outline-none"
+						className="flex gap-2 min-w-48 h-10 px-4 font-bold text-white leading-1 bg-green-500 dark:border-neutral-800 items-center justify-center rounded-md border transition-all focus:outline-none"
 					>
+						<FinishIcon className="w-5 h-5 fill-current" />
 						Finish
 					</button>
 				</div>

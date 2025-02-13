@@ -1,7 +1,16 @@
 import React from "react"
 import Image from "next/image"
+import { StartBoostIcon } from "@/icons/startboost"
+import { DEFAULT_ACTION_STRING } from "@/config/constants"
+import { useActionRecorder } from "@/contexts/action-recorder"
 
-export default function StartupScreen() {
+export default function StartupScreen({ currentPage, setNext }) {
+	const { addAction } = useActionRecorder()
+	const startPage = () => {
+		setNext()
+		addAction(DEFAULT_ACTION_STRING.clickStart, currentPage)
+	}
+
 	return (
 		<>
 			<h2 className="mx-[10%] border-b mb-3">
@@ -59,9 +68,11 @@ export default function StartupScreen() {
 				<button
 					type="submit"
 					// onClick={handleFinish}
+					onClick={startPage}
 					aria-disabled="false"
-					className="flex min-w-48 h-10 px-4 font-bold text-white leading-1 bg-green-500 dark:border-neutral-800 items-center justify-center rounded-md border transition-all focus:outline-none"
+					className="flex cursor-pointer select-none gap-2 min-w-48 h-10 px-4 font-bold text-white leading-1 bg-green-500 dark:border-neutral-800 items-center justify-center rounded-md border transition-all focus:outline-none"
 				>
+					<StartBoostIcon className="w-5 h-5 fill-current" />
 					Start Study
 				</button>
 			</div>
