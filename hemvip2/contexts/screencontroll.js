@@ -12,6 +12,7 @@ const ScreenControlContext = createContext({
 	setNext: () => {},
 	direction: 1,
 })
+ScreenControlContext.displayName = "ScreenControlContext"
 
 export const useScreenControl = () => useContext(ScreenControlContext)
 
