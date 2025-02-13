@@ -15,7 +15,9 @@ export function StartPage() {
 	useEffect(() => {
 		async function fetchStudy() {
 			localStorage.setItem("hemvip-study", null)
-			const resp = await apiFetcherData(`/api/study?prolificid=${prolificid}&studyid=${studyid}&sessionid=${sessionid}&code=${code}`)
+			const resp = await apiFetcherData(
+				`/api/study?prolificid=${prolificid}&studyid=${studyid}&sessionid=${sessionid}&code=${code}`
+			)
 			console.log("resp", resp)
 
 			if (resp && resp.study && resp.pages) {
@@ -34,11 +36,14 @@ export function StartPage() {
 	if (!prolificid || !studyid || !sessionid || !code) {
 		return (
 			<div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
-				<div className="inset-0 flex items-center justify-center z-50">
+				<div className="inset-0 h-screen flex items-center justify-center">
 					<Callout type="error">
 						<p className="leading-7 first:mt-0">Your account prolific, study or session is not exist or expired.</p>
 						Please visit{" "}
-						<a className="text-primary-600 underline decoration-from-font [text-underline-position:from-font]" href="https://www.prolific.com/">
+						<a
+							className="text-primary-600 underline decoration-from-font [text-underline-position:from-font]"
+							href="https://www.prolific.com/"
+						>
 							Prolific
 						</a>{" "}
 						to get access again

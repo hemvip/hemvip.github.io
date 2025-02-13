@@ -45,6 +45,7 @@ export function HomePage() {
 			console.log("Homepage.response", resp)
 			if (resp.success) {
 				const { state, code } = resp.data
+				console.log(" resp.data", resp.data)
 				if (state === "full") {
 					setIsComplete(true)
 				} else if (state === "success") {
@@ -67,7 +68,7 @@ export function HomePage() {
 	if (!prolificid || !studyid || !sessionid) {
 		return (
 			<div className="">
-				<div className="px-28 py-24">
+				<div className="px-28 py-24 mb-4">
 					<Callout type="error">Please visit Prolific to get session.</Callout>
 				</div>
 				<StartupGuide />
@@ -119,10 +120,13 @@ export function HomePage() {
 				)}
 			</div>
 			{isError && (
-				<div className="px-4">
+				<div className="px-4 mb-4">
 					<Callout type="error">
 						Please visit{" "}
-						<a className="text-primary-600 underline decoration-from-font [text-underline-position:from-font]" href="https://www.prolific.com/">
+						<a
+							className="text-primary-600 underline decoration-from-font [text-underline-position:from-font]"
+							href="https://www.prolific.com/"
+						>
 							Prolific
 						</a>{" "}
 						to get session.

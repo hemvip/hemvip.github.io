@@ -2,7 +2,10 @@ import { API_ENDPOINT } from "./urlEndpoint"
 
 export const apiFetcher = (...args) => fetch(...args, { credentials: "include" }).then((res) => res.json())
 
-export const apiFetcherData = (...args) => fetch(`${API_ENDPOINT}${args[0]}`, { credentials: "include" }, ...args).then((res) => res.json().then((data) => data.data))
+export const apiFetcherData = (...args) =>
+	fetch(`${API_ENDPOINT}${args[0]}`, { credentials: "include" }, ...args).then((res) =>
+		res.json().then((data) => data.data)
+	)
 
 // export const apiFetcher = (endpoint, options = {}) => fetch(`${API_ENDPOINT}${args[0]}`, { credentials: "include", ...options }).then((res) => res.json().then((data) => data.data))
 export const apiUpdate = (endpoint, data, ...args) =>
