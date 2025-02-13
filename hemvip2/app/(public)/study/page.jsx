@@ -1,20 +1,5 @@
 "use client"
 
-// import axios from "axios"
-// import { Screen } from "@/components/screen"
-// import { ExperimentConfigProvider } from "@/contexts/experiment"
-// import { ScreenControlProvider } from "@/contexts/screencontroll"
-// import { ActionRecorderProvider } from "@/contexts/action-recorder"
-// import PreventRefreshPage from "@/components/PreventRefreshPage"
-// import { Callout } from "@/components/core"
-// import { StudyProvider } from "@/contexts/study"
-import { Suspense, useEffect, useState } from "react"
-// import { API_ENDPOINT } from "@/utils/urlEndpoint"
-import LoadingSpin from "@/components/loading/LoadingSpin"
-// import { UnloadProvider } from "@/contexts/beforeunload"
-import { useSearchParams } from "next/navigation"
-import { Prolific } from "./Prolific"
-import { usePages, useStudy } from "@/contexts/experiment"
 import { ScreenControlProvider } from "@/contexts/screencontroll"
 import { ActionRecorderProvider } from "@/contexts/action-recorder"
 import { SelectProvider } from "@/contexts/selected"
@@ -22,28 +7,9 @@ import { PreventUnloadProvider } from "@/contexts/beforeunload"
 import { PopupMessageProvider } from "@/contexts/popupmessage"
 import { NavScreen, Screen } from "@/components/screen"
 import { StudyConfig } from "../StudyConfig"
+import PreventRefreshPage from "@/components/PreventRefreshPage"
 
 export default function Page() {
-	// const searchParams = useSearchParams()
-	// const prolificid = searchParams.get("PROLIFIC_ID")
-	// const studyid = searchParams.get("STUDY_ID")
-	// const sessionid = searchParams.get("SESSION_ID")
-	// const code = searchParams.get("CODE")
-	// const [loading, setLoading] = useState(false)
-	// const [study, setStudy] = useState(null)
-
-	// useEffect(() => {
-	// 	const params = new URLSearchParams(window.location.search)
-	// 	const idx = Number(params.get("page"))
-	// 	setCurrentPage(idx)
-
-	// 	const study = localStorage.getItem("hemvip-study")
-	// 	const pages = localStorage.getItem("hemvip-pages")
-	// 	setStudy(study)
-	// 	setPages(pages)
-	// 	setLoading(false)
-	// }, [])
-
 	// if (!isSuccess || !data) {
 	//   return (
 	//     <div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
@@ -89,8 +55,7 @@ export default function Page() {
 					</SelectProvider>
 				</ActionRecorderProvider>
 			</ScreenControlProvider>
-			{/* <PreventRefreshPage /> */}
-			{/* <PaginationScreen /> */}
+			<PreventRefreshPage />
 		</StudyConfig>
 	)
 }

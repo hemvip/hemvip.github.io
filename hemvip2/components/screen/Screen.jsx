@@ -87,8 +87,6 @@ export function Screen() {
 		return <></>
 	}
 
-	// console.log("screenActions", screenActions)
-
 	return (
 		<>
 			<div className="w-full h-screen px-[7%] gap-2 p-2 flex flex-col bg-stone-50">

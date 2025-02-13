@@ -6,7 +6,7 @@ import { useCurrentPage } from "@/contexts/experiment"
 import { useActionRecorder } from "@/contexts/action-recorder"
 import { DEFAULT_ACTION_STRING } from "@/config/constants"
 import { EvaluationBoard, ScreenMessage } from "."
-import { SkipIcon } from "../../icons/skip"
+import { SkipIcon } from "@/icons/skip"
 
 export function ScreenMain({ currentPage, setNext }) {
 	const page = useCurrentPage(currentPage)
@@ -47,15 +47,15 @@ export function ScreenMain({ currentPage, setNext }) {
 		addAction(DEFAULT_ACTION_STRING.finishVideoRight, currentPage)
 	}
 
-	const handleSkipLeft = () => {
-		addAction(DEFAULT_ACTION_STRING.skipLeft, currentPage)
-		setNext()
-	}
+	// const handleSkipLeft = () => {
+	// 	addAction(DEFAULT_ACTION_STRING.skipLeft, currentPage)
+	// 	setNext()
+	// }
 
-	const handleSkipRight = () => {
-		addAction(DEFAULT_ACTION_STRING.skipRight, currentPage)
-		setNext()
-	}
+	// const handleSkipRight = () => {
+	// 	addAction(DEFAULT_ACTION_STRING.skipRight, currentPage)
+	// 	setNext()
+	// }
 
 	return (
 		<>
@@ -64,7 +64,7 @@ export function ScreenMain({ currentPage, setNext }) {
 				<div className="w-full h-full flex justify-center align-middle gap-2 ">
 					<div className="flex-1 h-full">
 						<div className="h-full w-full relative flex items-center justify-center">
-							<button
+							{/* <button
 								onClick={handleSkipLeft}
 								className="z-2 flex flex-row justify-center items-center gap-1 right-4 top-4 absolute button rounded-md bg-white px-2 py-1"
 								title="Skip Video"
@@ -73,7 +73,7 @@ export function ScreenMain({ currentPage, setNext }) {
 									<SkipIcon className="bg-red-500"></SkipIcon>
 								</span>
 								<span className="font-semibold flex-grow text-sm cursor-pointer">Skip</span>
-							</button>
+							</button> */}
 							<video
 								muted={false}
 								autoPlay={false}
@@ -95,7 +95,7 @@ export function ScreenMain({ currentPage, setNext }) {
 
 					<div className="flex-1 h-full">
 						<div className="h-full w-full relative flex items-center justify-center">
-							<button
+							{/* <button
 								onClick={handleSkipRight}
 								className="z-2 flex flex-row justify-center items-center gap-1 right-4 top-4 absolute button rounded-md bg-white px-2 py-1"
 								title="Skip Video"
@@ -104,7 +104,7 @@ export function ScreenMain({ currentPage, setNext }) {
 									<SkipIcon className="bg-red-500"></SkipIcon>
 								</span>
 								<span className="font-semibold flex-grow text-sm cursor-pointer">Skip</span>
-							</button>
+							</button> */}
 							<video
 								muted={false}
 								autoPlay={false}
