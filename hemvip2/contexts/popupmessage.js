@@ -25,6 +25,5 @@ export function PopupMessageProvider({ children }) {
 		setIsOpen(false)
 	}
 
-	// actions list sample will be replace by [] here
 	return <PopupMessageContext.Provider value={{ isOpen, message, showPopup, closePopup }}>{children}</PopupMessageContext.Provider>
 }

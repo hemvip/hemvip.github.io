@@ -84,7 +84,9 @@ export function ScreenMain({ currentPage, setNext }) {
 								playsInline
 								loop={false}
 								controls
-								className={cn("absolute inset-0 h-full w-full object-contain sm:rounded-xl sm:border dark:border-zinc-800")}
+								className={cn(
+									"absolute inset-0 h-full w-full object-contain sm:rounded-xl sm:border dark:border-zinc-800"
+								)}
 							>
 								<source src={video1URL} type="video/mp4" />
 							</video>
@@ -113,7 +115,9 @@ export function ScreenMain({ currentPage, setNext }) {
 								playsInline
 								loop={false}
 								controls
-								className={cn("absolute inset-0 h-full  w-full object-contain sm:rounded-xl sm:border dark:border-zinc-800")}
+								className={cn(
+									"absolute inset-0 h-full  w-full object-contain sm:rounded-xl sm:border dark:border-zinc-800"
+								)}
 							>
 								{/* <source src={"/gesture_video.mp4"} type="video/mp4" /> */}
 								<source src={video2URL} type="video/mp4" />

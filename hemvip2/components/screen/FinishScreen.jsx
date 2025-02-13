@@ -14,11 +14,16 @@ export default function FinishScreen({ handleFinish }) {
 	return (
 		<div className="px-8 overflow-y-auto">
 			<div className="mx-[10%]">
-				<h2 className="text-center font-semibold tracking-tight text-slate-900 dark:text-slate-100 text-2xl">🏁 Your Selection Result 🏁</h2>
-				<h3 className="font-semibold tracking-tight text-slate-900 dark:text-slate-100 mt-3 text-xl">Submit your result to finish</h3>
+				<h2 className="text-center font-semibold tracking-tight text-slate-900 dark:text-slate-100 text-2xl">
+					🏁 Your Selection Result 🏁
+				</h2>
+				<h3 className="font-semibold tracking-tight text-slate-900 dark:text-slate-100 mt-3 text-xl">
+					Submit your result to finish
+				</h3>
 
 				<p className="mt-3 leading-6 first:mt-0 text-sm">
-					You cannot edit on selected option here. To make changes, please click the &apos;Previous&apos; button to reselect your option.
+					You cannot edit on selected option here. To make changes, please click the &apos;Previous&apos; button to
+					reselect your option.
 				</p>
 				<div className={cn("-mx-6 mb-4 overflow-x-auto overscroll-x-contain px-6 pb-4", "mask-gradient")}>
 					<div className="w-full border-collapse text-base block">

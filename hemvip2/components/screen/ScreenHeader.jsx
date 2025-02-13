@@ -21,16 +21,17 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 	}
 
 	const nextPage = () => {
-		if (currentPage >= screenActions.length) {
+		// console.log(currentPage, "object", Object.keys(screenActions).length)
+		if (currentPage > Object.keys(screenActions).length) {
 			showPopup("Please watch the video first")
 			console.log("Please watch the video first")
 			return
 		}
 
-		const currentAction = screenActions[currentPage]
-		console.log("currentAction", JSON.stringify(currentAction))
+		const currentScreenActions = screenActions[page.id]
+		console.log("currentAction", currentScreenActions)
 
-		const isFinishLeftVideo = currentAction.includes(DEFAULT_ACTION_STRING.finishVideoLeft)
+		const isFinishLeftVideo = currentScreenActions.includes(DEFAULT_ACTION_STRING.finishVideoLeft)
 		console.log("isFinishLeftVideo", isFinishLeftVideo)
 		if (!isFinishLeftVideo) {
 			showPopup("Please watch the left video to the end.")
@@ -38,7 +39,7 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 		}
 		console.log("isFinishLeftVideo", isFinishLeftVideo)
 
-		const isFinishRightVideo = currentAction.includes(DEFAULT_ACTION_STRING.finishVideoRight)
+		const isFinishRightVideo = currentScreenActions.includes(DEFAULT_ACTION_STRING.finishVideoRight)
 		if (!isFinishRightVideo) {
 			showPopup("Please watch the right video to the end.")
 			return
@@ -55,7 +56,7 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 		let isSelected = false
 		for (let i = 0; i < optionSelect.length; i++) {
 			const option = optionSelect[i]
-			if (currentAction.includes(option)) {
+			if (currentScreenActions.includes(option)) {
 				isSelected = true
 				break
 			}

@@ -21,7 +21,7 @@ export function Screen() {
 	const study = useStudy()
 	const { currentPage, progress, isStartPage, isEndPage, setPrev, setNext, direction } = useScreenControl()
 	const { options } = useSelected()
-	const { actions, screenActions } = useActionRecorder()
+	const { globalActions, screenActions } = useActionRecorder()
 
 	const [overlay, setOverlay] = useState(false)
 	const debouncedPrevPage = useDebouncedCallback(setPrev, 500, {
@@ -35,14 +35,14 @@ export function Screen() {
 
 	const handleFinish = async () => {
 		setOverlay(true)
-		console.log("actions", actions)
+		console.log("actions", globalActions)
 		console.log("screenActions", screenActions)
 		const body = {
 			prolific_userid: study.prolific_userid,
 			prolific_studyid: study.prolific_studyid,
 			prolific_sessionid: study.prolific_sessionid,
 			studyid: study.id,
-			global_actions: actions,
+			global_actions: globalActions,
 			screenActions: screenActions,
 			studySelections: options,
 		}
