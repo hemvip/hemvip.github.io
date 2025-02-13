@@ -47,7 +47,7 @@ export const DEFAULT_ACTION_STRING = {
 export const DEFAULT_STUDY = {
 	id: 32,
 	status: "started",
-	name: "Pairwise Comparison of Gesture Generation AI Model Studies",
+	name: "Pairwise Comparison of Gesture Generation Studies",
 	time_start: "2025-02-12 11:07:55",
 	type: "pairwise-human-likeness",
 	global_actions: "[]",
@@ -63,7 +63,7 @@ export const DEFAULT_PAGES = [
 	{
 		id: 0,
 		type: "generic",
-		name: "Pairwise Comparison of Gesture Generation AI Model Studies",
+		name: "Pairwise Comparison of Gesture Generation Studies",
 		question: "",
 		selected: "",
 		actions: "",
@@ -842,7 +842,7 @@ export const DEFAULT_PAGES = [
 	{
 		id: 0,
 		type: "finish",
-		name: "Pairwise Comparison of Gesture Generation AI Model Studies",
+		name: "Pairwise Comparison of Gesture Generation Studies",
 		question: "",
 		selected: "",
 		actions: "",
