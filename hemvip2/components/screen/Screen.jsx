@@ -5,25 +5,22 @@ import { ScreenHeader } from "./ScreenHeader"
 import { ScreenMain } from "./ScreenMain"
 import { AnimatePresence, motion } from "framer-motion"
 import { NavScreen, PopupDialog, PopupError, Progressbar } from "."
-import { useConfigStudy, useStudy } from "@/contexts/experiment"
+import { useStudy } from "@/contexts/experiment"
 import { useScreenControl } from "@/contexts/screencontroll"
 import StartupScreen from "./StartupScreen"
 import FinishScreen from "./FinishScreen"
 import useDebouncedCallback from "@/utils/hooks/use-bounded-callback"
-import LoadingSpin from "../loading/LoadingSpin"
 import { useSelected } from "@/contexts/selected"
 import { useActionRecorder } from "@/contexts/action-recorder"
 import { useRouter } from "next/navigation"
-import axios from "axios"
-import { API_ENDPOINT } from "@/utils/urlEndpoint"
 import { usePopupMessage } from "@/contexts/popupmessage"
+import { apiPost } from "@/utils/fetcher"
 
 export function Screen() {
 	const router = useRouter()
-	// const study = useConfigStudy()
 	const study = useStudy()
 	const { currentPage, isStartPage, isEndPage, setPrev, setNext } = useScreenControl()
-	const { options, selectStudy } = useSelected()
+	const { options } = useSelected()
 	const { actions, screenActions } = useActionRecorder()
 
 	const [overlay, setOverlay] = useState(false)
@@ -40,20 +37,19 @@ export function Screen() {
 		setOverlay(true)
 		console.log("actions", actions)
 		console.log("screenActions", screenActions)
-		// console.log("go handleFinish")
-		const response = await axios.post(`${API_ENDPOINT}/api/study/finish`, {
-			prolificid: study.prolific_userid,
-			studyid: study.prolific_studyid,
-			sessionid: study.prolific_sessionid,
-			actions: actions,
+		const body = {
+			prolific_userid: study.prolific_userid,
+			prolific_studyid: study.prolific_studyid,
+			prolific_sessionid: study.prolific_sessionid,
+			studyid: study.id,
+			global_actions: actions,
 			screenActions: screenActions,
 			studySelections: options,
-			code: study.completion_code,
-		})
+		}
+		const resp = await apiPost("/api/study/finish-study", body)
 
-		const { errors, success, data, msg } = response.data
 		setOverlay(false)
-		if (success) {
+		if (resp.success) {
 			router.push(`https://app.prolific.com/submissions/complete?cc=${study.completion_code}`)
 		} else {
 			console.error("errors", errors)

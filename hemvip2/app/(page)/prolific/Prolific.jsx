@@ -8,9 +8,9 @@ import { ScreenControlProvider } from "@/contexts/screencontroll"
 import { ActionRecorderProvider } from "@/contexts/action-recorder"
 import PreventRefreshPage from "@/components/PreventRefreshPage"
 import { Callout } from "@/components/core"
-import { StudyProvider } from "@/contexts/selected"
+import { SelectProvider } from "@/contexts/selected"
 import LoadingSpin from "@/components/loading/LoadingSpin"
-import { UnloadProvider } from "@/contexts/beforeunload"
+import { PreventUnloadProvider } from "@/contexts/beforeunload"
 import { PopupMessageProvider } from "@/contexts/popupmessage"
 import useSWR from "swr"
 import { apiFetcherData } from "@/utils/fetcher"
@@ -102,13 +102,13 @@ export function Prolific() {
 		<ConfigStudyProvider value={study}>
 			<ScreenControlProvider min={0} max={study.pages.length - 1}>
 				<ActionRecorderProvider pages={study.pages}>
-					<StudyProvider>
-						<UnloadProvider>
+					<SelectProvider>
+						<PreventUnloadProvider>
 							<PopupMessageProvider>
 								<Screen prolificid={prolificid} studyid={studyid} sessionid={sessionid} />
 							</PopupMessageProvider>
-						</UnloadProvider>
-					</StudyProvider>
+						</PreventUnloadProvider>
+					</SelectProvider>
 				</ActionRecorderProvider>
 			</ScreenControlProvider>
 		</ConfigStudyProvider>

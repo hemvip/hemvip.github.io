@@ -12,7 +12,7 @@ const SelectedContext = createContext({
 })
 
 export const useSelected = () => useContext(SelectedContext)
-export function StudyProvider({ children }) {
+export function SelectProvider({ children }) {
 	const [options, setOptions] = useState({})
 
 	const selectStudy = (newOption, currentPage) => {

@@ -14,17 +14,21 @@ export function StartPage() {
 
 	useEffect(() => {
 		async function fetchStudy() {
-			localStorage.setItem("hemvip-study", {})
+			localStorage.setItem("hemvip-study", null)
 			const resp = await apiFetcherData(`/api/study?prolificid=${prolificid}&studyid=${studyid}&sessionid=${sessionid}&code=${code}`)
+			console.log("resp", resp)
 
 			if (resp && resp.study && resp.pages) {
 				localStorage.setItem("hemvip-study", JSON.stringify(resp.study))
 				localStorage.setItem("hemvip-pages", JSON.stringify(resp.pages))
-				router.push(`/study?page=generic`)
+				router.push(`/study?page=1`)
 			}
 		}
-
-		fetchStudy()
+		try {
+			fetchStudy()
+		} catch (error) {
+			console.log("error", error)
+		}
 	}, [router, prolificid, studyid, sessionid, code])
 
 	if (!prolificid || !studyid || !sessionid || !code) {

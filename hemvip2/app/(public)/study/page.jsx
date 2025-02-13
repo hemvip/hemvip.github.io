@@ -17,10 +17,11 @@ import { Prolific } from "./Prolific"
 import { usePages, useStudy } from "@/contexts/experiment"
 import { ScreenControlProvider } from "@/contexts/screencontroll"
 import { ActionRecorderProvider } from "@/contexts/action-recorder"
-import { StudyProvider } from "@/contexts/selected"
-import { UnloadProvider } from "@/contexts/beforeunload"
+import { SelectProvider } from "@/contexts/selected"
+import { PreventUnloadProvider } from "@/contexts/beforeunload"
 import { PopupMessageProvider } from "@/contexts/popupmessage"
-import { Screen } from "@/components/screen"
+import { NavScreen, Screen } from "@/components/screen"
+import { StudyConfig } from "../StudyConfig"
 
 export default function Page() {
 	// const searchParams = useSearchParams()
@@ -28,8 +29,7 @@ export default function Page() {
 	// const studyid = searchParams.get("STUDY_ID")
 	// const sessionid = searchParams.get("SESSION_ID")
 	// const code = searchParams.get("CODE")
-	const [currentPage, setCurrentPage] = useState(0)
-	const [loading, setLoading] = useState(false)
+	// const [loading, setLoading] = useState(false)
 	// const [study, setStudy] = useState(null)
 
 	const pages = usePages()
@@ -67,29 +67,31 @@ export default function Page() {
 	//     </div>
 	//   )
 	// }
-	if (loading) {
-		return (
-			<div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
-				<LoadingSpin />
-			</div>
-		)
-	}
+
+	// if (loading) {
+	// 	return (
+	// 		<div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
+	// 			<LoadingSpin />
+	// 		</div>
+	// 	)
+	// }
 
 	return (
-		<Suspense fallback={<div>Loading....</div>}>
+		<StudyConfig>
 			<ScreenControlProvider min={0} max={pages.length - 1}>
 				<ActionRecorderProvider pages={pages}>
-					<StudyProvider>
-						<UnloadProvider>
+					<SelectProvider>
+						<PreventUnloadProvider>
 							<PopupMessageProvider>
+								<NavScreen />
 								<Screen />
 							</PopupMessageProvider>
-						</UnloadProvider>
-					</StudyProvider>
+						</PreventUnloadProvider>
+					</SelectProvider>
 				</ActionRecorderProvider>
 			</ScreenControlProvider>
 			{/* <PreventRefreshPage /> */}
 			{/* <PaginationScreen /> */}
-		</Suspense>
+		</StudyConfig>
 	)
 }
