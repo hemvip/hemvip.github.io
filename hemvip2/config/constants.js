@@ -7,11 +7,11 @@ export const DEFAULT_THEME = {
 
 export const DEFAULT_OPTION = {
 	unselect: "",
-	clearlyLeft: "Left clearly better",
-	slightlyLeft: "Left slightly better",
+	clearlyLeft: "Left Clearly Better",
+	slightlyLeft: "Left Slightly Better",
 	equal: "Equal",
-	slightlyRight: "Right slightly better",
-	clearlyRight: "Right clearly better",
+	slightlyRight: "Right Slightly Better",
+	clearlyRight: "Right Clearly Better",
 }
 
 export const DEFAULT_ACTION_STRING = {

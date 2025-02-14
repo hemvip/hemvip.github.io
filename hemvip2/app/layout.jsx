@@ -1,3 +1,4 @@
+import ErrorBoundary from "@/components/ErrorBoundary"
 import "./globals.css"
 // import "../styles/custom.css"
 
@@ -17,7 +18,11 @@ export default function RootLayout({ children }) {
 				<meta name="author" content="GENEA" />
 				<title>HEMVIP2 - Pairwise Comparison of Gesture Generation Studies</title>
 			</head>
-			<body>{children}</body>
+			<body>
+			<ErrorBoundary>
+				{children}
+				</ErrorBoundary>
+				</body>
 		</html>
 	)
 }
