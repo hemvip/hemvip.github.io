@@ -25,5 +25,9 @@ export function PopupMessageProvider({ children }) {
 		setIsOpen(false)
 	}
 
-	return <PopupMessageContext.Provider value={{ isOpen, message, showPopup, closePopup }}>{children}</PopupMessageContext.Provider>
+	return (
+		<PopupMessageContext.Provider value={{ isOpen, message, showPopup, closePopup }}>
+			{children}
+		</PopupMessageContext.Provider>
+	)
 }

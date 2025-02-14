@@ -59,28 +59,28 @@ export function Screen() {
 		}
 	}
 
-	useEffect(() => {
-		const handleKeyDown = (event) => {
-			// console.log("event.key", event.key)
-			if (event.key === "ArrowLeft") {
-				if (!isStartPage) {
-					// setTimeout(() => {
-					//   setPrev()
-					// }, 500)
-					debouncedPrevPage()
-				}
-			} else if (event.key === "ArrowRight") {
-				if (!isEndPage) {
-					debouncedNextPage()
-				}
-			}
-		}
-		window.addEventListener("keydown", handleKeyDown)
+	// useEffect(() => {
+	// 	const handleKeyDown = (event) => {
+	// 		// console.log("event.key", event.key)
+	// 		if (event.key === "ArrowLeft") {
+	// 			if (!isStartPage) {
+	// 				// setTimeout(() => {
+	// 				//   setPrev()
+	// 				// }, 500)
+	// 				debouncedPrevPage()
+	// 			}
+	// 		} else if (event.key === "ArrowRight") {
+	// 			if (!isEndPage) {
+	// 				debouncedNextPage()
+	// 			}
+	// 		}
+	// 	}
+	// 	window.addEventListener("keydown", handleKeyDown)
 
-		return () => {
-			window.removeEventListener("keydown", handleKeyDown)
-		}
-	}, [setPrev, setNext, debouncedNextPage, debouncedPrevPage, isStartPage, isEndPage])
+	// 	return () => {
+	// 		window.removeEventListener("keydown", handleKeyDown)
+	// 	}
+	// }, [setPrev, setNext, debouncedNextPage, debouncedPrevPage, isStartPage, isEndPage])
 
 	if (!study) {
 		return <></>
