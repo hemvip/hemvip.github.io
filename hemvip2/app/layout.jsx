@@ -19,10 +19,8 @@ export default function RootLayout({ children }) {
 				<title>HEMVIP2 - Pairwise Comparison of Gesture Generation Studies</title>
 			</head>
 			<body>
-			<ErrorBoundary>
-				{children}
-				</ErrorBoundary>
-				</body>
+				<ErrorBoundary>{children}</ErrorBoundary>
+			</body>
 		</html>
 	)
 }
