@@ -9,34 +9,34 @@ import { useCurrentPage, usePages } from "@/contexts/experiment"
 
 export function EvaluationBoard({ currentPage }) {
 	const { addAction } = useActionRecorder()
-	const { options, selectStudy } = useSelected()
+	const { options, selectOption } = useSelected()
 	const page = useCurrentPage(currentPage)
 
 	// console.log("options", options, "page", page)
 
 	const handleClearlyLeft = () => {
 		addAction(DEFAULT_ACTION_STRING.clickClearlyLeft, currentPage)
-		selectStudy(DEFAULT_OPTION.clearlyLeft, currentPage)
+		selectOption(DEFAULT_OPTION.clearlyLeft, currentPage)
 	}
 
 	const handleSlightlyLeft = () => {
 		addAction(DEFAULT_ACTION_STRING.clickSlightlyLeft, currentPage)
-		selectStudy(DEFAULT_OPTION.slightlyLeft, currentPage)
+		selectOption(DEFAULT_OPTION.slightlyLeft, currentPage)
 	}
 
 	const handleEqual = () => {
 		addAction(DEFAULT_ACTION_STRING.clickEqual, currentPage)
-		selectStudy(DEFAULT_OPTION.equal, currentPage)
+		selectOption(DEFAULT_OPTION.equal, currentPage)
 	}
 
 	const handleSlightlyRight = () => {
 		addAction(DEFAULT_ACTION_STRING.clickSlightlyRight, currentPage)
-		selectStudy(DEFAULT_OPTION.slightlyRight, currentPage)
+		selectOption(DEFAULT_OPTION.slightlyRight, currentPage)
 	}
 
 	const handleClearlyRight = () => {
 		addAction(DEFAULT_ACTION_STRING.clickClearlyRight, currentPage)
-		selectStudy(DEFAULT_OPTION.clearlyRight, currentPage)
+		selectOption(DEFAULT_OPTION.clearlyRight, currentPage)
 	}
 
 	return (

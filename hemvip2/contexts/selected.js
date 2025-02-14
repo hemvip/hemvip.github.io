@@ -10,7 +10,7 @@ const SelectedContext = createContext({
 		0: DEFAULT_OPTION.unselect,
 		1: DEFAULT_OPTION.unselect,
 	},
-	selectStudy: (newOption, currentPage) => {},
+	selectOption: (newOption, currentPage) => {},
 })
 
 export const useSelected = () => useContext(SelectedContext)
@@ -18,7 +18,7 @@ export function SelectProvider({ children }) {
 	const [options, setOptions] = useState({})
 	const pages = usePages()
 
-	const selectStudy = (newOption, currentPage) => {
+	const selectOption = (newOption, currentPage) => {
 		const currentPageId = pages[currentPage].id
 		if (currentPageId != 0) {
 			setOptions((prevOption) => ({
@@ -28,5 +28,5 @@ export function SelectProvider({ children }) {
 		}
 	}
 
-	return <SelectedContext.Provider value={{ options, selectStudy }}>{children}</SelectedContext.Provider>
+	return <SelectedContext.Provider value={{ options, selectOption }}>{children}</SelectedContext.Provider>
 }

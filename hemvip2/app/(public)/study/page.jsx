@@ -8,6 +8,7 @@ import { PopupMessageProvider } from "@/contexts/popupmessage"
 import { NavScreen, Screen } from "@/components/screen"
 import { StudyConfig } from "../StudyConfig"
 import PreventRefreshPage from "@/components/PreventRefreshPage"
+import { AttentionCheckProvider } from "@/contexts/attention-check"
 
 export default function Page() {
 	// if (!isSuccess || !data) {
@@ -49,7 +50,9 @@ export default function Page() {
 					<SelectProvider>
 						<PreventUnloadProvider>
 							<PopupMessageProvider>
-								<Screen />
+								<AttentionCheckProvider>
+									<Screen />
+								</AttentionCheckProvider>
 							</PopupMessageProvider>
 						</PreventUnloadProvider>
 					</SelectProvider>
