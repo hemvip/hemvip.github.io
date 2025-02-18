@@ -68,7 +68,7 @@ export default function FinishScreen({ handleFinish, loadingFinish }) {
 						aria-disabled="false"
 						className="cursor-pointer select-none flex gap-2 min-w-48 h-10 px-4 font-bold text-white leading-1 bg-primary-600 dark:border-neutral-800 items-center justify-center rounded-md border transition-all focus:outline-none"
 					>
-						{loadingFinish ? <CircleLoading className="w-5 h-5" /> : <FinishIcon className="w-5 h-5 fill-current" />}
+						{loadingFinish ? <CircleLoading className="w-5 h-5" /> : <></>}
 						Finish
 					</button>
 				</div>
