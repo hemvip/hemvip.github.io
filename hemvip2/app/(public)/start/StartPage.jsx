@@ -1,8 +1,10 @@
+"use client"
+
 import { Callout } from "@/components/core"
 import LoadingSpin from "@/components/loading/LoadingSpin"
 import { apiFetcherData } from "@/utils/fetcher"
 import { useRouter, useSearchParams } from "next/navigation"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 export function StartPage() {
 	const searchParams = useSearchParams()
@@ -11,6 +13,7 @@ export function StartPage() {
 	const sessionid = searchParams.get("sessionid")
 	const code = searchParams.get("code")
 	const router = useRouter()
+	const [stateMsg, setStateMsg] = useState("")
 
 	useEffect(() => {
 		async function fetchStudy() {
@@ -24,6 +27,8 @@ export function StartPage() {
 				localStorage.setItem("hemvip-study", JSON.stringify(resp.study))
 				localStorage.setItem("hemvip-pages", JSON.stringify(resp.pages))
 				router.push(`/study?page=1`)
+			} else {
+				setStateMsg(`Study not found with ${prolificid}, ${studyid}, ${sessionid}`)
 			}
 		}
 		try {
@@ -47,6 +52,18 @@ export function StartPage() {
 							Prolific
 						</a>{" "}
 						to get access again
+					</Callout>
+				</div>
+			</div>
+		)
+	}
+
+	if (stateMsg) {
+		return (
+			<div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
+				<div className="inset-0 h-screen flex items-center justify-center">
+					<Callout type="error">
+						<p className="leading-7 first:mt-0">{stateMsg}</p>
 					</Callout>
 				</div>
 			</div>
