@@ -20,10 +20,11 @@ import { usePreventUnload } from "@/contexts/beforeunload"
 export function Screen() {
 	const router = useRouter()
 	const study = useStudy()
+	// ~~~~~~~~~~~~~~~~~
 	const { currentPage, progress, isStartPage, isEndPage, setPrev, setNext, direction } = useScreenControl()
 	const { options } = useSelected()
 	const { globalActions, screenActions } = useActionRecorder()
-
+	// ~~~~~~~~~~~~~~~~~
 	const [overlay, setOverlay] = useState(false)
 	const debouncedPrevPage = useDebouncedCallback(setPrev, 500, {
 		leading: true,
@@ -33,13 +34,15 @@ export function Screen() {
 	})
 
 	const { isOpen, message, showPopup, closePopup } = usePopupMessage()
-
-	// ****************************************************
+	// ~~~~~~~~~~~~~~~~~
 	const { setCanUnload } = usePreventUnload()
+	// ~~~~~~~~~~~~~~~~~
+	const [loadingFinish, setLoadingFinish] = useState(false)
 
 	const handleFinish = async () => {
 		setOverlay(true)
 		setCanUnload(true)
+		setLoadingFinish(true)
 		console.log("actions", globalActions)
 		console.log("screenActions", screenActions)
 		const body = {
@@ -60,6 +63,7 @@ export function Screen() {
 		if (resp.success) {
 			localStorage.removeItem("hemvip-pages")
 			localStorage.removeItem("hemvip-study")
+			setLoadingFinish(false)
 			router.push(`https://app.prolific.com/submissions/complete?cc=${study.completion_code}`)
 		} else {
 			console.error("errors", resp)
@@ -138,7 +142,7 @@ export function Screen() {
 									{isStartPage ? (
 										<StartupScreen />
 									) : isEndPage ? (
-										<FinishScreen handleFinish={handleFinish} />
+										<FinishScreen handleFinish={handleFinish} loadingFinish={loadingFinish} />
 									) : (
 										<ScreenMain currentPage={currentPage} setNext={setNext} />
 									)}
