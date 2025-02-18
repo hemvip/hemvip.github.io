@@ -66,7 +66,7 @@ export default function FinishScreen({ handleFinish, loadingFinish }) {
 						type="submit"
 						onClick={handleFinish}
 						aria-disabled="false"
-						className="cursor-pointer select-none flex gap-2 min-w-48 h-10 px-4 font-bold text-white leading-1 bg-green-500 dark:border-neutral-800 items-center justify-center rounded-md border transition-all focus:outline-none"
+						className="cursor-pointer select-none flex gap-2 min-w-48 h-10 px-4 font-bold text-white leading-1 bg-primary-600 dark:border-neutral-800 items-center justify-center rounded-md border transition-all focus:outline-none"
 					>
 						{loadingFinish ? <CircleLoading className="w-5 h-5" /> : <FinishIcon className="w-5 h-5 fill-current" />}
 						Finish

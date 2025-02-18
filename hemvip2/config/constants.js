@@ -5,6 +5,8 @@ export const DEFAULT_THEME = {
 	direction: "ltr",
 }
 
+export const N_MIN_FAILED_ATTENTION_CHECK = 3
+
 export const DEFAULT_OPTION = {
 	unselect: "",
 	clearlyLeft: "LeftClearlyBetter",

@@ -115,7 +115,7 @@ const StartupScreen = memo(function StartupScreen() {
 					// onClick={handleFinish}
 					onClick={startPage}
 					aria-disabled="false"
-					className="flex cursor-pointer select-none gap-2 min-w-48 h-10 px-4 font-bold text-white leading-1 bg-green-500 dark:border-neutral-800 items-center justify-center rounded-md border transition-all focus:outline-none"
+					className="flex cursor-pointer select-none gap-2 min-w-48 h-10 px-4 font-bold text-white leading-1 bg-green-600 dark:border-neutral-800 items-center justify-center rounded-md border transition-all focus:outline-none"
 				>
 					<StartBoostIcon className="w-5 h-5 fill-current" />
 					Start Study

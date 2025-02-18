@@ -1,6 +1,6 @@
 "use client"
 
-import { DEFAULT_OPTION } from "@/config/constants"
+import { DEFAULT_OPTION, N_MIN_FAILED_ATTENTION_CHECK } from "@/config/constants"
 import { createContext, useContext, useEffect, useState } from "react"
 import { usePages, useStudy } from "./experiment"
 import { useRouter } from "next/navigation"
@@ -44,18 +44,6 @@ export function SelectProvider({ children }) {
 
 			if (expectedVote !== selectedOption) {
 				console.log("expectedVote", expectedVote, "selectedOption", selectedOption)
-
-				if (Object.keys(failedAttentionCheck).length >= 3) {
-					const resp = apiPost("/api/failed-study", {
-						prolific_userid: study.prolific_userid,
-						prolific_studyid: study.prolific_studyid,
-						prolific_sessionid: study.prolific_sessionid,
-						studyid: study.id,
-						failedAttentionCheck: JSON.stringify(failedAttentionCheck),
-					})
-					router.push("/failed")
-				}
-
 				setFailedAttentionCheck((prev) => ({
 					...prev,
 					[currentPageId]: new Date(),
@@ -63,6 +51,21 @@ export function SelectProvider({ children }) {
 			}
 		}
 	}
+
+	useEffect(() => {
+		if (Object.keys(failedAttentionCheck).length >= N_MIN_FAILED_ATTENTION_CHECK) {
+			const resp = apiPost("/api/failed-study", {
+				prolific_userid: study.prolific_userid,
+				prolific_studyid: study.prolific_studyid,
+				prolific_sessionid: study.prolific_sessionid,
+				studyid: study.id,
+				failedAttentionCheck: JSON.stringify(failedAttentionCheck),
+			})
+			router.push("/failed")
+		} else {
+			console.log("passed", failedAttentionCheck)
+		}
+	}, [failedAttentionCheck])
 
 	return (
 		<SelectedContext.Provider value={{ options, selectOption, validateAttentionCheck }}>
