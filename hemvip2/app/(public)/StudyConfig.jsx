@@ -2,18 +2,25 @@
 
 import LoadingSpin from "@/components/loading/LoadingSpin"
 import { ConfigStudyProvider } from "@/contexts/experiment"
+import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
 export function StudyConfig({ children }) {
 	const [study, setStudy] = useState({})
 	const [pages, setPages] = useState({})
 	const [loading, setLoading] = useState(true)
+	const router = useRouter()
 	useEffect(() => {
 		const studyStorage = JSON.parse(localStorage.getItem("hemvip-study") || "{}")
 		const pagesStorage = JSON.parse(localStorage.getItem("hemvip-pages") || "{}")
 
-		setStudy(studyStorage)
-		setPages(pagesStorage)
+		if (studyStorage.id === undefined) {
+			router.push("/expired")
+		} else {
+			setStudy(studyStorage)
+			setPages(pagesStorage)
+		}
+
 		setLoading(false)
 	}, [])
 

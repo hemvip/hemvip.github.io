@@ -54,7 +54,7 @@ const StartupScreen = memo(function StartupScreen() {
 							className="w-[60%] select-none bg-white ring-1 ring-gray-200"
 							width={100}
 							height={100}
-							src="/screen_sample.png"
+							src="/AttentionCheckSample.gif"
 						/>
 					</div>
 					<p className="mt-6 leading-6 first:mt-0">
