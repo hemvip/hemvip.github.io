@@ -33,8 +33,12 @@ export function Screen() {
 
 	const { isOpen, message, showPopup, closePopup } = usePopupMessage()
 
+	// ****************************************************
+	const { setCanUnload } = usePreventUnload()
+
 	const handleFinish = async () => {
 		setOverlay(true)
+		setCanUnload(true)
 		console.log("actions", globalActions)
 		console.log("screenActions", screenActions)
 		const body = {

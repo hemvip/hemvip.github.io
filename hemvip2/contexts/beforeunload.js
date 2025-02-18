@@ -2,7 +2,10 @@
 import { createContext, useState, useEffect, useContext } from "react"
 
 // Create a context
-const PreventUnloadContext = createContext({ canUnload: false, setCanUnload: () => {} })
+const PreventUnloadContext = createContext({ canUnload: true, setCanUnload: () => {} })
+
+// Custom hook for using the context
+export const usePreventUnload = () => useContext(PreventUnloadContext)
 
 // Create a provider component
 export const PreventUnloadProvider = ({ children }) => {
@@ -26,6 +29,3 @@ export const PreventUnloadProvider = ({ children }) => {
 
 	return <PreventUnloadContext.Provider value={{ canUnload, setCanUnload }}>{children}</PreventUnloadContext.Provider>
 }
-
-// Custom hook for using the context
-export const usePreventUnload = () => useContext(PreventUnloadContext)

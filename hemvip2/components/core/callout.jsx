@@ -18,7 +18,7 @@ const classes = {
 	error: cn("border-red-200 bg-red-100 text-red-900 dark:border-red-200/30 dark:bg-red-900/30 dark:text-red-200"),
 	info: cn("border-blue-200 bg-blue-100 text-blue-900 dark:border-blue-200/30 dark:bg-blue-900/30 dark:text-blue-200"),
 	warning: cn(
-		"border-yellow-100 bg-yellow-50 text-yellow-900 dark:border-yellow-200/30 dark:bg-yellow-700/30 dark:text-yellow-200"
+		"border-yellow-100 bg-yellow-50 text-yellow-900 dark:border-yellow-500/30 dark:bg-yellow-700/30 dark:text-yellow-200"
 	),
 }
 

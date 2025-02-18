@@ -2,11 +2,14 @@ import React, { memo } from "react"
 import Image from "next/image"
 import { StartBoostIcon } from "@/icons/startboost"
 import { useScreenControl } from "@/contexts/screencontroll"
+import { usePreventUnload } from "@/contexts/beforeunload"
 
 const StartupScreen = memo(function StartupScreen() {
 	const { setNext } = useScreenControl()
+	const { setCanUnload } = usePreventUnload()
 	const startPage = () => {
 		setNext()
+		setCanUnload(false)
 	}
 
 	return (

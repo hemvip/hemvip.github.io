@@ -7,11 +7,11 @@ export const DEFAULT_THEME = {
 
 export const DEFAULT_OPTION = {
 	unselect: "",
-	clearlyLeft: "Left Clearly Better",
-	slightlyLeft: "Left Slightly Better",
+	clearlyLeft: "LeftClearlyBetter",
+	slightlyLeft: "LeftSlightlyBetter",
 	equal: "Equal",
-	slightlyRight: "Right Slightly Better",
-	clearlyRight: "Right Clearly Better",
+	slightlyRight: "RightSlightlyBetter",
+	clearlyRight: "RightClearlyBetter",
 }
 
 export const DEFAULT_ACTION_STRING = {
@@ -43,6 +43,14 @@ export const DEFAULT_ACTION_STRING = {
 	skipLeft: "Skip Left",
 	skipRight: "Skip Right",
 }
+
+export const OPTION_SELECT = [
+	DEFAULT_ACTION_STRING.clickClearlyLeft,
+	DEFAULT_ACTION_STRING.clickSlightlyLeft,
+	DEFAULT_ACTION_STRING.clickEqual,
+	DEFAULT_ACTION_STRING.clickSlightlyRight,
+	DEFAULT_ACTION_STRING.clickClearlyRight,
+]
 
 export const DEFAULT_STUDY = {
 	id: 32,

@@ -5,12 +5,14 @@ import { useEffect } from "react"
 
 const useBeforeUnload = (message) => {
 	const { canUnload } = usePreventUnload()
-	console.log("Go useBeforeUnload", message)
+
 	useEffect(() => {
+		console.log("canUnload", canUnload)
+		if (canUnload) return // Allow navigation if unloading is allowed
+
 		const handleBeforeUnload = (event) => {
 			event.preventDefault()
-			console.log("handleBeforeUnload.useBeforeUnload")
-			event.returnValue = message
+			event.returnValue = message // Required for some browsers
 			return message
 		}
 
@@ -18,7 +20,7 @@ const useBeforeUnload = (message) => {
 		return () => {
 			window.removeEventListener("beforeunload", handleBeforeUnload)
 		}
-	}, [message])
+	}, [canUnload, message]) // Re-run effect when `canUnload` changes
 }
 
 export { useBeforeUnload }

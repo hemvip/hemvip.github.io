@@ -9,35 +9,39 @@ const AttentionCheckContext = createContext({
 	// [pageid]: selectedOption
 	options: {
 		39: DEFAULT_OPTION.unselect, // sample value
-		27: DEFAULT_OPTION.unselect,
 	},
 	selectAttentionCheck: (newOption, currentPage) => {},
+	validateAttentionCheck: () => {},
 })
 
 export const useAttentionCheck = () => useContext(AttentionCheckContext)
 export function AttentionCheckProvider({ children }) {
-	const [options, setOptions] = useState({})
+	const [failedOptions, setFailedOptions] = useState({})
 	const pages = usePages()
 	const router = useRouter()
 
 	const selectAttentionCheck = (newOption, currentPage) => {
 		const currentPageId = pages[currentPage].id
+		const expectedVote = pages[currentPage].expected_vote
+		console.log("expectedVote", expectedVote)
 		if (currentPageId != 0) {
-			setOptions((prevOption) => ({
+			setFailedOptions((prevOption) => ({
 				...prevOption,
 				[currentPageId]: newOption,
 			}))
 		}
 	}
 
+	const validateAttentionCheck = () => {}
+
 	useEffect(() => {
-		if (Object.keys(options).length > 3) {
+		if (Object.keys(failedOptions).length > 3) {
 			router.push("/failed")
 		}
-	}, [options])
+	}, [failedOptions])
 
 	return (
-		<AttentionCheckContext.Provider value={{ options, selectAttentionCheck }}>
+		<AttentionCheckContext.Provider value={{ options: failedOptions, selectAttentionCheck, validateAttentionCheck }}>
 			{children}
 		</AttentionCheckContext.Provider>
 	)

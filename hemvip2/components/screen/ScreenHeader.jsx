@@ -1,15 +1,17 @@
 import React, { useEffect } from "react"
 import { useCurrentPage } from "@/contexts/experiment"
 import { useActionRecorder } from "@/contexts/action-recorder"
-import { DEFAULT_ACTION_STRING } from "@/config/constants"
+import { DEFAULT_ACTION_STRING, OPTION_SELECT } from "@/config/constants"
 import { useScreenControl } from "@/contexts/screencontroll"
 import { ArrowLeftIcon, ArrowRightIcon } from "@/icons"
 import { usePopupMessage } from "@/contexts/popupmessage"
+import { useSelected } from "@/contexts/selected"
 
 export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 	const page = useCurrentPage(currentPage)
 	const { screenActions, addAction } = useActionRecorder()
 	const { isStartPage, isEndPage } = useScreenControl()
+	const { validateAttentionCheck } = useSelected()
 
 	useEffect(() => {
 		history.pushState({}, "", `?page=${currentPage + 1}`)
@@ -28,16 +30,15 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 			return
 		}
 
-		const currentScreenActions = screenActions[page.id]
-		console.log("currentAction", currentScreenActions)
+		const currentScreenActions = screenActions[page.id] || []
+		// console.log("currentAction", currentScreenActions)
 
 		const isFinishLeftVideo = currentScreenActions.includes(DEFAULT_ACTION_STRING.finishVideoLeft)
-		console.log("isFinishLeftVideo", isFinishLeftVideo)
+		// console.log("isFinishLeftVideo", isFinishLeftVideo)
 		if (!isFinishLeftVideo) {
 			showPopup("Please watch the left video to the end.")
 			return
 		}
-		console.log("isFinishLeftVideo", isFinishLeftVideo)
 
 		const isFinishRightVideo = currentScreenActions.includes(DEFAULT_ACTION_STRING.finishVideoRight)
 		if (!isFinishRightVideo) {
@@ -45,17 +46,9 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 			return
 		}
 
-		const optionSelect = [
-			DEFAULT_ACTION_STRING.clickClearlyLeft,
-			DEFAULT_ACTION_STRING.clickSlightlyLeft,
-			DEFAULT_ACTION_STRING.clickEqual,
-			DEFAULT_ACTION_STRING.clickSlightlyRight,
-			DEFAULT_ACTION_STRING.clickClearlyRight,
-		]
-
 		let isSelected = false
-		for (let i = 0; i < optionSelect.length; i++) {
-			const option = optionSelect[i]
+		for (let i = 0; i < OPTION_SELECT.length; i++) {
+			const option = OPTION_SELECT[i]
 			if (currentScreenActions.includes(option)) {
 				isSelected = true
 				break
@@ -64,6 +57,7 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 
 		if (isSelected) {
 			setNext()
+			validateAttentionCheck(currentPage)
 			addAction(DEFAULT_ACTION_STRING.clickNext, currentPage)
 		} else {
 			showPopup("Please select your option.")
