@@ -23,7 +23,6 @@ export function AttentionCheckProvider({ children }) {
 	const selectAttentionCheck = (newOption, currentPage) => {
 		const currentPageId = pages[currentPage].id
 		const expectedVote = pages[currentPage].expected_vote
-		console.log("expectedVote", expectedVote)
 		if (currentPageId != 0) {
 			setFailedOptions((prevOption) => ({
 				...prevOption,

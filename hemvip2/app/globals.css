@@ -49,7 +49,6 @@
 		box-sizing: border-box;
 		border: 0 solid #e5e7eb;
 	}
-
 	html {
 		font-feature-settings:
 			"rlig" 1,
@@ -57,7 +56,8 @@
 			"ss01" 1,
 			"ss06" 1 !important;
 		font-family:
-			Segoe UI,
+			"Segoe UI",
+			TTT,
 			ui-sans-serif,
 			system-ui,
 			-apple-system,

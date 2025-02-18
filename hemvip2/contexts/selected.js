@@ -26,13 +26,11 @@ export function SelectProvider({ children }) {
 
 	const selectOption = (newOption, currentPage) => {
 		const currentPageId = pages[currentPage].id
-		const expectedVote = pages[currentPage].expected_vote
 		if (currentPageId != 0) {
 			setOptions((prevOption) => ({
 				...prevOption,
 				[currentPageId]: newOption,
 			}))
-			console.log("expectedVote", expectedVote, "newOption", newOption)
 		}
 	}
 
