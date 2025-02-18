@@ -3,6 +3,7 @@
 import React, { Component, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Callout } from "./core"
+import Link from "next/link"
 
 class ErrorBoundary extends Component {
 	constructor(props) {
@@ -48,9 +49,9 @@ function ErrorFallback({ errorMessage }) {
 					<div className="container py-2">
 						<p className="mb-4">
 							Redirecting to the{" "}
-							<a className="text-blue-500 underline" href="/">
+							<Link className="text-blue-500 underline" href="/">
 								homepage
-							</a>{" "}
+							</Link>{" "}
 							in 5 seconds...
 						</p>
 						<p className="text-sm">{errorMessage}</p>
