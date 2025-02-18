@@ -1,9 +1,13 @@
 "use client"
 
 import { Callout } from "@/components/core"
-import { Suspense } from "react"
+import { Suspense, useEffect } from "react"
 
 export default function Page() {
+	useEffect(() => {
+		localStorage.removeItem("hemvip-pages")
+		localStorage.removeItem("hemvip-study")
+	}, [])
 	return (
 		<Suspense fallback={<div></div>}>
 			<div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">

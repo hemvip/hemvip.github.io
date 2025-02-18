@@ -36,33 +36,32 @@ export function SelectProvider({ children }) {
 		}
 	}
 
-	console.log("failedAttentionCheck", failedAttentionCheck)
-
 	const validateAttentionCheck = (currentPage) => {
 		console.log("go here   validateAttentionCheck", currentPage)
 		const page = pages[currentPage]
 		const currentPageId = pages[currentPage].id
 		if (page.type === "check" && currentPageId !== 0) {
-			console.log("validateAttentionCheck", options)
 			const expectedVote = pages[currentPage].expected_vote
 			const selectedOption = options[currentPageId]
 
 			if (expectedVote !== selectedOption) {
 				console.log("expectedVote", expectedVote, "selectedOption", selectedOption)
+
+				if (Object.keys(failedAttentionCheck).length >= 3) {
+					const resp = apiPost("/api/failed-study", {
+						prolific_userid: study.prolific_userid,
+						prolific_studyid: study.prolific_studyid,
+						prolific_sessionid: study.prolific_sessionid,
+						studyid: study.id,
+						failedAttentionCheck: JSON.stringify(failedAttentionCheck),
+					})
+					router.push("/failed")
+				}
+
 				setFailedAttentionCheck((prev) => ({
 					...prev,
-					[currentPageId]: true,
+					[currentPageId]: new Date(),
 				}))
-			}
-			if (Object.keys(failedAttentionCheck).length >= 3) {
-				const resp = apiPost("/api/failed-study", {
-					prolific_userid: study.prolific_userid,
-					prolific_studyid: study.prolific_studyid,
-					prolific_sessionid: study.prolific_sessionid,
-					studyid: study.id,
-					failedAttentionCheck: failedAttentionCheck,
-				})
-				router.push("/failed")
 			}
 		}
 	}

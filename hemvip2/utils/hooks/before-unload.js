@@ -7,7 +7,6 @@ const useBeforeUnload = (message) => {
 	const { canUnload } = usePreventUnload()
 
 	useEffect(() => {
-		console.log("canUnload", canUnload)
 		if (canUnload) return // Allow navigation if unloading is allowed
 
 		const handleBeforeUnload = (event) => {

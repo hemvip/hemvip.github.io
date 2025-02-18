@@ -15,6 +15,7 @@ import { useRouter } from "next/navigation"
 import { usePopupMessage } from "@/contexts/popupmessage"
 import { apiPost } from "@/utils/fetcher"
 import StartupScreen from "./StartupScreen"
+import { usePreventUnload } from "@/contexts/beforeunload"
 
 export function Screen() {
 	const router = useRouter()
@@ -55,11 +56,14 @@ export function Screen() {
 		console.log("resp", resp)
 
 		setOverlay(false)
+
 		if (resp.success) {
+			localStorage.removeItem("hemvip-pages")
+			localStorage.removeItem("hemvip-study")
 			router.push(`https://app.prolific.com/submissions/complete?cc=${study.completion_code}`)
 		} else {
 			console.error("errors", resp)
-			// router.push(`https://app.prolific.com/submissions/complete?cc=${study.fail_code}`)
+			router.push(`https://app.prolific.com/submissions/complete?cc=${study.fail_code}`)
 		}
 	}
 
