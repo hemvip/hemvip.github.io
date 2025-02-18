@@ -48,6 +48,12 @@ export function SelectProvider({ children }) {
 					...prev,
 					[currentPageId]: new Date(),
 				}))
+			} else {
+				setFailedAttentionCheck((prev) => {
+					const newDict = { ...prev }
+					delete newDict[currentPageId]
+					return newDict
+				})
 			}
 		}
 	}

@@ -11,7 +11,7 @@ export const DEFAULT_OPTION = {
 	unselect: "",
 	clearlyLeft: "LeftClearlyBetter",
 	slightlyLeft: "LeftSlightlyBetter",
-	equal: "Equal",
+	equal: "TheyAreEqual",
 	slightlyRight: "RightSlightlyBetter",
 	clearlyRight: "RightClearlyBetter",
 }
