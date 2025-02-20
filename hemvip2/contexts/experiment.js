@@ -30,20 +30,9 @@ export function ConfigStudyProvider({ study, pages, children, loading }) {
 	// 	...DEFAULT_STUDY,
 	// 	...(study && typeof study === "object" ? study : {}),
 	// }
-	// DEFAULT_PAGES
 	const pagesRef = useRef({})
 	studyRef.current = study
 	pagesRef.current = pages
-	// const storeRef = useRef()
-	// storeRef.current ||= {
-	// 	...DEFAULT_STUDY,
-	// 	...DEFAULT_PAGES,
-	// 	...(value &&
-	// 		Object.fromEntries(
-	// 			Object.entries(value).map(([key, value]) => [key, value && typeof value === "object" && DEEP_OBJECT_KEYS.includes(key) ? { ...DEFAULT_SCREEN_CONFIG[key], ...value } : value])
-	// 		)),
-	// }
-	// storeRef.current
 
 	return (
 		<ConfigStudyContext.Provider value={{ study: studyRef.current, pages: pagesRef.current, loading: loading }}>
