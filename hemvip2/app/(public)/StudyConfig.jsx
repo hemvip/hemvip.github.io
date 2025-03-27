@@ -22,7 +22,7 @@ export function StudyConfig({ children }) {
 		}
 
 		setLoading(false)
-	}, [])
+	}, [router])
 
 	if (loading) {
 		return (

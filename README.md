@@ -1,6 +1,6 @@
 # HemVip2 - Create a Study Experiment to evaluate Gesture Generation AI Model
 
-![image sample](./image.png)
+![image sample](./hemvip.png)
 
 ## Feature support:
 
