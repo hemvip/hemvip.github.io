@@ -128,9 +128,12 @@ export function ScreenMain({ currentPage, setNext, study }) {
 				</div>
 			</div>
 			<EvaluationBoard currentPage={currentPage} />
-			<span style={{marginTop: "1em"}}></span>
-			<ScreenMessage text={"Which factors contributed most to your response? Please tick one or more options:"} />
-			<JuiceBoard currentPage={currentPage} study={study}/>
+			{(study.type === "pairwise-humanlikeness" || study.type === "mismatch-speech") && (
+				<>
+					<ScreenMessage text={"Which factors contributed most to your response? Please tick one or more options:"} />
+					<JuiceBoard currentPage={currentPage} study={study} />
+				</>
+			)}
 			{/* <ScreenMessage /> */}
 		</>
 	)
