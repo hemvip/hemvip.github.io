@@ -1,4 +1,5 @@
 export { EvaluationBoard } from "./EvaluationBoard"
+export { JuiceBoard } from "./JuiceBoard"
 export { Headerbar as NavScreen } from "./Headerbar"
 export { PopupDialog } from "./PopupDialog"
 export { PopupError } from "./PopupError"

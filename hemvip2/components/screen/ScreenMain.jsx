@@ -5,10 +5,9 @@ import cn from "clsx"
 import { useCurrentPage } from "@/contexts/experiment"
 import { useActionRecorder } from "@/contexts/action-recorder"
 import { DEFAULT_ACTION_STRING } from "@/config/constants"
-import { EvaluationBoard, ScreenMessage } from "."
-import { SkipIcon } from "@/icons/skip"
+import { EvaluationBoard, JuiceBoard, ScreenMessage } from "."
 
-export function ScreenMain({ currentPage, setNext }) {
+export function ScreenMain({ currentPage, setNext, study }) {
 	const page = useCurrentPage(currentPage)
 	const { addAction } = useActionRecorder()
 
@@ -129,6 +128,9 @@ export function ScreenMain({ currentPage, setNext }) {
 				</div>
 			</div>
 			<EvaluationBoard currentPage={currentPage} />
+			<span style={{marginTop: "1em"}}></span>
+			<ScreenMessage text={"Which factors contributed most to your response? Please tick one or more options:"} />
+			<JuiceBoard currentPage={currentPage} study={study}/>
 			{/* <ScreenMessage /> */}
 		</>
 	)

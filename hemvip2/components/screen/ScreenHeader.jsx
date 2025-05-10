@@ -1,17 +1,20 @@
 import React, { useEffect } from "react"
 import { useCurrentPage } from "@/contexts/experiment"
 import { useActionRecorder } from "@/contexts/action-recorder"
-import { DEFAULT_ACTION_STRING, OPTION_SELECT } from "@/config/constants"
+import { DEFAULT_ACTION_STRING, DEFAULT_OPTION, OPTION_SELECT, JUICE_MOTION, JUICE_SPEECH } from "@/config/constants"
 import { useScreenControl } from "@/contexts/screencontroll"
 import { ArrowLeftIcon, ArrowRightIcon } from "@/icons"
-import { usePopupMessage } from "@/contexts/popupmessage"
 import { useSelected } from "@/contexts/selected"
 
-export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
+export function ScreenHeader({ currentPage, setPrev, setNext, showPopup, study }) {
 	const page = useCurrentPage(currentPage)
 	const { screenActions, addAction } = useActionRecorder()
 	const { isStartPage, isEndPage } = useScreenControl()
-	const { validateAttentionCheck } = useSelected()
+	const { options, juiceOptions, juiceOtherReason, validateAttentionCheck } = useSelected()
+
+	const isEqualSelected = !options[page.id] || options[page.id] === DEFAULT_OPTION.equal
+	const selectedJuiceOptions = juiceOptions[page.id] || []
+	const currentJuiceOtherReason = juiceOtherReason[page.id] || ""
 
 	useEffect(() => {
 		history.pushState({}, "", `?page=${currentPage + 1}`)
@@ -44,6 +47,26 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup }) {
 		if (!isFinishRightVideo) {
 			showPopup("Please watch the right video to the end.")
 			return
+		}
+
+		// Check if a JUICE option has been selected
+		if (study.type === "pairwise-humanlikeness" || study.type === "mismatch-speech") {
+			// Check JUICE selection only if videos are not labeled as equal
+			if (!isEqualSelected) {
+				// Check if any JUICE options are selected
+				if (selectedJuiceOptions.length === 0) {
+					showPopup("Please tick one or more checkboxes.")
+					return
+				}
+
+				// Check if "Other" is selected and a reason is provided
+				if (selectedJuiceOptions.includes(JUICE_MOTION.other) || selectedJuiceOptions.includes(JUICE_SPEECH.other)) {
+					if (!currentJuiceOtherReason.trim()) {
+						showPopup("Please specify a reason for selecting 'Other'.")
+						return
+					}
+				}
+			}
 		}
 
 		let isSelected = false

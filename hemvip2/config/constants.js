@@ -16,6 +16,22 @@ export const DEFAULT_OPTION = {
 	clearlyRight: "RightClearlyBetter",
 }
 
+export const JUICE_MOTION = {
+	unrealistic: "UnrealisticMotion",
+	smoothness: "MotionSmoothness",
+	amountIntensity: "AmountIntensityOfMotion",
+	recognisableGestures: "RecognisableGestures",
+	other: "MotionOther",
+}
+
+export const JUICE_SPEECH = {
+	fitRhythmTiming: "FitRhythmTiming",
+	emphasizeCorrectParts: "EmphasizeCorrectParts",
+	betterMatchContentMeaning: "BetterMatchContentMeaning",
+	betterFitForEmotion: "BetterFitForEmotion",
+	other: "SpeechOther",
+}
+
 export const DEFAULT_ACTION_STRING = {
 	clickStart: "Click Start",
 	clickFinish: "Click Finish",
@@ -25,6 +41,9 @@ export const DEFAULT_ACTION_STRING = {
 	clickEqual: "Click Equal",
 	clickSlightlyRight: "Click Right Slightly Better",
 	clickClearlyRight: "Click Right Clearly Better",
+
+	updateJuiceSelection: "Update JUICE Selection",
+	updateJuiceOtherReason: "Update JUICE Other Reason",
 
 	clickPrev: "Click Previous",
 	clickNext: "Click Next",
