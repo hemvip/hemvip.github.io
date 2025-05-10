@@ -22,7 +22,7 @@ export function Screen() {
 	const study = useStudy()
 	// ~~~~~~~~~~~~~~~~~
 	const { currentPage, progress, isStartPage, isEndPage, setPrev, setNext, direction } = useScreenControl()
-	const { options } = useSelected()
+	const { options, juiceOptions, juiceOtherReason } = useSelected()
 	const { globalActions, screenActions } = useActionRecorder()
 	// ~~~~~~~~~~~~~~~~~
 	const [overlay, setOverlay] = useState(false)
@@ -53,6 +53,8 @@ export function Screen() {
 			global_actions: globalActions,
 			screenActions: screenActions,
 			studySelections: options,
+			juiceOptions: juiceOptions,
+			juiceOtherReason: juiceOtherReason,
 		}
 
 		const resp = await apiPost("/api/finish-study", body)

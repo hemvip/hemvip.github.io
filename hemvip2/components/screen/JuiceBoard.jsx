@@ -79,7 +79,7 @@ export function JuiceBoard({ currentPage, study }) {
         ]
     } else {
         console.error("Unknown study type:", study.type)
-        return <div>Error: Unknown study type</div>
+        return <div>Error JUICE: Unknown study type</div>
     }
 
     return (
