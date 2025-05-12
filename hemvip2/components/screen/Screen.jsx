@@ -22,7 +22,7 @@ export function Screen() {
 	const study = useStudy()
 	// ~~~~~~~~~~~~~~~~~
 	const { currentPage, progress, isStartPage, isEndPage, setPrev, setNext, direction } = useScreenControl()
-	const { options } = useSelected()
+	const { options, juiceOptions, juiceOtherReason } = useSelected()
 	const { globalActions, screenActions } = useActionRecorder()
 	// ~~~~~~~~~~~~~~~~~
 	const [overlay, setOverlay] = useState(false)
@@ -53,6 +53,8 @@ export function Screen() {
 			global_actions: globalActions,
 			screenActions: screenActions,
 			studySelections: options,
+			juiceOptions: juiceOptions,
+			juiceOtherReason: juiceOtherReason,
 		}
 
 		const resp = await apiPost("/api/finish-study", body)
@@ -103,7 +105,7 @@ export function Screen() {
 			<div className="w-full h-screen px-[7%] gap-2 p-2 flex flex-col bg-stone-50">
 				<Progressbar progress={progress} />
 				<div className="flex flex-col w-full h-full gap-2">
-					<ScreenHeader currentPage={currentPage} setPrev={setPrev} setNext={setNext} showPopup={showPopup} />
+					<ScreenHeader currentPage={currentPage} setPrev={setPrev} setNext={setNext} showPopup={showPopup} study={study} />
 
 					<div className="flex-grow w-full h-full bg-white px-0 py-2 sm:p-4 border-none rounded-xl sm:border sm:border-zinc-300 flex flex-col gap-4">
 						<div className="relative h-full w-full  flex justify-center align-middle">
@@ -144,7 +146,7 @@ export function Screen() {
 									) : isEndPage ? (
 										<FinishScreen handleFinish={handleFinish} loadingFinish={loadingFinish} />
 									) : (
-										<ScreenMain currentPage={currentPage} setNext={setNext} />
+										<ScreenMain currentPage={currentPage} setNext={setNext} study={study}/>
 									)}
 								</motion.div>
 							</AnimatePresence>

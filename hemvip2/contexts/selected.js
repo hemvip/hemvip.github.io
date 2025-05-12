@@ -12,13 +12,19 @@ const SelectedContext = createContext({
 		0: DEFAULT_OPTION.unselect, // sample data
 		1: DEFAULT_OPTION.unselect,
 	},
+	juiceOptions: {},
+	juiceOtherReason: {},
 	selectOption: (newOption, currentPage) => {},
+	selectJuiceOption: (newJuiceOption, currentPage) => {},
+	specifyJuiceOtherReason: (newReason, currentPage) => {},
 	validateAttentionCheck: () => {},
 })
 
 export const useSelected = () => useContext(SelectedContext)
 export function SelectProvider({ children }) {
 	const [options, setOptions] = useState({})
+	const [juiceOptions, setJuiceOptions] = useState({})
+	const [juiceOtherReason, setJuiceOtherReason] = useState({})
 	const [failedAttentionCheck, setFailedAttentionCheck] = useState({})
 	const pages = usePages()
 	const study = useStudy()
@@ -30,6 +36,26 @@ export function SelectProvider({ children }) {
 			setOptions((prevOption) => ({
 				...prevOption,
 				[currentPageId]: newOption,
+			}))
+		}
+	}
+
+	const selectJuiceOption = (newJuiceOption, currentPage) => {
+		const currentPageId = pages[currentPage].id
+		if (currentPageId != 0) {
+			setJuiceOptions((prevJuiceOptions) => ({
+				...prevJuiceOptions,
+				[currentPageId]: newJuiceOption,
+			}))
+		}
+	}
+
+	const specifyJuiceOtherReason = (newReason, currentPage) => {
+		const currentPageId = pages[currentPage].id
+		if (currentPageId != 0) {
+			setJuiceOtherReason((prevReasons) => ({
+				...prevReasons,
+				[currentPageId]: newReason,
 			}))
 		}
 	}
@@ -74,7 +100,17 @@ export function SelectProvider({ children }) {
 	}, [failedAttentionCheck])
 
 	return (
-		<SelectedContext.Provider value={{ options, selectOption, validateAttentionCheck }}>
+		<SelectedContext.Provider
+			value={{
+				options,
+				juiceOptions,
+				juiceOtherReason,
+				selectOption,
+				selectJuiceOption,
+				specifyJuiceOtherReason,
+				validateAttentionCheck
+			}}
+		>
 			{children}
 		</SelectedContext.Provider>
 	)
