@@ -4,7 +4,7 @@ import React from "react"
 import cn from "clsx"
 import { useCurrentPage } from "@/contexts/experiment"
 import { useActionRecorder } from "@/contexts/action-recorder"
-import { DEFAULT_ACTION_STRING } from "@/config/constants"
+import { DEFAULT_ACTION_STRING, DEFAULT_MISMATCH, DEFAULT_PAIRWISE } from "@/config/constants"
 import { EvaluationBoard, JuiceBoard, ScreenMessage } from "."
 
 export function ScreenMain({ currentPage, setNext, study }) {
@@ -44,6 +44,22 @@ export function ScreenMain({ currentPage, setNext, study }) {
 		addAction(DEFAULT_ACTION_STRING.finishVideoRight, currentPage)
 	}
 
+	const determineIntroduction = () => {
+		if (study.type === "pairwise-humanlikeness") {
+			return DEFAULT_PAIRWISE.instruction
+		} else {
+			return DEFAULT_MISMATCH.instruction
+		}
+	}
+
+	const determineQuestion = () => {
+		if (study.type === "pairwise-humanlikeness") {
+			return DEFAULT_PAIRWISE.question
+		} else {
+			return DEFAULT_MISMATCH.question
+		}
+	}
+
 	// const handleSkipLeft = () => {
 	// 	addAction(DEFAULT_ACTION_STRING.skipLeft, currentPage)
 	// 	setNext()
@@ -57,8 +73,9 @@ export function ScreenMain({ currentPage, setNext, study }) {
 	return (
 		<>
 			<div className="w-full h-full flex flex-col gap-2 overflow-hidden">
-				<ScreenMessage text={page.question} />
-				<div className="w-full h-full flex justify-center align-middle gap-2 ">
+				<ScreenMessage text={determineIntroduction()} className="text-xl"/>
+				<div className=""><ScreenMessage text={determineQuestion()} className="text-3xl"/></div>
+				<div className="w-full h-full flex justify-center align-middle gap-4 ">
 					<div className="flex-1 h-full">
 						<div className="h-full w-full relative flex items-center justify-center">
 							{/* <button
@@ -128,12 +145,14 @@ export function ScreenMain({ currentPage, setNext, study }) {
 				</div>
 			</div>
 			<EvaluationBoard currentPage={currentPage} />
-			{(study.type === "pairwise-humanlikeness" || study.type === "mismatch-speech") && (
-				<>
-					<ScreenMessage text={"Which factors contributed most to your response? Please tick one or more options:"} />
-					<JuiceBoard currentPage={currentPage} study={study} />
-				</>
-			)}
+			<div className="mt-4">
+				{(study.type === "pairwise-humanlikeness" || study.type === "mismatch-speech") && (
+					<>
+						<ScreenMessage text={"Which factors contributed most to your response? Please tick one or more options:"} className="text-xl" />
+						<JuiceBoard currentPage={currentPage} study={study} />
+					</>
+				)}
+			</div>
 			{/* <ScreenMessage /> */}
 		</>
 	)

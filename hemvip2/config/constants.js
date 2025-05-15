@@ -72,3 +72,13 @@ export const OPTION_SELECT = [
 	DEFAULT_ACTION_STRING.clickSlightlyRight,
 	DEFAULT_ACTION_STRING.clickClearlyRight,
 ]
+
+export const DEFAULT_PAIRWISE = {
+	question: "In which video does the character gesture more like a real person?",
+	instruction: "Below are two videos without audio of a character speaking and gesturing.",
+}
+
+export const DEFAULT_MISMATCH = {
+	question: "In which video do the character’s movements fit the speech better?",
+	instruction: "Below are two videos of a character speaking and gesturing. Both videos have the same motion, but different speech.",
+}
