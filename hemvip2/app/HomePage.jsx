@@ -10,7 +10,7 @@ import cn from "clsx"
 import { CircleLoading } from "@/icons"
 import { StartStudyIcon } from "@/icons/start-study"
 import { apiPost } from "@/utils/fetcher"
-import StartupGuide from "../components/StartupGuide"
+// import StartupGuide from "../components/StartupGuide"
 
 // export function HomePage({ state, handleAttentionCheck }) {
 export function HomePage() {
@@ -71,7 +71,7 @@ export function HomePage() {
 				<div className="px-28 py-24 mb-4">
 					<Callout type="error">Please visit Prolific to get session.</Callout>
 				</div>
-				<StartupGuide />
+				// <StartupGuide />
 			</div>
 		)
 	}
@@ -79,9 +79,9 @@ export function HomePage() {
 	return (
 		<>
 			<p className="mt-3 leading-6 first:mt-0">
-				Click <strong>Start</strong> button to begin study.
+				Please click the <strong>Start</strong> button to begin the experiment.
 			</p>
-			<p className="mt-3 leading-6 first:mt-0">Please read Startup guide before Start</p>
+			// <p className="mt-3 leading-6 first:mt-0">Please read Startup guide before Start</p>
 			<div className="md:py-8 flex flex-row gap-4 px-4 justify-center items-start">
 				{!isError && (
 					<div className="min-w-60">
@@ -129,7 +129,7 @@ export function HomePage() {
 						>
 							Prolific
 						</a>{" "}
-						to get session.
+						to get session ID.
 						{/* PROLIFIC_PID, STUDY_ID, SESSION_ID */}
 					</Callout>
 				</div>
@@ -137,11 +137,11 @@ export function HomePage() {
 
 			{isComplete && (
 				<div className="px-24 pb-4">
-					<Callout type="info">All study is complete</Callout>
+					<Callout type="info">No studies are available. Please contact us through Prolific.</Callout>
 				</div>
 			)}
 			<hr className="dark:border-neutral-800" />
-			<StartupGuide />
+			// <StartupGuide />
 		</>
 	)
 }
