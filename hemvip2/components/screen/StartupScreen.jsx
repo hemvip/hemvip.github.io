@@ -56,7 +56,7 @@ const StartupScreen = memo(function StartupScreen() {
 								decoding="async"
 								data-nimg="1"
 								style={{ border: '4px solid #ccc' }}
-								className="w-[80%] select-none bg-white ring-1 ring-gray-200"
+								className="w-[60%] select-none bg-white ring-1 ring-gray-200"
 								width="70%"
 								height="100%"
 								src="/juice_preview.png"
@@ -70,8 +70,9 @@ const StartupScreen = memo(function StartupScreen() {
 						<br/>
 						<ul className="list-disc list-inside">
 							<li>⚠️ Make sure to watch each video all the way through.</li>
-							<li>⚠️ Only use the “Skip screen” button if ther i’s a technical issue (like a video not loading). Do not refresh the page — this will restart the experiment.</li>
 							<li>⚠️ You will encounter attention check questions. Please follow their instructions carefully — failing them may disqualify you and you will not be paid.</li>
+							<li>⚠️ Only use the “Skip screen” button if there is a technical issue (like a video not loading). Do not refresh the page — this will restart the experiment.</li>
+							<li>⚠️ If you have any questions, please contact us by sending a message  on Prolific!</li>
 						</ul>
 					</div>
 				</div>
