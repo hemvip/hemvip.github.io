@@ -24,12 +24,12 @@ const StartupScreen = memo(function StartupScreen() {
 					<div className="mt-3 leading-6 first:mt-0">
 						<strong>Please use Chrome, Edge, Safari, or Firefox for this study.</strong>
 						<br/>
-						In this study, you'll watch pairs of videos showing animated characters talking and moving their bodies.
-						The faces are covered and there's no sound, because we're only interested in the body movement.
+						In this study, you will watch pairs of videos showing animated characters talking and moving their bodies.
+						The faces are covered and there is no sound, because we are only interested in the body movement.
 					</div>
 					<div className="mt-3 leading-6 first:mt-0">
 						<br/><strong>Your task</strong><br/>
-						For each video pair, choose which character moves more like a real person. You'll click one of five buttons below the videos to make your choice:
+						For each video pair, choose which character moves more like a real person. You will click one of five buttons below the videos to make your choice:
 						<br/>
 						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
 								<Image
@@ -46,7 +46,7 @@ const StartupScreen = memo(function StartupScreen() {
 						</div>
 			
 						<br/><strong>After choosing a video</strong><br/>
-						If you don’t choose “They are equal,” you’ll also need to select one or more reasons from the list below the videos. 
+						If you do not choose “They are equal,” you will also need to select one or more reasons from the list below the videos. 
 						You can also write your own reason if none of the options fit.
 
 						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
@@ -70,8 +70,8 @@ const StartupScreen = memo(function StartupScreen() {
 						<br/>
 						<ul className="list-disc list-inside">
 							<li>⚠️ Make sure to watch each video all the way through.</li>
-							<li>⚠️ Only use the “Skip screen” button if there’s a technical issue (like a video not loading). Don’t refresh the page — this will restart the experiment.</li>
-							<li>⚠️ You will encounter attention check questions. Please follow their instructions carefully — failing them may disqualify you and you won’t be paid.</li>
+							<li>⚠️ Only use the “Skip screen” button if ther i’s a technical issue (like a video not loading). Do not refresh the page — this will restart the experiment.</li>
+							<li>⚠️ You will encounter attention check questions. Please follow their instructions carefully — failing them may disqualify you and you will not be paid.</li>
 						</ul>
 					</div>
 				</div>
