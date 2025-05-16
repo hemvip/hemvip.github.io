@@ -10,7 +10,6 @@ import cn from "clsx"
 import { CircleLoading } from "@/icons"
 import { StartStudyIcon } from "@/icons/start-study"
 import { apiPost } from "@/utils/fetcher"
-// import StartupGuide from "../components/StartupGuide"
 
 // export function HomePage({ state, handleAttentionCheck }) {
 export function HomePage() {
@@ -71,7 +70,6 @@ export function HomePage() {
 				<div className="px-28 py-24 mb-4">
 					<Callout type="error">Please visit Prolific to get session.</Callout>
 				</div>
-				{// <StartupGuide />}
 			</div>
 		)
 	}
@@ -141,7 +139,6 @@ export function HomePage() {
 				</div>
 			)}
 			<hr className="dark:border-neutral-800" />
-			{// <StartupGuide />}
 		</>
 	)
 }
