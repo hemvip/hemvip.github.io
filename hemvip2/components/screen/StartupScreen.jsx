@@ -21,16 +21,16 @@ const StartupScreen = memo(function StartupScreen() {
 			</h2>
 			<div className="overflow-y-auto">
 				<div className="mx-[10%]  overflow-y-visible">
-					<p className="mt-3 leading-6 first:mt-0">
+					<div className="mt-3 leading-6 first:mt-0">
 						<strong>Please use Chrome, Edge, Safari, or Firefox for this study.</strong>
-						<br>
+						<br/>
 						In this study, you'll watch pairs of videos showing animated characters talking and moving their bodies.
 						The faces are covered and there's no sound, because we're only interested in the body movement.
-					</p>
+					</div>
 					<div className="mt-3 leading-6 first:mt-0">
-						<br><strong>Your task</strong><br>
+						<br/><strong>Your task</strong><br/>
 						For each video pair, choose which character moves more like a real person. You'll click one of five buttons below the videos to make your choice:
-						<br>
+						<br/>
 						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
 								<Image
 									alt="Title suffix"
@@ -45,7 +45,7 @@ const StartupScreen = memo(function StartupScreen() {
 								/>
 						</div>
 			
-						<br><strong>After choosing a video</strong><br>
+						<br/><strong>After choosing a video</strong><br/>
 						If you don’t choose “They are equal,” you’ll also need to select one or more reasons from the list below the videos. 
 						You can also write your own reason if none of the options fit.
 
@@ -65,9 +65,9 @@ const StartupScreen = memo(function StartupScreen() {
 					</div>
 
 					<div className="mt-3 leading-6 first:mt-0">
-						<br>
+						<br/>
 						<strong>Important notes</strong>
-						<br>
+						<br/>
 						<ul className="list-disc list-inside">
 							<li>⚠️ Make sure to watch each video all the way through.</li>
 							<li>⚠️ Only use the “Skip screen” button if there’s a technical issue (like a video not loading). Don’t refresh the page — this will restart the experiment.</li>
@@ -76,7 +76,6 @@ const StartupScreen = memo(function StartupScreen() {
 					</div>
 				</div>
 			</div>
-		</div>
 
 			<div className="my-4 w-full mx-auto flex justify-center">
 				<button
