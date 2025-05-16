@@ -21,42 +21,63 @@ const StartupScreen = memo(function StartupScreen() {
 			</h2>
 			<div className="overflow-y-auto">
 				<div className="mx-[10%]  overflow-y-visible">
-					Pairwise Comparison of Gesture Generation Studies
 					<p className="mt-3 leading-6 first:mt-0">
 						<strong>Please use Chrome, Edge, Safari, or Firefox for this study.</strong>
+						<br>
+						In this study, you'll watch pairs of videos showing animated characters talking and moving their bodies.
+						The faces are covered and there's no sound, because we're only interested in the body movement.
 					</p>
+					<div className="mt-3 leading-6 first:mt-0">
+						<br><strong>Your task</strong><br>
+						For each video pair, choose which character moves more like a real person. You'll click one of five buttons below the videos to make your choice:
+						<br>
+						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
+								<Image
+									alt="Title suffix"
+									loading="lazy"
+									decoding="async"
+									data-nimg="1"
+									style="border: 4px solid #ccc"
+									className="w-[60%] select-none bg-white border border-black"
+									width="70%"
+									height="70%"
+									src="/screen_preview.png"
+								/>
+						</div>
+			
+						<br><strong>After choosing a video</strong><br>
+						If you don’t choose “They are equal,” you’ll also need to select one or more reasons from the list below the videos. 
+						You can also write your own reason if none of the options fit.
 
-					<p className="mt-3 leading-6">
-						In this experiment you will see pairs of videos of talking characters gesturing with their arms, hands, head, and body. The faces are covered by masks since facial expressions are not part of this experiment, and the speech audio is muted on purpose, since we are only interested in what you think about the motion.
-					</p>
+						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
+							<Image
+								alt="Title suffix"
+								loading="lazy"
+								decoding="async"
+								data-nimg="1"
+								style="border: 4px solid #ccc"
+								className="w-[80%] select-none bg-white ring-1 ring-gray-200"
+								width="70%"
+								height="100%"
+								src="/juice_preview.png"
+							/>
+						</div>
+					</div>
 
-					<p className="mt-3 leading-6">
-						Your task is to determine <strong>in which of the two videos the character’s motion looks more like the motion of a real person.</strong> To give your response, click one of the five buttons below the videos.
-					</p>
-
-					<p className="mt-3 leading-6">
-						Unless you respond <code className="nextra-code" dir="ltr">They are equal</code>, you also have to give the reason for your choice by ticking one or more options listed under the videos. You can also write in your own reasons if they are not covered by the options we provide.
-					</p>
-
-					<p className="mt-3 leading-6">
-						There are occasional attention checks inserted into the task. Please comply with their instructions when you find them or you will be disqualified without pay.
-					</p>
-
-					<p className="mt-3 leading-6">
-						Please use the <code className="nextra-code" dir="ltr">Skip screen</code> button only in case of technical issues such as a video failing to load. Do not reload the webpage itself, as this will cause the experiment to start over.
-					</p>
-
-					<p className="mt-3 leading-6">
-						Importantly, please make sure you watch each video in full.
-					</p>
-					<p className="mt-3 leading-6 first:mt-0">
-						Start our study by click{" "}
-						<code className="nextra-code" dir="ltr">
-							Start
-						</code>
-					</p>
+					<div className="mt-3 leading-6 first:mt-0">
+						<br>
+						<strong>Important notes</strong>
+						<br>
+						<ul className="list-disc list-inside">
+							<li>⚠️ Make sure to watch each video all the way through.</li>
+							<li>⚠️ Only use the “Skip screen” button if there’s a technical issue (like a video not loading). Don’t refresh the page — this will restart the experiment.</li>
+							<li>⚠️ You will encounter attention check questions. Please follow their instructions carefully — failing them may disqualify you and you won’t be paid.</li>
+						</ul>
+					</div>
 				</div>
 			</div>
+		</div>
+
 			<div className="my-4 w-full mx-auto flex justify-center">
 				<button
 					type="submit"
