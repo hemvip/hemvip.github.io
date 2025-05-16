@@ -72,7 +72,7 @@ const StartupScreen = memo(function StartupScreen() {
 							<li>⚠️ Make sure to watch each video all the way through.</li>
 							<li>⚠️ You will encounter attention check questions. Please follow their instructions carefully — failing them may disqualify you and you will not be paid.</li>
 							<li>⚠️ Only use the “Skip screen” button if there is a technical issue (like a video not loading). Do not refresh the page — this will restart the experiment.</li>
-							<li>⚠️ If you have any questions, please contact us by sending a message  on Prolific!</li>
+							<li>⚠️ If you have any questions, please contact us by sending a message on Prolific!</li>
 						</ul>
 					</div>
 				</div>
