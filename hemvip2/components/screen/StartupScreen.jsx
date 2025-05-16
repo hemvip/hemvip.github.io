@@ -22,90 +22,38 @@ const StartupScreen = memo(function StartupScreen() {
 			<div className="overflow-y-auto">
 				<div className="mx-[10%]  overflow-y-visible">
 					Pairwise Comparison of Gesture Generation Studies
-					<h3 className="font-semibold tracking-tight text-slate-900 dark:text-slate-100 mt-3 text-xl">
-						1. Our Gesture Generation Study
-					</h3>
 					<p className="mt-3 leading-6 first:mt-0">
-						Gesture Generation is the process of generating gestures from speech or text. The goal of Gesture Generation
-						is to generate gestures that are natural, realistic, and appropriate for the given context. The generated
-						gestures can be used to animate virtual characters, robots, or embodied conversational agents.
+						<strong>Please use Chrome, Edge, Safari, or Firefox for this study.</strong>
 					</p>
-					<p className="mt-3 leading-6 first:mt-0">Guide</p>
-					<ul className="mt-3 list-disc first:mt-0 ltr:ml-6 rtl:mr-6">
-						<li className="task-list-item">Exist screen when paritipate</li>
-						<li className="task-list-item">Update the website...</li>
-						<li className="task-list-item">Contact the media...</li>
-					</ul>
-					<h3 className="font-semibold tracking-tight text-slate-900 dark:text-slate-100 mt-3 text-xl">
-						2. Process of Gesture Generation Study
-					</h3>
+
+					<p className="mt-3 leading-6">
+						In this experiment you will see pairs of videos of talking characters gesturing with their arms, hands, head, and body. The faces are covered by masks since facial expressions are not part of this experiment, and the speech audio is muted on purpose, since we are only interested in what you think about the motion.
+					</p>
+
+					<p className="mt-3 leading-6">
+						Your task is to determine <strong>in which of the two videos the character’s motion looks more like the motion of a real person.</strong> To give your response, click one of the five buttons below the videos.
+					</p>
+
+					<p className="mt-3 leading-6">
+						Unless you respond <code className="nextra-code" dir="ltr">They are equal</code>, you also have to give the reason for your choice by ticking one or more options listed under the videos. You can also write in your own reasons if they are not covered by the options we provide.
+					</p>
+
+					<p className="mt-3 leading-6">
+						There are occasional attention checks inserted into the task. Please comply with their instructions when you find them or you will be disqualified without pay.
+					</p>
+
+					<p className="mt-3 leading-6">
+						Please use the <code className="nextra-code" dir="ltr">Skip screen</code> button only in case of technical issues such as a video failing to load. Do not reload the webpage itself, as this will cause the experiment to start over.
+					</p>
+
+					<p className="mt-3 leading-6">
+						Importantly, please make sure you watch each video in full.
+					</p>
 					<p className="mt-3 leading-6 first:mt-0">
 						Start our study by click{" "}
 						<code className="nextra-code" dir="ltr">
 							Start
 						</code>
-					</p>
-					<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
-						<Image
-							alt="Title suffix"
-							loading="lazy"
-							decoding="async"
-							data-nimg="1"
-							className="w-[60%] select-none bg-white ring-1 ring-gray-200"
-							width={100}
-							height={100}
-							src="/AttentionCheckSample.gif"
-						/>
-					</div>
-					<p className="mt-6 leading-6 first:mt-0">
-						Please choose{" "}
-						<code className="nextra-code" dir="ltr">
-							Next
-						</code>
-					</p>
-					<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
-						<Image
-							alt="Title suffix"
-							loading="lazy"
-							decoding="async"
-							data-nimg="1"
-							className="w-[60%] select-none bg-white ring-1 ring-gray-200"
-							width={100}
-							height={100}
-							src="/screen_sample.png"
-						/>
-					</div>
-					<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
-						<Image
-							alt="Title suffix"
-							loading="lazy"
-							decoding="async"
-							data-nimg="1"
-							className="w-[60%] select-none bg-white ring-1 ring-gray-200"
-							width={100}
-							height={100}
-							src="/screen_sample.png"
-						/>
-					</div>
-					<h3 className="font-semibold tracking-tight text-slate-900 dark:text-slate-100 mt-3 text-xl">
-						3. Attention Check
-					</h3>
-					<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
-						<Image
-							alt="Title suffix"
-							loading="lazy"
-							decoding="async"
-							data-nimg="1"
-							className="w-[60%] select-none bg-white ring-1 ring-gray-200"
-							width={100}
-							height={100}
-							src="/screen_sample.png"
-						/>
-					</div>
-					<p className="mt-3 leading-6 first:mt-0">
-						Gesture Generation is the process of generating gestures from speech or text. The goal of Gesture Generation
-						is to generate gestures that are natural, realistic, and appropriate for the given context. The generated
-						gestures can be used to animate virtual characters, robots, or embodied conversational agents.
 					</p>
 				</div>
 			</div>
@@ -117,12 +65,13 @@ const StartupScreen = memo(function StartupScreen() {
 					aria-disabled="false"
 					className="flex cursor-pointer select-none gap-2 min-w-48 h-10 px-4 font-bold text-white leading-1 bg-green-600 dark:border-neutral-800 items-center justify-center rounded-md border transition-all focus:outline-none"
 				>
-					<StartBoostIcon className="w-5 h-5 fill-current" />
+					<StartBoostIcon className="w-5 h-5 fill-current"/>
 					Start Study
 				</button>
 			</div>
 		</>
 	)
 })
+
 
 export default StartupScreen
