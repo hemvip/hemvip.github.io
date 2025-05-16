@@ -71,7 +71,7 @@ export function HomePage() {
 				<div className="px-28 py-24 mb-4">
 					<Callout type="error">Please visit Prolific to get session.</Callout>
 				</div>
-				// <StartupGuide />
+				{// <StartupGuide />}
 			</div>
 		)
 	}
@@ -81,7 +81,7 @@ export function HomePage() {
 			<p className="mt-3 leading-6 first:mt-0">
 				Please click the <strong>Start</strong> button to begin the experiment.
 			</p>
-			// <p className="mt-3 leading-6 first:mt-0">Please read Startup guide before Start</p>
+			
 			<div className="md:py-8 flex flex-row gap-4 px-4 justify-center items-start">
 				{!isError && (
 					<div className="min-w-60">
@@ -141,7 +141,7 @@ export function HomePage() {
 				</div>
 			)}
 			<hr className="dark:border-neutral-800" />
-			// <StartupGuide />
+			{// <StartupGuide />}
 		</>
 	)
 }
