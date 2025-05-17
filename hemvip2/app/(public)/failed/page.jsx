@@ -1,13 +1,13 @@
 "use client"
 
 import { Callout } from "@/components/core"
-import { Suspense, useEffect } from "react"
+import { Suspense, useEffect, useState } from "react"
 import { useSearchParams } from "next/navigation"
 
 export default function Page() {
+	const [reason, setReason] = useState("unknown_reason")
 	const searchParams = useSearchParams()
-	const reason = searchParams.get("reason") || "unknown_reason"
-
+	
 	const formatReason = (reasonCode) => {
 		// Replace underscores with spaces
 		const withSpaces = reasonCode.replace(/_/g, ' ')
@@ -18,9 +18,10 @@ export default function Page() {
 	}
 
 	useEffect(() => {
+		setReason(searchParams?.get("reason") || "unknown_reason")
 		localStorage.removeItem("hemvip-pages")
 		localStorage.removeItem("hemvip-study")
-	}, [])
+	}, [searchParams])
 	return (
 		<Suspense fallback={<div></div>}>
 			<div className="w-full max-h-screen h-screen bg-gray-100 overflow-hidden">
