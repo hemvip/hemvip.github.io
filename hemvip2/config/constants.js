@@ -5,7 +5,7 @@ export const DEFAULT_THEME = {
 	direction: "ltr",
 }
 
-export const N_MIN_FAILED_ATTENTION_CHECK = 3
+export const N_MIN_FAILED_ATTENTION_CHECK = 2
 export const N_MAX_SKIPPED_PAGES = 3
 
 export const DEFAULT_OPTION = {
