@@ -98,7 +98,7 @@ export function SelectProvider({ children }) {
 				failedAttentionCheck: JSON.stringify(failedAttentionCheck),
 				skippedPages: study.skippedPages
 			})
-			router.push("/failed")
+			router.push("/failed?reason=too_many_failed_attention_checks")
 		} else {
 			console.log("passed", failedAttentionCheck)
 		}

@@ -72,7 +72,7 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup, study }
 				studyid: study.id,
 				skippedPages: study.skippedPages
 			})
-			router.push("/failed")
+			router.push("/failed?reason=too_many_pages_skipped")
 		} else {
 			setNext()
 		}

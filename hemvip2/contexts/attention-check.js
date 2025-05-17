@@ -35,7 +35,7 @@ export function AttentionCheckProvider({ children }) {
 
 	useEffect(() => {
 		if (Object.keys(failedOptions).length > 3) {
-			router.push("/failed")
+			router.push("/failed?reason=too_many_failed_attention_checks")
 		}
 	}, [failedOptions])
 

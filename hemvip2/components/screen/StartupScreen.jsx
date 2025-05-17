@@ -15,7 +15,7 @@ const StartupScreen = memo(function StartupScreen() {
 	return (
 		<>
 			<h2 className="mx-[10%] border-b mb-3">
-				<div className="flex justify-center mb-2 gap-2 text-center font-semibold tracking-tight text-slate-900 dark:text-slate-100 text-2xl ">
+				<div className="flex justify-center mb-2 gap-2 text-center font-semibold tracking-tight text-slate-900 text-2xl ">
 					<div>📢</div> User study guide <div className="-scale-x-90">📢</div>
 				</div>
 			</h2>
