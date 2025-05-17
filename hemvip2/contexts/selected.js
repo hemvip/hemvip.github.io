@@ -84,6 +84,10 @@ export function SelectProvider({ children }) {
 		}
 	}
 
+	const getFailedAttentionChecks = () => {
+		return failedAttentionCheck;
+	}
+
 	useEffect(() => {
 		if (Object.keys(failedAttentionCheck).length >= N_MIN_FAILED_ATTENTION_CHECK) {
 			const resp = apiPost("/api/failed-study", {
@@ -92,6 +96,7 @@ export function SelectProvider({ children }) {
 				prolific_sessionid: study.prolific_sessionid,
 				studyid: study.id,
 				failedAttentionCheck: JSON.stringify(failedAttentionCheck),
+				skippedPages: study.skippedPages
 			})
 			router.push("/failed")
 		} else {
@@ -108,7 +113,8 @@ export function SelectProvider({ children }) {
 				selectOption,
 				selectJuiceOption,
 				specifyJuiceOtherReason,
-				validateAttentionCheck
+				validateAttentionCheck,
+				getFailedAttentionChecks,
 			}}
 		>
 			{children}

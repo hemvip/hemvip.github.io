@@ -22,7 +22,7 @@ export function Screen() {
 	const study = useStudy()
 	// ~~~~~~~~~~~~~~~~~
 	const { currentPage, progress, isStartPage, isEndPage, setPrev, setNext, direction } = useScreenControl()
-	const { options, juiceOptions, juiceOtherReason } = useSelected()
+	const { options, juiceOptions, juiceOtherReason, getFailedAttentionChecks} = useSelected()
 	const { globalActions, screenActions } = useActionRecorder()
 	// ~~~~~~~~~~~~~~~~~
 	const [overlay, setOverlay] = useState(false)
@@ -55,6 +55,8 @@ export function Screen() {
 			studySelections: options,
 			juiceOptions: juiceOptions,
 			juiceOtherReason: juiceOtherReason,
+			failedAttentionCheck: JSON.stringify(getFailedAttentionChecks()),
+			skippedPages: study.skippedPages,
 		}
 
 		const resp = await apiPost("/api/finish-study", body)

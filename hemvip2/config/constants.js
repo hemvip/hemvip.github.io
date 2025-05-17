@@ -6,6 +6,7 @@ export const DEFAULT_THEME = {
 }
 
 export const N_MIN_FAILED_ATTENTION_CHECK = 3
+export const N_MAX_SKIPPED_PAGES = 3
 
 export const DEFAULT_OPTION = {
 	unselect: "",
@@ -46,6 +47,7 @@ export const DEFAULT_ACTION_STRING = {
 	updateJuiceOtherReason: "Update JUICE Other Reason",
 
 	clickPrev: "Click Previous",
+	clickSkip: "Click Skip Page",
 	clickNext: "Click Next",
 	clickFinish: "Click Finish",
 
@@ -60,9 +62,6 @@ export const DEFAULT_ACTION_STRING = {
 
 	finishVideoLeft: "Finish Video Left",
 	finishVideoRight: "Finish Video Right",
-
-	skipLeft: "Skip Left",
-	skipRight: "Skip Right",
 }
 
 export const OPTION_SELECT = [

@@ -60,16 +60,6 @@ export function ScreenMain({ currentPage, setNext, study }) {
 		}
 	}
 
-	// const handleSkipLeft = () => {
-	// 	addAction(DEFAULT_ACTION_STRING.skipLeft, currentPage)
-	// 	setNext()
-	// }
-
-	// const handleSkipRight = () => {
-	// 	addAction(DEFAULT_ACTION_STRING.skipRight, currentPage)
-	// 	setNext()
-	// }
-
 	return (
 		<>
 			<div className="w-full h-full flex flex-col gap-2 overflow-hidden">
@@ -78,16 +68,6 @@ export function ScreenMain({ currentPage, setNext, study }) {
 				<div className="w-full h-full flex justify-center align-middle gap-4 ">
 					<div className="flex-1 h-full">
 						<div className="h-full w-full relative flex items-center justify-center">
-							{/* <button
-								onClick={handleSkipLeft}
-								className="z-2 flex flex-row justify-center items-center gap-1 right-4 top-4 absolute button rounded-md bg-white px-2 py-1"
-								title="Skip Video"
-							>
-								<span className="w-5 h-5">
-									<SkipIcon className="bg-red-500"></SkipIcon>
-								</span>
-								<span className="font-semibold flex-grow text-sm cursor-pointer">Skip</span>
-							</button> */}
 							{page.video1 && page.video1.url && (
 								<video
 									muted={false}
@@ -111,16 +91,6 @@ export function ScreenMain({ currentPage, setNext, study }) {
 
 					<div className="flex-1 h-full">
 						<div className="h-full w-full relative flex items-center justify-center">
-							{/* <button
-								onClick={handleSkipRight}
-								className="z-2 flex flex-row justify-center items-center gap-1 right-4 top-4 absolute button rounded-md bg-white px-2 py-1"
-								title="Skip Video"
-							>
-								<span className="w-5 h-5">
-									<SkipIcon className="bg-red-500"></SkipIcon>
-								</span>
-								<span className="font-semibold flex-grow text-sm cursor-pointer">Skip</span>
-							</button> */}
 							{page.video2 && page.video2.url && (
 								<video
 									muted={false}
