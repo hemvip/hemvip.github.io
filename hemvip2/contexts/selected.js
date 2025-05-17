@@ -96,7 +96,7 @@ export function SelectProvider({ children }) {
 				prolific_sessionid: study.prolific_sessionid,
 				studyid: study.id,
 				failedAttentionCheck: JSON.stringify(failedAttentionCheck),
-				skippedPages: study.skippedPages
+				skippedPages: study.skippedPages,
 			})
 			router.push("/failed?reason=too_many_failed_attention_checks")
 		} else {
