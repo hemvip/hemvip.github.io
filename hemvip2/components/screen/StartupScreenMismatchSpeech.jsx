@@ -29,7 +29,7 @@ const StartupScreenMismatchSpeech = memo(function StartupScreenMismatchSpeech() 
                     </div>
                     <div className="mt-3 leading-6 first:mt-0">
                         <br/><strong>Your task</strong><br/>
-                        For each video pair, choose which character's movements is more aligned with their speech. You will click one of five buttons below the videos to make your choice:
+                        For each video pair, choose which character&apos;s movements is more aligned with their speech. You will click one of five buttons below the videos to make your choice:
                         <br/>
                         <div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
                                 <Image
