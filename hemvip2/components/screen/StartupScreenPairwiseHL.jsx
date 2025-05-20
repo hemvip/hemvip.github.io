@@ -4,7 +4,7 @@ import { StartBoostIcon } from "@/icons/startboost"
 import { useScreenControl } from "@/contexts/screencontroll"
 import { usePreventUnload } from "@/contexts/beforeunload"
 
-const StartupScreen = memo(function StartupScreen() {
+const StartupScreenPairwiseHL = memo(function StartupScreenPairwiseHL() {
 	const { setNext } = useScreenControl()
 	const { setCanUnload } = usePreventUnload()
 	const startPage = () => {
@@ -96,4 +96,4 @@ const StartupScreen = memo(function StartupScreen() {
 })
 
 
-export default StartupScreen
+export default StartupScreenPairwiseHL

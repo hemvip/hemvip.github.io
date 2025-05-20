@@ -14,7 +14,8 @@ import { useActionRecorder } from "@/contexts/action-recorder"
 import { useRouter } from "next/navigation"
 import { usePopupMessage } from "@/contexts/popupmessage"
 import { apiPost } from "@/utils/fetcher"
-import StartupScreen from "./StartupScreen"
+import StartupScreenPairwiseHL from "./StartupScreenPairwiseHL"
+import StartupScreenMismatchSpeech from "./StartupScreenMismatchSpeech"
 import { usePreventUnload } from "@/contexts/beforeunload"
 
 export function Screen() {
@@ -143,8 +144,10 @@ export function Screen() {
 									}}
 									className="absolute w-full h-full overflow-hidden flex flex-col gap-2 justify-center align-middle"
 								>
-									{isStartPage ? (
-										<StartupScreen />
+									{(isStartPage && study.type=="pairwise-humanlikeness") ? (
+										<StartupScreenPairwiseHL />
+									) : (isStartPage && study.type=="mismatch-speech") ? (
+										<StartupScreenMismatchSpeech />
 									) : isEndPage ? (
 										<FinishScreen handleFinish={handleFinish} loadingFinish={loadingFinish} />
 									) : (
