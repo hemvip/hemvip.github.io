@@ -4,7 +4,7 @@ import React from "react"
 import cn from "clsx"
 import { useCurrentPage } from "@/contexts/experiment"
 import { useActionRecorder } from "@/contexts/action-recorder"
-import { DEFAULT_ACTION_STRING, DEFAULT_MISMATCH, DEFAULT_PAIRWISE } from "@/config/constants"
+import { DEFAULT_ACTION_STRING, DEFAULT_MISMATCH, DEFAULT_PAIRWISE, DEFAULT_SEAMLESS_HL } from "@/config/constants"
 import { EvaluationBoard, JuiceBoard, ScreenMessage } from "."
 
 export function ScreenMain({ currentPage, setNext, study }) {
@@ -47,6 +47,8 @@ export function ScreenMain({ currentPage, setNext, study }) {
 	const determineIntroduction = () => {
 		if (study.type === "pairwise-humanlikeness") {
 			return DEFAULT_PAIRWISE.instruction
+		} else if (study.type === "seamless-humanlikeness") {
+			return DEFAULT_SEAMLESS_HL.instruction
 		} else {
 			return DEFAULT_MISMATCH.instruction
 		}
@@ -55,6 +57,8 @@ export function ScreenMain({ currentPage, setNext, study }) {
 	const determineQuestion = () => {
 		if (study.type === "pairwise-humanlikeness") {
 			return DEFAULT_PAIRWISE.question
+		} else if (study.type === "seamless-humanlikeness") {
+			return DEFAULT_SEAMLESS_HL.question
 		} else {
 			return DEFAULT_MISMATCH.question
 		}
@@ -116,7 +120,7 @@ export function ScreenMain({ currentPage, setNext, study }) {
 			</div>
 			<EvaluationBoard currentPage={currentPage} />
 			<div className="mt-4">
-				{(study.type === "pairwise-humanlikeness" || study.type === "mismatch-speech") && (
+				{(study.type === "pairwise-humanlikeness" || study.type === "mismatch-speech" || study.type === "seamless-humanlikeness") && (
 					<>
 						<ScreenMessage text={"Which factors contributed most to your response? Please tick one or more options:"} className="text-xl" />
 						<JuiceBoard currentPage={currentPage} study={study} />

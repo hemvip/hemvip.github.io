@@ -16,6 +16,7 @@ import { usePopupMessage } from "@/contexts/popupmessage"
 import { apiPost } from "@/utils/fetcher"
 import StartupScreenPairwiseHL from "./StartupScreenPairwiseHL"
 import StartupScreenMismatchSpeech from "./StartupScreenMismatchSpeech"
+import StartupScreenSeamlessHL from "./StartupScreenSeamlessHL"
 import { usePreventUnload } from "@/contexts/beforeunload"
 
 export function Screen() {
@@ -146,6 +147,8 @@ export function Screen() {
 								>
 									{(isStartPage && study.type=="pairwise-humanlikeness") ? (
 										<StartupScreenPairwiseHL />
+									) : (isStartPage && study.type=="seamless-humanlikeness") ? (
+										<StartupScreenSeamlessHL />
 									) : (isStartPage && study.type=="mismatch-speech") ? (
 										<StartupScreenMismatchSpeech />
 									) : isEndPage ? (

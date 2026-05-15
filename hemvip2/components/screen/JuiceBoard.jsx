@@ -1,7 +1,7 @@
 "use client"
 
 import { useActionRecorder } from "@/contexts/action-recorder"
-import { DEFAULT_ACTION_STRING, DEFAULT_OPTION, JUICE_MOTION, JUICE_SPEECH } from "@/config/constants"
+import { DEFAULT_ACTION_STRING, DEFAULT_OPTION, JUICE_MOTION, JUICE_SPEECH, JUICE_SEAMLESS_HL } from "@/config/constants"
 import { useCurrentPage } from "@/contexts/experiment"
 import { useSelected } from "@/contexts/selected"
 
@@ -75,6 +75,14 @@ export function JuiceBoard({ currentPage, study }) {
             {
                 label: "Other (Please specify factors not listed above):",
                 optionValue: JUICE_SPEECH.other,
+            },
+        ]
+    } else if (study.type === "seamless-humanlikeness") {
+        // TODO: final JUICE option list for Seamless Human-Likeness.
+        juiceOptionsList = [
+            {
+                label: "Other (Please specify factors not listed above):",
+                optionValue: JUICE_SEAMLESS_HL.other,
             },
         ]
     } else {

@@ -81,3 +81,14 @@ export const DEFAULT_MISMATCH = {
 	question: "In which video do the character’s movements fit the speech better?",
 	instruction: "Below are two videos of a character speaking and gesturing. Both videos have the same motion, but different speech.",
 }
+
+// TODO: final wording for Seamless Human-Likeness — placeholders for now.
+export const DEFAULT_SEAMLESS_HL = {
+	question: "",
+	instruction: "",
+}
+
+// TODO: final JUICE option list for Seamless Human-Likeness — placeholders for now.
+export const JUICE_SEAMLESS_HL = {
+	other: "SeamlessHLOther",
+}
