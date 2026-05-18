@@ -4,7 +4,7 @@ import React from "react"
 import cn from "clsx"
 import { useCurrentPage } from "@/contexts/experiment"
 import { useActionRecorder } from "@/contexts/action-recorder"
-import { DEFAULT_ACTION_STRING, DEFAULT_MISMATCH, DEFAULT_PAIRWISE, DEFAULT_SEAMLESS_HL } from "@/config/constants"
+import { DEFAULT_ACTION_STRING, DEFAULT_MISMATCH, DEFAULT_PAIRWISE, DEFAULT_SEAMLESS_HL, DEFAULT_SEAMLESS_SPEECH, DEFAULT_SEAMLESS_DYADIC, DEFAULT_SEAMLESS_SEMANTIC } from "@/config/constants"
 import { EvaluationBoard, JuiceBoard, ScreenMessage } from "."
 
 export function ScreenMain({ currentPage, setNext, study }) {
@@ -49,6 +49,12 @@ export function ScreenMain({ currentPage, setNext, study }) {
 			return DEFAULT_PAIRWISE.instruction
 		} else if (study.type === "seamless-humanlikeness") {
 			return DEFAULT_SEAMLESS_HL.instruction
+		} else if (study.type === "seamless-speech-mismatch") {
+			return DEFAULT_SEAMLESS_SPEECH.instruction
+		} else if (study.type === "seamless-dyadic-mismatch") {
+			return DEFAULT_SEAMLESS_DYADIC.instruction
+		} else if (study.type === "seamless-semantic-mismatch") {
+			return DEFAULT_SEAMLESS_SEMANTIC.instruction
 		} else {
 			return DEFAULT_MISMATCH.instruction
 		}
@@ -59,6 +65,12 @@ export function ScreenMain({ currentPage, setNext, study }) {
 			return DEFAULT_PAIRWISE.question
 		} else if (study.type === "seamless-humanlikeness") {
 			return DEFAULT_SEAMLESS_HL.question
+		} else if (study.type === "seamless-speech-mismatch") {
+			return DEFAULT_SEAMLESS_SPEECH.question
+		} else if (study.type === "seamless-dyadic-mismatch") {
+			return DEFAULT_SEAMLESS_DYADIC.question
+		} else if (study.type === "seamless-semantic-mismatch") {
+			return DEFAULT_SEAMLESS_SEMANTIC.question
 		} else {
 			return DEFAULT_MISMATCH.question
 		}
@@ -120,7 +132,7 @@ export function ScreenMain({ currentPage, setNext, study }) {
 			</div>
 			<EvaluationBoard currentPage={currentPage} />
 			<div className="mt-4">
-				{(study.type === "pairwise-humanlikeness" || study.type === "mismatch-speech" || study.type === "seamless-humanlikeness") && (
+				{(study.type === "pairwise-humanlikeness" || study.type === "mismatch-speech" || study.type === "seamless-humanlikeness" || study.type === "seamless-speech-mismatch" || study.type === "seamless-dyadic-mismatch" || study.type === "seamless-semantic-mismatch") && (
 					<>
 						<ScreenMessage text={"Which factors contributed most to your response? Please tick one or more options:"} className="text-xl" />
 						<JuiceBoard currentPage={currentPage} study={study} />

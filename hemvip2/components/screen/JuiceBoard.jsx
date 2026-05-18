@@ -1,7 +1,7 @@
 "use client"
 
 import { useActionRecorder } from "@/contexts/action-recorder"
-import { DEFAULT_ACTION_STRING, DEFAULT_OPTION, JUICE_MOTION, JUICE_SPEECH, JUICE_SEAMLESS_HL } from "@/config/constants"
+import { DEFAULT_ACTION_STRING, DEFAULT_OPTION, JUICE_MOTION, JUICE_SPEECH, JUICE_SEAMLESS_HL, JUICE_SEAMLESS_SPEECH, JUICE_SEAMLESS_DYADIC, JUICE_SEAMLESS_SEMANTIC } from "@/config/constants"
 import { useCurrentPage } from "@/contexts/experiment"
 import { useSelected } from "@/contexts/selected"
 
@@ -83,6 +83,30 @@ export function JuiceBoard({ currentPage, study }) {
             {
                 label: "Other (Please specify factors not listed above):",
                 optionValue: JUICE_SEAMLESS_HL.other,
+            },
+        ]
+    } else if (study.type === "seamless-speech-mismatch") {
+        // TODO: final JUICE option list for Seamless Speech Mismatch.
+        juiceOptionsList = [
+            {
+                label: "Other (Please specify factors not listed above):",
+                optionValue: JUICE_SEAMLESS_SPEECH.other,
+            },
+        ]
+    } else if (study.type === "seamless-dyadic-mismatch") {
+        // TODO: final JUICE option list for Seamless Dyadic Mismatch.
+        juiceOptionsList = [
+            {
+                label: "Other (Please specify factors not listed above):",
+                optionValue: JUICE_SEAMLESS_DYADIC.other,
+            },
+        ]
+    } else if (study.type === "seamless-semantic-mismatch") {
+        // TODO: final JUICE option list for Seamless Semantic Mismatch.
+        juiceOptionsList = [
+            {
+                label: "Other (Please specify factors not listed above):",
+                optionValue: JUICE_SEAMLESS_SEMANTIC.other,
             },
         ]
     } else {

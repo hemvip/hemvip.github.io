@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useCurrentPage } from "@/contexts/experiment"
 import { useActionRecorder } from "@/contexts/action-recorder"
-import { DEFAULT_ACTION_STRING, DEFAULT_OPTION, OPTION_SELECT, JUICE_MOTION, JUICE_SPEECH, JUICE_SEAMLESS_HL, N_MAX_SKIPPED_PAGES } from "@/config/constants"
+import { DEFAULT_ACTION_STRING, DEFAULT_OPTION, OPTION_SELECT, JUICE_MOTION, JUICE_SPEECH, JUICE_SEAMLESS_HL, JUICE_SEAMLESS_SPEECH, JUICE_SEAMLESS_DYADIC, JUICE_SEAMLESS_SEMANTIC, N_MAX_SKIPPED_PAGES } from "@/config/constants"
 import { useScreenControl } from "@/contexts/screencontroll"
 import { ArrowLeftIcon, ArrowRightIcon } from "@/icons"
 import { useSelected } from "@/contexts/selected"
@@ -103,7 +103,7 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup, study }
 		}
 
 		// Check if a JUICE option has been selected
-		if (study.type === "pairwise-humanlikeness" || study.type === "mismatch-speech" || study.type === "seamless-humanlikeness") {
+		if (study.type === "pairwise-humanlikeness" || study.type === "mismatch-speech" || study.type === "seamless-humanlikeness" || study.type === "seamless-speech-mismatch" || study.type === "seamless-dyadic-mismatch" || study.type === "seamless-semantic-mismatch") {
 			// Check JUICE selection only if videos are not labeled as equal
 			if (!isEqualSelected) {
 				// Check if any JUICE options are selected
@@ -113,7 +113,14 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup, study }
 				}
 
 				// Check if "Other" is selected and a reason is provided
-				if (selectedJuiceOptions.includes(JUICE_MOTION.other) || selectedJuiceOptions.includes(JUICE_SPEECH.other) || selectedJuiceOptions.includes(JUICE_SEAMLESS_HL.other)) {
+				if (
+					selectedJuiceOptions.includes(JUICE_MOTION.other) ||
+					selectedJuiceOptions.includes(JUICE_SPEECH.other) ||
+					selectedJuiceOptions.includes(JUICE_SEAMLESS_HL.other) ||
+					selectedJuiceOptions.includes(JUICE_SEAMLESS_SPEECH.other) ||
+					selectedJuiceOptions.includes(JUICE_SEAMLESS_DYADIC.other) ||
+					selectedJuiceOptions.includes(JUICE_SEAMLESS_SEMANTIC.other)
+				) {
 					if (!currentJuiceOtherReason.trim()) {
 						showPopup("Please specify a reason for selecting 'Other'.")
 						return

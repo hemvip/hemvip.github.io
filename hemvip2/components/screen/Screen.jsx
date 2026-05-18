@@ -17,6 +17,9 @@ import { apiPost } from "@/utils/fetcher"
 import StartupScreenPairwiseHL from "./StartupScreenPairwiseHL"
 import StartupScreenMismatchSpeech from "./StartupScreenMismatchSpeech"
 import StartupScreenSeamlessHL from "./StartupScreenSeamlessHL"
+import StartupScreenSeamlessSpeech from "./StartupScreenSeamlessSpeech"
+import StartupScreenSeamlessDyadic from "./StartupScreenSeamlessDyadic"
+import StartupScreenSeamlessSemantic from "./StartupScreenSeamlessSemantic"
 import { usePreventUnload } from "@/contexts/beforeunload"
 
 export function Screen() {
@@ -149,6 +152,12 @@ export function Screen() {
 										<StartupScreenPairwiseHL />
 									) : (isStartPage && study.type=="seamless-humanlikeness") ? (
 										<StartupScreenSeamlessHL />
+									) : (isStartPage && study.type=="seamless-speech-mismatch") ? (
+										<StartupScreenSeamlessSpeech />
+									) : (isStartPage && study.type=="seamless-dyadic-mismatch") ? (
+										<StartupScreenSeamlessDyadic />
+									) : (isStartPage && study.type=="seamless-semantic-mismatch") ? (
+										<StartupScreenSeamlessSemantic />
 									) : (isStartPage && study.type=="mismatch-speech") ? (
 										<StartupScreenMismatchSpeech />
 									) : isEndPage ? (

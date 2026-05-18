@@ -92,3 +92,36 @@ export const DEFAULT_SEAMLESS_HL = {
 export const JUICE_SEAMLESS_HL = {
 	other: "SeamlessHLOther",
 }
+
+// TODO: final wording for Seamless Speech Mismatch — placeholders for now.
+export const DEFAULT_SEAMLESS_SPEECH = {
+	question: "",
+	instruction: "",
+}
+
+// TODO: final JUICE option list for Seamless Speech Mismatch — placeholders for now.
+export const JUICE_SEAMLESS_SPEECH = {
+	other: "SeamlessSpeechOther",
+}
+
+// TODO: final wording for Seamless Dyadic Mismatch — placeholders for now.
+export const DEFAULT_SEAMLESS_DYADIC = {
+	question: "",
+	instruction: "",
+}
+
+// TODO: final JUICE option list for Seamless Dyadic Mismatch — placeholders for now.
+export const JUICE_SEAMLESS_DYADIC = {
+	other: "SeamlessDyadicOther",
+}
+
+// TODO: final wording for Seamless Semantic Mismatch — placeholders for now.
+export const DEFAULT_SEAMLESS_SEMANTIC = {
+	question: "",
+	instruction: "",
+}
+
+// TODO: final JUICE option list for Seamless Semantic Mismatch — placeholders for now.
+export const JUICE_SEAMLESS_SEMANTIC = {
+	other: "SeamlessSemanticOther",
+}
