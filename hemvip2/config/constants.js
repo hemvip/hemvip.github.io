@@ -84,7 +84,7 @@ export const DEFAULT_MISMATCH = {
 
 // TODO: final wording for Seamless Human-Likeness — placeholders for now.
 export const DEFAULT_SEAMLESS_HL = {
-	question: "",
+	question: "In which video does the character gesture more like a real person?",
 	instruction: "",
 }
 
@@ -95,7 +95,7 @@ export const JUICE_SEAMLESS_HL = {
 
 // TODO: final wording for Seamless Speech Mismatch — placeholders for now.
 export const DEFAULT_SEAMLESS_SPEECH = {
-	question: "",
+	question: "In which video do the character’s movements fit the speech better?",
 	instruction: "",
 }
 
@@ -106,7 +106,7 @@ export const JUICE_SEAMLESS_SPEECH = {
 
 // TODO: final wording for Seamless Dyadic Mismatch — placeholders for now.
 export const DEFAULT_SEAMLESS_DYADIC = {
-	question: "",
+	question: "In which video does the character in the blue T-shirt react better to the other person?",
 	instruction: "",
 }
 
@@ -117,7 +117,7 @@ export const JUICE_SEAMLESS_DYADIC = {
 
 // TODO: final wording for Seamless Semantic Mismatch — placeholders for now.
 export const DEFAULT_SEAMLESS_SEMANTIC = {
-	question: "",
+	question: "In which video does the character express the highlighted keyword with their gestures?",
 	instruction: "",
 }
 

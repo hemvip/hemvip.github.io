@@ -80,8 +80,9 @@ export function ScreenMain({ currentPage, setNext, study }) {
 		<>
 			<div className="w-full h-full flex flex-col gap-2 overflow-hidden">
 				<ScreenMessage text={determineIntroduction()} className="text-xl"/>
-				<div className=""><ScreenMessage text={determineQuestion()} className="text-3xl"/></div>
-				<div className="w-full h-full flex justify-center align-middle gap-4 ">
+				<div className="w-full h-full flex flex-col gap-2 overflow-hidden">
+					<ScreenMessage text={determineQuestion()} className="text-3xl"/>
+					<div className="w-full h-full flex justify-center align-middle gap-4 ">
 					<div className="flex-1 h-full">
 						<div className="h-full w-full relative flex items-center justify-center">
 							{page.video1 && page.video1.url && (
@@ -128,6 +129,7 @@ export function ScreenMain({ currentPage, setNext, study }) {
 							)}
 						</div>
 					</div>
+				</div>
 				</div>
 			</div>
 			<EvaluationBoard currentPage={currentPage} />
