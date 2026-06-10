@@ -82,10 +82,9 @@ export const DEFAULT_MISMATCH = {
 	instruction: "Below are two videos of a character speaking and gesturing. Both videos have the same motion, but different speech.",
 }
 
-// TODO: final wording for Seamless Human-Likeness — placeholders for now.
 export const DEFAULT_SEAMLESS_HL = {
 	question: "In which video does the character gesture more like a real person?",
-	instruction: "",
+	instruction: "Below are two videos without audio of a character speaking and gesturing.",
 }
 
 // TODO: final JUICE option list for Seamless Human-Likeness — placeholders for now.
@@ -107,7 +106,7 @@ export const JUICE_SEAMLESS_SPEECH = {
 // TODO: final wording for Seamless Dyadic Mismatch — placeholders for now.
 export const DEFAULT_SEAMLESS_DYADIC = {
 	question: "In which video does the character in the blue T-shirt react better to the other person?",
-	instruction: "",
+	instruction: "Below are two videos of a character in a blue T-shirt interacting with another person.",
 }
 
 // TODO: final JUICE option list for Seamless Dyadic Mismatch — placeholders for now.
