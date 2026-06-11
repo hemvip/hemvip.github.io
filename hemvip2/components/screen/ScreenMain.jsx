@@ -5,11 +5,16 @@ import cn from "clsx"
 import { useCurrentPage } from "@/contexts/experiment"
 import { useActionRecorder } from "@/contexts/action-recorder"
 import { DEFAULT_ACTION_STRING, DEFAULT_MISMATCH, DEFAULT_PAIRWISE, DEFAULT_SEAMLESS_HL, DEFAULT_SEAMLESS_SPEECH, DEFAULT_SEAMLESS_DYADIC, DEFAULT_SEAMLESS_SEMANTIC } from "@/config/constants"
-import { EvaluationBoard, JuiceBoard, ScreenMessage } from "."
+import { EvaluationBoard, SemanticBoard, JuiceBoard, ScreenMessage } from "."
 
 export function ScreenMain({ currentPage, setNext, study }) {
 	const page = useCurrentPage(currentPage)
 	const { addAction } = useActionRecorder()
+
+	// Semantic Mismatch pages — both task and attention-check — show ONE video +
+	// two text choices. (Attention checks carry the obvious instruction as one of
+	// the two descriptions; see generateSeamlessSemanticMismatch.)
+	const isSemantic = study.type === "seamless-semantic-mismatch"
 
 	// Play
 	const playLeft = () => {
@@ -83,6 +88,29 @@ export function ScreenMain({ currentPage, setNext, study }) {
 				<div className="w-full h-full flex flex-col gap-2 overflow-hidden">
 					<ScreenMessage text={determineQuestion()} className="text-3xl"/>
 					<div className="w-full h-full flex justify-center align-middle gap-4 ">
+					{isSemantic ? (
+						<div className="flex-1 h-full max-w-3xl mx-auto">
+							<div className="h-full w-full relative flex items-center justify-center">
+								{page.video1 && page.video1.url && (
+									<video
+										muted={false}
+										autoPlay={false}
+										onPlay={playLeft}
+										onSeeked={seekedVideoLeft}
+										onPause={pauseLeft}
+										onEnded={finishVideoLeft}
+										playsInline
+										loop={false}
+										controls
+										className={cn("absolute inset-0 h-full w-full object-contain sm:rounded-xl sm:border dark:border-zinc-800")}
+									>
+										<source src={page.video1.url} type="video/mp4" />
+									</video>
+								)}
+							</div>
+						</div>
+					) : (
+						<>
 					<div className="flex-1 h-full">
 						<div className="h-full w-full relative flex items-center justify-center">
 							{page.video1 && page.video1.url && (
@@ -129,10 +157,12 @@ export function ScreenMain({ currentPage, setNext, study }) {
 							)}
 						</div>
 					</div>
+						</>
+					)}
 				</div>
 				</div>
 			</div>
-			<EvaluationBoard currentPage={currentPage} />
+			{isSemantic ? <SemanticBoard currentPage={currentPage} /> : <EvaluationBoard currentPage={currentPage} />}
 			<div className="mt-4">
 				{(study.type === "pairwise-humanlikeness" || study.type === "mismatch-speech" || study.type === "seamless-humanlikeness" || study.type === "seamless-speech-mismatch" || study.type === "seamless-dyadic-mismatch" || study.type === "seamless-semantic-mismatch") && (
 					<>

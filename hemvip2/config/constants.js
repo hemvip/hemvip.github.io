@@ -114,10 +114,10 @@ export const JUICE_SEAMLESS_DYADIC = {
 	other: "SeamlessDyadicOther",
 }
 
-// TODO: final wording for Seamless Semantic Mismatch — placeholders for now.
+// TODO: confirm final wording for Seamless Semantic Mismatch.
 export const DEFAULT_SEAMLESS_SEMANTIC = {
-	question: "In which video does the character express the highlighted keyword with their gestures?",
-	instruction: "",
+	question: "Which sentence is expressed by the character's gestures?",
+	instruction: "Below is a video of a character speaking and gesturing, followed by two sentences.",
 }
 
 // TODO: final JUICE option list for Seamless Semantic Mismatch — placeholders for now.
