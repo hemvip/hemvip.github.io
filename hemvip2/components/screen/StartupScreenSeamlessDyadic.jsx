@@ -25,41 +25,35 @@ const StartupScreenSeamlessDyadic = memo(function StartupScreenSeamlessDyadic() 
 						<strong>Please use Chrome, Edge, Safari, or Firefox for this study.</strong>
 						<br />
 						In this study, you will watch pairs of videos showing two animated characters talking to each other.
-						The left character's motion is the same in both videos, but the right character's motion, and the conversation, are different.
+						The left character&apos;s motion is the same in both videos, but the right character&apos;s motion, and the conversation, are different.
 					</div>
 					<div className="mt-3 leading-6 first:mt-0">
 						<br /><strong>Your task</strong><br />
 						Choose in which video the left-side character listens and reacts more naturally and expressively to the other character! You will click one of five buttons below the videos to make your choice:
 						<br />
-						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
-							<Image
-								alt="Title suffix"
-								loading="lazy"
-								decoding="async"
-								data-nimg="1"
+						<div className=”mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100”>
+							<img
+								alt=”Title suffix”
+								loading=”lazy”
+								decoding=”async”
 								style={{ border: '4px solid #ccc' }}
-								className="w-[60%] select-none bg-white border border-black"
-								width="70%"
-								height="70%"
-								src="/screen_preview_dyadic_mismatch.png"
+								className=”w-[60%] select-none bg-white border border-black”
+								src=”/screen_preview_dyadic_mismatch.png”
 							/>
 						</div>
 
 						<br /><strong>After choosing a video</strong><br />
-						If you do not choose “They are equal,” you will also need to select one or more reasons from the list below the videos.
+						If you do not choose &quot;They are equal,&quot; you will also need to select one or more reasons from the list below the videos.
 						You can also write your own reason if none of the options fit.
 
-						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
-							<Image
-								alt="Title suffix"
-								loading="lazy"
-								decoding="async"
-								data-nimg="1"
+						<div className=”mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100”>
+							<img
+								alt=”Title suffix”
+								loading=”lazy”
+								decoding=”async”
 								style={{ border: '4px solid #ccc' }}
-								className="w-[60%] select-none bg-white ring-1 ring-gray-200"
-								width="70%"
-								height="100%"
-								src="/juice_preview_dyadic_mismatch.png"
+								className=”w-[60%] select-none bg-white ring-1 ring-gray-200”
+								src=”/juice_preview_dyadic_mismatch.png”
 							/>
 						</div>
 					</div>
