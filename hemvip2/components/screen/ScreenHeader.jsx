@@ -105,7 +105,7 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup, study }
 		}
 
 		// Check if a JUICE option has been selected
-		if (study.type === "pairwise-humanlikeness" || study.type === "mismatch-speech" || study.type === "seamless-humanlikeness" || study.type === "seamless-speech-mismatch" || study.type === "seamless-dyadic-mismatch" || study.type === "seamless-semantic-mismatch") {
+		if (study.type === "pairwise-humanlikeness" || study.type === "mismatch-speech" || study.type === "seamless-humanlikeness" || study.type === "seamless-speech-mismatch" || study.type === "seamless-dyadic-mismatch") {
 			// Check JUICE selection only if videos are not labeled as equal
 			if (!isEqualSelected) {
 				// Check if any JUICE options are selected

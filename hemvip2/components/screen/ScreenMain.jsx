@@ -164,7 +164,7 @@ export function ScreenMain({ currentPage, setNext, study }) {
 			</div>
 			{isSemantic ? <SemanticBoard currentPage={currentPage} /> : <EvaluationBoard currentPage={currentPage} />}
 			<div className="mt-4">
-				{(study.type === "pairwise-humanlikeness" || study.type === "mismatch-speech" || study.type === "seamless-humanlikeness" || study.type === "seamless-speech-mismatch" || study.type === "seamless-dyadic-mismatch" || study.type === "seamless-semantic-mismatch") && (
+				{(study.type === "pairwise-humanlikeness" || study.type === "mismatch-speech" || study.type === "seamless-humanlikeness" || study.type === "seamless-speech-mismatch" || study.type === "seamless-dyadic-mismatch") && (
 					<>
 						<ScreenMessage text={"Which factors contributed most to your response? Please tick one or more options:"} className="text-xl" />
 						<JuiceBoard currentPage={currentPage} study={study} />
