@@ -41,7 +41,7 @@ export function SemanticBoard({ currentPage }) {
 							options[page.id] === choice.optionValue ? "bg-neutral-800 text-neutral-100" : "bg-neutral-100 text-neutral-800 hover:bg-neutral-200"
 						)}
 					>
-						<span className="block text-xs font-semibold uppercase tracking-wide opacity-60">{index === 0 ? "Description A" : "Description B"}</span>
+						<span className="block text-xs font-semibold uppercase tracking-wide opacity-60">{index === 0 ? "Sentence 1" : "Sentence 2"}</span>
 						<span className="mt-1 block text-base leading-snug">{choice.text}</span>
 					</button>
 				))}
