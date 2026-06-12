@@ -46,7 +46,7 @@ const StartupScreenMismatchSpeech = memo(function StartupScreenMismatchSpeech() 
                         </div>
             
                         <br/><strong>After choosing a video</strong><br/>
-                        If you do not choose “They are equal,” you will also need to select one or more reasons from the list below the videos. 
+                        If you do not choose “They are equal”, you will also need to select one or more reasons from the list below the videos. 
                         You can also write your own reason if none of the options fit.
 
                         <div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">

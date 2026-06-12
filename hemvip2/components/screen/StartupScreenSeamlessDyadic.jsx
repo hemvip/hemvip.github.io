@@ -31,29 +31,29 @@ const StartupScreenSeamlessDyadic = memo(function StartupScreenSeamlessDyadic() 
 						<br /><strong>Your task</strong><br />
 						Choose in which video the left-side character listens and reacts more naturally and expressively to the other character! You will click one of five buttons below the videos to make your choice:
 						<br />
-						<div className=”mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100”>
+						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
 							<img
-								alt=”Title suffix”
-								loading=”lazy”
-								decoding=”async”
+								alt="Title suffix"
+								loading="lazy"
+								decoding="async"
 								style={{ border: '4px solid #ccc' }}
-								className=”w-[60%] select-none bg-white border border-black”
-								src=”/screen_preview_dyadic_mismatch.png”
+								className="w-[60%] select-none bg-white border border-black"
+								src="/screen_preview_dyadic_mismatch.png"
 							/>
 						</div>
 
 						<br /><strong>After choosing a video</strong><br />
-						If you do not choose &quot;They are equal,&quot; you will also need to select one or more reasons from the list below the videos.
+						If you do not choose “They are equal”, you will also need to select one or more reasons from the list below the videos.
 						You can also write your own reason if none of the options fit.
 
-						<div className=”mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100”>
+						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
 							<img
-								alt=”Title suffix”
-								loading=”lazy”
-								decoding=”async”
+								alt="Title suffix"
+								loading="lazy"
+								decoding="async"
 								style={{ border: '4px solid #ccc' }}
-								className=”w-[60%] select-none bg-white ring-1 ring-gray-200”
-								src=”/juice_preview_dyadic_mismatch.png”
+								className="w-[60%] select-none bg-white ring-1 ring-gray-200"
+								src="/juice_preview_dyadic_mismatch.png"
 							/>
 						</div>
 					</div>

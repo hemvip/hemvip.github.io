@@ -31,14 +31,14 @@ const StartupScreenSeamlessSpeech = memo(function StartupScreenSeamlessSpeech() 
 						<br /><strong>Your task</strong><br />
 						For each video pair, choose which character moves more like a real person. You will click one of five buttons below the videos to make your choice:
 						<br />
-						<div className=”mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100”>
+						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
 							<img
-								alt=”Title suffix”
-								loading=”lazy”
-								decoding=”async”
+								alt="Title suffix"
+								loading="lazy"
+								decoding="async"
 								style={{ border: '4px solid #ccc' }}
-								className=”w-[60%] select-none bg-white border border-black”
-								src=”/screen_preview.png”
+								className="w-[60%] select-none bg-white border border-black"
+								src="/screen_preview.png"
 							/>
 						</div>
 
@@ -46,14 +46,14 @@ const StartupScreenSeamlessSpeech = memo(function StartupScreenSeamlessSpeech() 
 						If you do not choose &quot;They are equal,&quot; you will also need to select one or more reasons from the list below the videos.
 						You can also write your own reason if none of the options fit.
 
-						<div className=”mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100”>
+						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
 							<img
-								alt=”Title suffix”
-								loading=”lazy”
-								decoding=”async”
+								alt="Title suffix"
+								loading="lazy"
+								decoding="async"
 								style={{ border: '4px solid #ccc' }}
-								className=”w-[60%] select-none bg-white ring-1 ring-gray-200”
-								src=”/juice_preview.png”
+								className="w-[60%] select-none bg-white ring-1 ring-gray-200"
+								src="/juice_preview.png"
 							/>
 						</div>
 					</div>

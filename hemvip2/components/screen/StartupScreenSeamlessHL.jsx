@@ -23,45 +23,45 @@ const StartupScreenSeamlessHL = memo(function StartupScreenSeamlessHL() {
 				<div className="mx-[10%]  overflow-y-visible">
 					<div className="mt-3 leading-6 first:mt-0">
 						<strong>Please use Chrome, Edge, Safari, or Firefox for this study.</strong>
-						<br/>
+						<br />
 						In this study, you will watch pairs of videos showing animated characters talking and moving their bodies.
 						The faces are covered and there is no sound, because we are only interested in the body movement.
 					</div>
 					<div className="mt-3 leading-6 first:mt-0">
-						<br/><strong>Your task</strong><br/>
+						<br /><strong>Your task</strong><br />
 						For each video pair, choose which character moves more like a real person. You will click one of five buttons below the videos to make your choice:
-						<br/>
-						<div className=”mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100”>
-								<img
-									alt=”Title suffix”
-									loading=”lazy”
-									decoding=”async”
-									style={{ border: '4px solid #ccc' }}
-									className=”w-[60%] select-none bg-white border border-black”
-									src=”/screen_preview.png”
-								/>
+						<br />
+						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
+							<img
+								alt="Title suffix"
+								loading="lazy"
+								decoding="async"
+								style={{ border: '4px solid #ccc' }}
+								className="w-[60%] select-none bg-white border border-black"
+								src="/screen_preview.png"
+							/>
 						</div>
 
-						<br/><strong>After choosing a video</strong><br/>
-						If you do not choose &quot;They are equal,&quot; you will also need to select one or more reasons from the list below the videos.
+						<br /><strong>After choosing a video</strong><br />
+						If you do not choose ”They are equal”, you will also need to select one or more reasons from the list below the videos.
 						You can also write your own reason if none of the options fit.
 
-						<div className=”mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100”>
+						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
 							<img
-								alt=”Title suffix”
-								loading=”lazy”
-								decoding=”async”
+								alt="Title suffix"
+								loading="lazy"
+								decoding="async"
 								style={{ border: '4px solid #ccc' }}
-								className=”w-[60%] select-none bg-white ring-1 ring-gray-200”
-								src=”/juice_preview.png”
+								className="w-[60%] select-none bg-white ring-1 ring-gray-200"
+								src="/juice_preview.png"
 							/>
 						</div>
 					</div>
 
 					<div className="mt-3 leading-6 first:mt-0">
-						<br/>
+						<br />
 						<strong>Important notes</strong>
-						<br/>
+						<br />
 						<ul className="list-disc list-inside">
 							<li>⚠️ Make sure to watch each video all the way through.</li>
 							<li>⚠️ The Next button is in the top right corner of the screen.</li>
@@ -81,7 +81,7 @@ const StartupScreenSeamlessHL = memo(function StartupScreenSeamlessHL() {
 					aria-disabled="false"
 					className="flex cursor-pointer select-none gap-2 min-w-48 h-10 px-4 font-bold text-white leading-1 bg-green-600 dark:border-neutral-800 items-center justify-center rounded-md border transition-all focus:outline-none"
 				>
-					<StartBoostIcon className="w-5 h-5 fill-current"/>
+					<StartBoostIcon className="w-5 h-5 fill-current" />
 					Start Study
 				</button>
 			</div>
