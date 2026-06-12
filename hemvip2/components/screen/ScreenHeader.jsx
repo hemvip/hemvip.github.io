@@ -96,10 +96,12 @@ export function ScreenHeader({ currentPage, setPrev, setNext, showPopup, study }
 			return
 		}
 
-		const isFinishRightVideo = currentScreenActions.includes(DEFAULT_ACTION_STRING.finishVideoRight)
-		if (!isFinishRightVideo) {
-			showPopup("Please watch the right video to the end.")
-			return
+		if (study.type !== "seamless-semantic-mismatch") {
+			const isFinishRightVideo = currentScreenActions.includes(DEFAULT_ACTION_STRING.finishVideoRight)
+			if (!isFinishRightVideo) {
+				showPopup("Please watch the right video to the end.")
+				return
+			}
 		}
 
 		// Check if a JUICE option has been selected
