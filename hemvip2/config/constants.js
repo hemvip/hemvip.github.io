@@ -15,6 +15,7 @@ export const DEFAULT_OPTION = {
 	equal: "TheyAreEqual",
 	slightlyRight: "RightSlightlyBetter",
 	clearlyRight: "RightClearlyBetter",
+	neitherSemantic: "NeitherExpressed",
 }
 
 export const JUICE_MOTION = {
@@ -42,6 +43,7 @@ export const DEFAULT_ACTION_STRING = {
 	clickEqual: "Click Equal",
 	clickSlightlyRight: "Click Right Slightly Better",
 	clickClearlyRight: "Click Right Clearly Better",
+	clickNeitherSemantic: "Click Neither Expressed",
 
 	updateJuiceSelection: "Update JUICE Selection",
 	updateJuiceOtherReason: "Update JUICE Other Reason",
@@ -70,6 +72,7 @@ export const OPTION_SELECT = [
 	DEFAULT_ACTION_STRING.clickEqual,
 	DEFAULT_ACTION_STRING.clickSlightlyRight,
 	DEFAULT_ACTION_STRING.clickClearlyRight,
+	DEFAULT_ACTION_STRING.clickNeitherSemantic,
 ]
 
 export const DEFAULT_PAIRWISE = {
