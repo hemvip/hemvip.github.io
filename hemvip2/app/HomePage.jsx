@@ -1,7 +1,7 @@
 "use client"
 
 import { useRouter, useSearchParams } from "next/navigation"
-import React, { Suspense, useState } from "react"
+import React, { Suspense, useEffect, useState } from "react"
 import axios from "axios"
 import Loading from "@/components/loading/loading"
 import { Callout } from "@/components/core"
@@ -9,7 +9,7 @@ import { API_ENDPOINT } from "@/utils/urlEndpoint"
 import cn from "clsx"
 import { CircleLoading } from "@/icons"
 import { StartStudyIcon } from "@/icons/start-study"
-import { apiPost } from "@/utils/fetcher"
+import { apiPost, apiFetcherData } from "@/utils/fetcher"
 
 // export function HomePage({ state, handleAttentionCheck }) {
 export function HomePage() {
@@ -23,6 +23,34 @@ export function HomePage() {
 	const [loading, setLoading] = useState(false)
 	const [isComplete, setIsComplete] = useState(false)
 	const [isError, setIsError] = useState(false)
+
+	// Available study types the participant can be assigned to. When more than one
+	// kind of study is available we let the participant choose; a single type
+	// auto-selects so the flow stays a one-click "Start Study".
+	const [types, setTypes] = useState(null)
+	const [selectedType, setSelectedType] = useState("")
+
+	useEffect(() => {
+		if (!prolificid || !studyid || !sessionid) return
+		let active = true
+		async function fetchTypes() {
+			try {
+				const data = await apiFetcherData("/api/study-types")
+				if (!active) return
+				const list = Array.isArray(data) ? data : []
+				setTypes(list)
+				if (list.length === 1) setSelectedType(list[0].type)
+				if (list.length === 0) setIsComplete(true)
+			} catch (error) {
+				console.error("Homepage.fetchTypes", error)
+				if (active) setTypes([])
+			}
+		}
+		fetchTypes()
+		return () => {
+			active = false
+		}
+	}, [prolificid, studyid, sessionid])
 
 	const handleStart = async () => {
 		// 	// if (state === "Attention Check") {
@@ -40,6 +68,7 @@ export function HomePage() {
 				prolificid: prolificid,
 				studyid: studyid,
 				sessionid: sessionid,
+				type: selectedType || undefined,
 			})
 			console.log("Homepage.response", resp)
 			if (resp.success) {
@@ -74,18 +103,55 @@ export function HomePage() {
 		)
 	}
 
+	const hasChoice = Array.isArray(types) && types.length > 1
+
 	return (
 		<>
 			<p className="mt-3 leading-6 first:mt-0">
-				Please click the <strong>Start</strong> button to begin the experiment.
+				{hasChoice ? (
+					<>
+						Please choose a study type, then click the <strong>Start</strong> button to begin.
+					</>
+				) : (
+					<>
+						Please click the <strong>Start</strong> button to begin the experiment.
+					</>
+				)}
 			</p>
-			
+
+			{hasChoice && !isError && !isComplete && (
+				<div className="mt-5 flex flex-col gap-3 px-4">
+					{types.map((t) => (
+						<button
+							key={t.type}
+							type="button"
+							onClick={() => setSelectedType(t.type)}
+							className={cn(
+								"cursor-pointer flex items-center justify-between rounded-md border px-4 py-3 text-left text-sm font-medium transition-all focus:outline-none",
+								selectedType === t.type
+									? "border-green-600 bg-green-50 text-green-800 ring-1 ring-green-600"
+									: "border-neutral-200 bg-white text-neutral-700 hover:border-neutral-300"
+							)}
+						>
+							<span>{t.name || t.type}</span>
+							<span
+								className={cn(
+									"ml-3 h-4 w-4 shrink-0 rounded-full border",
+									selectedType === t.type ? "border-green-600 bg-green-600" : "border-neutral-300"
+								)}
+							/>
+						</button>
+					))}
+				</div>
+			)}
+
 			<div className="md:py-8 flex flex-row gap-4 px-4 justify-center items-start">
-				{!isError && (
+				{!isError && !isComplete && (
 					<div className="min-w-60">
 						<button
 							type="submit"
 							onClick={handleStart}
+							disabled={loading || types === null || (hasChoice && !selectedType)}
 							className={cn(
 								"cursor-pointer flex mb-4 mt-5 h-10 w-full font-bold text-white  items-center justify-center rounded-md border text-sm transition-all focus:outline-none disabled:bg-blue-200 disabled:border-blue-200",
 								// state === "Start Study" ? "bg-blue-500" : "bg-green-600"
