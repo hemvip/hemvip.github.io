@@ -24,12 +24,13 @@ const StartupScreenSeamlessSemantic = memo(function StartupScreenSeamlessSemanti
 					<div className="mt-3 leading-6 first:mt-0">
 						<strong>Please use Chrome, Edge, Safari, or Firefox for this study.</strong>
 						<br />
-						In this study, you will watch pairs of videos showing animated characters .
+						In this study, you will watch videos showing animated characters acting out a sentence.
 						The faces are covered and there is no sound, because we are only interested in the body movement.
 					</div>
 					<div className="mt-3 leading-6 first:mt-0">
 						<br /><strong>Your task</strong><br />
-						For each video pair, choose which character moves more like a real person. You will click one of five buttons below the videos to make your choice:
+						For each video, there will be two sentences below that may or may not match what the character is saying.
+						Choose the sentence that best describes the character&apos;s movement, or choose the red button if you think it's not clear which sentence matches better, or if you think that neither of them are expressed.
 						<br />
 						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
 							<img
@@ -39,21 +40,6 @@ const StartupScreenSeamlessSemantic = memo(function StartupScreenSeamlessSemanti
 								style={{ border: '4px solid #ccc' }}
 								className="w-[60%] select-none bg-white border border-black"
 								src="/screen_preview_semantic_mismatch.png"
-							/>
-						</div>
-
-						<br /><strong>After choosing a video</strong><br />
-						If you do not choose &quot;They are equal,&quot; you will also need to select one or more reasons from the list below the videos.
-						You can also write your own reason if none of the options fit.
-
-						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
-							<img
-								alt="Title suffix"
-								loading="lazy"
-								decoding="async"
-								style={{ border: '4px solid #ccc' }}
-								className="w-[60%] select-none bg-white ring-1 ring-gray-200"
-								src="/juice_preview_semantic_mismatch.png"
 							/>
 						</div>
 					</div>
