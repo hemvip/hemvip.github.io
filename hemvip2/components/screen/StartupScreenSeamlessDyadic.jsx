@@ -65,8 +65,8 @@ const StartupScreenSeamlessDyadic = memo(function StartupScreenSeamlessDyadic() 
 						<ul className="list-disc list-inside">
 							<li>⚠️ Make sure to watch each video all the way through.</li>
 							<li>⚠️ The Next button is in the top right corner of the screen.</li>
-							<li>⚠️ You will encounter attention check questions. Please follow their instructions carefully — failing them may disqualify you and you will not be paid.</li>
-							<li>⚠️ Only use the “Skip screen” button if there is a technical issue (like a video not loading). Do not refresh the page — this will restart the experiment.</li>
+							<li>⚠️ You will encounter attention check questions. Please follow their instructions carefully. Failing them may disqualify you and you will not be paid.</li>
+							<li>⚠️ Only use the “Skip screen” button if there is a technical issue (like a video not loading). <em>Do not refresh the page</em>, as that will restart the experiment.</li>
 							<li>⚠️ If you have any questions, please contact us by sending a message on Prolific!</li>
 						</ul>
 					</div>
