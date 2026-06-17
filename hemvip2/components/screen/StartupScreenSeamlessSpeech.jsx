@@ -22,14 +22,14 @@ const StartupScreenSeamlessSpeech = memo(function StartupScreenSeamlessSpeech() 
 			<div className="overflow-y-auto">
 				<div className="mx-[10%]  overflow-y-visible">
 					<div className="mt-3 leading-6 first:mt-0">
-						<strong>Please use Chrome, Edge, Safari, or Firefox for this study.</strong>
+						<strong>Please use Chrome, Edge, Safari, or Firefox for this study. ⚠️ This study requires audio. ⚠️ </strong>
 						<br />
 						In this study, you will watch pairs of videos showing animated characters talking and moving their bodies.
-						The faces are covered and there is no sound, because we are only interested in the body movement.
+						Both characters move the exact same way, but the speech audio is different between the two videos.
 					</div>
 					<div className="mt-3 leading-6 first:mt-0">
 						<br /><strong>Your task</strong><br />
-						For each video pair, choose which character moves more like a real person. You will click one of five buttons below the videos to make your choice:
+						For each video pair, choose which character&apos;s movements is more aligned with their speech. You will click one of five buttons below the videos to make your choice:
 						<br />
 						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
 							<img
@@ -38,7 +38,7 @@ const StartupScreenSeamlessSpeech = memo(function StartupScreenSeamlessSpeech() 
 								decoding="async"
 								style={{ border: '4px solid #ccc' }}
 								className="w-[60%] select-none bg-white border border-black"
-								src="/screen_preview.png"
+								src="/seamless_screen_preview_speech_mismatch.png"
 							/>
 						</div>
 
