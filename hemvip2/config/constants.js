@@ -103,6 +103,10 @@ export const DEFAULT_SEAMLESS_SPEECH = {
 
 // TODO: final JUICE option list for Seamless Speech Mismatch — placeholders for now.
 export const JUICE_SEAMLESS_SPEECH = {
+	fitRhythmTiming: "SeamlessFitRhythmTiming",
+	emphasizeCorrectParts: "SeamlessEmphasizeCorrectParts",
+	betterMatchContentMeaning: "SeamlessBetterMatchContentMeaning",
+	betterFitForEmotion: "SeamlessBetterFitForEmotion",
 	other: "SeamlessSpeechOther",
 }
 

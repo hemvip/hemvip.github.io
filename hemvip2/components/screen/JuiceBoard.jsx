@@ -86,8 +86,23 @@ export function JuiceBoard({ currentPage, study }) {
             },
         ]
     } else if (study.type === "seamless-speech-mismatch") {
-        // TODO: final JUICE option list for Seamless Speech Mismatch.
         juiceOptionsList = [
+            {
+                label: "Fit the rhythm and timing of the speech better",
+                optionValue: JUICE_SEAMLESS_SPEECH.fitRhythmTiming,
+            },
+            {
+                label: "Emphasised the correct part (or parts) of the speech",
+                optionValue: JUICE_SEAMLESS_SPEECH.emphasizeCorrectParts,
+            },
+            {
+                label: "Better matched the content and meaning of the speech",
+                optionValue: JUICE_SEAMLESS_SPEECH.betterMatchContentMeaning,
+            },
+            {
+                label: "Better fit for the emotion of the speech",
+                optionValue: JUICE_SEAMLESS_SPEECH.betterFitForEmotion,
+            },
             {
                 label: "Other (Please specify factors not listed above):",
                 optionValue: JUICE_SEAMLESS_SPEECH.other,
