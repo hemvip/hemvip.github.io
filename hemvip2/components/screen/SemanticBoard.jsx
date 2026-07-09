@@ -7,6 +7,23 @@ import React from "react"
 import cn from "clsx"
 import { useCurrentPage } from "@/contexts/experiment"
 
+// Descriptions mark their key phrase by wrapping it in asterisks (`*phrase*`,
+// the same convention used in the uploaded .txt files). Render those spans bold
+// instead of showing the literal asterisks. The text originates from our own
+// description uploads, so we build React nodes (no dangerouslySetInnerHTML).
+function renderWithBold(text) {
+	// Split on `*...*` groups, keeping the delimiters so we can style them.
+	return String(text)
+		.split(/(\*[^*]+\*)/g)
+		.map((part, index) =>
+			part.length > 2 && part.startsWith("*") && part.endsWith("*") ? (
+				<strong key={index}>{part.slice(1, -1)}</strong>
+			) : (
+				part
+			)
+		)
+}
+
 // Semantic Mismatch response: the rater reads two descriptions and picks the one
 // that matches the gesture. The two texts ride in page.options (parsed upstream).
 // Left choice -> LeftClearlyBetter, right choice -> RightClearlyBetter, matching
@@ -42,7 +59,7 @@ export function SemanticBoard({ currentPage }) {
 						)}
 					>
 						<span className="block text-xs font-semibold uppercase tracking-wide opacity-60">{index === 0 ? "Sentence 1" : "Sentence 2"}</span>
-						<span className="mt-1 block text-base leading-snug">{choice.text}</span>
+						<span className="mt-1 block text-base leading-snug">{renderWithBold(choice.text)}</span>
 					</button>
 				))}
 			</div>
