@@ -30,7 +30,7 @@ const StartupScreenSeamlessSemantic = memo(function StartupScreenSeamlessSemanti
 					<div className="mt-3 leading-6 first:mt-0">
 						<br /><strong>Your task</strong><br />
 						For each video, there will be two sentences below that may or may not match what the character is saying.
-						Choose the sentence that best describes the character&apos;s movement, or choose the red button if you think it's not clear which sentence matches better, or if you think that neither of them are expressed.
+						Choose the sentence that best describes the character&apos;s movement, or choose the red button if you think it&apos;s not clear which sentence matches better, or if you think that neither of them are expressed.
 						<br />
 						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
 							<img
