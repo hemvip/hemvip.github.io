@@ -3,7 +3,6 @@ import { StartBoostIcon } from "@/icons/startboost"
 import { useScreenControl } from "@/contexts/screencontroll"
 import { usePreventUnload } from "@/contexts/beforeunload"
 
-// TODO: final wording for Seamless Semantic Mismatch startup screen.
 const StartupScreenSeamlessSemantic = memo(function StartupScreenSeamlessSemantic() {
 	const { setNext } = useScreenControl()
 	const { setCanUnload } = usePreventUnload()
@@ -24,13 +23,14 @@ const StartupScreenSeamlessSemantic = memo(function StartupScreenSeamlessSemanti
 					<div className="mt-3 leading-6 first:mt-0">
 						<strong>Please use Chrome, Edge, Safari, or Firefox for this study.</strong>
 						<br />
-						In this study, you will watch videos showing animated characters acting out a sentence.
-						The faces are covered and there is no sound, because we are only interested in the body movement.
+						In this study, you will watch short videos of an animated character acting out a sentence with body gestures.
+						The face is covered and there is no sound, because we are only interested in the body movement.
 					</div>
 					<div className="mt-3 leading-6 first:mt-0">
 						<br /><strong>Your task</strong><br />
-						For each video, there will be two sentences below that may or may not match what the character is saying.
-						Choose the sentence that best describes the character&apos;s movement, or use one of the red buttons if the gestures don&apos;t express either sentence, or if they express both sentences equally.
+						Below each video you will see two numbered sentences &mdash; <strong>Sentence 1</strong> and <strong>Sentence 2</strong> &mdash; that may or may not match what the character is acting out.
+						Pick the numbered sentence whose meaning best matches the character&apos;s gestures.
+						If the gestures express <strong>both</strong> sentences equally, or express <strong>neither</strong> sentence, choose the matching button below the two sentences instead.
 						<br />
 						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
 							<img
