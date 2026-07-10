@@ -40,7 +40,7 @@ export function Screen() {
 
 	const { isOpen, message, showPopup, closePopup } = usePopupMessage()
 	// ~~~~~~~~~~~~~~~~~
-	const { setCanUnload } = usePreventUnload()
+	const { canUnload, setCanUnload } = usePreventUnload()
 	// ~~~~~~~~~~~~~~~~~
 	const [loadingFinish, setLoadingFinish] = useState(false)
 
@@ -102,6 +102,26 @@ export function Screen() {
 	// 		window.removeEventListener("keydown", handleKeyDown)
 	// 	}
 	// }, [setPrev, setNext, debouncedNextPage, debouncedPrevPage, isStartPage, isEndPage])
+
+	// Intercept the refresh keyboard shortcuts (F5, Ctrl/Cmd+R) while a study is in
+	// progress and show a custom in-app popup instead. `canUnload` is false once the
+	// participant has clicked Start (see the startup screens) and true again after
+	// finishing. The browser's reload button / tab close can't be caught here — those
+	// still fall back to the native beforeunload dialog from PreventUnloadProvider.
+	useEffect(() => {
+		if (canUnload) return
+
+		const handleKeyDown = (e) => {
+			const isRefreshKey = e.key === "F5" || ((e.ctrlKey || e.metaKey) && (e.key === "r" || e.key === "R"))
+			if (isRefreshKey) {
+				e.preventDefault()
+				showPopup("⚠️ Please do not refresh the page — refreshing restarts the study from the beginning and you will lose all of your progress. Use the Next button to move through the study.")
+			}
+		}
+
+		window.addEventListener("keydown", handleKeyDown)
+		return () => window.removeEventListener("keydown", handleKeyDown)
+	}, [canUnload, showPopup])
 
 	if (!study) {
 		return <></>
