@@ -51,20 +51,20 @@ export function SemanticBoard({ currentPage }) {
 	// neutral judgment, so it reads grey rather than red.
 	const escapeChoices = [
 		{
-			text: "The gestures don't express either sentence.",
-			Icon: NoSymbolIcon,
-			actionString: DEFAULT_ACTION_STRING.clickNeitherSemantic,
-			optionValue: DEFAULT_OPTION.neitherSemantic,
-			selectedClass: "bg-red-700 border-red-700 text-white",
-			unselectedClass: "bg-red-50 border-red-300 text-red-700 hover:bg-red-100",
-		},
-		{
 			text: "The gestures express both sentences equally.",
 			Icon: QuestionMarkCircleIcon,
 			actionString: DEFAULT_ACTION_STRING.clickBothSemantic,
 			optionValue: DEFAULT_OPTION.bothSemantic,
 			selectedClass: "bg-zinc-600 border-zinc-600 text-white",
 			unselectedClass: "bg-zinc-100 border-zinc-300 text-zinc-700 hover:bg-zinc-200",
+		},
+		{
+			text: "The gestures don't express either sentence.",
+			Icon: NoSymbolIcon,
+			actionString: DEFAULT_ACTION_STRING.clickNeitherSemantic,
+			optionValue: DEFAULT_OPTION.neitherSemantic,
+			selectedClass: "bg-red-700 border-red-700 text-white",
+			unselectedClass: "bg-red-50 border-red-300 text-red-700 hover:bg-red-100",
 		},
 	]
 
@@ -81,7 +81,7 @@ export function SemanticBoard({ currentPage }) {
 							options[page.id] === choice.optionValue ? "bg-neutral-800 text-neutral-100" : "bg-neutral-100 text-neutral-800 hover:bg-neutral-200"
 						)}
 					>
-						<span className="flex size-7 shrink-0 items-center justify-center rounded-full border-2 border-current text-sm font-bold" aria-hidden="true">
+						<span className="flex size-6 shrink-0 items-center justify-center rounded-full border-2 border-current text-sm font-bold" aria-hidden="true">
 							{index + 1}
 						</span>
 						<span className="min-w-0">
@@ -101,7 +101,7 @@ export function SemanticBoard({ currentPage }) {
 							options[page.id] === choice.optionValue ? choice.selectedClass : choice.unselectedClass
 						)}
 					>
-						<choice.Icon className="size-5 shrink-0" aria-hidden="true" />
+						<choice.Icon className="size-6 shrink-0" aria-hidden="true" />
 						<span>{choice.text}</span>
 					</button>
 				))}
