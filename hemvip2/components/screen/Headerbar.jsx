@@ -9,6 +9,12 @@ export function Headerbar() {
 		return <></>
 	}
 
+	// Seamless studies (incl. semantic mismatch) don't show this top banner — its text
+	// is the mismatch-speech question, which doesn't apply to them.
+	if (typeof study.type === "string" && study.type.startsWith("seamless-")) {
+		return <></>
+	}
+
 	if (study.type === "pairwise-humanlikeness") {
 		study.name = DEFAULT_PAIRWISE.question
 	} else {

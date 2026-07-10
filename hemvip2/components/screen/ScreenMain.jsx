@@ -16,10 +16,6 @@ export function ScreenMain({ currentPage, setNext, study }) {
 	// the two descriptions; see generateSeamlessSemanticMismatch.)
 	const isSemantic = study.type === "seamless-semantic-mismatch"
 
-	// Seamless studies hide the top question banner (the black bar); the prompt lives
-	// in the per-study board instead.
-	const isSeamless = typeof study.type === "string" && study.type.startsWith("seamless-")
-
 	// Play
 	const playLeft = () => {
 		addAction(DEFAULT_ACTION_STRING.playVideoLeft, currentPage)
@@ -90,7 +86,7 @@ export function ScreenMain({ currentPage, setNext, study }) {
 			<div className="w-full h-full flex flex-col gap-2 overflow-hidden">
 				<ScreenMessage text={determineIntroduction()} className="text-xl"/>
 				<div className="w-full h-full flex flex-col gap-2 overflow-hidden">
-					{!isSeamless && <ScreenMessage text={determineQuestion()} className="text-3xl"/>}
+					<ScreenMessage text={determineQuestion()} className="text-3xl"/>
 					<div className="w-full h-full flex justify-center align-middle gap-4 ">
 					{isSemantic ? (
 						<div className="flex-1 h-full max-w-3xl mx-auto">
