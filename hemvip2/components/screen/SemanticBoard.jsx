@@ -70,19 +70,24 @@ export function SemanticBoard({ currentPage }) {
 
 	return (
 		<div className="w-full mx-auto flex flex-col gap-4">
-			<div className="text-center text-sm font-semibold text-zinc-600">Pick one:</div>
+			<div className="text-center text-xl font-semibold text-zinc-600">Pick one:</div>
 			<div className="flex flex-col sm:flex-row justify-center items-stretch gap-4">
 				{choices.map((choice, index) => (
 					<button
 						key={index}
 						onClick={() => handleChoice(choice.actionString, choice.optionValue)}
 						className={cn(
-							"flex-1 max-w-xl cursor-pointer select-none rounded-lg border border-zinc-300 p-4 text-left shadow transition-colors",
+							"flex flex-1 max-w-xl items-center gap-3 cursor-pointer select-none rounded-lg border border-zinc-300 p-4 text-left shadow transition-colors",
 							options[page.id] === choice.optionValue ? "bg-neutral-800 text-neutral-100" : "bg-neutral-100 text-neutral-800 hover:bg-neutral-200"
 						)}
 					>
-						<span className="block text-xs font-semibold uppercase tracking-wide opacity-60">{index === 0 ? "Sentence 1" : "Sentence 2"}</span>
-						<span className="mt-1 block text-base leading-snug">{renderWithBold(choice.text)}</span>
+						<span className="flex size-7 shrink-0 items-center justify-center rounded-full border-2 border-current text-sm font-bold" aria-hidden="true">
+							{index + 1}
+						</span>
+						<span className="min-w-0">
+							<span className="block text-xs font-semibold uppercase tracking-wide opacity-60">{index === 0 ? "Sentence 1" : "Sentence 2"}</span>
+							<span className="mt-1 block text-base leading-snug">{renderWithBold(choice.text)}</span>
+						</span>
 					</button>
 				))}
 			</div>
