@@ -126,7 +126,7 @@ export const JUICE_SEAMLESS_DYADIC = {
 
 // TODO: confirm final wording for Seamless Semantic Mismatch.
 export const DEFAULT_SEAMLESS_SEMANTIC = {
-	question: "Which sentence (the one on the left or the one on the right) is expressed by the character's gestures?",
+	question: "Which sentence is expressed by the character's gestures?",
 	instruction: "Below is a short, silent video of a character speaking and gesturing.",
 }
 

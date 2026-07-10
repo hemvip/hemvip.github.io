@@ -5,6 +5,7 @@ import { useActionRecorder } from "@/contexts/action-recorder"
 import { useSelected } from "@/contexts/selected"
 import React from "react"
 import cn from "clsx"
+import { NoSymbolIcon, QuestionMarkCircleIcon } from "@heroicons/react/24/outline"
 import { useCurrentPage } from "@/contexts/experiment"
 
 // Descriptions mark their key phrase by wrapping it in asterisks (`*phrase*`,
@@ -51,6 +52,7 @@ export function SemanticBoard({ currentPage }) {
 	const escapeChoices = [
 		{
 			text: "The gestures don't express either sentence.",
+			Icon: NoSymbolIcon,
 			actionString: DEFAULT_ACTION_STRING.clickNeitherSemantic,
 			optionValue: DEFAULT_OPTION.neitherSemantic,
 			selectedClass: "bg-red-700 border-red-700 text-white",
@@ -58,6 +60,7 @@ export function SemanticBoard({ currentPage }) {
 		},
 		{
 			text: "The gestures express both sentences equally.",
+			Icon: QuestionMarkCircleIcon,
 			actionString: DEFAULT_ACTION_STRING.clickBothSemantic,
 			optionValue: DEFAULT_OPTION.bothSemantic,
 			selectedClass: "bg-zinc-600 border-zinc-600 text-white",
@@ -67,6 +70,7 @@ export function SemanticBoard({ currentPage }) {
 
 	return (
 		<div className="w-full mx-auto flex flex-col gap-4">
+			<div className="text-center text-sm font-semibold text-zinc-600">Pick one:</div>
 			<div className="flex flex-col sm:flex-row justify-center items-stretch gap-4">
 				{choices.map((choice, index) => (
 					<button
@@ -88,11 +92,12 @@ export function SemanticBoard({ currentPage }) {
 						key={index}
 						onClick={() => handleChoice(choice.actionString, choice.optionValue)}
 						className={cn(
-							"flex-1 max-w-xl cursor-pointer select-none rounded-lg border p-4 text-left shadow transition-colors font-semibold",
+							"flex flex-1 max-w-xl items-center gap-2 cursor-pointer select-none rounded-lg border p-4 text-left shadow transition-colors font-semibold",
 							options[page.id] === choice.optionValue ? choice.selectedClass : choice.unselectedClass
 						)}
 					>
-						{choice.text}
+						<choice.Icon className="size-5 shrink-0" aria-hidden="true" />
+						<span>{choice.text}</span>
 					</button>
 				))}
 			</div>
