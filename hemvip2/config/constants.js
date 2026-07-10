@@ -16,6 +16,7 @@ export const DEFAULT_OPTION = {
 	slightlyRight: "RightSlightlyBetter",
 	clearlyRight: "RightClearlyBetter",
 	neitherSemantic: "NeitherExpressed",
+	bothSemantic: "BothExpressed",
 }
 
 export const JUICE_MOTION = {
@@ -44,6 +45,7 @@ export const DEFAULT_ACTION_STRING = {
 	clickSlightlyRight: "Click Right Slightly Better",
 	clickClearlyRight: "Click Right Clearly Better",
 	clickNeitherSemantic: "Click Neither Expressed",
+	clickBothSemantic: "Click Both Expressed",
 
 	updateJuiceSelection: "Update JUICE Selection",
 	updateJuiceOtherReason: "Update JUICE Other Reason",
@@ -73,6 +75,7 @@ export const OPTION_SELECT = [
 	DEFAULT_ACTION_STRING.clickSlightlyRight,
 	DEFAULT_ACTION_STRING.clickClearlyRight,
 	DEFAULT_ACTION_STRING.clickNeitherSemantic,
+	DEFAULT_ACTION_STRING.clickBothSemantic,
 ]
 
 export const DEFAULT_PAIRWISE = {
@@ -123,8 +126,8 @@ export const JUICE_SEAMLESS_DYADIC = {
 
 // TODO: confirm final wording for Seamless Semantic Mismatch.
 export const DEFAULT_SEAMLESS_SEMANTIC = {
-	question: "Which sentence is expressed by the character's gestures?",
-	instruction: "Below is a video of a character speaking and gesturing, followed by two sentences.",
+	question: "Which sentence (the one on the left or the one on the right) is expressed by the character's gestures?",
+	instruction: "Below is a short, silent video of a character speaking and gesturing.",
 }
 
 // TODO: final JUICE option list for Seamless Semantic Mismatch — placeholders for now.

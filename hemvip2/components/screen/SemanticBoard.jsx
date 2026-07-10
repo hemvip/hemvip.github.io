@@ -44,7 +44,26 @@ export function SemanticBoard({ currentPage }) {
 		selectOption(optionValue, currentPage)
 	}
 
-	const isNeither = options[page.id] === DEFAULT_OPTION.neitherSemantic
+	// The two "escape" votes: neither sentence matches, or both match equally. They
+	// share the same single-vote slot as the sentence buttons, so picking one clears
+	// any other selection. "Neither" keeps the red warning color; "both equally" is a
+	// neutral judgment, so it reads grey rather than red.
+	const escapeChoices = [
+		{
+			text: "The gestures don't express either sentence.",
+			actionString: DEFAULT_ACTION_STRING.clickNeitherSemantic,
+			optionValue: DEFAULT_OPTION.neitherSemantic,
+			selectedClass: "bg-red-700 border-red-700 text-white",
+			unselectedClass: "bg-red-50 border-red-300 text-red-700 hover:bg-red-100",
+		},
+		{
+			text: "The gestures express both sentences equally.",
+			actionString: DEFAULT_ACTION_STRING.clickBothSemantic,
+			optionValue: DEFAULT_OPTION.bothSemantic,
+			selectedClass: "bg-zinc-600 border-zinc-600 text-white",
+			unselectedClass: "bg-zinc-100 border-zinc-300 text-zinc-700 hover:bg-zinc-200",
+		},
+	]
 
 	return (
 		<div className="w-full mx-auto flex flex-col gap-4">
@@ -63,18 +82,19 @@ export function SemanticBoard({ currentPage }) {
 					</button>
 				))}
 			</div>
-			<div className="flex justify-center">
-				<button
-					onClick={() => handleChoice(DEFAULT_ACTION_STRING.clickNeitherSemantic, DEFAULT_OPTION.neitherSemantic)}
-					className={cn(
-						"cursor-pointer select-none rounded-lg border p-3 text-center shadow transition-colors text-sm font-semibold",
-						isNeither
-							? "bg-red-700 border-red-700 text-white"
-							: "bg-red-50 border-red-300 text-red-700 hover:bg-red-100"
-					)}
-				>
-					Not clear / Neither sentence is expressed.
-				</button>
+			<div className="flex flex-col sm:flex-row justify-center items-stretch gap-4">
+				{escapeChoices.map((choice, index) => (
+					<button
+						key={index}
+						onClick={() => handleChoice(choice.actionString, choice.optionValue)}
+						className={cn(
+							"flex-1 max-w-xl cursor-pointer select-none rounded-lg border p-4 text-left shadow transition-colors font-semibold",
+							options[page.id] === choice.optionValue ? choice.selectedClass : choice.unselectedClass
+						)}
+					>
+						{choice.text}
+					</button>
+				))}
 			</div>
 		</div>
 	)
