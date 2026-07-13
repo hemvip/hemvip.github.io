@@ -93,8 +93,17 @@ export const DEFAULT_SEAMLESS_HL = {
 	instruction: "Below are two videos without audio of a character speaking and gesturing.",
 }
 
-// TODO: final JUICE option list for Seamless Human-Likeness — placeholders for now.
+// Seamless Human-Likeness (realism) reuses the beat2 realism study's JUICE
+// options (JUICE_MOTION), with `Seamless`-prefixed values so the seamless data
+// stays distinguishable from beat2 in results — mirroring JUICE_SEAMLESS_SPEECH.
+// The beat2 "Unrealistic motion" option is split here into two: body/limb
+// interpenetration (physics violations) vs glitch artefacts (wrists/fingers).
 export const JUICE_SEAMLESS_HL = {
+	penetration: "SeamlessBodyPenetration",
+	artefacts: "SeamlessMotionArtefacts",
+	smoothness: "SeamlessMotionSmoothness",
+	amountIntensity: "SeamlessAmountIntensityOfMotion",
+	recognisableGestures: "SeamlessRecognisableGestures",
 	other: "SeamlessHLOther",
 }
 

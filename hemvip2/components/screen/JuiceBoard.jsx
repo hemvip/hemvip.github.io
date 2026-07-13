@@ -78,8 +78,29 @@ export function JuiceBoard({ currentPage, study }) {
             },
         ]
     } else if (study.type === "seamless-humanlikeness") {
-        // TODO: final JUICE option list for Seamless Human-Likeness.
+        // Same options as the beat2 realism study (pairwise-humanlikeness), but the
+        // "Unrealistic motion" option is split into penetration vs glitch artefacts.
         juiceOptionsList = [
+            {
+                label: "Limbs or body penetrating each other, or physically impossible motion",
+                optionValue: JUICE_SEAMLESS_HL.penetration,
+            },
+            {
+                label: "Glitches or artefacts (e.g. glitching wrists and fingers)",
+                optionValue: JUICE_SEAMLESS_HL.artefacts,
+            },
+            {
+                label: "The smoothness of the motion",
+                optionValue: JUICE_SEAMLESS_HL.smoothness,
+            },
+            {
+                label: "The amount and intensity of motion",
+                optionValue: JUICE_SEAMLESS_HL.amountIntensity,
+            },
+            {
+                label: "Recognisable gestures",
+                optionValue: JUICE_SEAMLESS_HL.recognisableGestures,
+            },
             {
                 label: "Other (Please specify factors not listed above):",
                 optionValue: JUICE_SEAMLESS_HL.other,
