@@ -33,12 +33,12 @@ const StartupScreenSeamlessHL = memo(function StartupScreenSeamlessHL() {
 						<br />
 						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
 							<img
-								alt="Title suffix"
+								alt="Two videos side by side with five choice buttons: Left Clearly Better, Left Slightly Better, They Are Equal, Right Slightly Better, Right Clearly Better"
 								loading="lazy"
 								decoding="async"
 								style={{ border: '4px solid #ccc' }}
 								className="w-[60%] select-none bg-white border border-black"
-								src="/screen_preview.png"
+								src="/realism_ui.png"
 							/>
 						</div>
 
@@ -48,12 +48,12 @@ const StartupScreenSeamlessHL = memo(function StartupScreenSeamlessHL() {
 
 						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
 							<img
-								alt="Title suffix"
+								alt="Checklist of reasons: limbs or body penetrating each other, glitches or artefacts, the smoothness of the motion, the amount and intensity of motion, recognisable gestures, and other"
 								loading="lazy"
 								decoding="async"
 								style={{ border: '4px solid #ccc' }}
 								className="w-[60%] select-none bg-white ring-1 ring-gray-200"
-								src="/juice_preview.png"
+								src="/realism_juice.png"
 							/>
 						</div>
 					</div>
