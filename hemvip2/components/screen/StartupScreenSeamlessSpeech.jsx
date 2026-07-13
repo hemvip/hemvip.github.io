@@ -53,7 +53,7 @@ const StartupScreenSeamlessSpeech = memo(function StartupScreenSeamlessSpeech() 
 								decoding="async"
 								style={{ border: '4px solid #ccc' }}
 								className="w-[60%] select-none bg-white ring-1 ring-gray-200"
-								src="/juice_preview.png"
+								src="/juice_preview_speech_mismatch.png"
 							/>
 						</div>
 					</div>
