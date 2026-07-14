@@ -124,8 +124,8 @@ export const JUICE_SEAMLESS_SPEECH = {
 
 // TODO: final wording for Seamless Dyadic Mismatch — placeholders for now.
 export const DEFAULT_SEAMLESS_DYADIC = {
-	question: "In which of the two videos do that character's movements appear to pay more attention to, and respond more appropriately to, the other person?",
-	instruction: "You are evaluating only the movements and gestures of the character on the left.",
+	question: "In which of the two videos does the character in the red T-shirt pay more attention to, and respond more appropriately to, the other person?",
+	instruction: "Remember: you are evaluating only the movements and gestures of the character in the red T-shirt.",
 }
 
 export const JUICE_SEAMLESS_DYADIC = {

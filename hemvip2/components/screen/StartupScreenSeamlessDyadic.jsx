@@ -32,17 +32,17 @@ const StartupScreenSeamlessDyadic = memo(function StartupScreenSeamlessDyadic() 
 						</p>
 						<p className="mt-2 leading-6 text-slate-700">
 							In this study, you will watch pairs of videos showing two animated characters talking to each other.
-							The only difference between the two videos is the motion of the left character &mdash; the conversation
+							The only difference between the two videos is the motion of the left character. The conversation
 							you hear, and the right (blue T-shirt) character&apos;s motion, will be the same. Here is an example
 							video pair:
 						</p>
 
-						<div className="mb-4 mt-3 flex justify-center gap-4">
-							<div className="flex-1 max-w-[30%] flex flex-col items-center gap-1">
+						<div className="mb-4 mt-3 flex flex-col items-center gap-4">
+							<div className="w-1/2 flex flex-col items-center gap-1">
 								<Video src={EXAMPLE_MATCHED_VIDEO} className="w-full" />
 								<span className="text-sm text-slate-500">First video</span>
 							</div>
-							<div className="flex-1 max-w-[30%] flex flex-col items-center gap-1">
+							<div className="w-1/2 flex flex-col items-center gap-1">
 								<Video src={EXAMPLE_MISMATCHED_VIDEO} className="w-full" />
 								<span className="text-sm text-slate-500">Second video with alternate motion for the character in red</span>
 							</div>
@@ -56,7 +56,7 @@ const StartupScreenSeamlessDyadic = memo(function StartupScreenSeamlessDyadic() 
 						<p className="mt-2 leading-6 text-slate-700">
 							Choose in which video the left-side (red T-shirt) character listens and reacts more naturally and
 							expressively to the other character. Your answer should not be based on which gesture simply looks
-							visually better &mdash; instead, evaluate which gestures pay attention to and respond to the other
+							visually better. Instead, evaluate which gestures pay attention to and respond to the other
 							person in the interaction.
 						</p>
 						<p className="mt-2 leading-6 text-slate-700">
