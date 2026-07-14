@@ -38,11 +38,11 @@ const StartupScreenSeamlessDyadic = memo(function StartupScreenSeamlessDyadic() 
 						</p>
 
 						<div className="mb-4 mt-3 flex flex-col items-center gap-4">
-							<div className="w-1/2 flex flex-col items-center gap-1">
+							<div className="w-[70%] flex flex-col items-center gap-1">
 								<Video src={EXAMPLE_MATCHED_VIDEO} className="w-full" />
 								<span className="text-sm text-slate-500">First video</span>
 							</div>
-							<div className="w-1/2 flex flex-col items-center gap-1">
+							<div className="w-[70%] flex flex-col items-center gap-1">
 								<Video src={EXAMPLE_MISMATCHED_VIDEO} className="w-full" />
 								<span className="text-sm text-slate-500">Second video with alternate motion for the character in red</span>
 							</div>
@@ -54,14 +54,14 @@ const StartupScreenSeamlessDyadic = memo(function StartupScreenSeamlessDyadic() 
 							Your task
 						</h3>
 						<p className="mt-2 leading-6 text-slate-700">
-							Choose in which video the left-side (red T-shirt) character listens and reacts more naturally and
-							expressively to the other character. Your answer should not be based on which gesture simply looks
-							visually better. Instead, evaluate which gestures pay attention to and respond to the other
-							person in the interaction.
+							Choose in which video the left-side (red T-shirt) character <strong className="text-slate-900">listens and reacts more naturally and
+							expressively</strong> to the other character. Your answer should <strong className="text-slate-900">not</strong> be based on which gesture simply looks
+							visually better. Instead, evaluate <strong className="text-slate-900">which gestures pay attention to and respond to the other
+							person</strong> in the interaction.
 						</p>
 						<p className="mt-2 leading-6 text-slate-700">
 							You will click one of five buttons below the videos to make your choice. If you do not choose
-							&ldquo;They are equal&rdquo;, you will also need to select one or more reasons from the list below
+							&ldquo;They are equal&rdquo;, you will also need to <strong className="text-slate-900">select one or more reasons</strong> from the list below
 							the videos. You can also write your own reason if none of the options fit.
 						</p>
 
