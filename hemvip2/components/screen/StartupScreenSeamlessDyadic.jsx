@@ -32,7 +32,7 @@ const StartupScreenSeamlessDyadic = memo(function StartupScreenSeamlessDyadic() 
 					<div className="mt-3 leading-6 first:mt-0">
 						<br /><strong>Your task</strong><br />
 
-						Your task is to choose in which video the <br>left-side (red T-shirt) character listens and reacts more naturally and expressively to the other character</br>.
+						Your task is to choose in which video the left-side (red T-shirt) character listens and reacts more naturally and expressively to the other character.
 
 						Your answer should not be based on which gesture looks visually looks better. Instead, you are evaluating which gestures pay attention to and respond to the other person in the interaction.
 
