@@ -124,12 +124,15 @@ export const JUICE_SEAMLESS_SPEECH = {
 
 // TODO: final wording for Seamless Dyadic Mismatch — placeholders for now.
 export const DEFAULT_SEAMLESS_DYADIC = {
-	question: "In which video does the character in the blue T-shirt react better to the other person?",
-	instruction: "Below are two videos of a character in a blue T-shirt interacting with another person.",
+	question: "In which of the two videos do that character's movements appear to pay more attention to, and respond more appropriately to, the other person?",
+	instruction: "You are evaluating only the movements and gestures of the character on the left.",
 }
 
-// TODO: final JUICE option list for Seamless Dyadic Mismatch — placeholders for now.
 export const JUICE_SEAMLESS_DYADIC = {
+	turnTaking: "SeamlessDyadicTurnTaking",
+	reactsAtRightMoments: "SeamlessDyadicReactsAtRightMoments",
+	listeningCues: "SeamlessDyadicListeningCues",
+	coordinatedMovements: "SeamlessDyadicCoordinatedMovements",
 	other: "SeamlessDyadicOther",
 }
 

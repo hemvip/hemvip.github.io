@@ -24,12 +24,19 @@ const StartupScreenSeamlessDyadic = memo(function StartupScreenSeamlessDyadic() 
 					<div className="mt-3 leading-6 first:mt-0">
 						<strong>Please use Chrome, Edge, Safari, or Firefox for this study.</strong>
 						<br />
-						In this study, you will watch pairs of videos showing two animated characters talking to each other.
-						The left character&apos;s motion is the same in both videos, but the right character&apos;s motion, and the conversation, are different.
+						In this study, you will watch pairs videos showing two animated characters talking to each other.
+						<br />
+
+						The only difference between the two videos is the motion of the left character. The conversation you hear, and the right (blue T-shirt) character&apos;s motion, will be the same.
 					</div>
 					<div className="mt-3 leading-6 first:mt-0">
 						<br /><strong>Your task</strong><br />
-						Choose in which video the left-side character listens and reacts more naturally and expressively to the other character! You will click one of five buttons below the videos to make your choice:
+
+						Your task is to choose in which video the <br>left-side (red T-shirt) character listens and reacts more naturally and expressively to the other character</br>.
+
+						Your answer should not be based on which gesture looks visually looks better. Instead, you are evaluating which gestures pay attention to and respond to the other person in the interaction.
+
+						You will click one of five buttons below the videos to make your choice:
 						<br />
 						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
 							<img

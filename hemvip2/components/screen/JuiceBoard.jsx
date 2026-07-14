@@ -130,8 +130,23 @@ export function JuiceBoard({ currentPage, study }) {
             },
         ]
     } else if (study.type === "seamless-dyadic-mismatch") {
-        // TODO: final JUICE option list for Seamless Dyadic Mismatch.
         juiceOptionsList = [
+            {
+                label: "Better turn-taking (motion respects who is speaking vs. listening)",
+                optionValue: JUICE_SEAMLESS_DYADIC.turnTaking,
+            },
+            {
+                label: "Reacts to the other person at the right moments",
+                optionValue: JUICE_SEAMLESS_DYADIC.reactsAtRightMoments,
+            },
+            {
+                label: "More natural listening cues (nodding, small \"I'm following you\" movements)",
+                optionValue: JUICE_SEAMLESS_DYADIC.listeningCues,
+            },
+            {
+                label: "Coordinated movements with the other person (e.g., mirroring motion and poses, mimicry)",
+                optionValue: JUICE_SEAMLESS_DYADIC.coordinatedMovements,
+            },
             {
                 label: "Other (Please specify factors not listed above):",
                 optionValue: JUICE_SEAMLESS_DYADIC.other,
