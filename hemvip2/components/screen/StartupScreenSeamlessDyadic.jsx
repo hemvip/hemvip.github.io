@@ -25,40 +25,47 @@ const StartupScreenSeamlessDyadic = memo(function StartupScreenSeamlessDyadic() 
 				</div>
 			</h2>
 			<div className="overflow-y-auto">
-				<div className="mx-[10%]  overflow-y-visible">
-					<div className="mt-3 leading-6 first:mt-0">
-						<strong>Please use Chrome, Edge, Safari, or Firefox for this study.</strong>
-						<br />
-						In this study, you will watch pairs videos showing two animated characters talking to each other.
-						<br />
-						<br />
-						The only difference between the two videos is the motion of the left character. 
-						The conversation you hear, and the right (blue T-shirt) character&apos;s motion, will be the same. Here is an example video pair:
+				<div className="mx-[10%] overflow-y-visible space-y-6">
+					<section>
+						<p className="leading-6 text-slate-700">
+							<strong className="text-slate-900">Please use Chrome, Edge, Safari, or Firefox for this study.</strong>
+						</p>
+						<p className="mt-2 leading-6 text-slate-700">
+							In this study, you will watch pairs of videos showing two animated characters talking to each other.
+							The only difference between the two videos is the motion of the left character &mdash; the conversation
+							you hear, and the right (blue T-shirt) character&apos;s motion, will be the same. Here is an example
+							video pair:
+						</p>
 
 						<div className="mb-4 mt-3 flex justify-center gap-4">
 							<div className="flex-1 max-w-[30%] flex flex-col items-center gap-1">
 								<Video src={EXAMPLE_MATCHED_VIDEO} className="w-full" />
-								<span className="text-sm text-gray-500">First video</span>
+								<span className="text-sm text-slate-500">First video</span>
 							</div>
 							<div className="flex-1 max-w-[30%] flex flex-col items-center gap-1">
 								<Video src={EXAMPLE_MISMATCHED_VIDEO} className="w-full" />
-								<span className="text-sm text-gray-500">Second video with alternate motion for the character in red</span>
+								<span className="text-sm text-slate-500">Second video with alternate motion for the character in red</span>
 							</div>
 						</div>
-					</div>
-					<div className="mt-3 leading-6 first:mt-0">
-						<br /><strong>Your task</strong><br />
-						Your task is to choose in which video the left-side (red T-shirt) character listens and reacts more naturally and expressively to the other character.
+					</section>
 
-						Your answer should not be based on which gesture looks visually looks better. 
-						
-						Instead, you are evaluating which gestures pay attention to and respond to the other person in the interaction.
+					<section>
+						<h3 className="border-l-4 border-slate-300 pl-3 text-lg font-semibold tracking-tight text-slate-900">
+							Your task
+						</h3>
+						<p className="mt-2 leading-6 text-slate-700">
+							Choose in which video the left-side (red T-shirt) character listens and reacts more naturally and
+							expressively to the other character. Your answer should not be based on which gesture simply looks
+							visually better &mdash; instead, evaluate which gestures pay attention to and respond to the other
+							person in the interaction.
+						</p>
+						<p className="mt-2 leading-6 text-slate-700">
+							You will click one of five buttons below the videos to make your choice. If you do not choose
+							&ldquo;They are equal&rdquo;, you will also need to select one or more reasons from the list below
+							the videos. You can also write your own reason if none of the options fit.
+						</p>
 
-						You will click one of five buttons below the videos to make your choice. If you do not choose “They are equal”, you will also need to select one or more reasons from the list below the videos.
-						You can also write your own reason if none of the options fit.
-
-						<br />
-						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
+						<div className="mb-2 mt-3 flex justify-center overflow-hidden rounded-xl bg-zinc-100">
 							<img
 								alt="Title suffix"
 								loading="lazy"
@@ -68,20 +75,21 @@ const StartupScreenSeamlessDyadic = memo(function StartupScreenSeamlessDyadic() 
 								src="/screen_preview_dyadic_mismatch.png"
 							/>
 						</div>
+					</section>
 
-					<div className="mt-3 leading-6 first:mt-0">
-						<br />
-						<strong>Important notes</strong>
-						<br />
-						<ul className="list-disc list-inside">
+					<section>
+						<h3 className="border-l-4 border-amber-400 pl-3 text-lg font-semibold tracking-tight text-slate-900">
+							Important notes
+						</h3>
+						<ul className="mt-2 list-none space-y-1.5 leading-6 text-slate-700">
 							<li>⚠️ Make sure to watch each video all the way through.</li>
 							<li>⚠️ The Next button is in the top right corner of the screen.</li>
 							<li>⚠️ You will encounter attention check questions. Please follow their instructions carefully. Failing them may disqualify you and you will not be paid.</li>
 							<li>⚠️ Only use the “Skip screen” button if there is a technical issue (like a video not loading).</li>
-							<li>🚫 <strong>Do NOT refresh, reload, or close this page at any point during the study.</strong> Refreshing the page will <strong>restart the study from the very beginning, and you will lose all of your progress.</strong></li>
+							<li>🚫 <strong className="text-slate-900">Do NOT refresh, reload, or close this page at any point during the study.</strong> Refreshing the page will <strong className="text-slate-900">restart the study from the very beginning, and you will lose all of your progress.</strong></li>
 							<li>⚠️ If you have any questions, please contact us by sending a message on Prolific!</li>
 						</ul>
-					</div>
+					</section>
 				</div>
 			</div>
 
