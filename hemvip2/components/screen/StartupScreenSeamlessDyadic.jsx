@@ -2,6 +2,11 @@ import React, { memo } from "react"
 import { StartBoostIcon } from "@/icons/startboost"
 import { useScreenControl } from "@/contexts/screencontroll"
 import { usePreventUnload } from "@/contexts/beforeunload"
+import Video from "@/components/core/video"
+
+const R2_BASE_URL = "https://pub-fbeaf7896b6e4c9c9bb55fd70512c2e8.r2.dev"
+const EXAMPLE_MATCHED_VIDEO = `${R2_BASE_URL}/videos/seamless-dyadic-mismatch/matched/SeamlessMocap/public_023_agent_V03_S1930_I00000114_P5055--96_interlocutor_V03_S1930_I00000114_P5054--96_sample_5.mp4`
+const EXAMPLE_MISMATCHED_VIDEO = `${R2_BASE_URL}/videos/seamless-dyadic-mismatch/mismatched/SeamlessMocap/public_047_agent_V03_S1930_I00000114_P5055--96_interlocutor_V00_S2047_I00001050_P1305A--212_sample_1_M.mp4`
 
 // TODO: final wording for Seamless Dyadic Mismatch startup screen.
 const StartupScreenSeamlessDyadic = memo(function StartupScreenSeamlessDyadic() {
@@ -26,17 +31,32 @@ const StartupScreenSeamlessDyadic = memo(function StartupScreenSeamlessDyadic() 
 						<br />
 						In this study, you will watch pairs videos showing two animated characters talking to each other.
 						<br />
+						<br />
+						The only difference between the two videos is the motion of the left character. 
+						The conversation you hear, and the right (blue T-shirt) character&apos;s motion, will be the same. Here is an example video pair:
 
-						The only difference between the two videos is the motion of the left character. The conversation you hear, and the right (blue T-shirt) character&apos;s motion, will be the same.
+						<div className="mb-4 mt-3 flex justify-center gap-4">
+							<div className="flex-1 max-w-[30%] flex flex-col items-center gap-1">
+								<Video src={EXAMPLE_MATCHED_VIDEO} className="w-full" />
+								<span className="text-sm text-gray-500">First video</span>
+							</div>
+							<div className="flex-1 max-w-[30%] flex flex-col items-center gap-1">
+								<Video src={EXAMPLE_MISMATCHED_VIDEO} className="w-full" />
+								<span className="text-sm text-gray-500">Second video with alternate motion for the character in red</span>
+							</div>
+						</div>
 					</div>
 					<div className="mt-3 leading-6 first:mt-0">
 						<br /><strong>Your task</strong><br />
-
 						Your task is to choose in which video the left-side (red T-shirt) character listens and reacts more naturally and expressively to the other character.
 
-						Your answer should not be based on which gesture looks visually looks better. Instead, you are evaluating which gestures pay attention to and respond to the other person in the interaction.
+						Your answer should not be based on which gesture looks visually looks better. 
+						
+						Instead, you are evaluating which gestures pay attention to and respond to the other person in the interaction.
 
-						You will click one of five buttons below the videos to make your choice:
+						You will click one of five buttons below the videos to make your choice. If you do not choose “They are equal”, you will also need to select one or more reasons from the list below the videos.
+						You can also write your own reason if none of the options fit.
+
 						<br />
 						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
 							<img
@@ -48,22 +68,6 @@ const StartupScreenSeamlessDyadic = memo(function StartupScreenSeamlessDyadic() 
 								src="/screen_preview_dyadic_mismatch.png"
 							/>
 						</div>
-
-						<br /><strong>After choosing a video</strong><br />
-						If you do not choose “They are equal”, you will also need to select one or more reasons from the list below the videos.
-						You can also write your own reason if none of the options fit.
-
-						<div className="mb-4 mt-3 flex justify-center overflow-hidden rounded-xl  bg-zinc-100">
-							<img
-								alt="Title suffix"
-								loading="lazy"
-								decoding="async"
-								style={{ border: '4px solid #ccc' }}
-								className="w-[60%] select-none bg-white ring-1 ring-gray-200"
-								src="/juice_preview_dyadic_mismatch.png"
-							/>
-						</div>
-					</div>
 
 					<div className="mt-3 leading-6 first:mt-0">
 						<br />
